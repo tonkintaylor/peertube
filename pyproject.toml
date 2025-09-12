@@ -168,6 +168,24 @@ lint.per-file-ignores."src/{scripts,notebooks}/**" = [
   "S101",    # Asserts fine in scripts and notebooks
   "T201",    # Prints fine in scripts and notebooks
 ]
+lint.per-file-ignores."examples/**" = [
+  "ANN",     # Annotations
+  "ARG001",  # Unused function arguments
+  "B018",    # "Useless" expressions are used for displaying cell outputs
+  "BLE001",  # OK to catch blind exceptions
+  "D",       # Documentation
+  "E501",    # Line length
+  "FBT",     # Defensive programming techniques for function definitions are overkill
+  "INP001",  # __init__.py not applicable for standalone scripts anyway
+  "PLR0913", # OK to have functions with many arguments in scripts and notebooks
+  "PLC0415", # Allow imports inside functions in examples
+  "S101",    # Asserts fine in scripts and notebooks
+  "S106",    # Allow hardcoded passwords/tokens in examples
+  "T201",    # Prints fine in scripts and notebooks
+]
+lint.per-file-ignores."src/peertube/auth/**" = [
+  "PLR0913", # Registration functions legitimately need many arguments
+]
 lint.per-file-ignores."tests/**/*.py" = [
   "ANN",     # We don't need annotations in tests
   "D",       # We don't need docstrings in tests
@@ -181,6 +199,7 @@ lint.flake8-tidy-imports.banned-api."pytz".msg = "'zoneinfo' should be preferred
 lint.pydocstyle.convention = "google"
 
 [tool.codespell]
+skip = "assets"
 ignore-regex = [ "[A-Za-z0-9+/]{100,}" ]
 ignore-words-list = [ "..." ]
 

@@ -3,25 +3,36 @@
 __version__ = "0.1.0"
 
 # Re-export main functionality for easy access
-from .base import PeerTubeClient, PeerTubeConfig, PeerTubeError, AuthenticationError, NotFoundError, AuthToken, User, Video
-from .auth import login, logout, get_user_info, register_user, check_username_availability
+from .auth import (
+    check_username_availability,
+    get_user_info,
+    login,
+    logout,
+    register_user,
+)
+from .base import (
+    AuthenticationError,
+    AuthToken,
+    NotFoundError,
+    PeerTubeClient,
+    PeerTubeConfig,
+    PeerTubeError,
+    User,
+    Video,
+)
 
 __all__ = [
-    # Core client and configuration
-    "PeerTubeClient",
-    "PeerTubeConfig",
-    # Exceptions
-    "PeerTubeError", 
+    "AuthToken",
     "AuthenticationError",
     "NotFoundError",
-    # Type models
-    "AuthToken",
+    "PeerTubeClient",
+    "PeerTubeConfig",
+    "PeerTubeError",
     "User",
     "Video",
-    # Authentication functions
+    "check_username_availability",
+    "get_user_info",
     "login",
     "logout",
-    "get_user_info",
     "register_user",
-    "check_username_availability",
 ]

@@ -1,18 +1,18 @@
 """Base classes and utilities for PeerTube API wrappers."""
 
 from .client import PeerTubeClient, PeerTubeConfig
-from .exceptions import PeerTubeError, AuthenticationError, NotFoundError
-from .types import ApiResponse, AuthToken, User, Video, PaginatedResponse
+from .exceptions import AuthenticationError, NotFoundError, PeerTubeError
+from .types import ApiResponse, AuthToken, PaginatedResponse, User, Video
 
 __all__ = [
-    "PeerTubeClient",
-    "PeerTubeConfig", 
-    "PeerTubeError",
-    "AuthenticationError",
-    "NotFoundError",
     "ApiResponse",
     "AuthToken",
-    "User", 
-    "Video",
+    "AuthenticationError",
+    "NotFoundError",
     "PaginatedResponse",
+    "PeerTubeClient",
+    "PeerTubeConfig",
+    "PeerTubeError",
+    "User",
+    "Video",
 ]

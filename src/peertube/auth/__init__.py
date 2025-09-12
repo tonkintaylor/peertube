@@ -1,14 +1,14 @@
 """Authentication and session management for PeerTube API."""
 
-from .session import SessionClient, login, logout, get_user_info
-from .register import RegisterClient, register_user, check_username_availability
+from .register import RegisterClient, check_username_availability, register_user
+from .session import SessionClient, get_user_info, login, logout
 
 __all__ = [
-    "SessionClient",
-    "login",
-    "logout", 
-    "get_user_info",
     "RegisterClient",
-    "register_user",
+    "SessionClient",
     "check_username_availability",
+    "get_user_info",
+    "login",
+    "logout",
+    "register_user",
 ]
