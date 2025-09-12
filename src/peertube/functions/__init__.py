@@ -1,4 +1,4 @@
-"""Functions module for the whitelabel package."""
+"""Functions module for the peertube package."""
 
 from .hello_world import hello_world
 

@@ -1,4 +1,4 @@
-"""A minimal Python package template."""
+"""Python API wrappers for PeerTube."""
 
 __version__ = "0.1.0"
 
