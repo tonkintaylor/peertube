@@ -76,5 +76,8 @@ Quick self-check before committing:
 
 - When writing tests, do not test for edge cases, unless instructed otherwise.
 - When writing tests, write one test case per function with one assertion, assume happy path, unless instructed differently.
+- **Never test scripts in the scripts folder or any other folder.** All tests must be placed in the `tests/` directory only.
+- **Never write tests inside of scripts.** Scripts should contain executable code, not test functions or assertions.
+- **The scripts folder should never be a place for tests.** Keep scripts and tests completely separate.
 
 ---
