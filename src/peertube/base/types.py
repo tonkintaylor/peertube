@@ -1,7 +1,7 @@
 """Common types for PeerTube API wrappers."""
 
 from typing import Any, Dict, Generic, Optional, TypeVar, Union
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 T = TypeVar("T")
@@ -10,25 +10,23 @@ T = TypeVar("T")
 class ApiResponse(BaseModel, Generic[T]):
     """Generic API response wrapper."""
     
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+    
     data: T
     status_code: int
     headers: Dict[str, str] = {}
-    
-    class Config:
-        arbitrary_types_allowed = True
 
 
 class PaginatedResponse(BaseModel, Generic[T]):
     """Paginated API response."""
+    
+    model_config = ConfigDict(arbitrary_types_allowed=True)
     
     data: list[T]
     total: int
     page: int
     per_page: int
     total_pages: int
-    
-    class Config:
-        arbitrary_types_allowed = True
 
 
 class AuthToken(BaseModel):

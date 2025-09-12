@@ -25,11 +25,12 @@
 - [x] Proper error handling for auth flows
 - [x] Basic test structure
 
-### 🔄 Phase 4: Dependency Integration (IN PROGRESS)
-- [ ] Install runtime dependencies (httpx, pydantic)
-- [ ] Re-enable full imports in __init__.py
-- [ ] Test authentication flows with mocked responses
-- [ ] Validate error handling and type safety
+### ✅ Phase 4: Dependency Integration (COMPLETED)
+- [x] Install runtime dependencies (httpx, pydantic)
+- [x] Re-enable full imports in __init__.py
+- [x] Fix Pydantic v2 compatibility issues
+- [x] Test authentication flows with mocked responses
+- [x] Validate error handling and type safety
 
 ### 📋 Phase 5: OpenAPI Client Generation (PLANNED)
 - [ ] Install openapi-python-client
@@ -55,12 +56,12 @@
 
 ```
 src/peertube/
-├── __init__.py              # Main exports (auth functions currently disabled)
+├── __init__.py              # Main exports (all auth functions enabled)
 ├── base/
 │   ├── __init__.py          # Base exports
 │   ├── client.py            # PeerTubeClient, PeerTubeConfig
 │   ├── exceptions.py        # Custom exception hierarchy
-│   └── types.py             # Pydantic models (AuthToken, User, Video)
+│   └── types.py             # Pydantic v2 models (AuthToken, User, Video)
 ├── auth/
 │   ├── __init__.py          # Auth exports
 │   ├── session.py           # Login, logout, user info
@@ -72,28 +73,26 @@ src/peertube/
 
 ## 🔧 Dependency Status
 
-**Current Issue**: Network connectivity preventing pip install of required packages.
+**Status**: ✅ All dependencies installed and working
 
 **Required Dependencies**:
-- `httpx >= 0.27.0` - HTTP client for API requests  
-- `pydantic >= 2.0.0` - Data validation and type safety
-- `typing-extensions >= 4.0.0` - Python 3.12 typing features
-- `openapi-python-client >= 0.21.0` - OpenAPI client generation (dev dependency)
-
-**Temporary Workaround**: Core imports are temporarily disabled to allow testing of basic structure.
+- ✅ `httpx >= 0.27.0` - HTTP client for API requests  
+- ✅ `pydantic >= 2.0.0` - Data validation and type safety (v2 compatibility fixed)
+- ✅ `typing-extensions >= 4.0.0` - Python 3.12 typing features
+- 📋 `openapi-python-client >= 0.21.0` - OpenAPI client generation (dev dependency, next phase)
 
 ## 🧪 Testing Strategy
 
 ### Current Tests
 - ✅ Legacy hello_world function test passes
 - ✅ Basic exception handling verified
-- ✅ Module structure validated without dependencies
+- ✅ Module structure validated with dependencies
+- ✅ Authentication flow testing with mocked responses
+- ✅ All imports working correctly
 
 ### Planned Tests
-- Mock-based auth flow testing
-- HTTP client error handling validation
-- Type safety verification
 - Integration tests with PeerTube instance
+- OpenAPI client integration tests
 
 ## 📚 Usage Examples
 
@@ -117,11 +116,11 @@ with PeerTubeClient(config) as client:
 
 ## 🎯 Next Immediate Steps
 
-1. **Resolve Dependencies**: Install httpx, pydantic in environment
-2. **Re-enable Imports**: Uncomment disabled imports in __init__.py files  
-3. **Test Auth Flow**: Verify authentication with mocked responses
-4. **Generate OpenAPI Client**: Use openapi-python-client with assets/openapi.json
-5. **Implement Video Operations**: Start with core video CRUD as next priority
+1. **✅ Resolve Dependencies**: Install httpx, pydantic in environment
+2. **✅ Re-enable Imports**: Uncomment disabled imports in __init__.py files  
+3. **✅ Test Auth Flow**: Verify authentication with mocked responses
+4. **🔄 Generate OpenAPI Client**: Use openapi-python-client with assets/openapi.json
+5. **📋 Implement Video Operations**: Start with core video CRUD as next priority
 
 ## 📝 Notes
 
