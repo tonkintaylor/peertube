@@ -8,7 +8,7 @@
 ## Imports
 
 - When importing internal modules, do not include the "src" folder in the import path as it is already defined in `pyproject.toml`.
-- Example: `from peertube.functions import hello_world` instead of `from src.peertube.functions import hello_world`.
+- Example: `from peertube.auth import login` instead of `from src.peertube.auth import login`.
 
 ## Package API Guidelines
 

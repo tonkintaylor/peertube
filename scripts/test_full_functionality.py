@@ -38,7 +38,6 @@ def test_imports():
         from peertube import (
             PeerTubeClient, PeerTubeConfig, 
             login, logout, get_user_info, register_user,
-            hello_world
         )
         print("  ✅ Main package imports successful")
         
@@ -88,27 +87,6 @@ def test_basic_functionality():
     return True
 
 
-def test_legacy_compatibility():
-    """Test that legacy functionality still works."""
-    print("\n🔄 Testing legacy compatibility...")
-    
-    try:
-        from peertube.functions.hello_world import hello_world
-        result = hello_world("PeerTube")
-        expected = "Hello, PeerTube!"
-        
-        if result == expected:
-            print(f"  ✅ Legacy function works: {result}")
-            return True
-        else:
-            print(f"  ❌ Legacy function failed: expected '{expected}', got '{result}'")
-            return False
-            
-    except Exception as e:
-        print(f"  ❌ Legacy compatibility error: {e}")
-        return False
-
-
 def test_package_structure():
     """Test that the package structure is correct."""
     print("\n📁 Testing package structure...")
@@ -116,14 +94,13 @@ def test_package_structure():
     base_path = Path(__file__).parent.parent / "src" / "peertube"
     
     expected_dirs = [
-        "base", "auth", "functions", "videos", "search"
+        "base", "auth", "videos", "search"
     ]
     
     expected_files = [
         "__init__.py",
         "base/__init__.py", "base/client.py", "base/exceptions.py", "base/types.py",
         "auth/__init__.py", "auth/session.py", "auth/register.py",
-        "functions/__init__.py", "functions/hello_world.py",
         "videos/__init__.py", "search/__init__.py"
     ]
     
@@ -155,7 +132,6 @@ def main():
     
     tests = [
         ("Package Structure", test_package_structure),
-        ("Legacy Compatibility", test_legacy_compatibility),
         ("Imports", test_imports),
         ("Basic Functionality", test_basic_functionality),
     ]

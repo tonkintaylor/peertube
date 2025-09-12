@@ -66,8 +66,6 @@ src/peertube/
 │   ├── __init__.py          # Auth exports
 │   ├── session.py           # Login, logout, user info
 │   └── register.py          # User registration
-├── functions/
-│   └── hello_world.py       # Legacy function (backward compatibility)
 └── [videos, search, ...]    # Placeholder modules for future implementation
 ```
 
@@ -84,7 +82,6 @@ src/peertube/
 ## 🧪 Testing Strategy
 
 ### Current Tests
-- ✅ Legacy hello_world function test passes
 - ✅ Basic exception handling verified
 - ✅ Module structure validated with dependencies
 - ✅ Authentication flow testing with mocked responses
