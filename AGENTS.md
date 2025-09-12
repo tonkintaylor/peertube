@@ -17,7 +17,12 @@
   - `uv run pre-commit run --all-files`
 - Repeat until pre-commit finishes with no modifications.
 
-3) Commit
+3) Run test suite and fix any failures
+- `uv run python -m pytest tests/ -v` (or `python -m pytest tests/ -v` if uv unavailable)
+- If tests fail, fix the issues before proceeding to commit
+- Re-run tests until all pass
+
+4) Commit
 - `git commit -m "…"`
 
 ---
