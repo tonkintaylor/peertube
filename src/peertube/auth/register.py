@@ -35,7 +35,7 @@ class RegisterClient:
         channel_display_name: str | None = None,
     ) -> dict[str, Any]:
         """Register a new user account."""
-        data = {
+        data: dict[str, Any] = {
             "username": username,
             "password": password,
             "email": email,
