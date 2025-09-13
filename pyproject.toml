@@ -153,6 +153,24 @@ lint.per-file-ignores."doc/source/conf.py" = [
   "BLE001", # We want to catch all errors blindly in Sphinx builds
   "INP001", # Not actually a namespace package, a special Sphinx file
 ]
+lint.per-file-ignores."examples/**" = [
+  "ANN",     # Annotations
+  "ARG001",  # Unused function arguments
+  "B018",    # "Useless" expressions are used for displaying cell outputs
+  "BLE001",  # OK to catch blind exceptions
+  "D",       # Documentation
+  "E501",    # Line length
+  "FBT",     # Defensive programming techniques for function definitions are overkill
+  "INP001",  # __init__.py not applicable for standalone scripts anyway
+  "PLC0415", # Allow imports inside functions in examples
+  "PLR0913", # OK to have functions with many arguments in scripts and notebooks
+  "S101",    # Asserts fine in scripts and notebooks
+  "S106",    # Allow hardcoded passwords/tokens in examples
+  "T201",    # Prints fine in scripts and notebooks
+]
+lint.per-file-ignores."src/peertube/auth/**" = [
+  "PLR0913", # Registration functions legitimately need many arguments
+]
 # We aren't as strict about code quality in notebooks and scripts
 lint.per-file-ignores."src/{scripts,notebooks}/**" = [
   "ANN",     # Annotations
@@ -166,24 +184,6 @@ lint.per-file-ignores."src/{scripts,notebooks}/**" = [
   "PLR0913", # OK to have functions with many arguments in scripts and notebooks
   "S101",    # Asserts fine in scripts and notebooks
   "T201",    # Prints fine in scripts and notebooks
-]
-lint.per-file-ignores."examples/**" = [
-  "ANN",     # Annotations
-  "ARG001",  # Unused function arguments
-  "B018",    # "Useless" expressions are used for displaying cell outputs
-  "BLE001",  # OK to catch blind exceptions
-  "D",       # Documentation
-  "E501",    # Line length
-  "FBT",     # Defensive programming techniques for function definitions are overkill
-  "INP001",  # __init__.py not applicable for standalone scripts anyway
-  "PLR0913", # OK to have functions with many arguments in scripts and notebooks
-  "PLC0415", # Allow imports inside functions in examples
-  "S101",    # Asserts fine in scripts and notebooks
-  "S106",    # Allow hardcoded passwords/tokens in examples
-  "T201",    # Prints fine in scripts and notebooks
-]
-lint.per-file-ignores."src/peertube/auth/**" = [
-  "PLR0913", # Registration functions legitimately need many arguments
 ]
 lint.per-file-ignores."tests/**/*.py" = [
   "ANN",     # We don't need annotations in tests

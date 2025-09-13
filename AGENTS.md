@@ -25,6 +25,18 @@
 4) Commit
 - `git commit -m "…"`
 
+## CI/CD Pre-commit Hook Issues
+
+**Important: Always run pre-commit hooks locally BEFORE committing to avoid CI failures.**
+
+- Pre-commit hooks like `uv-export` and `pyproject-fmt` modify files automatically
+- If these modifications happen in CI, the workflow fails due to uncommitted changes
+- **Solution**: Always run `uv run pre-commit run --all-files` locally and commit any modifications BEFORE pushing
+- Common files that get auto-modified:
+  - `requirements.txt` (by uv-export hook)
+  - `pyproject.toml` (by pyproject-fmt hook for section ordering)
+- If CI fails with "files were modified by this hook", run pre-commit locally, commit changes, and push again
+
 ---
 
 # Before implementing a function: fetch fresh context with MCP tool `context7`
