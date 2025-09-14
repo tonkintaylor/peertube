@@ -17,3 +17,11 @@
 - Use `__all__` to explicitly mark what is public.
 - Internal utilities should remain private (prefix with `_` and do not re-export).
 - This helps consumers of the package avoid deep imports like `mypkg.submodule.foo`.
+
+## PeerTube API
+
+- We are wrapping the PeerTube API that adheres to the OpenAPI 3 standard.
+- The JSON specification file can be found in `assets\openapi.json`.
+- All API endpoints information is contained there.
+- Note that the file might contain typos; do not correct them in the original JSON file, but correct them when using the text in the wrappers.
+
