@@ -25,38 +25,6 @@
 4) Commit
 - `git commit -m "…"`
 
-## CI/CD Pre-commit Hook Issues
-
-**Important: Always run pre-commit hooks locally BEFORE committing to avoid CI failures.**
-
-### Root Cause: Auto-formatting Hooks Modify Files During CI
-- Pre-commit hooks like `uv-export` and `pyproject-fmt` modify files automatically during execution
-- When these modifications happen in CI, the workflow detects uncommitted changes and fails
-- **Critical issue**: The `uv-export` hook regenerates `requirements.txt` from `uv.lock` in a specific format with exact versions and hashes
-- If `requirements.txt` was manually created or doesn't match the exact format that `uv export` produces, the hook will modify it
-
-### Common Files Auto-Modified by Hooks:
-1. **`requirements.txt`** (by uv-export hook): 
-   - Regenerated from `uv.lock` with exact versions, hashes, and dependency comments
-   - Must match the exact format produced by `uv export --no-default-groups -o requirements.txt`
-2. **`pyproject.toml`** (by pyproject-fmt hook): 
-   - Section ordering is automatically standardized
-3. **`uv.lock`** (by uv-lock hook): 
-   - Lockfile may be updated if dependencies change
-
-### Solution Protocol:
-1. **Always run pre-commit locally first**: `uv run pre-commit run --all-files`
-2. **If files are modified**: Review changes, then `git add` the modified files
-3. **Re-run pre-commit**: `uv run pre-commit run --all-files` until no modifications occur
-4. **Then commit and push**: The files are now in the exact format CI expects
-
-### Emergency Fix for CI Failures:
-- If CI fails with "files were modified by this hook":
-  1. Run `uv run pre-commit run --all-files` locally
-  2. If the uv-export hook modified files, specifically run: `uv export --no-default-groups -o requirements.txt` to sync requirements.txt
-  3. Add and commit any file modifications: `git add requirements.txt; git commit -m "Update requirements.txt to match pyproject.toml"`
-  4. Push the corrected files to fix the CI workflow
-
 ---
 
 ## Before implementing a function: fetch fresh context with MCP tool `context7`
