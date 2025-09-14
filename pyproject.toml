@@ -205,6 +205,7 @@ ignore-words-list = [ "..." ]
 [tool.deptry]
 extend_exclude = [ "src/notebooks", "src/scripts", "src/archive" ]
 experimental_namespace_package = true
+known_first_party = [ "peertube" ]
 
 [tool.pyproject-fmt]
 keep_full_version = true
