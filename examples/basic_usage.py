@@ -86,5 +86,5 @@ if __name__ == "__main__":
     example_registration()
 
     print(
-        "\nNote: These examples require proper PeerTube instance URLs and credentials."
+        "\nNote: These examples require proper PeerTube instance URLs and credentials.",
     )

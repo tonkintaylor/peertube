@@ -14,6 +14,15 @@ from .exceptions import (
     ValidationError,
 )
 
+# HTTP status codes constants
+HTTP_OK = 200
+HTTP_CREATED = 201
+HTTP_NO_CONTENT = 204
+HTTP_BAD_REQUEST = 400
+HTTP_UNAUTHORIZED = 401
+HTTP_FORBIDDEN = 403
+HTTP_NOT_FOUND = 404
+
 
 @dataclass
 class PeerTubeConfig:
@@ -62,22 +71,22 @@ class PeerTubeClient:
 
     def _handle_response(self, response: httpx.Response) -> dict[str, Any]:
         """Handle HTTP response and raise appropriate exceptions."""
-        if response.status_code in {200, 201}:
+        if response.status_code in {HTTP_OK, HTTP_CREATED}:
             return response.json() if response.content else {}
-        elif response.status_code == 204:
+        if response.status_code == HTTP_NO_CONTENT:
             return {}
-        elif response.status_code == 400:
+        if response.status_code == HTTP_BAD_REQUEST:
             error_data = response.json() if response.content else {}
             raise ValidationError(
                 error_data.get("detail", "Validation failed"),
                 details=error_data.get("invalid-params", {}),
             )
-        elif response.status_code == 401:
+        elif response.status_code == HTTP_UNAUTHORIZED:
             raise AuthenticationError
-        elif response.status_code == 403:
+        elif response.status_code == HTTP_FORBIDDEN:
             error_data = response.json() if response.content else {}
             raise ForbiddenError(error_data.get("detail", "Access forbidden"))
-        elif response.status_code == 404:
+        elif response.status_code == HTTP_NOT_FOUND:
             error_data = response.json() if response.content else {}
             raise NotFoundError(error_data.get("detail", "Resource not found"))
         else:
@@ -89,7 +98,7 @@ class PeerTubeClient:
             )
 
     def get(
-        self, endpoint: str, params: dict[str, Any] | None = None
+        self, endpoint: str, params: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         """Make a GET request."""
         response = self._http_client.get(endpoint, params=params)

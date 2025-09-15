@@ -49,7 +49,7 @@ class SessionClient:
 
 
 def login(
-    base_url: str, username: str, password: str, *, verify_ssl: bool = True
+    base_url: str, username: str, password: str, *, verify_ssl: bool = True,
 ) -> AuthToken:
     """Convenience function to login and get access token."""
     config = PeerTubeConfig(base_url=base_url, verify_ssl=verify_ssl)
