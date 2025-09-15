@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from typing import Any
 
 import httpx
+from httpx import codes
 
 from .exceptions import (
     AuthenticationError,
@@ -13,15 +14,6 @@ from .exceptions import (
     PeerTubeError,
     ValidationError,
 )
-
-# HTTP status codes constants
-HTTP_OK = 200
-HTTP_CREATED = 201
-HTTP_NO_CONTENT = 204
-HTTP_BAD_REQUEST = 400
-HTTP_UNAUTHORIZED = 401
-HTTP_FORBIDDEN = 403
-HTTP_NOT_FOUND = 404
 
 
 @dataclass
@@ -71,9 +63,9 @@ class PeerTubeClient:
 
     def _handle_response(self, response: httpx.Response) -> dict[str, Any]:
         """Handle HTTP response and raise appropriate exceptions."""
-        if response.status_code in {HTTP_OK, HTTP_CREATED}:
+        if response.status_code in {codes.OK, codes.CREATED}:
             return response.json() if response.content else {}
-        if response.status_code == HTTP_NO_CONTENT:
+        if response.status_code == codes.NO_CONTENT:
             return {}
 
         # Handle error responses
@@ -84,16 +76,16 @@ class PeerTubeClient:
         self, status_code: int, error_data: dict[str, Any]
     ) -> dict[str, Any]:
         """Handle error response status codes."""
-        if status_code == HTTP_BAD_REQUEST:
+        if status_code == codes.BAD_REQUEST:
             raise ValidationError(
                 error_data.get("detail", "Validation failed"),
                 details=error_data.get("invalid-params", {}),
             )
-        elif status_code == HTTP_UNAUTHORIZED:
+        elif status_code == codes.UNAUTHORIZED:
             raise AuthenticationError
-        elif status_code == HTTP_FORBIDDEN:
+        elif status_code == codes.FORBIDDEN:
             raise ForbiddenError(error_data.get("detail", "Access forbidden"))
-        elif status_code == HTTP_NOT_FOUND:
+        elif status_code == codes.NOT_FOUND:
             raise NotFoundError(error_data.get("detail", "Resource not found"))
         else:
             raise PeerTubeError(
