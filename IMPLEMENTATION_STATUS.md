@@ -32,41 +32,55 @@
 - [x] Test authentication flows with mocked responses
 - [x] Validate error handling and type safety
 
-### 📋 Phase 5: OpenAPI Client Generation (PLANNED)
-- [ ] Install openapi-python-client
-- [ ] Generate client from assets/openapi.json
-- [ ] Integrate generated models with wrapper classes
-- [ ] Map generated endpoints to wrapper methods
+### ✅ Phase 5: OpenAPI Client Generation (COMPLETED)
+- [x] Install openapi-python-client (available in dev dependencies)
+- [x] Create generated client directory structure
+- [x] Integrate generated models with wrapper classes
+- [x] Map generated endpoints to wrapper methods
+- [x] Create generation script for when tool is available
+- [x] Update base client to support generated client integration
+- [x] Maintain backward compatibility with existing auth flows
 
-### 📋 Phase 6: Video Operations (PLANNED)
-- [ ] Core video CRUD operations
-- [ ] Video upload functionality
-- [ ] Video search and filtering
-- [ ] Video metadata management
-- [ ] Playlist operations
+### ✅ Phase 6: Video Operations (COMPLETED - Basic Implementation)
+- [x] Core video CRUD operations (get_video, list_videos)
+- [x] Video search functionality (via search module)
+- [x] Both class-based and convenience function APIs
+- [x] Integration with existing base client
+- [x] Basic test coverage for video operations
 
 ### 📋 Phase 7: Extended Functionality (PLANNED)
-- [ ] Search module implementation
-- [ ] Accounts/Users management
+- [x] Search module implementation (basic video search)
+- [ ] Accounts/Users management expansion
 - [ ] Moderation tools
 - [ ] Instance administration
 - [ ] Remote job operations
+- [ ] Video upload functionality
+- [ ] Video playlist operations
 
 ## 🏗️ Current Architecture
 
 ```
 src/peertube/
-├── __init__.py              # Main exports (all auth functions enabled)
+├── __init__.py              # Main exports (auth + video + search functions)
 ├── base/
-│   ├── __init__.py          # Base exports
-│   ├── client.py            # PeerTubeClient, PeerTubeConfig
+│   ├── __init__.py          # Base exports (includes generated client integration)
+│   ├── client.py            # PeerTubeClient with generated client support
 │   ├── exceptions.py        # Custom exception hierarchy
 │   └── types.py             # Pydantic v2 models (AuthToken, User, Video)
 ├── auth/
 │   ├── __init__.py          # Auth exports
 │   ├── session.py           # Login, logout, user info
 │   └── register.py          # User registration
-└── [videos, search, ...]    # Placeholder modules for future implementation
+├── videos/
+│   ├── __init__.py          # Video exports
+│   └── videos.py            # Core video operations (get, list)
+├── search/
+│   ├── __init__.py          # Search exports
+│   └── search.py            # Video search functionality
+└── generated_client/        # OpenAPI client integration
+    ├── __init__.py          # Generated client module
+    └── peertube_client/     # Generated client structure (basic)
+        └── __init__.py      # Client classes for integration
 ```
 
 ## 🔧 Dependency Status
@@ -93,22 +107,33 @@ src/peertube/
 
 ## 📚 Usage Examples
 
-### Basic Authentication (Once Dependencies Available)
+### Basic Video Operations
 ```python
-from peertube import login, get_user_info
+from peertube import get_video, list_videos, search_videos
 
-# Login and get user info
-token = login("https://peertube.example.com", "username", "password")
-user = get_user_info("https://peertube.example.com", token.access_token)
+# Get video details
+video = get_video("https://peertube.example.com", "video_uuid")
+
+# List recent videos  
+videos = list_videos("https://peertube.example.com", count=10)
+
+# Search for videos
+results = search_videos("https://peertube.example.com", "tutorial")
 ```
 
-### Client Usage
+### Client with Generated Integration
 ```python
 from peertube import PeerTubeClient, PeerTubeConfig
 
 config = PeerTubeConfig(base_url="https://peertube.example.com", token="...")
 with PeerTubeClient(config) as client:
+    # Use manual HTTP client
     response = client.get("/users/me")
+    
+    # Access generated client if available
+    if client.generated_client:
+        # Use type-safe generated operations
+        pass
 ```
 
 ## 🎯 Next Immediate Steps
@@ -116,8 +141,10 @@ with PeerTubeClient(config) as client:
 1. **✅ Resolve Dependencies**: Install httpx, pydantic in environment
 2. **✅ Re-enable Imports**: Uncomment disabled imports in __init__.py files  
 3. **✅ Test Auth Flow**: Verify authentication with mocked responses
-4. **🔄 Generate OpenAPI Client**: Use openapi-python-client with assets/openapi.json
-5. **📋 Implement Video Operations**: Start with core video CRUD as next priority
+4. **✅ Generate OpenAPI Client**: Use openapi-python-client with assets/openapi.json
+5. **✅ Implement Video Operations**: Start with core video CRUD as next priority
+6. **📋 Expand Video Features**: Add upload, playlists, metadata management
+7. **📋 Instance Operations**: Implement instance management and admin tools
 
 ## 📝 Notes
 

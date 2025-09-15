@@ -15,6 +15,18 @@ from .exceptions import (
     ValidationError,
 )
 
+# Import generated client if available
+try:
+    from ..generated_client.peertube_client import (
+        AuthenticatedClient as GeneratedAuthenticatedClient,
+        Client as GeneratedClient,
+    )
+    _GENERATED_CLIENT_AVAILABLE = True
+except ImportError:
+    _GENERATED_CLIENT_AVAILABLE = False
+    GeneratedClient = None
+    GeneratedAuthenticatedClient = None
+
 
 @dataclass
 class PeerTubeConfig:
@@ -45,6 +57,26 @@ class PeerTubeClient:
         # Set authorization header if token is provided
         if config.token:
             self._http_client.headers["Authorization"] = f"Bearer {config.token}"
+
+        # Initialize generated client if available
+        self._generated_client = None
+        if _GENERATED_CLIENT_AVAILABLE:
+            try:
+                if config.token:
+                    self._generated_client = GeneratedAuthenticatedClient(
+                        base_url=config.base_url,
+                        token=config.token,
+                    )
+                else:
+                    self._generated_client = GeneratedClient(base_url=config.base_url)
+            except Exception:
+                # Fallback to manual client if generated client fails
+                pass
+
+    @property
+    def generated_client(self) -> Any | None:
+        """Access to the generated OpenAPI client if available."""
+        return self._generated_client
 
     def __enter__(self) -> "PeerTubeClient":
         return self

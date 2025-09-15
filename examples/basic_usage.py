@@ -4,9 +4,12 @@ from peertube import (
     PeerTubeClient,
     PeerTubeConfig,
     get_user_info,
+    get_video,
+    list_videos,
     login,
     logout,
     register_user,
+    search_videos,
 )
 
 # Note: This example requires the full dependencies to be installed
@@ -32,6 +35,31 @@ def example_authentication() -> None:
         print(f"Authentication error: {e}")
 
 
+def example_video_operations() -> None:
+    """Example of using video operations."""
+    base_url = "https://your-peertube-instance.com"
+    
+    try:
+        # List recent videos
+        videos = list_videos(base_url, count=5)
+        print(f"Found {videos.get('total', 0)} videos")
+        
+        # Get specific video details
+        if videos.get('data'):
+            first_video = videos['data'][0]
+            video_id = first_video['id']
+            
+            video_details = get_video(base_url, video_id)
+            print(f"Video: {video_details.get('name', 'Unknown')}")
+        
+        # Search for videos
+        search_results = search_videos(base_url, "tutorial", count=3)
+        print(f"Search found {search_results.get('total', 0)} tutorial videos")
+        
+    except Exception as e:
+        print(f"Video operations error: {e}")
+
+
 def example_client_usage() -> None:
     """Example of using the PeerTube client directly."""
     # Configure client
@@ -51,6 +79,12 @@ def example_client_usage() -> None:
             # Get server config (public endpoint)
             config_data = client.get("/config")
             print(f"Server config: {config_data}")
+            
+            # Check if generated client is available
+            if client.generated_client:
+                print("Generated OpenAPI client is available!")
+            else:
+                print("Using manual HTTP client")
 
     except Exception as e:
         print(f"Client error: {e}")
@@ -79,10 +113,13 @@ if __name__ == "__main__":
     print("\n1. Authentication Example:")
     example_authentication()
 
-    print("\n2. Client Usage Example:")
+    print("\n2. Video Operations Example:")
+    example_video_operations()
+
+    print("\n3. Client Usage Example:")
     example_client_usage()
 
-    print("\n3. Registration Example:")
+    print("\n4. Registration Example:")
     example_registration()
 
     print(
