@@ -61,6 +61,7 @@ Always gather up-to-date docs before writing new code or using a new API.
 - When performing SonarQube code analysis, always query issues for the current branch using the pullRequestId parameter
 - Use `sonarqube-search_sonar_issues_in_projects` with the appropriate pullRequestId to get branch-specific issues
 - Fix all identified SonarQube issues before completing any development task
+- After fixing issues, run the sequence detailed under ## Before every commit (from repo root)
 
 ---
 

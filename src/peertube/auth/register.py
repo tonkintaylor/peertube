@@ -81,7 +81,10 @@ def register_user(
 
 
 def check_username_availability(
-    base_url: str, username: str, *, verify_ssl: bool = True,
+    base_url: str,
+    username: str,
+    *,
+    verify_ssl: bool = True,
 ) -> dict[str, Any]:
     """Convenience function to check username availability."""
     config = PeerTubeConfig(base_url=base_url, verify_ssl=verify_ssl)

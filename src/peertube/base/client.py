@@ -103,7 +103,9 @@ class PeerTubeClient:
             )
 
     def get(
-        self, endpoint: str, params: dict[str, Any] | None = None,
+        self,
+        endpoint: str,
+        params: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         """Make a GET request."""
         response = self._http_client.get(endpoint, params=params)

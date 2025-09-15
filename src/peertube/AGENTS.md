@@ -3,7 +3,7 @@
 ## API Communication
 
 - When communicating with APIs, use the `httpx` package unless explicitly instructed otherwise.
-- When using HTTP status codes, use constants from the `http` package instead of hardcoding them (e.g., `http.HTTPStatus.OK`).
+- When using HTTP status codes, use constants from the `httpx.codes` module instead of hardcoding them (e.g., `httpx.codes.OK`).
 
 ## Imports
 
