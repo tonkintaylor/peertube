@@ -1630,6 +1630,10 @@ wheels = [
 [[package]]
 name = "peertube"
 source = { editable = "." }
+dependencies = [
+    { name = "attrs" },
+    { name = "httpx" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -1663,6 +1667,10 @@ test = [
 ]
 
 [package.metadata]
+requires-dist = [
+    { name = "attrs", specifier = ">=22.2.0" },
+    { name = "httpx", specifier = ">=0.23.0" },
+]
 
 [package.metadata.requires-dev]
 dev = [

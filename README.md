@@ -1,10 +1,10 @@
-# PeerTube Python API Wrappers
+# PeerTube Python API Client
 
-Python API wrappers for PeerTube using modern HTTP client and type-safe implementations.
+Modern Python client library for the PeerTube API using openapi-python-client. Provides type-safe, well-structured clients with both synchronous and asynchronous support.
 
 ## Overview
 
-This package provides Python wrappers for the PeerTube API, organized thematically based on the OpenAPI specification. It uses `httpx` for HTTP operations and `pydantic` for data validation and type safety.
+This package provides a comprehensive Python client for the PeerTube API, automatically generated from the official OpenAPI specification. It uses `httpx` for HTTP operations and `attrs` for type-safe data classes.
 
 ## Installation
 
@@ -14,118 +14,213 @@ pip install peertube
 
 ## Quick Start
 
-### Authentication
+### Basic Client Usage
 
 ```python
-from peertube import login, get_user_info
+from peertube import Client
+from peertube.api.video import get_categories, get_video
 
-# Login to get access token
-token = login("https://your-peertube-instance.com", "username", "password")
+# Create an unauthenticated client for public endpoints
+client = Client(base_url="https://your-peertube-instance.com")
+
+# Get video categories
+categories = get_categories.sync(client=client)
+print(f"Available categories: {list(categories.keys())}")
+
+# Get specific video details  
+video = get_video.sync(client=client, id="video-uuid")
+print(f"Video: {video.name}")
+```
+
+### Authenticated Client Usage
+
+```python
+from peertube import AuthenticatedClient
+from peertube.api.my_user import get_user
+
+# Create authenticated client for protected endpoints
+auth_client = AuthenticatedClient(
+    base_url="https://your-peertube-instance.com",
+    token="your-api-token"
+)
 
 # Get current user information
-user = get_user_info("https://your-peertube-instance.com", token.access_token)
+user = get_user.sync(client=auth_client)
 print(f"Logged in as: {user.username}")
 ```
 
-### Video Operations
+### Asynchronous Usage
 
 ```python
-from peertube import get_video, list_videos, search_videos
+import asyncio
+from peertube import Client
+from peertube.api.video import get_categories, get_languages
 
-# Get specific video details
-video = get_video("https://your-peertube-instance.com", "video-uuid")
-print(f"Video: {video['name']}")
+async def get_video_metadata():
+    client = Client(base_url="https://your-peertube-instance.com")
+    
+    async with client as async_client:
+        # Run multiple requests concurrently
+        categories, languages = await asyncio.gather(
+            get_categories.asyncio(client=async_client),
+            get_languages.asyncio(client=async_client)
+        )
+        
+        return categories, languages
 
-# List recent videos
-videos = list_videos("https://your-peertube-instance.com", count=10)
-print(f"Found {videos['total']} videos")
-
-# Search for videos  
-results = search_videos("https://your-peertube-instance.com", "tutorial")
-for video in results['data']:
-    print(f"- {video['name']}")
+# Run async function
+categories, languages = asyncio.run(get_video_metadata())
 ```
 
-### OpenAPI Client Integration
-
-The package integrates with auto-generated OpenAPI clients for type-safe operations:
+### Advanced Configuration
 
 ```python
-from peertube import PeerTubeClient, PeerTubeConfig
+from peertube import AuthenticatedClient
 
-config = PeerTubeConfig(
+# Client with custom configuration
+client = AuthenticatedClient(
     base_url="https://your-peertube-instance.com",
-    token="your-access-token"
+    token="your-api-token",
+    timeout=30.0,
+    verify_ssl=True,  # Set to False only for testing
+    follow_redirects=True,
+    headers={"User-Agent": "MyPeerTubeApp/1.0"},
+    httpx_args={
+        "proxies": {"https://": "https://proxy.example.com"}
+    }
 )
+```
 
-with PeerTubeClient(config) as client:
-    # Manual HTTP client (always available)
-    response = client.get("/users/me")
-    
-    # Generated OpenAPI client (when available)
-    if client.generated_client:
-        # Type-safe operations with auto-completion
-        pass
+### Response Handling
+
+```python
+from peertube.api.video import get_video
+
+# Simple response (just the data)
+video = get_video.sync(client=client, id="video-uuid")
+
+# Detailed response (includes status code, headers, etc.)
+response = get_video.sync_detailed(client=client, id="video-uuid")
+if response.status_code == 200:
+    video = response.parsed
+    print(f"Status: {response.status_code}")
+    print(f"Headers: {response.headers}")
+else:
+    print(f"Error: {response.status_code}")
 ```
 
 ## API Coverage
 
-The package is organized into the following modules:
+The client provides access to all PeerTube API endpoints organized by functionality:
 
-- **Auth** (`peertube.auth`): Login, logout, registration, token management
-- **Videos** (`peertube.videos`): Core video operations (get, list)
-- **Search** (`peertube.search`): Video search functionality
-- **Accounts** (`peertube.accounts`): User and account management (planned)
-- **Moderation** (`peertube.moderation`): Content moderation (planned)
-- **Instance** (`peertube.instance`): Instance administration (planned)
+### Core API Modules
+- **video**: Video management (get, delete, categories, languages, licenses)
+- **videos**: Video listing and import operations
+- **accounts**: Account and user information
+- **users**: User management and administration
+- **session**: Authentication and session management
+- **search**: Video, channel, and playlist search
+- **my_user**: Current user profile and settings
+- **video_channels**: Video channel management
+- **video_playlists**: Playlist operations
 
-## Development Status
+### Additional Modules
+- **config**: Instance configuration
+- **register**: User registration
+- **my_subscriptions**: Subscription management
+- **my_notifications**: Notification handling
+- **video_comments**: Comment operations
+- **live_videos**: Live streaming
+- **stats**: Instance statistics
 
-🚧 **This package is currently under development.** 
+## Error Handling
 
-Currently implemented:
-- ✅ Basic authentication (login, logout, user info)
-- ✅ User registration functionality
-- ✅ Core client architecture with OpenAPI integration
-- ✅ Basic video operations (get video, list videos)
-- ✅ Video search functionality
-- ✅ Exception handling and type-safe models using Pydantic
+```python
+from peertube.errors import UnexpectedStatus
+from peertube.api.video import get_video
 
-Planned:
-- 🔄 Video upload and management
-- 🔄 Video playlist operations
-- 🔄 Complete account management
-- 🔄 Moderation tools
-- 🔄 Instance administration
+try:
+    video = get_video.sync(client=client, id="invalid-uuid")
+except UnexpectedStatus as e:
+    print(f"API error: {e.status_code} - {e.content}")
+```
+
+## Type Safety
+
+The client provides full type annotations and IDE auto-completion:
+
+```python
+from peertube.models import Video
+from peertube.types import Response
+
+# Type-safe response handling
+response: Response[Video] = get_video.sync_detailed(client=client, id="uuid")
+video: Video = response.parsed  # Fully typed video object
+```
 
 ## Requirements
 
 - Python 3.10+
-- httpx >= 0.27.0
-- pydantic >= 2.0.0
-- typing-extensions >= 4.0.0
+- httpx >= 0.23.0
+- attrs >= 22.2.0
 
-### Development Dependencies
+## Development
 
-- openapi-python-client >= 0.21.0 (for generating type-safe clients)
+This package is automatically generated from the PeerTube OpenAPI specification using openapi-python-client.
 
-## OpenAPI Client Generation
+### Regenerating the Client
 
-This package supports integration with auto-generated OpenAPI clients for enhanced type safety:
+To update the client when the PeerTube API changes:
 
 ```bash
 # Install development dependencies
 pip install openapi-python-client
 
-# Generate client from OpenAPI specification
-python scripts/generate_openapi_client.py
+# Update the OpenAPI spec in assets/openapi.json
+# Then regenerate the client
+openapi-python-client generate --path assets/openapi.json --output-path src/peertube --meta none --overwrite
 ```
 
-The generated client provides:
-- Type-safe method signatures
-- Auto-completion in IDEs
-- Automatic request/response validation
-- Comprehensive coverage of all API endpoints
+### Testing
+
+```bash
+# Run all tests
+pytest
+
+# Run specific test files
+pytest tests/test_client_generation.py -v
+pytest tests/test_api_functions.py -v
+```
+
+## Examples
+
+See the `examples/` directory for complete usage examples:
+
+- `examples/client_usage.py` - Basic client usage patterns
+- More examples coming soon...
+
+## Features
+
+### Generated Client Benefits
+- **Type Safety**: Full type annotations with proper typing support
+- **Dual Clients**: `Client` (unauthenticated) and `AuthenticatedClient` (with token)
+- **Async Support**: Both sync and async methods for all endpoints
+- **httpx Based**: Uses modern httpx library for HTTP requests
+- **Context Manager**: Proper resource management with `with` statements
+- **Customizable**: Supports custom timeout, SSL settings, headers, cookies
+
+### API Endpoint Coverage
+- ✅ **Video Management**: Get, list, upload, delete videos
+- ✅ **Video Metadata**: Categories, languages, licenses
+- ✅ **Search**: Videos, channels, playlists
+- ✅ **User Management**: Registration, profiles, settings
+- ✅ **Authentication**: Login, logout, token management
+- ✅ **Video Channels**: Channel operations and management
+- ✅ **Playlists**: Playlist creation and management
+- ✅ **Comments**: Video comment operations
+- ✅ **Live Streaming**: Live video operations
+- ✅ **Moderation**: Content moderation tools
+- ✅ **Instance**: Configuration and statistics
 
 ## Contributing
 

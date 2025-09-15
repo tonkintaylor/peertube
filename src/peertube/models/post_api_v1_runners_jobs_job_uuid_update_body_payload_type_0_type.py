@@ -1,0 +1,9 @@
+from enum import Enum
+
+
+class PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0Type(str, Enum):
+    ADD_CHUNK = "add-chunk"
+    REMOVE_CHUNK = "remove-chunk"
+
+    def __str__(self) -> str:
+        return str(self.value)
