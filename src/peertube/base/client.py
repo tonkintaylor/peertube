@@ -17,10 +17,10 @@ from .exceptions import (
 
 # Import generated client if available
 try:
-    from peertube.generated_client.peertube_client import (
+    from peertube.generated_client import (
         AuthenticatedClient as GeneratedAuthenticatedClient,
     )
-    from peertube.generated_client.peertube_client import (
+    from peertube.generated_client import (
         Client as GeneratedClient,
     )
 
@@ -67,12 +67,18 @@ class PeerTubeClient:
             try:
                 if config.token and GeneratedAuthenticatedClient is not None:
                     self._generated_client = GeneratedAuthenticatedClient(
-                        base_url=config.base_url,
+                        base_url=f"{config.base_url}/api/v1",
                         token=config.token,
+                        timeout=config.timeout,
+                        verify_ssl=config.verify_ssl,
                     )
                 elif GeneratedClient is not None:
-                    self._generated_client = GeneratedClient(base_url=config.base_url)
-            except ImportError:
+                    self._generated_client = GeneratedClient(
+                        base_url=f"{config.base_url}/api/v1",
+                        timeout=config.timeout,
+                        verify_ssl=config.verify_ssl,
+                    )
+            except Exception:
                 # Fallback to manual client if generated client fails
                 pass
 

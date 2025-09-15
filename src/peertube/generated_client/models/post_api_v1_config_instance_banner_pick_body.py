@@ -1,0 +1,110 @@
+from collections.abc import Mapping
+from typing import Any, TypeVar, Optional, BinaryIO, TextIO, TYPE_CHECKING, Generator
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+import json
+from .. import types
+
+from ..types import UNSET, Unset
+
+from ..types import File, FileTypes
+from ..types import UNSET, Unset
+from io import BytesIO
+from typing import Union
+
+
+
+
+
+
+T = TypeVar("T", bound="PostApiV1ConfigInstanceBannerPickBody")
+
+
+
+@_attrs_define
+class PostApiV1ConfigInstanceBannerPickBody:
+    """ 
+        Attributes:
+            bannerfile (Union[Unset, File]): The file to upload.
+     """
+
+    bannerfile: Union[Unset, File] = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+
+
+
+
+    def to_dict(self) -> dict[str, Any]:
+        bannerfile: Union[Unset, FileTypes] = UNSET
+        if not isinstance(self.bannerfile, Unset):
+            bannerfile = self.bannerfile.to_tuple()
+
+
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update({
+        })
+        if bannerfile is not UNSET:
+            field_dict["bannerfile"] = bannerfile
+
+        return field_dict
+
+
+    def to_multipart(self) -> types.RequestFiles:
+        files: types.RequestFiles = []
+
+        if not isinstance(self.bannerfile, Unset):
+            files.append(("bannerfile", self.bannerfile.to_tuple()))
+
+
+
+
+        for prop_name, prop in self.additional_properties.items():
+            files.append((prop_name, (None, str(prop).encode(), "text/plain")))
+
+
+
+        return files
+
+
+    @classmethod
+    def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        d = dict(src_dict)
+        _bannerfile = d.pop("bannerfile", UNSET)
+        bannerfile: Union[Unset, File]
+        if isinstance(_bannerfile,  Unset):
+            bannerfile = UNSET
+        else:
+            bannerfile = File(
+             payload = BytesIO(_bannerfile)
+        )
+
+
+
+
+        post_api_v1_config_instance_banner_pick_body = cls(
+            bannerfile=bannerfile,
+        )
+
+
+        post_api_v1_config_instance_banner_pick_body.additional_properties = d
+        return post_api_v1_config_instance_banner_pick_body
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
