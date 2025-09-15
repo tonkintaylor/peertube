@@ -56,6 +56,14 @@ Always gather up-to-date docs before writing new code or using a new API.
 
 ---
 
+## SonarQube Code Analysis
+
+- When performing SonarQube code analysis, always query issues for the current branch using the pullRequestId parameter
+- Use `sonarqube-search_sonar_issues_in_projects` with the appropriate pullRequestId to get branch-specific issues
+- Fix all identified SonarQube issues before completing any development task
+
+---
+
 ## Comment policy: never use “TODO”
 
 - Do not introduce “TODO” (or variants like “TO DO”, “ToDo”, “@todo”) anywhere:

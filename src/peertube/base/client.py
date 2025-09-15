@@ -75,25 +75,30 @@ class PeerTubeClient:
             return response.json() if response.content else {}
         if response.status_code == HTTP_NO_CONTENT:
             return {}
-        if response.status_code == HTTP_BAD_REQUEST:
-            error_data = response.json() if response.content else {}
+
+        # Handle error responses
+        error_data = response.json() if response.content else {}
+        return self._handle_error_response(response.status_code, error_data)
+
+    def _handle_error_response(
+        self, status_code: int, error_data: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Handle error response status codes."""
+        if status_code == HTTP_BAD_REQUEST:
             raise ValidationError(
                 error_data.get("detail", "Validation failed"),
                 details=error_data.get("invalid-params", {}),
             )
-        elif response.status_code == HTTP_UNAUTHORIZED:
+        elif status_code == HTTP_UNAUTHORIZED:
             raise AuthenticationError
-        elif response.status_code == HTTP_FORBIDDEN:
-            error_data = response.json() if response.content else {}
+        elif status_code == HTTP_FORBIDDEN:
             raise ForbiddenError(error_data.get("detail", "Access forbidden"))
-        elif response.status_code == HTTP_NOT_FOUND:
-            error_data = response.json() if response.content else {}
+        elif status_code == HTTP_NOT_FOUND:
             raise NotFoundError(error_data.get("detail", "Resource not found"))
         else:
-            error_data = response.json() if response.content else {}
             raise PeerTubeError(
-                error_data.get("detail", f"HTTP {response.status_code}"),
-                status_code=response.status_code,
+                error_data.get("detail", f"HTTP {status_code}"),
+                status_code=status_code,
                 details=error_data,
             )
 
