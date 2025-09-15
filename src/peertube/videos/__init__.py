@@ -1,6 +1,9 @@
 """Video management and operations."""
 
-# Placeholder for video operations
-# To be implemented in future iterations
+from .videos import VideoClient, get_video, list_videos
 
-__all__ = []
+__all__ = [
+    "VideoClient",
+    "get_video",
+    "list_videos",
+]

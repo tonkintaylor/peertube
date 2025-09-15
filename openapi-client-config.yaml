@@ -1,0 +1,20 @@
+# Configuration for openapi-python-client generation
+package_name: peertube_client
+package_version: 0.1.0
+project_name_override: PeerTube API Client
+package_description: Auto-generated PeerTube API client
+
+# HTTP client configuration
+http_timeout: 30
+verify_ssl: true
+
+# Code generation options
+use_path_prefixes_for_title_model_names: false
+use_string_enums: true
+field_prefix: ""
+
+# Import configuration
+inline_enum_classes: true
+post_hooks:
+  - "black"
+  - "isort"

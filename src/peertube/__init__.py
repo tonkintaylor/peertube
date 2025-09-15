@@ -20,6 +20,8 @@ from .base import (
     User,
     Video,
 )
+from .search import SearchClient, search_videos
+from .videos import VideoClient, get_video, list_videos
 
 __all__ = [
     "AuthToken",
@@ -28,11 +30,16 @@ __all__ = [
     "PeerTubeClient",
     "PeerTubeConfig",
     "PeerTubeError",
+    "SearchClient",
     "User",
     "Video",
+    "VideoClient",
     "check_username_availability",
     "get_user_info",
+    "get_video",
+    "list_videos",
     "login",
     "logout",
     "register_user",
+    "search_videos",
 ]
