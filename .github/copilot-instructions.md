@@ -84,6 +84,13 @@
 - Catch specific exceptions instead of broad Exception classes (BLE001, S110)
 - For functions with many parameters (>5), use `# noqa: PLR0913` comment when needed for convenience functions
 
+## Pyright Type Checking
+
+- Always check for None before calling objects that could be None to avoid reportOptionalCall errors
+- When setting variables to None in ImportError/exception blocks, add None checks before calling them
+- Use `if variable is not None:` pattern before calling objects that might be None
+- For optional imports, always verify objects are not None before instantiation
+
 ## Testing
 
 - Use `pytest` for testing, and ensure all tests are passing before committing changes.

@@ -63,14 +63,14 @@ class PeerTubeClient:
 
         # Initialize generated client if available
         self._generated_client = None
-        if _GENERATED_CLIENT_AVAILABLE:
+        if _GENERATED_CLIENT_AVAILABLE and GeneratedClient is not None:
             try:
-                if config.token:
+                if config.token and GeneratedAuthenticatedClient is not None:
                     self._generated_client = GeneratedAuthenticatedClient(
                         base_url=config.base_url,
                         token=config.token,
                     )
-                else:
+                elif GeneratedClient is not None:
                     self._generated_client = GeneratedClient(base_url=config.base_url)
             except ImportError:
                 # Fallback to manual client if generated client fails
