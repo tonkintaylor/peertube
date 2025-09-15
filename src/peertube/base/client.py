@@ -17,10 +17,13 @@ from .exceptions import (
 
 # Import generated client if available
 try:
-    from ..generated_client.peertube_client import (
+    from peertube.generated_client.peertube_client import (
         AuthenticatedClient as GeneratedAuthenticatedClient,
+    )
+    from peertube.generated_client.peertube_client import (
         Client as GeneratedClient,
     )
+
     _GENERATED_CLIENT_AVAILABLE = True
 except ImportError:
     _GENERATED_CLIENT_AVAILABLE = False
@@ -69,7 +72,7 @@ class PeerTubeClient:
                     )
                 else:
                     self._generated_client = GeneratedClient(base_url=config.base_url)
-            except Exception:
+            except ImportError:
                 # Fallback to manual client if generated client fails
                 pass
 

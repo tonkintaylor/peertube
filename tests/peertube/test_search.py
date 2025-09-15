@@ -18,10 +18,10 @@ def test_search_client_search_videos():
             }
         ],
     }
-    
+
     search_client = SearchClient(mock_client)
     result = search_client.search_videos("test query")
-    
+
     assert result["total"] == 1
 
 
@@ -38,7 +38,7 @@ def test_search_videos_convenience_function():
                 {"id": "video3"},
             ],
         }
-        
+
         result = search_videos("https://example.com", "test search")
-        
+
         assert result["total"] == 3

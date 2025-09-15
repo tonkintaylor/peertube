@@ -77,6 +77,12 @@
 - Avoid importing deprecated types like `typing.Dict` (UP035)
 - Remove unused code instead of commenting it out (ERA001)
 - Never use `from __future__ import annotations` in any file; Python 3.11+ does not require it.
+- Use absolute imports instead of relative imports from parent modules (TID252): Use `from peertube.module` instead of `from ..module`
+- Move all imports to the top-level of files instead of inline imports (PLC0415)
+- Make executable scripts actually executable with `chmod +x` (EXE001)
+- __all__ lists must contain only strings, no unpacking or concatenation (PLE0604, PLE0605)
+- Catch specific exceptions instead of broad Exception classes (BLE001, S110)
+- For functions with many parameters (>5), use `# noqa: PLR0913` comment when needed for convenience functions
 
 ## Testing
 

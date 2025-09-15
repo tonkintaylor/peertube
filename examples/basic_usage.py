@@ -38,24 +38,24 @@ def example_authentication() -> None:
 def example_video_operations() -> None:
     """Example of using video operations."""
     base_url = "https://your-peertube-instance.com"
-    
+
     try:
         # List recent videos
         videos = list_videos(base_url, count=5)
         print(f"Found {videos.get('total', 0)} videos")
-        
+
         # Get specific video details
-        if videos.get('data'):
-            first_video = videos['data'][0]
-            video_id = first_video['id']
-            
+        if videos.get("data"):
+            first_video = videos["data"][0]
+            video_id = first_video["id"]
+
             video_details = get_video(base_url, video_id)
             print(f"Video: {video_details.get('name', 'Unknown')}")
-        
+
         # Search for videos
         search_results = search_videos(base_url, "tutorial", count=3)
         print(f"Search found {search_results.get('total', 0)} tutorial videos")
-        
+
     except Exception as e:
         print(f"Video operations error: {e}")
 
@@ -79,7 +79,7 @@ def example_client_usage() -> None:
             # Get server config (public endpoint)
             config_data = client.get("/config")
             print(f"Server config: {config_data}")
-            
+
             # Check if generated client is available
             if client.generated_client:
                 print("Generated OpenAPI client is available!")

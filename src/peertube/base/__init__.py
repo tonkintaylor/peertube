@@ -6,29 +6,39 @@ from .types import ApiResponse, AuthToken, PaginatedResponse, User, Video
 
 # Export generated client access if available
 try:
-    from ..generated_client.peertube_client import (
+    from peertube.generated_client.peertube_client import (
         AuthenticatedClient as GeneratedAuthenticatedClient,
+    )
+    from peertube.generated_client.peertube_client import (
         Client as GeneratedClient,
     )
-    _GENERATED_CLIENT_EXPORTS = [
-        "GeneratedClient",
+
+    __all__ = [
+        "ApiResponse",
+        "AuthToken",
+        "AuthenticationError",
         "GeneratedAuthenticatedClient",
+        "GeneratedClient",
+        "NotFoundError",
+        "PaginatedResponse",
+        "PeerTubeClient",
+        "PeerTubeConfig",
+        "PeerTubeError",
+        "User",
+        "Video",
     ]
 except ImportError:
     GeneratedClient = None
     GeneratedAuthenticatedClient = None
-    _GENERATED_CLIENT_EXPORTS = []
-
-__all__ = [
-    "ApiResponse",
-    "AuthToken",
-    "AuthenticationError",
-    "NotFoundError",
-    "PaginatedResponse",
-    "PeerTubeClient",
-    "PeerTubeConfig",
-    "PeerTubeError",
-    "User",
-    "Video",
-    *_GENERATED_CLIENT_EXPORTS,
-]
+    __all__ = [
+        "ApiResponse",
+        "AuthToken",
+        "AuthenticationError",
+        "NotFoundError",
+        "PaginatedResponse",
+        "PeerTubeClient",
+        "PeerTubeConfig",
+        "PeerTubeError",
+        "User",
+        "Video",
+    ]

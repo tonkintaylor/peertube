@@ -3,7 +3,6 @@
 from unittest.mock import Mock, patch
 
 from peertube.videos import VideoClient, get_video, list_videos
-from peertube.base import PeerTubeConfig
 
 
 def test_video_client_get_video():
@@ -14,10 +13,10 @@ def test_video_client_get_video():
         "name": "Test Video",
         "description": "A test video",
     }
-    
+
     video_client = VideoClient(mock_client)
     result = video_client.get_video("test_video_id")
-    
+
     assert result["id"] == "test_video_id"
 
 
@@ -33,10 +32,10 @@ def test_video_client_list_videos():
             }
         ],
     }
-    
+
     video_client = VideoClient(mock_client)
     result = video_client.list_videos()
-    
+
     assert result["total"] == 1
 
 
@@ -49,9 +48,9 @@ def test_get_video_convenience_function():
             "id": "convenience_video",
             "name": "Convenience Test",
         }
-        
+
         result = get_video("https://example.com", "convenience_video")
-        
+
         assert result["id"] == "convenience_video"
 
 
@@ -64,7 +63,7 @@ def test_list_videos_convenience_function():
             "total": 2,
             "data": [{"id": "video1"}, {"id": "video2"}],
         }
-        
+
         result = list_videos("https://example.com")
-        
+
         assert result["total"] == 2
