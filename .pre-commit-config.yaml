@@ -49,8 +49,7 @@ repos:
       - id: uv-export
         name: uv-export
         files: ^uv\.lock|requirements.txt$
-        entry: uv export --frozen --offline --quiet --no-default-groups 
-            -o="requirements.txt"
+        entry: uv export --frozen --offline --quiet --no-default-groups -o requirements.txt
         additional_dependencies:
           - uv==0.8.3
         language: python
@@ -125,6 +124,7 @@ repos:
     rev: v2.4.1
     hooks:
       - id: codespell
+        exclude: ^assets/
         additional_dependencies:
           - tomli
   - repo: local

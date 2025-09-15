@@ -12,8 +12,8 @@ requires = [
 ]
 
 [project]
-name = "whitelabel"
-description = "A minimal Python package template with a simple Hello World example."
+name = "peertube"
+description = "Python API wrappers for PeerTube using openapi-python-client."
 readme = "README.md"
 license = "MIT"
 license-files = [ "LICENSE" ]
@@ -33,7 +33,10 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
 ]
 dynamic = [ "urls", "version" ]
-dependencies = [  ]
+dependencies = [
+  "httpx>=0.27.0",
+  "pydantic>=2.0.0",
+]
 
 [dependency-groups]
 dev = [
@@ -44,6 +47,7 @@ dev = [
   "ipywidgets>=8.1.7",
   "matplotlib>=3.10.3",
   "nbstripout>=0.8.1",
+  "openapi-python-client>=0.21.0",
   "perfplot>=0.10.2",
   "pip>=25.1.1",
   "pre-commit>=4.2.0",
@@ -74,7 +78,7 @@ source = "vcs"
 "Source Archive" = "https://github.com/tonkintaylor/YOUR_REPOSITORY/archive/{commit_hash}.zip"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/whitelabel/_version.py"
+version-file = "src/peertube/_version.py"
 
 [tool.ruff]
 line-length = 88
@@ -149,6 +153,24 @@ lint.per-file-ignores."doc/source/conf.py" = [
   "BLE001", # We want to catch all errors blindly in Sphinx builds
   "INP001", # Not actually a namespace package, a special Sphinx file
 ]
+lint.per-file-ignores."examples/**" = [
+  "ANN",     # Annotations
+  "ARG001",  # Unused function arguments
+  "B018",    # "Useless" expressions are used for displaying cell outputs
+  "BLE001",  # OK to catch blind exceptions
+  "D",       # Documentation
+  "E501",    # Line length
+  "FBT",     # Defensive programming techniques for function definitions are overkill
+  "INP001",  # __init__.py not applicable for standalone scripts anyway
+  "PLC0415", # Allow imports inside functions in examples
+  "PLR0913", # OK to have functions with many arguments in scripts and notebooks
+  "S101",    # Asserts fine in scripts and notebooks
+  "S106",    # Allow hardcoded passwords/tokens in examples
+  "T201",    # Prints fine in scripts and notebooks
+]
+lint.per-file-ignores."src/peertube/auth/**" = [
+  "PLR0913", # Registration functions legitimately need many arguments
+]
 # We aren't as strict about code quality in notebooks and scripts
 lint.per-file-ignores."src/{scripts,notebooks}/**" = [
   "ANN",     # Annotations
@@ -176,12 +198,14 @@ lint.flake8-tidy-imports.banned-api."pytz".msg = "'zoneinfo' should be preferred
 lint.pydocstyle.convention = "google"
 
 [tool.codespell]
+skip = "assets"
 ignore-regex = [ "[A-Za-z0-9+/]{100,}" ]
 ignore-words-list = [ "..." ]
 
 [tool.deptry]
 extend_exclude = [ "src/notebooks", "src/scripts", "src/archive" ]
 experimental_namespace_package = true
+known_first_party = [ "peertube" ]
 
 [tool.pyproject-fmt]
 keep_full_version = true
