@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetVideoBlocksSort(str, Enum):
     """GetVideoBlocksSort enumeration."""
+
     NAME = "name"
     VALUE_0 = "-id"
     VALUE_2 = "-duration"

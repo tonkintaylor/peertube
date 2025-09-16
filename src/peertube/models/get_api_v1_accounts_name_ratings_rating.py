@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetApiV1AccountsNameRatingsRating(str, Enum):
     """GetApiV1AccountsNameRatingsRating enumeration."""
+
     DISLIKE = "dislike"
     LIKE = "like"
 

@@ -3,6 +3,7 @@ from enum import Enum
 
 class ListRegistrationsSort(str, Enum):
     """ListRegistrationsSort enumeration."""
+
     CREATEDAT = "createdAt"
     STATE = "state"
     VALUE_0 = "-createdAt"

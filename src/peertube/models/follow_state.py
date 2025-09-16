@@ -3,6 +3,7 @@ from enum import Enum
 
 class FollowState(str, Enum):
     """FollowState enumeration."""
+
     ACCEPTED = "accepted"
     PENDING = "pending"
 

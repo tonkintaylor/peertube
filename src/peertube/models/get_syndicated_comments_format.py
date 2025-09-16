@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetSyndicatedCommentsFormat(str, Enum):
     """GetSyndicatedCommentsFormat enumeration."""
+
     ATOM = "atom"
     ATOM1 = "atom1"
     JSON = "json"

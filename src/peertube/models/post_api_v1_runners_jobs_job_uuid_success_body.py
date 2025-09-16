@@ -66,8 +66,13 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
         job_token = self.job_token
 
         payload: dict[str, Any]
-        if (
-            isinstance(self.payload, (PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding, PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding, PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding))
+        if isinstance(
+            self.payload,
+            (
+                PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding,
+                PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding,
+                PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding,
+            ),
         ):
             payload = self.payload.to_dict()
         else:

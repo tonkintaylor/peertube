@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetAccountVideosSkipCount(str, Enum):
     """GetAccountVideosSkipCount enumeration."""
+
     FALSE = "false"
     TRUE = "true"
 

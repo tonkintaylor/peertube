@@ -3,6 +3,7 @@ from enum import Enum
 
 class PutApiV1VideosIdRateBodyRating(str, Enum):
     """PutApiV1VideosIdRateBodyRating enumeration."""
+
     DISLIKE = "dislike"
     LIKE = "like"
 

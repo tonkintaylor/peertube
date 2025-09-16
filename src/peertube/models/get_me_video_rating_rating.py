@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetMeVideoRatingRating(str, Enum):
     """GetMeVideoRatingRating enumeration."""
+
     DISLIKE = "dislike"
     LIKE = "like"
     NONE = "none"

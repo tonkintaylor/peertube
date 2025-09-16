@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetApiV1RunnersJobsSort(str, Enum):
     """GetApiV1RunnersJobsSort enumeration."""
+
     CREATEDAT = "createdAt"
     PRIORITY = "priority"
     PROGRESS = "progress"

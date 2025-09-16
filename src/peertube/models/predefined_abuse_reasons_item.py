@@ -3,6 +3,7 @@ from enum import Enum
 
 class PredefinedAbuseReasonsItem(str, Enum):
     """PredefinedAbuseReasonsItem class."""
+
     CAPTIONS = "captions"
     HATEFULORABUSIVE = "hatefulOrAbusive"
     PRIVACY = "privacy"
