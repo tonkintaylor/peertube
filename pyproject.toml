@@ -202,6 +202,8 @@ lint.per-file-ignores."src/peertube/models/**" = [
   "E501",    # Line too long (auto-generated code)
   "N818",    # Exception name should be named with an Error suffix
   "PLC0415", # Import outside top-level (circular import handling)
+  "PLR0912", # Too many branches (auto-generated code)
+  "PLR0915", # Too many statements (auto-generated code)
   "S110",    # Try-except-pass
   "TRY300",  # Try without except
 ]
@@ -212,6 +214,10 @@ lint.per-file-ignores."src/peertube/types.py" = [
 ]
 lint.per-file-ignores."src/peertube/client.py" = [
   "E501",    # Line too long (docstrings and generated code)
+]
+lint.per-file-ignores."src/peertube/errors.py" = [
+  "E501",    # Line too long (error messages)
+  "N818",    # Exception naming (generated code)
 ]
 # We aren't as strict about code quality in notebooks and scripts
 lint.per-file-ignores."src/{scripts,notebooks}/**" = [
