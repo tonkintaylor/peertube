@@ -31,6 +31,7 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         job: Unset | dict[str, Any] = UNSET
         if not isinstance(self.job, Unset):
             job = self.job.to_dict()
@@ -45,6 +46,7 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         from peertube.models.post_api_v1_runners_jobs_job_uuid_accept_response_200_job import (
             PostApiV1RunnersJobsJobUUIDAcceptResponse200Job,
         )
@@ -66,6 +68,7 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

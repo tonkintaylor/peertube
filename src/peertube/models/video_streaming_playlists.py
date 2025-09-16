@@ -46,6 +46,7 @@ class VideoStreamingPlaylists:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         playlist_url = self.playlist_url
 
         segments_sha_256_url = self.segments_sha_256_url
@@ -90,6 +91,7 @@ class VideoStreamingPlaylists:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         from peertube.models.video_file import VideoFile
         from peertube.models.video_streaming_playlists_hls_redundancies_item import (
             VideoStreamingPlaylistsHLSRedundanciesItem,
@@ -139,6 +141,7 @@ class VideoStreamingPlaylists:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

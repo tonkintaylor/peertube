@@ -16,6 +16,7 @@ class UpdatePluginBodyType0:
     npm_name: str
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         npm_name = self.npm_name
 
         field_dict: dict[str, Any] = {}
@@ -30,6 +31,7 @@ class UpdatePluginBodyType0:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         d = dict(src_dict)
         npm_name = d.pop("npmName")
 

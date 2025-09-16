@@ -23,6 +23,7 @@ class ServerConfigFollowingsInstanceAutoFollowIndex:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         index_url = self.index_url
 
         field_dict: dict[str, Any] = {}
@@ -35,6 +36,7 @@ class ServerConfigFollowingsInstanceAutoFollowIndex:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         d = dict(src_dict)
         index_url = d.pop("indexUrl", UNSET)
 
@@ -47,6 +49,7 @@ class ServerConfigFollowingsInstanceAutoFollowIndex:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

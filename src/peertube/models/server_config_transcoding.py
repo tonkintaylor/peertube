@@ -37,6 +37,7 @@ class ServerConfigTranscoding:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         hls: Unset | dict[str, Any] = UNSET
         if not isinstance(self.hls, Unset):
             hls = self.hls.to_dict()
@@ -63,6 +64,7 @@ class ServerConfigTranscoding:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         from peertube.models.server_config_transcoding_hls import (
             ServerConfigTranscodingHls,
         )
@@ -98,6 +100,7 @@ class ServerConfigTranscoding:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

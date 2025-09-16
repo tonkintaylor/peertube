@@ -25,6 +25,28 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
         """Convert to dictionary."""
         bannerfile: Unset | FileTypes = UNSET
         if not isinstance(self.bannerfile, Unset):
@@ -51,6 +73,28 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
         """Create from dictionary."""
         d = dict(src_dict)
         _bannerfile = d.pop("bannerfile", UNSET)
@@ -69,6 +113,28 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
         """Get additional keys."""
         return list(self.additional_properties.keys())
 

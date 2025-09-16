@@ -47,6 +47,7 @@ class LiveVideoResponse:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         rtmp_url = self.rtmp_url
 
         rtmps_url = self.rtmps_url
@@ -96,6 +97,7 @@ class LiveVideoResponse:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         from peertube.models.live_schedule import LiveSchedule
         from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
@@ -147,6 +149,7 @@ class LiveVideoResponse:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

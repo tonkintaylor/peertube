@@ -26,6 +26,31 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
         before_date: Unset | str = UNSET
         if not isinstance(self.before_date, Unset):
             before_date = self.before_date.isoformat()
@@ -56,6 +81,31 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
         d = dict(src_dict)
         _before_date = d.pop("beforeDate", UNSET)
         before_date: Unset | datetime.datetime
@@ -73,6 +123,31 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

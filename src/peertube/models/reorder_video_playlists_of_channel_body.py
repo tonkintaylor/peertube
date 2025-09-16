@@ -27,6 +27,7 @@ class ReorderVideoPlaylistsOfChannelBody:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         start_position = self.start_position
 
         insert_after_position = self.insert_after_position
@@ -48,6 +49,7 @@ class ReorderVideoPlaylistsOfChannelBody:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         d = dict(src_dict)
         start_position = d.pop("startPosition")
 
@@ -66,6 +68,7 @@ class ReorderVideoPlaylistsOfChannelBody:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

@@ -91,6 +91,27 @@ class AddLiveBody:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
+        """Convert instance to dictionary."""
         channel_id = self.channel_id
 
         name = self.name
@@ -342,6 +363,27 @@ class AddLiveBody:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
+        """Create instance from dictionary."""
         from peertube.models.live_schedule import LiveSchedule
         from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
@@ -460,6 +502,27 @@ class AddLiveBody:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

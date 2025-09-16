@@ -31,6 +31,7 @@ class ServerConfigAutoBlacklistVideos:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         of_users: Unset | dict[str, Any] = UNSET
         if not isinstance(self.of_users, Unset):
             of_users = self.of_users.to_dict()
@@ -45,6 +46,7 @@ class ServerConfigAutoBlacklistVideos:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         from peertube.models.server_config_auto_blacklist_videos_of_users import (
             ServerConfigAutoBlacklistVideosOfUsers,
         )
@@ -66,6 +68,7 @@ class ServerConfigAutoBlacklistVideos:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

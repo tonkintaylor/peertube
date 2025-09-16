@@ -39,6 +39,7 @@ class ServerConfigImport:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         videos: Unset | dict[str, Any] = UNSET
         if not isinstance(self.videos, Unset):
             videos = self.videos.to_dict()
@@ -65,6 +66,7 @@ class ServerConfigImport:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         from peertube.models.server_config_import_users import ServerConfigImportUsers
         from peertube.models.server_config_import_video_channel_synchronization import (
             ServerConfigImportVideoChannelSynchronization,
@@ -110,6 +112,7 @@ class ServerConfigImport:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

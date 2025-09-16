@@ -128,6 +128,7 @@ class PutApiV1UsersMeNotificationSettingsBody:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         abuse_as_moderator = self.abuse_as_moderator
 
         video_auto_blacklist_as_moderator = self.video_auto_blacklist_as_moderator
@@ -214,6 +215,7 @@ class PutApiV1UsersMeNotificationSettingsBody:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         d = dict(src_dict)
         abuse_as_moderator = d.pop("abuseAsModerator", UNSET)
 
@@ -279,6 +281,7 @@ class PutApiV1UsersMeNotificationSettingsBody:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

@@ -66,6 +66,7 @@ class VideoPlaylist:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert instance to dictionary."""
         id = self.id
 
         uuid: Unset | str = UNSET
@@ -148,6 +149,7 @@ class VideoPlaylist:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create instance from dictionary."""
         from peertube.models.account_summary import AccountSummary
         from peertube.models.video_channel_summary import VideoChannelSummary
         from peertube.models.video_playlist_privacy_constant import (
@@ -246,6 +248,7 @@ class VideoPlaylist:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:
