@@ -34,8 +34,8 @@ classifiers = [
 ]
 dynamic = [ "urls", "version" ]
 dependencies = [
-  "httpx>=0.23.0",
   "attrs>=22.2.0",
+  "httpx>=0.23.0",
 ]
 
 [dependency-groups]
@@ -168,9 +168,6 @@ lint.per-file-ignores."examples/**" = [
   "S106",    # Allow hardcoded passwords/tokens in examples
   "T201",    # Prints fine in scripts and notebooks
 ]
-lint.per-file-ignores."src/peertube/auth/**" = [
-  "PLR0913", # Registration functions legitimately need many arguments
-]
 # Generated OpenAPI client code - less strict linting
 lint.per-file-ignores."src/peertube/api/**" = [
   "A001",    # Variable name shadows builtin
@@ -187,6 +184,16 @@ lint.per-file-ignores."src/peertube/api/**" = [
   "S110",    # Try-except-pass
   "TRY300",  # Try without except
 ]
+lint.per-file-ignores."src/peertube/auth/**" = [
+  "PLR0913", # Registration functions legitimately need many arguments
+]
+lint.per-file-ignores."src/peertube/client.py" = [
+  "E501", # Line too long (docstrings and generated code)
+]
+lint.per-file-ignores."src/peertube/errors.py" = [
+  "E501", # Line too long (error messages)
+  "N818", # Exception naming (generated code)
+]
 lint.per-file-ignores."src/peertube/models/**" = [
   "A001",    # Variable name shadows builtin
   "A002",    # Function argument shadows builtin
@@ -200,15 +207,8 @@ lint.per-file-ignores."src/peertube/models/**" = [
   "TRY300",  # Try without except
 ]
 lint.per-file-ignores."src/peertube/types.py" = [
-  "E501",    # Line too long
-  "UP007",   # Use X | Y instead of Union (compatibility)
-]
-lint.per-file-ignores."src/peertube/client.py" = [
-  "E501",    # Line too long (docstrings and generated code)
-]
-lint.per-file-ignores."src/peertube/errors.py" = [
-  "E501",    # Line too long (error messages)
-  "N818",    # Exception naming (generated code)
+  "E501",  # Line too long
+  "UP007", # Use X | Y instead of Union (compatibility)
 ]
 # We aren't as strict about code quality in notebooks and scripts
 lint.per-file-ignores."src/{scripts,notebooks}/**" = [
