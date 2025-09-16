@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class AbusePredefinedReasonsItem(str, Enum):
+    """Predefined abuse reason categories."""
     CAPTIONS = "captions"
     HATEFULORABUSIVE = "hatefulOrAbusive"
     PRIVACY = "privacy"
