@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class GetVideoChannelVideosSkipCount(str, Enum):
+    """GetVideoChannelVideosSkipCount enumeration."""
     FALSE = "false"
     TRUE = "true"
 

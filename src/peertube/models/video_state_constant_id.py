@@ -2,6 +2,7 @@ from enum import IntEnum
 
 
 class VideoStateConstantId(IntEnum):
+    """VideoStateConstantId class."""
     VALUE_1 = 1
     VALUE_2 = 2
     VALUE_3 = 3

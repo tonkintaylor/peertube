@@ -10,7 +10,7 @@ T = TypeVar("T", bound="RunnerJobAdminPrivatePayload")
 
 @_attrs_define
 class RunnerJobAdminPrivatePayload:
-    """ """
+    """Data model."""
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

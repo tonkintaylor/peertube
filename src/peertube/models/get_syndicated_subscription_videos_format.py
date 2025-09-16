@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class GetSyndicatedSubscriptionVideosFormat(str, Enum):
+    """GetSyndicatedSubscriptionVideosFormat enumeration."""
     ATOM = "atom"
     ATOM1 = "atom1"
     JSON = "json"

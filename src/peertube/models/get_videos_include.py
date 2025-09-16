@@ -2,6 +2,7 @@ from enum import IntEnum
 
 
 class GetVideosInclude(IntEnum):
+    """GetVideosInclude enumeration."""
     VALUE_0 = 0
     VALUE_1 = 1
     VALUE_2 = 2

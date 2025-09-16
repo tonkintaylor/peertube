@@ -10,7 +10,7 @@ T = TypeVar("T", bound="JobError")
 
 @_attrs_define
 class JobError:
-    """ """
+    """Data model."""
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

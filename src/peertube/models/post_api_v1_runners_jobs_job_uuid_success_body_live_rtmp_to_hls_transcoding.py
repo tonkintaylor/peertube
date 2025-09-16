@@ -10,7 +10,7 @@ T = TypeVar("T", bound="PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTrans
 
 @_attrs_define
 class PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding:
-    """ """
+    """Data model."""
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

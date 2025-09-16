@@ -10,7 +10,7 @@ T = TypeVar("T", bound="JobData")
 
 @_attrs_define
 class JobData:
-    """ """
+    """Data model."""
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

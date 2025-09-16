@@ -10,7 +10,7 @@ T = TypeVar("T", bound="GetApiV1PluginsNpmNamePublicSettingsResponse200")
 
 @_attrs_define
 class GetApiV1PluginsNpmNamePublicSettingsResponse200:
-    """ """
+    """Data model."""
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

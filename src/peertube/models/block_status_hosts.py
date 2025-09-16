@@ -20,7 +20,7 @@ T = TypeVar("T", bound="BlockStatusHosts")
 
 @_attrs_define
 class BlockStatusHosts:
-    """ """
+    """Block status hosts data model."""
 
     additional_properties: dict[str, "BlockStatusHostsAdditionalProperty"] = (
         _attrs_field(init=False, factory=dict)

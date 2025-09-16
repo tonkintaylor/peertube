@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class SearchVideosSort(str, Enum):
+    """SearchVideosSort enumeration."""
     NAME = "name"
     VALUE_1 = "-duration"
     VALUE_2 = "-createdAt"

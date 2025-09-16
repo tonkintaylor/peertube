@@ -10,7 +10,7 @@ T = TypeVar("T", bound="PutApiV1PluginsNpmNameSettingsBodySettings")
 
 @_attrs_define
 class PutApiV1PluginsNpmNameSettingsBodySettings:
-    """ """
+    """Data model."""
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

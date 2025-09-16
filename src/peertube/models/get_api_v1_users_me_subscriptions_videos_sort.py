@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class GetApiV1UsersMeSubscriptionsVideosSort(str, Enum):
+    """GetApiV1UsersMeSubscriptionsVideosSort enumeration."""
     NAME = "name"
     VALUE_1 = "-duration"
     VALUE_2 = "-createdAt"

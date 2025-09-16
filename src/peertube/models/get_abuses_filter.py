@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class GetAbusesFilter(str, Enum):
+    """GetAbusesFilter enumeration."""
     ACCOUNT = "account"
     COMMENT = "comment"
     VIDEO = "video"
