@@ -114,7 +114,6 @@ lint.ignore = [
   # In some cases where your code is poorly-performing you might want to enable them again.
   # ##############################
   "PD101",   # Harms readability for a performance optimization.
-  "PD901",   # We often call variables "df" in functions dealing with pandas DataFrames.
   "PERF203", # Too many false positives.
   "PERF401", # This can hurt readability; the performance is not always worth it.
   "PIE804",  # This is controversial, some pandas APIs work better with dict approach.
@@ -176,6 +175,7 @@ lint.per-file-ignores."src/peertube/api/**" = [
   "B032",    # Possible unintentional type annotation
   "C901",    # Complex function (generated code)
   "D205",    # Blank line between summary and description
+  "D417",    # Missing argument descriptions in docstring (auto-generated code)
   "E501",    # Line too long (auto-generated code)
   "PLR0911", # Too many return statements
   "PLR0912", # Too many branches
@@ -201,6 +201,7 @@ lint.per-file-ignores."src/peertube/models/**" = [
   "D205",    # Blank line between summary and description
   "E501",    # Line too long (auto-generated code)
   "N818",    # Exception name should be named with an Error suffix
+  "PLC0415", # Import outside top-level (necessary for circular import avoidance in auto-generated models)
   "PLR0912", # Too many branches (auto-generated code)
   "PLR0915", # Too many statements (auto-generated code)
   "S110",    # Try-except-pass
