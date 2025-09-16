@@ -1633,6 +1633,8 @@ source = { editable = "." }
 dependencies = [
     { name = "attrs" },
     { name = "httpx" },
+    { name = "python-dateutil" },
+    { name = "typing-extensions" },
 ]
 
 [package.dev-dependencies]
@@ -1670,6 +1672,8 @@ test = [
 requires-dist = [
     { name = "attrs", specifier = ">=22.2.0" },
     { name = "httpx", specifier = ">=0.23.0" },
+    { name = "python-dateutil", specifier = ">=2.8.0" },
+    { name = "typing-extensions", specifier = ">=4.0.0" },
 ]
 
 [package.metadata.requires-dev]
