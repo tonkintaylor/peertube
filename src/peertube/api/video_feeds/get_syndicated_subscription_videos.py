@@ -128,17 +128,17 @@ def sync_detailed(
     """Videos of subscriptions feeds
 
     Args:
-        format_ (GetSyndicatedSubscriptionVideosFormat):
-        account_id (str):
-        token (str):
+        format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
+        account_id (str): Parameter for account id.
+        token (str): Parameter for token.
         sort (Union[Unset, str]):  Example: -createdAt.
-        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]):
+        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]): Parameter for nsfw.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]): Parameter for include.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -185,17 +185,17 @@ def sync(
     """Videos of subscriptions feeds
 
     Args:
-        format_ (GetSyndicatedSubscriptionVideosFormat):
-        account_id (str):
-        token (str):
+        format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
+        account_id (str): Parameter for account id.
+        token (str): Parameter for token.
         sort (Union[Unset, str]):  Example: -createdAt.
-        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]):
+        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]): Parameter for nsfw.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]): Parameter for include.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -237,17 +237,17 @@ async def asyncio_detailed(
     """Videos of subscriptions feeds
 
     Args:
-        format_ (GetSyndicatedSubscriptionVideosFormat):
-        account_id (str):
-        token (str):
+        format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
+        account_id (str): Parameter for account id.
+        token (str): Parameter for token.
         sort (Union[Unset, str]):  Example: -createdAt.
-        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]):
+        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]): Parameter for nsfw.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]): Parameter for include.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -292,17 +292,17 @@ async def asyncio(
     """Videos of subscriptions feeds
 
     Args:
-        format_ (GetSyndicatedSubscriptionVideosFormat):
-        account_id (str):
-        token (str):
+        format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
+        account_id (str): Parameter for account id.
+        token (str): Parameter for token.
         sort (Union[Unset, str]):  Example: -createdAt.
-        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]):
+        nsfw (Union[Unset, GetSyndicatedSubscriptionVideosNsfw]): Parameter for nsfw.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetSyndicatedSubscriptionVideosInclude]): Parameter for include.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

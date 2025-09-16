@@ -81,11 +81,11 @@ def sync_detailed(
     """List video blocks
 
     Args:
-        type_ (Union[Unset, GetVideoBlocksType]):
-        search (Union[Unset, str]):
-        start (Union[Unset, int]):
+        type_ (Union[Unset, GetVideoBlocksType]): Parameter for type (underscore avoids keyword conflict).
+        search (Union[Unset, str]): Search query filter.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetVideoBlocksSort]):
+        sort (Union[Unset, GetVideoBlocksSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -122,11 +122,11 @@ async def asyncio_detailed(
     """List video blocks
 
     Args:
-        type_ (Union[Unset, GetVideoBlocksType]):
-        search (Union[Unset, str]):
-        start (Union[Unset, int]):
+        type_ (Union[Unset, GetVideoBlocksType]): Parameter for type (underscore avoids keyword conflict).
+        search (Union[Unset, str]): Search query filter.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetVideoBlocksSort]):
+        sort (Union[Unset, GetVideoBlocksSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

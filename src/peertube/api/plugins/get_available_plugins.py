@@ -85,10 +85,10 @@ def sync_detailed(
     """List available plugins
 
     Args:
-        search (Union[Unset, str]):
-        plugin_type (Union[Unset, int]):
-        current_peer_tube_engine (Union[Unset, str]):
-        start (Union[Unset, int]):
+        search (Union[Unset, str]): Search query filter.
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        current_peer_tube_engine (Union[Unset, str]): Parameter for current peer tube engine.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -129,10 +129,10 @@ def sync(
     """List available plugins
 
     Args:
-        search (Union[Unset, str]):
-        plugin_type (Union[Unset, int]):
-        current_peer_tube_engine (Union[Unset, str]):
-        start (Union[Unset, int]):
+        search (Union[Unset, str]): Search query filter.
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        current_peer_tube_engine (Union[Unset, str]): Parameter for current peer tube engine.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -168,10 +168,10 @@ async def asyncio_detailed(
     """List available plugins
 
     Args:
-        search (Union[Unset, str]):
-        plugin_type (Union[Unset, int]):
-        current_peer_tube_engine (Union[Unset, str]):
-        start (Union[Unset, int]):
+        search (Union[Unset, str]): Search query filter.
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        current_peer_tube_engine (Union[Unset, str]): Parameter for current peer tube engine.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -210,10 +210,10 @@ async def asyncio(
     """List available plugins
 
     Args:
-        search (Union[Unset, str]):
-        plugin_type (Union[Unset, int]):
-        current_peer_tube_engine (Union[Unset, str]):
-        start (Union[Unset, int]):
+        search (Union[Unset, str]): Search query filter.
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        current_peer_tube_engine (Union[Unset, str]): Parameter for current peer tube engine.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 

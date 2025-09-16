@@ -68,7 +68,7 @@ def sync_detailed(
     """Update my user avatar
 
     Args:
-        body (PostApiV1UsersMeAvatarPickBody):
+        body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -97,7 +97,7 @@ def sync(
     """Update my user avatar
 
     Args:
-        body (PostApiV1UsersMeAvatarPickBody):
+        body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -121,7 +121,7 @@ async def asyncio_detailed(
     """Update my user avatar
 
     Args:
-        body (PostApiV1UsersMeAvatarPickBody):
+        body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,7 +148,7 @@ async def asyncio(
     """Update my user avatar
 
     Args:
-        body (PostApiV1UsersMeAvatarPickBody):
+        body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

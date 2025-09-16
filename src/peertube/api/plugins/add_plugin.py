@@ -67,7 +67,7 @@ def sync_detailed(
     """Install a plugin
 
     Args:
-        body (Union['AddPluginBodyType0', 'AddPluginBodyType1']):
+        body (Union['AddPluginBodyType0', 'AddPluginBodyType1']): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -96,7 +96,7 @@ async def asyncio_detailed(
     """Install a plugin
 
     Args:
-        body (Union['AddPluginBodyType0', 'AddPluginBodyType1']):
+        body (Union['AddPluginBodyType0', 'AddPluginBodyType1']): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

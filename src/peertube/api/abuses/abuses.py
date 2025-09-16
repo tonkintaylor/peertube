@@ -135,22 +135,22 @@ def sync_detailed(
     """List abuses
 
     Args:
-        id (Union[Unset, int]):
+        id (Union[Unset, int]): Unique identifier for the entity.
         predefined_reason (Union[Unset, list[PredefinedAbuseReasonsItem]]): Reason categories that
             help triage reports
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         state (Union[Unset, AbuseStateSet]): The abuse state (Pending = `1`, Rejected = `2`,
             Accepted = `3`)
-        search_reporter (Union[Unset, str]):
-        search_reportee (Union[Unset, str]):
-        search_video (Union[Unset, str]):
-        search_video_channel (Union[Unset, str]):
-        video_is (Union[Unset, GetAbusesVideoIs]):
-        filter_ (Union[Unset, GetAbusesFilter]):
-        start (Union[Unset, int]):
+        search_reporter (Union[Unset, str]): Search filter for reporter.
+        search_reportee (Union[Unset, str]): Search filter for reportee.
+        search_video (Union[Unset, str]): Search filter for video.
+        search_video_channel (Union[Unset, str]): Search filter for video_channel.
+        video_is (Union[Unset, GetAbusesVideoIs]): Video-related parameter.
+        filter_ (Union[Unset, GetAbusesFilter]): Filter criteria for results.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         client: Authenticated HTTP client for API requests.
-        sort (Union[Unset, GetAbusesSort]):
+        sort (Union[Unset, GetAbusesSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -203,22 +203,22 @@ async def asyncio_detailed(
     """List abuses
 
     Args:
-        id (Union[Unset, int]):
+        id (Union[Unset, int]): Unique identifier for the entity.
         predefined_reason (Union[Unset, list[PredefinedAbuseReasonsItem]]): Reason categories that
             help triage reports
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         state (Union[Unset, AbuseStateSet]): The abuse state (Pending = `1`, Rejected = `2`,
             Accepted = `3`)
-        search_reporter (Union[Unset, str]):
-        search_reportee (Union[Unset, str]):
-        search_video (Union[Unset, str]):
-        search_video_channel (Union[Unset, str]):
-        video_is (Union[Unset, GetAbusesVideoIs]):
-        filter_ (Union[Unset, GetAbusesFilter]):
-        start (Union[Unset, int]):
+        search_reporter (Union[Unset, str]): Search filter for reporter.
+        search_reportee (Union[Unset, str]): Search filter for reportee.
+        search_video (Union[Unset, str]): Search filter for video.
+        search_video_channel (Union[Unset, str]): Search filter for video_channel.
+        video_is (Union[Unset, GetAbusesVideoIs]): Video-related parameter.
+        filter_ (Union[Unset, GetAbusesFilter]): Filter criteria for results.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         client: Authenticated HTTP client for API requests.
-        sort (Union[Unset, GetAbusesSort]):
+        sort (Union[Unset, GetAbusesSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

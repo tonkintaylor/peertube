@@ -82,7 +82,7 @@ def sync_detailed(
 
     Args:
         id (int):  Example: 42.
-        body (RequestTwoFactorBody):
+        body (RequestTwoFactorBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,7 +116,7 @@ def sync(
 
     Args:
         id (int):  Example: 42.
-        body (RequestTwoFactorBody):
+        body (RequestTwoFactorBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,7 +145,7 @@ async def asyncio_detailed(
 
     Args:
         id (int):  Example: 42.
-        body (RequestTwoFactorBody):
+        body (RequestTwoFactorBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -177,7 +177,7 @@ async def asyncio(
 
     Args:
         id (int):  Example: 42.
-        body (RequestTwoFactorBody):
+        body (RequestTwoFactorBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -63,7 +63,7 @@ def sync_detailed(
      An email containing a reset password link
 
     Args:
-        body (PostApiV1UsersAskResetPasswordBody):
+        body (PostApiV1UsersAskResetPasswordBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -94,7 +94,7 @@ async def asyncio_detailed(
      An email containing a reset password link
 
     Args:
-        body (PostApiV1UsersAskResetPasswordBody):
+        body (PostApiV1UsersAskResetPasswordBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

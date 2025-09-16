@@ -61,7 +61,7 @@ def sync_detailed(
     """Videos podcast feed
 
     Args:
-        video_channel_id (str):
+        video_channel_id (str): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,7 +90,7 @@ async def asyncio_detailed(
     """Videos podcast feed
 
     Args:
-        video_channel_id (str):
+        video_channel_id (str): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

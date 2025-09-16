@@ -73,9 +73,9 @@ def sync_detailed(
     uploadx/blob/master/proto.md) to cancel the replacement of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        upload_id (str):
-        content_length (float):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        upload_id (str): Parameter for upload id.
+        content_length (float): Parameter for content length.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -111,9 +111,9 @@ async def asyncio_detailed(
     uploadx/blob/master/proto.md) to cancel the replacement of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        upload_id (str):
-        content_length (float):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        upload_id (str): Parameter for upload id.
+        content_length (float): Parameter for content length.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

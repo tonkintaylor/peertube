@@ -61,7 +61,7 @@ def sync_detailed(
      These metrics are exposed by OpenTelemetry metrics exporter if enabled.
 
     Args:
-        body (PlaybackMetricCreate):
+        body (PlaybackMetricCreate): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -92,7 +92,7 @@ async def asyncio_detailed(
      These metrics are exposed by OpenTelemetry metrics exporter if enabled.
 
     Args:
-        body (PlaybackMetricCreate):
+        body (PlaybackMetricCreate): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

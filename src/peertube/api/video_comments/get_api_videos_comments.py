@@ -91,14 +91,14 @@ def sync_detailed(
     """List instance comments
 
     Args:
-        search (Union[Unset, str]):
-        search_account (Union[Unset, str]):
-        search_video (Union[Unset, str]):
-        video_id (Union[Unset, int]):
-        video_channel_id (Union[Unset, int]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
-        is_local (Union[Unset, bool]):
-        on_local_video (Union[Unset, bool]):
+        search (Union[Unset, str]): Search query filter.
+        search_account (Union[Unset, str]): Search filter for account.
+        search_video (Union[Unset, str]): Search filter for video.
+        video_id (Union[Unset, int]): Unique identifier for the video.
+        video_channel_id (Union[Unset, int]): Video-related parameter.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        on_local_video (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,14 +141,14 @@ async def asyncio_detailed(
     """List instance comments
 
     Args:
-        search (Union[Unset, str]):
-        search_account (Union[Unset, str]):
-        search_video (Union[Unset, str]):
-        video_id (Union[Unset, int]):
-        video_channel_id (Union[Unset, int]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
-        is_local (Union[Unset, bool]):
-        on_local_video (Union[Unset, bool]):
+        search (Union[Unset, str]): Search query filter.
+        search_account (Union[Unset, str]): Search filter for account.
+        search_video (Union[Unset, str]): Search filter for video.
+        video_id (Union[Unset, int]): Unique identifier for the video.
+        video_channel_id (Union[Unset, int]): Video-related parameter.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        on_local_video (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

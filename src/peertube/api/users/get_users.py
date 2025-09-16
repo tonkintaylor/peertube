@@ -76,11 +76,11 @@ def sync_detailed(
     """List users
 
     Args:
-        search (Union[Unset, str]):
-        blocked (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        search (Union[Unset, str]): Search query filter.
+        blocked (Union[Unset, bool]): Parameter for blocked.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetUsersSort]):
+        sort (Union[Unset, GetUsersSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,11 +117,11 @@ async def asyncio_detailed(
     """List users
 
     Args:
-        search (Union[Unset, str]):
-        blocked (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        search (Union[Unset, str]): Search query filter.
+        blocked (Union[Unset, bool]): Parameter for blocked.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetUsersSort]):
+        sort (Union[Unset, GetUsersSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

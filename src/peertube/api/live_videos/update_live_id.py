@@ -68,8 +68,8 @@ def sync_detailed(
     """Update information about a live
 
     Args:
-        id (Union[UUID, int, str]):
-        body (LiveVideoUpdate):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (LiveVideoUpdate): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -100,8 +100,8 @@ async def asyncio_detailed(
     """Update information about a live
 
     Args:
-        id (Union[UUID, int, str]):
-        body (LiveVideoUpdate):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (LiveVideoUpdate): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

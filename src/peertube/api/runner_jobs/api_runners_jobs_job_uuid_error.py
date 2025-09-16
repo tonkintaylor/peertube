@@ -67,7 +67,7 @@ def sync_detailed(
 
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
-        body (PostApiV1RunnersJobsJobUUIDErrorBody):
+        body (PostApiV1RunnersJobsJobUUIDErrorBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -101,7 +101,7 @@ async def asyncio_detailed(
 
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
-        body (PostApiV1RunnersJobsJobUUIDErrorBody):
+        body (PostApiV1RunnersJobsJobUUIDErrorBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

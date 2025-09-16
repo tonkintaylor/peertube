@@ -66,7 +66,7 @@ def sync_detailed(
     """Create a user
 
     Args:
-        body (AddUser):
+        body (AddUser): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -95,7 +95,7 @@ def sync(
     """Create a user
 
     Args:
-        body (AddUser):
+        body (AddUser): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -119,7 +119,7 @@ async def asyncio_detailed(
     """Create a user
 
     Args:
-        body (AddUser):
+        body (AddUser): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -146,7 +146,7 @@ async def asyncio(
     """Create a user
 
     Args:
-        body (AddUser):
+        body (AddUser): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

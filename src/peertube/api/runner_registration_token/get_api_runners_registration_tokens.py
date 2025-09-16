@@ -80,9 +80,9 @@ def sync_detailed(
     """List registration tokens
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]):
+        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,9 +115,9 @@ def sync(
     """List registration tokens
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]):
+        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,9 +145,9 @@ async def asyncio_detailed(
     """List registration tokens
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]):
+        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -178,9 +178,9 @@ async def asyncio(
     """List registration tokens
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]):
+        sort (Union[Unset, GetApiV1RunnersRegistrationTokensSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -56,7 +56,7 @@ def sync_detailed(
     """Delete a video caption
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
             [/videos/languages](#operation/getLanguages)) Example: en.
 
@@ -89,7 +89,7 @@ async def asyncio_detailed(
     """Delete a video caption
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
             [/videos/languages](#operation/getLanguages)) Example: en.
 

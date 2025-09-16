@@ -70,8 +70,8 @@ def sync_detailed(
     """Request ownership change
 
     Args:
-        id (Union[UUID, int, str]):
-        body (PostApiV1VideosIdGiveOwnershipBody):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (PostApiV1VideosIdGiveOwnershipBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -102,8 +102,8 @@ async def asyncio_detailed(
     """Request ownership change
 
     Args:
-        id (Union[UUID, int, str]):
-        body (PostApiV1VideosIdGiveOwnershipBody):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (PostApiV1VideosIdGiveOwnershipBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

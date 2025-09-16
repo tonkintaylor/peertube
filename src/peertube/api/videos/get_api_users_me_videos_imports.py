@@ -81,12 +81,12 @@ def sync_detailed(
     """Get video imports of my user
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        target_url (Union[Unset, str]):
-        video_channel_sync_id (Union[Unset, float]):
-        search (Union[Unset, str]):
+        target_url (Union[Unset, str]): Parameter for target url.
+        video_channel_sync_id (Union[Unset, float]): Video-related parameter.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -125,12 +125,12 @@ def sync(
     """Get video imports of my user
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        target_url (Union[Unset, str]):
-        video_channel_sync_id (Union[Unset, float]):
-        search (Union[Unset, str]):
+        target_url (Union[Unset, str]): Parameter for target url.
+        video_channel_sync_id (Union[Unset, float]): Video-related parameter.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -164,12 +164,12 @@ async def asyncio_detailed(
     """Get video imports of my user
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        target_url (Union[Unset, str]):
-        video_channel_sync_id (Union[Unset, float]):
-        search (Union[Unset, str]):
+        target_url (Union[Unset, str]): Parameter for target url.
+        video_channel_sync_id (Union[Unset, float]): Video-related parameter.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -206,12 +206,12 @@ async def asyncio(
     """Get video imports of my user
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        target_url (Union[Unset, str]):
-        video_channel_sync_id (Union[Unset, float]):
-        search (Union[Unset, str]):
+        target_url (Union[Unset, str]): Parameter for target url.
+        video_channel_sync_id (Union[Unset, float]): Video-related parameter.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -70,8 +70,8 @@ def sync_detailed(
     cancel the upload of a video
 
     Args:
-        upload_id (str):
-        content_length (float):
+        upload_id (str): Parameter for upload id.
+        content_length (float): Parameter for content length.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -105,8 +105,8 @@ async def asyncio_detailed(
     cancel the upload of a video
 
     Args:
-        upload_id (str):
-        content_length (float):
+        upload_id (str): Parameter for upload id.
+        content_length (float): Parameter for content length.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

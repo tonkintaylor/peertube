@@ -81,9 +81,9 @@ def sync_detailed(
     """List instance jobs
 
     Args:
-        state (GetJobsState):
-        job_type (Union[Unset, GetJobsJobType]):
-        start (Union[Unset, int]):
+        state (GetJobsState): Current state or status filter.
+        job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -122,9 +122,9 @@ def sync(
     """List instance jobs
 
     Args:
-        state (GetJobsState):
-        job_type (Union[Unset, GetJobsJobType]):
-        start (Union[Unset, int]):
+        state (GetJobsState): Current state or status filter.
+        job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -158,9 +158,9 @@ async def asyncio_detailed(
     """List instance jobs
 
     Args:
-        state (GetJobsState):
-        job_type (Union[Unset, GetJobsJobType]):
-        start (Union[Unset, int]):
+        state (GetJobsState): Current state or status filter.
+        job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -197,9 +197,9 @@ async def asyncio(
     """List instance jobs
 
     Args:
-        state (GetJobsState):
-        job_type (Union[Unset, GetJobsJobType]):
-        start (Union[Unset, int]):
+        state (GetJobsState): Current state or status filter.
+        job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 

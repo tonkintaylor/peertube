@@ -57,7 +57,7 @@ def sync_detailed(
     """Accept ownership change request
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -86,7 +86,7 @@ async def asyncio_detailed(
     """Accept ownership change request
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

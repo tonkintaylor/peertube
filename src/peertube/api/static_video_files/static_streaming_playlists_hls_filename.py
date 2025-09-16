@@ -56,7 +56,7 @@ def sync_detailed(
     """Get public HLS video file
 
     Args:
-        filename (str):
+        filename (str): Parameter for filename.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -85,7 +85,7 @@ async def asyncio_detailed(
     """Get public HLS video file
 
     Args:
-        filename (str):
+        filename (str): Parameter for filename.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

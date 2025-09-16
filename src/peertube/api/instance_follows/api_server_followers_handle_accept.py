@@ -53,7 +53,7 @@ def sync_detailed(
     """Accept a pending follower to your server
 
     Args:
-        handle (str):
+        handle (str): Parameter for handle.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -82,7 +82,7 @@ async def asyncio_detailed(
     """Accept a pending follower to your server
 
     Args:
-        handle (str):
+        handle (str): Parameter for handle.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

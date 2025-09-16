@@ -53,7 +53,7 @@ def sync_detailed(
     """Delete a mirror done on a video
 
     Args:
-        redundancy_id (str):
+        redundancy_id (str): Parameter for redundancy id.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -82,7 +82,7 @@ async def asyncio_detailed(
     """Delete a mirror done on a video
 
     Args:
-        redundancy_id (str):
+        redundancy_id (str): Parameter for redundancy id.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

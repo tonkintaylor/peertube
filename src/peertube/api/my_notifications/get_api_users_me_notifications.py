@@ -79,9 +79,9 @@ def sync_detailed(
     """List my notifications
 
     Args:
-        type_one_of (Union[Unset, list[NotificationType]]):
-        unread (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        type_one_of (Union[Unset, list[NotificationType]]): Parameter for type one of.
+        unread (Union[Unset, bool]): Parameter for unread.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -120,9 +120,9 @@ async def asyncio_detailed(
     """List my notifications
 
     Args:
-        type_one_of (Union[Unset, list[NotificationType]]):
-        unread (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        type_one_of (Union[Unset, list[NotificationType]]): Parameter for type one of.
+        unread (Union[Unset, bool]): Parameter for unread.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 

@@ -70,8 +70,8 @@ def sync_detailed(
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
-        with_stats (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        with_stats (Union[Unset, bool]): Parameter for with stats.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -111,8 +111,8 @@ async def asyncio_detailed(
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
-        with_stats (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        with_stats (Union[Unset, bool]): Parameter for with stats.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 

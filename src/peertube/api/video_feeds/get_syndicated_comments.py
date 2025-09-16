@@ -101,12 +101,12 @@ def sync_detailed(
     """Comments on videos feeds
 
     Args:
-        format_ (GetSyndicatedCommentsFormat):
-        video_id (Union[Unset, str]):
-        account_id (Union[Unset, str]):
-        account_name (Union[Unset, str]):
-        video_channel_id (Union[Unset, str]):
-        video_channel_name (Union[Unset, str]):
+        format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
+        video_id (Union[Unset, str]): Unique identifier for the video.
+        account_id (Union[Unset, str]): Parameter for account id.
+        account_name (Union[Unset, str]): Parameter for account name.
+        video_channel_id (Union[Unset, str]): Video-related parameter.
+        video_channel_name (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,12 +145,12 @@ def sync(
     """Comments on videos feeds
 
     Args:
-        format_ (GetSyndicatedCommentsFormat):
-        video_id (Union[Unset, str]):
-        account_id (Union[Unset, str]):
-        account_name (Union[Unset, str]):
-        video_channel_id (Union[Unset, str]):
-        video_channel_name (Union[Unset, str]):
+        format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
+        video_id (Union[Unset, str]): Unique identifier for the video.
+        account_id (Union[Unset, str]): Parameter for account id.
+        account_name (Union[Unset, str]): Parameter for account name.
+        video_channel_id (Union[Unset, str]): Video-related parameter.
+        video_channel_name (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -184,12 +184,12 @@ async def asyncio_detailed(
     """Comments on videos feeds
 
     Args:
-        format_ (GetSyndicatedCommentsFormat):
-        video_id (Union[Unset, str]):
-        account_id (Union[Unset, str]):
-        account_name (Union[Unset, str]):
-        video_channel_id (Union[Unset, str]):
-        video_channel_name (Union[Unset, str]):
+        format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
+        video_id (Union[Unset, str]): Unique identifier for the video.
+        account_id (Union[Unset, str]): Parameter for account id.
+        account_name (Union[Unset, str]): Parameter for account name.
+        video_channel_id (Union[Unset, str]): Video-related parameter.
+        video_channel_name (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -226,12 +226,12 @@ async def asyncio(
     """Comments on videos feeds
 
     Args:
-        format_ (GetSyndicatedCommentsFormat):
-        video_id (Union[Unset, str]):
-        account_id (Union[Unset, str]):
-        account_name (Union[Unset, str]):
-        video_channel_id (Union[Unset, str]):
-        video_channel_name (Union[Unset, str]):
+        format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
+        video_id (Union[Unset, str]): Unique identifier for the video.
+        account_id (Union[Unset, str]): Parameter for account id.
+        account_name (Union[Unset, str]): Parameter for account name.
+        video_channel_id (Union[Unset, str]): Video-related parameter.
+        video_channel_name (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -231,7 +231,7 @@ def sync_detailed(
     """List videos
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, GetVideosSkipCount]):  Default: GetVideosSkipCount.FALSE.
         sort (Union[Unset, GetVideosSort]): Sort videos by criteria (prefixing with `-` means
@@ -242,34 +242,34 @@ def sync_detailed(
               * `trending` - Sort videos by recent views ("recent" is defined by the admin)
               * `views` - Sort videos using their `views` counter
               * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, GetVideosNsfw]):
-        nsfw_flags_included (Union[Unset, NSFWFlag]):
+        nsfw (Union[Unset, GetVideosNsfw]): Parameter for nsfw.
+        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]):
+        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]):
-        include_scheduled_live (Union[Unset, bool]):
-        category_one_of (Union[Unset, int, list[int]]):
-        licence_one_of (Union[Unset, int, list[int]]):
-        language_one_of (Union[Unset, list[str], str]):
-        tags_one_of (Union[Unset, list[str], str]):
-        tags_all_of (Union[Unset, list[str], str]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetVideosInclude]):
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
-        host (Union[Unset, str]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
+        is_live (Union[Unset, bool]): Parameter for is live.
+        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
+        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
+        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
+        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
+        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
+        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetVideosInclude]): Parameter for include.
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
+        host (Union[Unset, str]): Parameter for host.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]):
-        search (Union[Unset, str]):
+        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -342,7 +342,7 @@ def sync(
     """List videos
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, GetVideosSkipCount]):  Default: GetVideosSkipCount.FALSE.
         sort (Union[Unset, GetVideosSort]): Sort videos by criteria (prefixing with `-` means
@@ -353,34 +353,34 @@ def sync(
               * `trending` - Sort videos by recent views ("recent" is defined by the admin)
               * `views` - Sort videos using their `views` counter
               * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, GetVideosNsfw]):
-        nsfw_flags_included (Union[Unset, NSFWFlag]):
+        nsfw (Union[Unset, GetVideosNsfw]): Parameter for nsfw.
+        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]):
+        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]):
-        include_scheduled_live (Union[Unset, bool]):
-        category_one_of (Union[Unset, int, list[int]]):
-        licence_one_of (Union[Unset, int, list[int]]):
-        language_one_of (Union[Unset, list[str], str]):
-        tags_one_of (Union[Unset, list[str], str]):
-        tags_all_of (Union[Unset, list[str], str]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetVideosInclude]):
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
-        host (Union[Unset, str]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
+        is_live (Union[Unset, bool]): Parameter for is live.
+        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
+        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
+        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
+        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
+        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
+        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetVideosInclude]): Parameter for include.
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
+        host (Union[Unset, str]): Parameter for host.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]):
-        search (Union[Unset, str]):
+        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -448,7 +448,7 @@ async def asyncio_detailed(
     """List videos
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, GetVideosSkipCount]):  Default: GetVideosSkipCount.FALSE.
         sort (Union[Unset, GetVideosSort]): Sort videos by criteria (prefixing with `-` means
@@ -459,34 +459,34 @@ async def asyncio_detailed(
               * `trending` - Sort videos by recent views ("recent" is defined by the admin)
               * `views` - Sort videos using their `views` counter
               * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, GetVideosNsfw]):
-        nsfw_flags_included (Union[Unset, NSFWFlag]):
+        nsfw (Union[Unset, GetVideosNsfw]): Parameter for nsfw.
+        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]):
+        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]):
-        include_scheduled_live (Union[Unset, bool]):
-        category_one_of (Union[Unset, int, list[int]]):
-        licence_one_of (Union[Unset, int, list[int]]):
-        language_one_of (Union[Unset, list[str], str]):
-        tags_one_of (Union[Unset, list[str], str]):
-        tags_all_of (Union[Unset, list[str], str]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetVideosInclude]):
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
-        host (Union[Unset, str]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
+        is_live (Union[Unset, bool]): Parameter for is live.
+        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
+        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
+        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
+        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
+        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
+        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetVideosInclude]): Parameter for include.
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
+        host (Union[Unset, str]): Parameter for host.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]):
-        search (Union[Unset, str]):
+        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -557,7 +557,7 @@ async def asyncio(
     """List videos
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, GetVideosSkipCount]):  Default: GetVideosSkipCount.FALSE.
         sort (Union[Unset, GetVideosSort]): Sort videos by criteria (prefixing with `-` means
@@ -568,34 +568,34 @@ async def asyncio(
               * `trending` - Sort videos by recent views ("recent" is defined by the admin)
               * `views` - Sort videos using their `views` counter
               * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, GetVideosNsfw]):
-        nsfw_flags_included (Union[Unset, NSFWFlag]):
+        nsfw (Union[Unset, GetVideosNsfw]): Parameter for nsfw.
+        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]):
+        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
             NSFW flags (can be combined using bitwise or operator)
             - `0` NONE
             - `1` VIOLENT
             - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]):
-        include_scheduled_live (Union[Unset, bool]):
-        category_one_of (Union[Unset, int, list[int]]):
-        licence_one_of (Union[Unset, int, list[int]]):
-        language_one_of (Union[Unset, list[str], str]):
-        tags_one_of (Union[Unset, list[str], str]):
-        tags_all_of (Union[Unset, list[str], str]):
-        is_local (Union[Unset, bool]):
-        include (Union[Unset, GetVideosInclude]):
-        has_hls_files (Union[Unset, bool]):
-        has_web_video_files (Union[Unset, bool]):
-        host (Union[Unset, str]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
+        is_live (Union[Unset, bool]): Parameter for is live.
+        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
+        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
+        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
+        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
+        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
+        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
+        is_local (Union[Unset, bool]): Parameter for is local.
+        include (Union[Unset, GetVideosInclude]): Parameter for include.
+        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
+        has_web_video_files (Union[Unset, bool]): Video-related parameter.
+        host (Union[Unset, str]): Parameter for host.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
         privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
             [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]):
-        search (Union[Unset, str]):
+        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

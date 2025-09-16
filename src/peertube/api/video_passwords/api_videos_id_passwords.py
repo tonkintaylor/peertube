@@ -78,8 +78,8 @@ def sync_detailed(
      **PeerTube >= 6.0**
 
     Args:
-        id (Union[UUID, int, str]):
-        start (Union[Unset, int]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -118,8 +118,8 @@ def sync(
      **PeerTube >= 6.0**
 
     Args:
-        id (Union[UUID, int, str]):
-        start (Union[Unset, int]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -153,8 +153,8 @@ async def asyncio_detailed(
      **PeerTube >= 6.0**
 
     Args:
-        id (Union[UUID, int, str]):
-        start (Union[Unset, int]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -191,8 +191,8 @@ async def asyncio(
      **PeerTube >= 6.0**
 
     Args:
-        id (Union[UUID, int, str]):
-        start (Union[Unset, int]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 

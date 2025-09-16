@@ -56,7 +56,7 @@ def sync_detailed(
      If the video playlist is set as public, `videoChannelId` is mandatory.
 
     Args:
-        body (AddPlaylistBody):
+        body (AddPlaylistBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -87,7 +87,7 @@ async def asyncio_detailed(
      If the video playlist is set as public, `videoChannelId` is mandatory.
 
     Args:
-        body (AddPlaylistBody):
+        body (AddPlaylistBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

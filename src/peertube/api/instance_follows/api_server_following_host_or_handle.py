@@ -53,7 +53,7 @@ def sync_detailed(
     """Unfollow an actor (PeerTube instance, channel or account)
 
     Args:
-        host_or_handle (str):
+        host_or_handle (str): Parameter for host or handle.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -82,7 +82,7 @@ async def asyncio_detailed(
     """Unfollow an actor (PeerTube instance, channel or account)
 
     Args:
-        host_or_handle (str):
+        host_or_handle (str): Parameter for host or handle.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -94,13 +94,13 @@ def sync_detailed(
     """Search playlists
 
     Args:
-        search (str):
-        start (Union[Unset, int]):
+        search (str): Search query filter.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search_target (Union[Unset, SearchPlaylistsSearchTarget]):
+        search_target (Union[Unset, SearchPlaylistsSearchTarget]): Search filter for target.
         sort (Union[Unset, str]):  Example: -createdAt.
-        host (Union[Unset, str]):
-        uuids (Union[Unset, Any]):
+        host (Union[Unset, str]): Parameter for host.
+        uuids (Union[Unset, Any]): Parameter for uuids.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,13 +141,13 @@ def sync(
     """Search playlists
 
     Args:
-        search (str):
-        start (Union[Unset, int]):
+        search (str): Search query filter.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search_target (Union[Unset, SearchPlaylistsSearchTarget]):
+        search_target (Union[Unset, SearchPlaylistsSearchTarget]): Search filter for target.
         sort (Union[Unset, str]):  Example: -createdAt.
-        host (Union[Unset, str]):
-        uuids (Union[Unset, Any]):
+        host (Union[Unset, str]): Parameter for host.
+        uuids (Union[Unset, Any]): Parameter for uuids.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -183,13 +183,13 @@ async def asyncio_detailed(
     """Search playlists
 
     Args:
-        search (str):
-        start (Union[Unset, int]):
+        search (str): Search query filter.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search_target (Union[Unset, SearchPlaylistsSearchTarget]):
+        search_target (Union[Unset, SearchPlaylistsSearchTarget]): Search filter for target.
         sort (Union[Unset, str]):  Example: -createdAt.
-        host (Union[Unset, str]):
-        uuids (Union[Unset, Any]):
+        host (Union[Unset, str]): Parameter for host.
+        uuids (Union[Unset, Any]): Parameter for uuids.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -228,13 +228,13 @@ async def asyncio(
     """Search playlists
 
     Args:
-        search (str):
-        start (Union[Unset, int]):
+        search (str): Search query filter.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search_target (Union[Unset, SearchPlaylistsSearchTarget]):
+        search_target (Union[Unset, SearchPlaylistsSearchTarget]): Search filter for target.
         sort (Union[Unset, str]):  Example: -createdAt.
-        host (Union[Unset, str]):
-        uuids (Union[Unset, Any]):
+        host (Union[Unset, str]): Parameter for host.
+        uuids (Union[Unset, Any]): Parameter for uuids.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

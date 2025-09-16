@@ -83,10 +83,10 @@ def sync_detailed(
     uploadx/blob/master/proto.md) to initialize the replacement of a video
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         x_upload_content_length (float):  Example: 2469036.
         x_upload_content_type (str):  Example: video/mp4.
-        body (VideoReplaceSourceRequestResumable):
+        body (VideoReplaceSourceRequestResumable): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -124,10 +124,10 @@ async def asyncio_detailed(
     uploadx/blob/master/proto.md) to initialize the replacement of a video
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         x_upload_content_length (float):  Example: 2469036.
         x_upload_content_type (str):  Example: video/mp4.
-        body (VideoReplaceSourceRequestResumable):
+        body (VideoReplaceSourceRequestResumable): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

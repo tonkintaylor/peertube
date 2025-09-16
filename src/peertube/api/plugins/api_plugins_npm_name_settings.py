@@ -67,7 +67,7 @@ def sync_detailed(
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
-        body (PutApiV1PluginsNpmNameSettingsBody):
+        body (PutApiV1PluginsNpmNameSettingsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -99,7 +99,7 @@ async def asyncio_detailed(
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
-        body (PutApiV1PluginsNpmNameSettingsBody):
+        body (PutApiV1PluginsNpmNameSettingsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

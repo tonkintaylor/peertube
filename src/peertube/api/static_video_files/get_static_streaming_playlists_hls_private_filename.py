@@ -70,9 +70,9 @@ def sync_detailed(
     """Get private HLS video file
 
     Args:
-        filename (str):
-        video_file_token (Union[Unset, str]):
-        reinject_video_file_token (Union[Unset, bool]):
+        filename (str): Parameter for filename.
+        video_file_token (Union[Unset, str]): Video-related parameter.
+        reinject_video_file_token (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -105,9 +105,9 @@ async def asyncio_detailed(
     """Get private HLS video file
 
     Args:
-        filename (str):
-        video_file_token (Union[Unset, str]):
-        reinject_video_file_token (Union[Unset, bool]):
+        filename (str): Parameter for filename.
+        video_file_token (Union[Unset, str]): Video-related parameter.
+        reinject_video_file_token (Union[Unset, bool]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

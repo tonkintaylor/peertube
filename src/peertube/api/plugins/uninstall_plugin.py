@@ -62,7 +62,7 @@ def sync_detailed(
     """Uninstall a plugin
 
     Args:
-        body (UninstallPluginBody):
+        body (UninstallPluginBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -91,7 +91,7 @@ async def asyncio_detailed(
     """Uninstall a plugin
 
     Args:
-        body (UninstallPluginBody):
+        body (UninstallPluginBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

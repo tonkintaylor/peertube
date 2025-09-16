@@ -64,8 +64,8 @@ def sync_detailed(
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -98,8 +98,8 @@ def sync(
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -127,8 +127,8 @@ async def asyncio_detailed(
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -159,8 +159,8 @@ async def asyncio(
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -65,10 +65,10 @@ def sync_detailed(
     """Add or replace a video caption
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
             [/videos/languages](#operation/getLanguages)) Example: en.
-        body (AddVideoCaptionBody):
+        body (AddVideoCaptionBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -101,10 +101,10 @@ async def asyncio_detailed(
     """Add or replace a video caption
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
             [/videos/languages](#operation/getLanguages)) Example: en.
-        body (AddVideoCaptionBody):
+        body (AddVideoCaptionBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

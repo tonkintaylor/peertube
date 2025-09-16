@@ -70,7 +70,7 @@ def sync_detailed(
     """Update a plugin
 
     Args:
-        body (Union['UpdatePluginBodyType0', 'UpdatePluginBodyType1']):
+        body (Union['UpdatePluginBodyType0', 'UpdatePluginBodyType1']): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -99,7 +99,7 @@ async def asyncio_detailed(
     """Update a plugin
 
     Args:
-        body (Union['UpdatePluginBodyType0', 'UpdatePluginBodyType1']):
+        body (Union['UpdatePluginBodyType0', 'UpdatePluginBodyType1']): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

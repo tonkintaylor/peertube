@@ -92,11 +92,11 @@ def sync_detailed(
     """List jobs
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersJobsSort]):
-        search (Union[Unset, str]):
-        state_one_of (Union[Unset, list[RunnerJobState]]):
+        sort (Union[Unset, GetApiV1RunnersJobsSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
+        state_one_of (Union[Unset, list[RunnerJobState]]): Parameter for state one of.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -133,11 +133,11 @@ def sync(
     """List jobs
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersJobsSort]):
-        search (Union[Unset, str]):
-        state_one_of (Union[Unset, list[RunnerJobState]]):
+        sort (Union[Unset, GetApiV1RunnersJobsSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
+        state_one_of (Union[Unset, list[RunnerJobState]]): Parameter for state one of.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -169,11 +169,11 @@ async def asyncio_detailed(
     """List jobs
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersJobsSort]):
-        search (Union[Unset, str]):
-        state_one_of (Union[Unset, list[RunnerJobState]]):
+        sort (Union[Unset, GetApiV1RunnersJobsSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
+        state_one_of (Union[Unset, list[RunnerJobState]]): Parameter for state one of.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -208,11 +208,11 @@ async def asyncio(
     """List jobs
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1RunnersJobsSort]):
-        search (Union[Unset, str]):
-        state_one_of (Union[Unset, list[RunnerJobState]]):
+        sort (Union[Unset, GetApiV1RunnersJobsSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
+        state_one_of (Union[Unset, list[RunnerJobState]]): Parameter for state one of.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

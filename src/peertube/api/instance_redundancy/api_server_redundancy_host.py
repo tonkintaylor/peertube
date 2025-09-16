@@ -66,8 +66,8 @@ def sync_detailed(
     """Update a server redundancy policy
 
     Args:
-        host (str):
-        body (PutApiV1ServerRedundancyHostBody):
+        host (str): Parameter for host.
+        body (PutApiV1ServerRedundancyHostBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -98,8 +98,8 @@ async def asyncio_detailed(
     """Update a server redundancy policy
 
     Args:
-        host (str):
-        body (PutApiV1ServerRedundancyHostBody):
+        host (str): Parameter for host.
+        body (PutApiV1ServerRedundancyHostBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

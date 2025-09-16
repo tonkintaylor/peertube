@@ -65,8 +65,8 @@ def sync_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        account_name (str):
-        body (PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody):
+        account_name (str): Parameter for account name.
+        body (PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -99,8 +99,8 @@ async def asyncio_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        account_name (str):
-        body (PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody):
+        account_name (str): Parameter for account name.
+        body (PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

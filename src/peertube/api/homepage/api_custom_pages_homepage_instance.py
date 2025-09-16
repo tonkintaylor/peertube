@@ -61,7 +61,7 @@ def sync_detailed(
     """Set instance custom homepage
 
     Args:
-        body (PutApiV1CustomPagesHomepageInstanceBody):
+        body (PutApiV1CustomPagesHomepageInstanceBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,7 +90,7 @@ async def asyncio_detailed(
     """Set instance custom homepage
 
     Args:
-        body (PutApiV1CustomPagesHomepageInstanceBody):
+        body (PutApiV1CustomPagesHomepageInstanceBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

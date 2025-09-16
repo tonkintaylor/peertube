@@ -61,7 +61,7 @@ def sync_detailed(
      **PeerTube >= 6.0**
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         video_password_id (int):  Example: 42.
 
     Raises:
@@ -95,7 +95,7 @@ async def asyncio_detailed(
      **PeerTube >= 6.0**
 
     Args:
-        id (Union[UUID, int, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
         video_password_id (int):  Example: 42.
 
     Raises:

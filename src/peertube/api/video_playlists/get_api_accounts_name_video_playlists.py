@@ -89,10 +89,10 @@ def sync_detailed(
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
             `1`, Watch Later = `2`)
 
@@ -134,10 +134,10 @@ def sync(
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
             `1`, Watch Later = `2`)
 
@@ -174,10 +174,10 @@ async def asyncio_detailed(
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
             `1`, Watch Later = `2`)
 
@@ -217,10 +217,10 @@ async def asyncio(
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
             `1`, Watch Later = `2`)
 

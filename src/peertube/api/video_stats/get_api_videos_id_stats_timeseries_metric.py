@@ -80,10 +80,10 @@ def sync_detailed(
     """Get timeserie stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric): Parameter for metric.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -118,10 +118,10 @@ def sync(
     """Get timeserie stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric): Parameter for metric.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -151,10 +151,10 @@ async def asyncio_detailed(
     """Get timeserie stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric): Parameter for metric.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -187,10 +187,10 @@ async def asyncio(
     """Get timeserie stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        metric (GetApiV1VideosIdStatsTimeseriesMetricMetric): Parameter for metric.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

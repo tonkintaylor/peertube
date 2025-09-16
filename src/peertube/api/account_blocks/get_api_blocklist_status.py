@@ -73,8 +73,8 @@ def sync_detailed(
     """Get block status of accounts/hosts
 
     Args:
-        accounts (Union[Unset, list[str]]):
-        hosts (Union[Unset, list[str]]):
+        accounts (Union[Unset, list[str]]): Parameter for accounts.
+        hosts (Union[Unset, list[str]]): Parameter for hosts.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -105,8 +105,8 @@ def sync(
     """Get block status of accounts/hosts
 
     Args:
-        accounts (Union[Unset, list[str]]):
-        hosts (Union[Unset, list[str]]):
+        accounts (Union[Unset, list[str]]): Parameter for accounts.
+        hosts (Union[Unset, list[str]]): Parameter for hosts.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -132,8 +132,8 @@ async def asyncio_detailed(
     """Get block status of accounts/hosts
 
     Args:
-        accounts (Union[Unset, list[str]]):
-        hosts (Union[Unset, list[str]]):
+        accounts (Union[Unset, list[str]]): Parameter for accounts.
+        hosts (Union[Unset, list[str]]): Parameter for hosts.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -162,8 +162,8 @@ async def asyncio(
     """Get block status of accounts/hosts
 
     Args:
-        accounts (Union[Unset, list[str]]):
-        hosts (Union[Unset, list[str]]):
+        accounts (Union[Unset, list[str]]): Parameter for accounts.
+        hosts (Union[Unset, list[str]]): Parameter for hosts.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

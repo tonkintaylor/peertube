@@ -68,8 +68,8 @@ def sync_detailed(
      **PeerTube >= 6.0**
 
     Args:
-        filename (str):
-        video_file_token (Union[Unset, str]):
+        filename (str): Parameter for filename.
+        video_file_token (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -102,8 +102,8 @@ async def asyncio_detailed(
      **PeerTube >= 6.0**
 
     Args:
-        filename (str):
-        video_file_token (Union[Unset, str]):
+        filename (str): Parameter for filename.
+        video_file_token (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

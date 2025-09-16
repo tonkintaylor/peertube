@@ -63,7 +63,7 @@ def sync_detailed(
      API used by PeerTube runners
 
     Args:
-        body (PostApiV1RunnersUnregisterBody):
+        body (PostApiV1RunnersUnregisterBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -94,7 +94,7 @@ async def asyncio_detailed(
      API used by PeerTube runners
 
     Args:
-        body (PostApiV1RunnersUnregisterBody):
+        body (PostApiV1RunnersUnregisterBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

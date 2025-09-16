@@ -69,9 +69,9 @@ def sync_detailed(
     """Like/dislike a video
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
-        body (PutApiV1VideosIdRateBody):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
+        body (PutApiV1VideosIdRateBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -104,9 +104,9 @@ async def asyncio_detailed(
     """Like/dislike a video
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
-        body (PutApiV1VideosIdRateBody):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
+        body (PutApiV1VideosIdRateBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

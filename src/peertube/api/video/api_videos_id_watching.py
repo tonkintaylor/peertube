@@ -64,8 +64,8 @@ def sync_detailed(
      This endpoint has been deprecated. Use `/videos/{id}/views` instead
 
     Args:
-        id (Union[UUID, int, str]):
-        body (UserViewingVideo):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (UserViewingVideo): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -98,8 +98,8 @@ async def asyncio_detailed(
      This endpoint has been deprecated. Use `/videos/{id}/views` instead
 
     Args:
-        id (Union[UUID, int, str]):
-        body (UserViewingVideo):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (UserViewingVideo): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

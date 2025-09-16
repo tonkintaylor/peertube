@@ -85,10 +85,10 @@ def sync_detailed(
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetVideoChannelFollowersSort]):
-        search (Union[Unset, str]):
+        sort (Union[Unset, GetVideoChannelFollowersSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -126,10 +126,10 @@ def sync(
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetVideoChannelFollowersSort]):
-        search (Union[Unset, str]):
+        sort (Union[Unset, GetVideoChannelFollowersSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -162,10 +162,10 @@ async def asyncio_detailed(
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetVideoChannelFollowersSort]):
-        search (Union[Unset, str]):
+        sort (Union[Unset, GetVideoChannelFollowersSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -201,10 +201,10 @@ async def asyncio(
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetVideoChannelFollowersSort]):
-        search (Union[Unset, str]):
+        sort (Union[Unset, GetVideoChannelFollowersSort]): Sorting criteria for results.
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -59,7 +59,7 @@ def sync_detailed(
     """Send client log
 
     Args:
-        body (SendClientLog):
+        body (SendClientLog): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -88,7 +88,7 @@ async def asyncio_detailed(
     """Send client log
 
     Args:
-        body (SendClientLog):
+        body (SendClientLog): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

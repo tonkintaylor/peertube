@@ -70,7 +70,7 @@ def sync_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        body (PostApiV1WatchedWordsServerListsBody):
+        body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -101,7 +101,7 @@ def sync(
      **PeerTube >= 6.2**
 
     Args:
-        body (PostApiV1WatchedWordsServerListsBody):
+        body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -127,7 +127,7 @@ async def asyncio_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        body (PostApiV1WatchedWordsServerListsBody):
+        body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -156,7 +156,7 @@ async def asyncio(
      **PeerTube >= 6.2**
 
     Args:
-        body (PostApiV1WatchedWordsServerListsBody):
+        body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

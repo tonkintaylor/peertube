@@ -83,10 +83,10 @@ def sync_detailed(
 
     Args:
         user_id (int):  Example: 42.
-        upload_id (str):
+        upload_id (str): Parameter for upload id.
         content_range (str):  Example: bytes 0-262143/2469036.
         content_length (float):  Example: 262144.
-        body (File):
+        body (File): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -127,10 +127,10 @@ async def asyncio_detailed(
 
     Args:
         user_id (int):  Example: 42.
-        upload_id (str):
+        upload_id (str): Parameter for upload id.
         content_range (str):  Example: bytes 0-262143/2469036.
         content_length (float):  Example: 262144.
-        body (File):
+        body (File): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

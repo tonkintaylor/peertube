@@ -75,9 +75,9 @@ def sync_detailed(
     """Get overall stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -110,9 +110,9 @@ def sync(
     """Get overall stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -140,9 +140,9 @@ async def asyncio_detailed(
     """Get overall stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,9 +173,9 @@ async def asyncio(
     """Get overall stats of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        start_date (Union[Unset, datetime.datetime]):
-        end_date (Union[Unset, datetime.datetime]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
+        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

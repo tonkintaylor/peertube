@@ -63,8 +63,8 @@ def sync_detailed(
     """Delete a runner
 
     Args:
-        runner_id (int):
-        body (DeleteApiV1RunnersRunnerIdBody):
+        runner_id (int): Parameter for runner id.
+        body (DeleteApiV1RunnersRunnerIdBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -95,8 +95,8 @@ async def asyncio_detailed(
     """Delete a runner
 
     Args:
-        runner_id (int):
-        body (DeleteApiV1RunnersRunnerIdBody):
+        runner_id (int): Parameter for runner id.
+        body (DeleteApiV1RunnersRunnerIdBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

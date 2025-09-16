@@ -80,11 +80,11 @@ def sync_detailed(
     """List threads of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        start (Union[Unset, int]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1VideosIdCommentThreadsSort]):
-        x_peertube_video_password (Union[Unset, str]):
+        sort (Union[Unset, GetApiV1VideosIdCommentThreadsSort]): Sorting criteria for results.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -121,11 +121,11 @@ async def asyncio_detailed(
     """List threads of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        start (Union[Unset, int]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1VideosIdCommentThreadsSort]):
-        x_peertube_video_password (Union[Unset, str]):
+        sort (Union[Unset, GetApiV1VideosIdCommentThreadsSort]): Sorting criteria for results.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

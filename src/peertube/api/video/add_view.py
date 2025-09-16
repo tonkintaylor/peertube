@@ -66,8 +66,8 @@ def sync_detailed(
     authenticated, PeerTube will also store the current player time.
 
     Args:
-        id (Union[UUID, int, str]):
-        body (UserViewingVideo):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (UserViewingVideo): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -102,8 +102,8 @@ async def asyncio_detailed(
     authenticated, PeerTube will also store the current player time.
 
     Args:
-        id (Union[UUID, int, str]):
-        body (UserViewingVideo):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (UserViewingVideo): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -67,9 +67,9 @@ def sync_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        account_name (str):
-        list_id (str):
-        body (PutApiV1WatchedWordsAccountsAccountNameListsListIdBody):
+        account_name (str): Parameter for account name.
+        list_id (str): Parameter for list id.
+        body (PutApiV1WatchedWordsAccountsAccountNameListsListIdBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -104,9 +104,9 @@ async def asyncio_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        account_name (str):
-        list_id (str):
-        body (PutApiV1WatchedWordsAccountsAccountNameListsListIdBody):
+        account_name (str): Parameter for account name.
+        list_id (str): Parameter for list id.
+        body (PutApiV1WatchedWordsAccountsAccountNameListsListIdBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

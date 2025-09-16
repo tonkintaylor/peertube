@@ -93,9 +93,9 @@ def sync_detailed(
     """List instances followed by the server
 
     Args:
-        state (Union[Unset, GetApiV1ServerFollowingState]):
-        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]):
-        start (Union[Unset, int]):
+        state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.
+        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]): Parameter for actor type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -134,9 +134,9 @@ def sync(
     """List instances followed by the server
 
     Args:
-        state (Union[Unset, GetApiV1ServerFollowingState]):
-        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]):
-        start (Union[Unset, int]):
+        state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.
+        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]): Parameter for actor type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -170,9 +170,9 @@ async def asyncio_detailed(
     """List instances followed by the server
 
     Args:
-        state (Union[Unset, GetApiV1ServerFollowingState]):
-        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]):
-        start (Union[Unset, int]):
+        state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.
+        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]): Parameter for actor type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -209,9 +209,9 @@ async def asyncio(
     """List instances followed by the server
 
     Args:
-        state (Union[Unset, GetApiV1ServerFollowingState]):
-        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]):
-        start (Union[Unset, int]):
+        state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.
+        actor_type (Union[Unset, GetApiV1ServerFollowingActorType]): Parameter for actor type.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 

@@ -85,10 +85,10 @@ def sync_detailed(
     """List videos being mirrored
 
     Args:
-        target (GetMirroredVideosTarget):
-        start (Union[Unset, int]):
+        target (GetMirroredVideosTarget): Parameter for target.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetMirroredVideosSort]):
+        sort (Union[Unset, GetMirroredVideosSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -123,10 +123,10 @@ def sync(
     """List videos being mirrored
 
     Args:
-        target (GetMirroredVideosTarget):
-        start (Union[Unset, int]):
+        target (GetMirroredVideosTarget): Parameter for target.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetMirroredVideosSort]):
+        sort (Union[Unset, GetMirroredVideosSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -156,10 +156,10 @@ async def asyncio_detailed(
     """List videos being mirrored
 
     Args:
-        target (GetMirroredVideosTarget):
-        start (Union[Unset, int]):
+        target (GetMirroredVideosTarget): Parameter for target.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetMirroredVideosSort]):
+        sort (Union[Unset, GetMirroredVideosSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -192,10 +192,10 @@ async def asyncio(
     """List videos being mirrored
 
     Args:
-        target (GetMirroredVideosTarget):
-        start (Union[Unset, int]):
+        target (GetMirroredVideosTarget): Parameter for target.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetMirroredVideosSort]):
+        sort (Union[Unset, GetMirroredVideosSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

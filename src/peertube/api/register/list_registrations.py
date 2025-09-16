@@ -78,11 +78,11 @@ def sync_detailed(
     """List registrations
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         client: Authenticated HTTP client for API requests.
-        sort (Union[Unset, ListRegistrationsSort]):
+        sort (Union[Unset, ListRegistrationsSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,11 +117,11 @@ def sync(
     """List registrations
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         client: Authenticated HTTP client for API requests.
-        sort (Union[Unset, ListRegistrationsSort]):
+        sort (Union[Unset, ListRegistrationsSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -151,11 +151,11 @@ async def asyncio_detailed(
     """List registrations
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         client: Authenticated HTTP client for API requests.
-        sort (Union[Unset, ListRegistrationsSort]):
+        sort (Union[Unset, ListRegistrationsSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -188,11 +188,11 @@ async def asyncio(
     """List registrations
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
         client: Authenticated HTTP client for API requests.
-        sort (Union[Unset, ListRegistrationsSort]):
+        sort (Union[Unset, ListRegistrationsSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

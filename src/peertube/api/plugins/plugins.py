@@ -77,9 +77,9 @@ def sync_detailed(
     """List plugins
 
     Args:
-        plugin_type (Union[Unset, int]):
-        uninstalled (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        uninstalled (Union[Unset, bool]): Parameter for uninstalled.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -118,9 +118,9 @@ def sync(
     """List plugins
 
     Args:
-        plugin_type (Union[Unset, int]):
-        uninstalled (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        uninstalled (Union[Unset, bool]): Parameter for uninstalled.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -154,9 +154,9 @@ async def asyncio_detailed(
     """List plugins
 
     Args:
-        plugin_type (Union[Unset, int]):
-        uninstalled (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        uninstalled (Union[Unset, bool]): Parameter for uninstalled.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 
@@ -193,9 +193,9 @@ async def asyncio(
     """List plugins
 
     Args:
-        plugin_type (Union[Unset, int]):
-        uninstalled (Union[Unset, bool]):
-        start (Union[Unset, int]):
+        plugin_type (Union[Unset, int]): Parameter for plugin type.
+        uninstalled (Union[Unset, bool]): Parameter for uninstalled.
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
 

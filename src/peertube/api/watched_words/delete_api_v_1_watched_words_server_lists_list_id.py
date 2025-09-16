@@ -52,7 +52,7 @@ def sync_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        list_id (str):
+        list_id (str): Parameter for list id.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -83,7 +83,7 @@ async def asyncio_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        list_id (str):
+        list_id (str): Parameter for list id.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

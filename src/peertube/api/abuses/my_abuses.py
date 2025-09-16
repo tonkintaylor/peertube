@@ -81,11 +81,11 @@ def sync_detailed(
     """List my abuses
 
     Args:
-        id (Union[Unset, int]):
+        id (Union[Unset, int]): Unique identifier for the entity.
         state (Union[Unset, AbuseStateSet]): The abuse state (Pending = `1`, Rejected = `2`,
             Accepted = `3`)
-        sort (Union[Unset, GetMyAbusesSort]):
-        start (Union[Unset, int]):
+        sort (Union[Unset, GetMyAbusesSort]): Sorting criteria for results.
+        start (Union[Unset, int]): Starting index for pagination.
         client: Authenticated HTTP client for API requests.
         count (Union[Unset, int]):  Default: 15.
 
@@ -124,11 +124,11 @@ async def asyncio_detailed(
     """List my abuses
 
     Args:
-        id (Union[Unset, int]):
+        id (Union[Unset, int]): Unique identifier for the entity.
         state (Union[Unset, AbuseStateSet]): The abuse state (Pending = `1`, Rejected = `2`,
             Accepted = `3`)
-        sort (Union[Unset, GetMyAbusesSort]):
-        start (Union[Unset, int]):
+        sort (Union[Unset, GetMyAbusesSort]): Sorting criteria for results.
+        start (Union[Unset, int]): Starting index for pagination.
         client: Authenticated HTTP client for API requests.
         count (Union[Unset, int]):  Default: 15.
 

@@ -89,13 +89,13 @@ def sync_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        search (Union[Unset, str]):
-        search_account (Union[Unset, str]):
-        search_video (Union[Unset, str]):
-        video_id (Union[Unset, int]):
-        video_channel_id (Union[Unset, int]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
-        is_held_for_review (Union[Unset, bool]):
+        search (Union[Unset, str]): Search query filter.
+        search_account (Union[Unset, str]): Search filter for account.
+        search_video (Union[Unset, str]): Search filter for video.
+        video_id (Union[Unset, int]): Unique identifier for the video.
+        video_channel_id (Union[Unset, int]): Video-related parameter.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
+        is_held_for_review (Union[Unset, bool]): Parameter for is held for review.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -138,13 +138,13 @@ async def asyncio_detailed(
      **PeerTube >= 6.2**
 
     Args:
-        search (Union[Unset, str]):
-        search_account (Union[Unset, str]):
-        search_video (Union[Unset, str]):
-        video_id (Union[Unset, int]):
-        video_channel_id (Union[Unset, int]):
-        auto_tag_one_of (Union[Unset, list[str], str]):
-        is_held_for_review (Union[Unset, bool]):
+        search (Union[Unset, str]): Search query filter.
+        search_account (Union[Unset, str]): Search filter for account.
+        search_video (Union[Unset, str]): Search filter for video.
+        video_id (Union[Unset, int]): Unique identifier for the video.
+        video_channel_id (Union[Unset, int]): Video-related parameter.
+        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
+        is_held_for_review (Union[Unset, bool]): Parameter for is held for review.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

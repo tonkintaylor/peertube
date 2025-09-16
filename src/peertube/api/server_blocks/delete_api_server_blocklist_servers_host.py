@@ -53,7 +53,7 @@ def sync_detailed(
     """Unblock a server by its domain
 
     Args:
-        host (str):
+        host (str): Parameter for host.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -82,7 +82,7 @@ async def asyncio_detailed(
     """Unblock a server by its domain
 
     Args:
-        host (str):
+        host (str): Parameter for host.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

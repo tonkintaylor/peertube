@@ -62,7 +62,7 @@ def sync_detailed(
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
-        body (VideoChannelUpdate):
+        body (VideoChannelUpdate): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -94,7 +94,7 @@ async def asyncio_detailed(
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
-        body (VideoChannelUpdate):
+        body (VideoChannelUpdate): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -70,9 +70,9 @@ def sync_detailed(
     """List my user subscriptions
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1UsersMeSubscriptionsSort]):
+        sort (Union[Unset, GetApiV1UsersMeSubscriptionsSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -105,9 +105,9 @@ async def asyncio_detailed(
     """List my user subscriptions
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        sort (Union[Unset, GetApiV1UsersMeSubscriptionsSort]):
+        sort (Union[Unset, GetApiV1UsersMeSubscriptionsSort]): Sorting criteria for results.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

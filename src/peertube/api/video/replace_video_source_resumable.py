@@ -101,11 +101,11 @@ def sync_detailed(
     uploadx/blob/master/proto.md) to continue, pause or resume the replacement of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        upload_id (str):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        upload_id (str): Parameter for upload id.
         content_range (str):  Example: bytes 0-262143/2469036.
         content_length (float):  Example: 262144.
-        body (File):
+        body (File): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,11 +145,11 @@ async def asyncio_detailed(
     uploadx/blob/master/proto.md) to continue, pause or resume the replacement of a video
 
     Args:
-        id (Union[UUID, int, str]):
-        upload_id (str):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        upload_id (str): Parameter for upload id.
         content_range (str):  Example: bytes 0-262143/2469036.
         content_length (float):  Example: 262144.
-        body (File):
+        body (File): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

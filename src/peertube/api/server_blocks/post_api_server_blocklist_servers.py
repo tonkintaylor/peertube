@@ -64,7 +64,7 @@ def sync_detailed(
     """Block a server
 
     Args:
-        body (PostApiV1ServerBlocklistServersBody):
+        body (PostApiV1ServerBlocklistServersBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -93,7 +93,7 @@ async def asyncio_detailed(
     """Block a server
 
     Args:
-        body (PostApiV1ServerBlocklistServersBody):
+        body (PostApiV1ServerBlocklistServersBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

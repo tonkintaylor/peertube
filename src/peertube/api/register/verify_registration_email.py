@@ -72,7 +72,7 @@ def sync_detailed(
     Args:
         registration_id (int):  Example: 42.
         client: Authenticated HTTP client for API requests.
-        body (VerifyRegistrationEmailBody):
+        body (VerifyRegistrationEmailBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -108,7 +108,7 @@ async def asyncio_detailed(
     Args:
         registration_id (int):  Example: 42.
         client: Authenticated HTTP client for API requests.
-        body (VerifyRegistrationEmailBody):
+        body (VerifyRegistrationEmailBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

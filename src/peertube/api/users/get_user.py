@@ -58,7 +58,7 @@ def sync_detailed(
 
     Args:
         id (int):  Example: 42.
-        with_stats (Union[Unset, bool]):
+        with_stats (Union[Unset, bool]): Parameter for with stats.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,7 +90,7 @@ async def asyncio_detailed(
 
     Args:
         id (int):  Example: 42.
-        with_stats (Union[Unset, bool]):
+        with_stats (Union[Unset, bool]): Parameter for with stats.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

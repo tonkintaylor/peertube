@@ -69,8 +69,8 @@ def sync_detailed(
      Create a task to edit a video  (cut, add intro/outro etc)
 
     Args:
-        id (Union[UUID, int, str]):
-        body (list[Union['AddIntro', 'AddOutro', 'AddWatermark', 'Cut']]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (list[Union['AddIntro', 'AddOutro', 'AddWatermark', 'Cut']]): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -103,8 +103,8 @@ async def asyncio_detailed(
      Create a task to edit a video  (cut, add intro/outro etc)
 
     Args:
-        id (Union[UUID, int, str]):
-        body (list[Union['AddIntro', 'AddOutro', 'AddWatermark', 'Cut']]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        body (list[Union['AddIntro', 'AddOutro', 'AddWatermark', 'Cut']]): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

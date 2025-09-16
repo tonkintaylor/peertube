@@ -67,7 +67,7 @@ def sync_detailed(
     """Get if subscriptions exist for my user
 
     Args:
-        uris (list[str]):
+        uris (list[str]): Parameter for uris.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -96,7 +96,7 @@ def sync(
     """Get if subscriptions exist for my user
 
     Args:
-        uris (list[str]):
+        uris (list[str]): Parameter for uris.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,7 +120,7 @@ async def asyncio_detailed(
     """Get if subscriptions exist for my user
 
     Args:
-        uris (list[str]):
+        uris (list[str]): Parameter for uris.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -147,7 +147,7 @@ async def asyncio(
     """Get if subscriptions exist for my user
 
     Args:
-        uris (list[str]):
+        uris (list[str]): Parameter for uris.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

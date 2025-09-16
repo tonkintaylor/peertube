@@ -78,7 +78,7 @@ def sync_detailed(
     """List video playlists
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
@@ -117,7 +117,7 @@ def sync(
     """List video playlists
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
@@ -151,7 +151,7 @@ async def asyncio_detailed(
     """List video playlists
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
@@ -188,7 +188,7 @@ async def asyncio(
     """List video playlists
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
         playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =

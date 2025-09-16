@@ -73,8 +73,8 @@ def sync_detailed(
     static files)
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -108,8 +108,8 @@ def sync(
     static files)
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -138,8 +138,8 @@ async def asyncio_detailed(
     static files)
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -171,8 +171,8 @@ async def asyncio(
     static files)
 
     Args:
-        id (Union[UUID, int, str]):
-        x_peertube_video_password (Union[Unset, str]):
+        id (Union[UUID, int, str]): Unique identifier for the entity.
+        x_peertube_video_password (Union[Unset, str]): Video-related parameter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

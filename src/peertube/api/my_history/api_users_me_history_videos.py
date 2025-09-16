@@ -69,9 +69,9 @@ def sync_detailed(
     """List watched videos history
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -104,9 +104,9 @@ def sync(
     """List watched videos history
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -134,9 +134,9 @@ async def asyncio_detailed(
     """List watched videos history
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -167,9 +167,9 @@ async def asyncio(
     """List watched videos history
 
     Args:
-        start (Union[Unset, int]):
+        start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
-        search (Union[Unset, str]):
+        search (Union[Unset, str]): Search query filter.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
