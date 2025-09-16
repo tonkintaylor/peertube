@@ -34,6 +34,10 @@ classifiers = [
 ]
 dynamic = [ "urls", "version" ]
 dependencies = [
+  "attrs>=22.2.0",
+  "httpx>=0.23.0",
+  "python-dateutil>=2.8.0",
+  "typing-extensions>=4.0.0",
 ]
 
 [dependency-groups]
@@ -112,7 +116,6 @@ lint.ignore = [
   # In some cases where your code is poorly-performing you might want to enable them again.
   # ##############################
   "PD101",   # Harms readability for a performance optimization.
-  "PD901",   # We often call variables "df" in functions dealing with pandas DataFrames.
   "PERF203", # Too many false positives.
   "PERF401", # This can hurt readability; the performance is not always worth it.
   "PIE804",  # This is controversial, some pandas APIs work better with dict approach.
@@ -166,8 +169,49 @@ lint.per-file-ignores."examples/**" = [
   "S106",    # Allow hardcoded passwords/tokens in examples
   "T201",    # Prints fine in scripts and notebooks
 ]
+# Generated OpenAPI client code - less strict linting
+lint.per-file-ignores."src/peertube/api/**" = [
+  "A001",    # Variable name shadows builtin
+  "A002",    # Function argument shadows builtin
+  "ARG001",  # Unused function argument
+  "B032",    # Possible unintentional type annotation
+  "C901",    # Complex function (generated code)
+  "D205",    # Blank line between summary and description
+  "D417",    # Missing argument descriptions in docstring (auto-generated code)
+  "E501",    # Line too long (auto-generated code)
+  "PLR0911", # Too many return statements
+  "PLR0912", # Too many branches
+  "PLR0913", # Too many arguments
+  "PLR0915", # Too many statements
+  "S110",    # Try-except-pass
+  "TRY300",  # Try without except
+]
 lint.per-file-ignores."src/peertube/auth/**" = [
   "PLR0913", # Registration functions legitimately need many arguments
+]
+lint.per-file-ignores."src/peertube/client.py" = [
+  "E501", # Line too long (docstrings and generated code)
+]
+lint.per-file-ignores."src/peertube/errors.py" = [
+  "E501", # Line too long (error messages)
+  "N818", # Exception naming (generated code)
+]
+lint.per-file-ignores."src/peertube/models/**" = [
+  "A001",    # Variable name shadows builtin
+  "A002",    # Function argument shadows builtin
+  "C901",    # Complex function (generated code)
+  "D205",    # Blank line between summary and description
+  "E501",    # Line too long (auto-generated code)
+  "N818",    # Exception name should be named with an Error suffix
+  "PLC0415", # Import outside top-level (necessary for circular import avoidance in auto-generated models)
+  "PLR0912", # Too many branches (auto-generated code)
+  "PLR0915", # Too many statements (auto-generated code)
+  "S110",    # Try-except-pass
+  "TRY300",  # Try without except
+]
+lint.per-file-ignores."src/peertube/types.py" = [
+  "E501",  # Line too long
+  "UP007", # Use X | Y instead of Union (compatibility)
 ]
 # We aren't as strict about code quality in notebooks and scripts
 lint.per-file-ignores."src/{scripts,notebooks}/**" = [
@@ -198,7 +242,7 @@ lint.pydocstyle.convention = "google"
 [tool.codespell]
 skip = "assets"
 ignore-regex = [ "[A-Za-z0-9+/]{100,}" ]
-ignore-words-list = [ "..." ]
+ignore-words-list = [ "...", "followings" ]
 
 [tool.deptry]
 extend_exclude = [ "src/notebooks", "src/scripts", "src/archive" ]
