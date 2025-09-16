@@ -7,4 +7,5 @@ class PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0Type(str, Enum):
     REMOVE_CHUNK = "remove-chunk"
 
     def __str__(self) -> str:
+        """Return string representation."""
         return str(self.value)

@@ -31,6 +31,7 @@ class AutomaticTagAvailable:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert to dictionary."""
         available: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.available, Unset):
             available = []
@@ -48,6 +49,7 @@ class AutomaticTagAvailable:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create from dictionary."""
         from peertube.models.automatic_tag_available_available_item import (
             AutomaticTagAvailableAvailableItem,
         )
@@ -71,6 +73,7 @@ class AutomaticTagAvailable:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

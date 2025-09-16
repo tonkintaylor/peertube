@@ -17,4 +17,5 @@ class JobType(str, Enum):
     VIDEO_TRANSCODING = "video-transcoding"
 
     def __str__(self) -> str:
+        """Return string representation."""
         return str(self.value)

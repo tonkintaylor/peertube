@@ -27,4 +27,5 @@ class NotificationType(IntEnum):
     VALUE_22 = 22
 
     def __str__(self) -> str:
+        """Return string representation."""
         return str(self.value)

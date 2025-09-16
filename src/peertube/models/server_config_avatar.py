@@ -32,6 +32,7 @@ class ServerConfigAvatar:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert to dictionary."""
         file: Unset | dict[str, Any] = UNSET
         if not isinstance(self.file, Unset):
             file = self.file.to_dict()
@@ -52,6 +53,7 @@ class ServerConfigAvatar:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create from dictionary."""
         from peertube.models.server_config_avatar_file import ServerConfigAvatarFile
 
         d = dict(src_dict)
@@ -74,6 +76,7 @@ class ServerConfigAvatar:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

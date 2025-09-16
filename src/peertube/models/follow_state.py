@@ -7,4 +7,5 @@ class FollowState(str, Enum):
     PENDING = "pending"
 
     def __str__(self) -> str:
+        """Return string representation."""
         return str(self.value)

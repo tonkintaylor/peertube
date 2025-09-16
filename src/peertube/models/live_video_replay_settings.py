@@ -25,6 +25,7 @@ class LiveVideoReplaySettings:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert to dictionary."""
         privacy: Unset | int = UNSET
         if not isinstance(self.privacy, Unset):
             privacy = self.privacy.value
@@ -39,6 +40,7 @@ class LiveVideoReplaySettings:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create from dictionary."""
         d = dict(src_dict)
         _privacy = d.pop("privacy", UNSET)
         privacy: Unset | VideoPrivacySet
@@ -56,6 +58,7 @@ class LiveVideoReplaySettings:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Get additional keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

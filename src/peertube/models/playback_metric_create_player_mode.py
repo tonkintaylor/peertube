@@ -7,4 +7,5 @@ class PlaybackMetricCreatePlayerMode(str, Enum):
     WEB_VIDEO = "web-video"
 
     def __str__(self) -> str:
+        """Return string representation."""
         return str(self.value)

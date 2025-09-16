@@ -7,4 +7,5 @@ class FileStorage(IntEnum):
     VALUE_1 = 1
 
     def __str__(self) -> str:
+        """Return string representation."""
         return str(self.value)

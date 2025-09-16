@@ -13,4 +13,5 @@ class RunnerJobState(IntEnum):
     VALUE_8 = 8
 
     def __str__(self) -> str:
+        """Return string representation."""
         return str(self.value)
