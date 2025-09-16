@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class JobState(str, Enum):
+    """JobState enumeration."""
     ACTIVE = "active"
     COMPLETED = "completed"
     DELAYED = "delayed"

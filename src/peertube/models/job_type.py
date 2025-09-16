@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class JobType(str, Enum):
+    """JobType enumeration."""
     ACTIVITYPUB_FOLLOW = "activitypub-follow"
     ACTIVITYPUB_HTTP_BROADCAST = "activitypub-http-broadcast"
     ACTIVITYPUB_HTTP_FETCHER = "activitypub-http-fetcher"

@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class GetApiV1ServerFollowersActorType(str, Enum):
+    """GetApiV1ServerFollowersActorType enumeration."""
     APPLICATION = "Application"
     GROUP = "Group"
     ORGANIZATION = "Organization"

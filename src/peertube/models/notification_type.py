@@ -2,6 +2,7 @@ from enum import IntEnum
 
 
 class NotificationType(IntEnum):
+    """NotificationType enumeration."""
     VALUE_1 = 1
     VALUE_2 = 2
     VALUE_3 = 3
