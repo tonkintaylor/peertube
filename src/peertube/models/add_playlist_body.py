@@ -87,6 +87,7 @@ class AddPlaylistBody:
         return field_dict
 
     def to_multipart(self) -> types.RequestFiles:
+        """Convert to multipart form data."""
         files: types.RequestFiles = []
 
         files.append(

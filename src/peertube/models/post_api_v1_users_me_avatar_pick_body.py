@@ -55,6 +55,7 @@ class PostApiV1UsersMeAvatarPickBody:
         return field_dict
 
     def to_multipart(self) -> types.RequestFiles:
+        """Convert to multipart form data."""
         files: types.RequestFiles = []
 
         if not isinstance(self.avatarfile, Unset):
