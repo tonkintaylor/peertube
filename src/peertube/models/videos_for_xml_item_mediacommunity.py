@@ -10,10 +10,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.videos_for_xml_item_mediacommunity_mediastatistics import (
+    from peertube.models.videos_for_xml_item_mediacommunity_mediastatistics import (
         VideosForXMLItemMediacommunityMediastatistics,
     )
 
@@ -49,7 +49,7 @@ class VideosForXMLItemMediacommunity:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.videos_for_xml_item_mediacommunity_mediastatistics import (
+        from peertube.models.videos_for_xml_item_mediacommunity_mediastatistics import (
             VideosForXMLItemMediacommunityMediastatistics,
         )
 

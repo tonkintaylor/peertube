@@ -9,10 +9,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.file_redundancy_information import FileRedundancyInformation
+    from peertube.models.file_redundancy_information import FileRedundancyInformation
 
 
 T = TypeVar("T", bound="VideoRedundancyRedundancies")
@@ -45,7 +45,9 @@ class VideoRedundancyRedundancies:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.file_redundancy_information import FileRedundancyInformation
+        from peertube.models.file_redundancy_information import (
+            FileRedundancyInformation,
+        )
 
         d = dict(src_dict)
         streaming_playlists = []

@@ -3,10 +3,10 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.comment_auto_tag_policies import CommentAutoTagPolicies
-from ...types import Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.comment_auto_tag_policies import CommentAutoTagPolicies
+from peertube.types import Response
 
 
 def _get_kwargs(

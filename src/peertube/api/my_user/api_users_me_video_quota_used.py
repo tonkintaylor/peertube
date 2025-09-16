@@ -3,12 +3,12 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_users_me_video_quota_used_response_200 import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_users_me_video_quota_used_response_200 import (
     GetApiV1UsersMeVideoQuotaUsedResponse200,
 )
-from ...types import Response
+from peertube.types import Response
 
 
 def _get_kwargs() -> dict[str, Any]:

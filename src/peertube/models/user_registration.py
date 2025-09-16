@@ -13,11 +13,11 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.user_registration_state import UserRegistrationState
-    from ..models.user_registration_user_type_0 import UserRegistrationUserType0
+    from peertube.models.user_registration_state import UserRegistrationState
+    from peertube.models.user_registration_user_type_0 import UserRegistrationUserType0
 
 
 T = TypeVar("T", bound="UserRegistration")
@@ -58,7 +58,9 @@ class UserRegistration:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.user_registration_user_type_0 import UserRegistrationUserType0
+        from peertube.models.user_registration_user_type_0 import (
+            UserRegistrationUserType0,
+        )
 
         id = self.id
 
@@ -136,8 +138,10 @@ class UserRegistration:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.user_registration_state import UserRegistrationState
-        from ..models.user_registration_user_type_0 import UserRegistrationUserType0
+        from peertube.models.user_registration_state import UserRegistrationState
+        from peertube.models.user_registration_user_type_0 import (
+            UserRegistrationUserType0,
+        )
 
         d = dict(src_dict)
         id = d.pop("id", UNSET)

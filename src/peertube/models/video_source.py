@@ -12,10 +12,10 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.video_resolution_constant import VideoResolutionConstant
+    from peertube.models.video_resolution_constant import VideoResolutionConstant
 
 
 T = TypeVar("T", bound="VideoSource")
@@ -96,7 +96,7 @@ class VideoSource:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.video_resolution_constant import VideoResolutionConstant
+        from peertube.models.video_resolution_constant import VideoResolutionConstant
 
         d = dict(src_dict)
         filename = d.pop("filename", UNSET)

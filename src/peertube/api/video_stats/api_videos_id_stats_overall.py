@@ -5,10 +5,10 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.video_stats_overall import VideoStatsOverall
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.video_stats_overall import VideoStatsOverall
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

@@ -3,14 +3,14 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.abuse_state_set import AbuseStateSet
-from ...models.get_abuses_filter import GetAbusesFilter
-from ...models.get_abuses_sort import GetAbusesSort
-from ...models.get_abuses_video_is import GetAbusesVideoIs
-from ...models.predefined_abuse_reasons_item import PredefinedAbuseReasonsItem
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.abuse_state_set import AbuseStateSet
+from peertube.models.get_abuses_filter import GetAbusesFilter
+from peertube.models.get_abuses_sort import GetAbusesSort
+from peertube.models.get_abuses_video_is import GetAbusesVideoIs
+from peertube.models.predefined_abuse_reasons_item import PredefinedAbuseReasonsItem
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

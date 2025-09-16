@@ -10,8 +10,8 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from .. import types
-from ..types import UNSET, Unset
+from peertube import types
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="PostApiV1UsersMeHistoryVideosRemoveBody")
 

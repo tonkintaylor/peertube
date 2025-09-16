@@ -3,11 +3,11 @@ from typing import Any, cast
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_syndicated_comments_format import GetSyndicatedCommentsFormat
-from ...models.video_comments_for_xml_item import VideoCommentsForXMLItem
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_syndicated_comments_format import GetSyndicatedCommentsFormat
+from peertube.models.video_comments_for_xml_item import VideoCommentsForXMLItem
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

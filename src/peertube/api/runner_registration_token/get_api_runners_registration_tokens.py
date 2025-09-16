@@ -3,15 +3,15 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_runners_registration_tokens_response_200 import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_runners_registration_tokens_response_200 import (
     GetApiV1RunnersRegistrationTokensResponse200,
 )
-from ...models.get_api_v1_runners_registration_tokens_sort import (
+from peertube.models.get_api_v1_runners_registration_tokens_sort import (
     GetApiV1RunnersRegistrationTokensSort,
 )
-from ...types import UNSET, Response, Unset
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

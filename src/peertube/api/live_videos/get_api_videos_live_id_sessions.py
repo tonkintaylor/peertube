@@ -4,12 +4,12 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_videos_live_id_sessions_response_200 import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_videos_live_id_sessions_response_200 import (
     GetApiV1VideosLiveIdSessionsResponse200,
 )
-from ...types import Response
+from peertube.types import Response
 
 
 def _get_kwargs(

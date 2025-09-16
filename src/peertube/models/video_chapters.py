@@ -10,10 +10,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.video_chapters_chapters import VideoChaptersChapters
+    from peertube.models.video_chapters_chapters import VideoChaptersChapters
 
 
 T = TypeVar("T", bound="VideoChapters")
@@ -43,7 +43,7 @@ class VideoChapters:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.video_chapters_chapters import VideoChaptersChapters
+        from peertube.models.video_chapters_chapters import VideoChaptersChapters
 
         d = dict(src_dict)
         _chapters = d.pop("chapters", UNSET)

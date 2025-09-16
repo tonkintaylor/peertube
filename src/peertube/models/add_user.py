@@ -8,9 +8,9 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.user_admin_flags import UserAdminFlags
-from ..models.user_role import UserRole
-from ..types import UNSET, Unset
+from peertube.models.user_admin_flags import UserAdminFlags
+from peertube.models.user_role import UserRole
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="AddUser")
 

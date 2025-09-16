@@ -3,11 +3,11 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_video_blocks_sort import GetVideoBlocksSort
-from ...models.get_video_blocks_type import GetVideoBlocksType
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_video_blocks_sort import GetVideoBlocksSort
+from peertube.models.get_video_blocks_type import GetVideoBlocksType
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

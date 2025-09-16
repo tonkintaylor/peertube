@@ -13,11 +13,13 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.live_video_session_response_error import LiveVideoSessionResponseError
-from ..types import UNSET, Unset
+from peertube.models.live_video_session_response_error import (
+    LiveVideoSessionResponseError,
+)
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.live_video_session_response_replay_video import (
+    from peertube.models.live_video_session_response_replay_video import (
         LiveVideoSessionResponseReplayVideo,
     )
 
@@ -88,7 +90,7 @@ class LiveVideoSessionResponse:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.live_video_session_response_replay_video import (
+        from peertube.models.live_video_session_response_replay_video import (
             LiveVideoSessionResponseReplayVideo,
         )
 

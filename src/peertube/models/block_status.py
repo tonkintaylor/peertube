@@ -10,11 +10,11 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.block_status_accounts import BlockStatusAccounts
-    from ..models.block_status_hosts import BlockStatusHosts
+    from peertube.models.block_status_accounts import BlockStatusAccounts
+    from peertube.models.block_status_hosts import BlockStatusHosts
 
 
 T = TypeVar("T", bound="BlockStatus")
@@ -52,8 +52,8 @@ class BlockStatus:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.block_status_accounts import BlockStatusAccounts
-        from ..models.block_status_hosts import BlockStatusHosts
+        from peertube.models.block_status_accounts import BlockStatusAccounts
+        from peertube.models.block_status_hosts import BlockStatusHosts
 
         d = dict(src_dict)
         _accounts = d.pop("accounts", UNSET)

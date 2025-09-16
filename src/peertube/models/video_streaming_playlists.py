@@ -9,12 +9,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.video_streaming_playlists_type import VideoStreamingPlaylistsType
-from ..types import UNSET, Unset
+from peertube.models.video_streaming_playlists_type import VideoStreamingPlaylistsType
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.video_file import VideoFile
-    from ..models.video_streaming_playlists_hls_redundancies_item import (
+    from peertube.models.video_file import VideoFile
+    from peertube.models.video_streaming_playlists_hls_redundancies_item import (
         VideoStreamingPlaylistsHLSRedundanciesItem,
     )
 
@@ -90,8 +90,8 @@ class VideoStreamingPlaylists:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.video_file import VideoFile
-        from ..models.video_streaming_playlists_hls_redundancies_item import (
+        from peertube.models.video_file import VideoFile
+        from peertube.models.video_streaming_playlists_hls_redundancies_item import (
             VideoStreamingPlaylistsHLSRedundanciesItem,
         )
 

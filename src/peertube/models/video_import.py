@@ -14,11 +14,11 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..types import UNSET, File, FileTypes, Unset
+from peertube.types import UNSET, File, FileTypes, Unset
 
 if TYPE_CHECKING:
-    from ..models.video import Video
-    from ..models.video_import_state_constant import VideoImportStateConstant
+    from peertube.models.video import Video
+    from peertube.models.video_import_state_constant import VideoImportStateConstant
 
 
 T = TypeVar("T", bound="VideoImport")
@@ -53,7 +53,7 @@ class VideoImport:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.video import Video
+        from peertube.models.video import Video
 
         id = self.id
 
@@ -117,8 +117,8 @@ class VideoImport:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.video import Video
-        from ..models.video_import_state_constant import VideoImportStateConstant
+        from peertube.models.video import Video
+        from peertube.models.video_import_state_constant import VideoImportStateConstant
 
         d = dict(src_dict)
         id = d.pop("id", UNSET)

@@ -12,10 +12,10 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.list_user_exports_response_200_state import (
+    from peertube.models.list_user_exports_response_200_state import (
         ListUserExportsResponse200State,
     )
 
@@ -82,7 +82,7 @@ class ListUserExportsResponse200:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.list_user_exports_response_200_state import (
+        from peertube.models.list_user_exports_response_200_state import (
             ListUserExportsResponse200State,
         )
 

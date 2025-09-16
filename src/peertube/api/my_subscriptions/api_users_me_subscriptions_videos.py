@@ -3,24 +3,24 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_users_me_subscriptions_videos_include import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_users_me_subscriptions_videos_include import (
     GetApiV1UsersMeSubscriptionsVideosInclude,
 )
-from ...models.get_api_v1_users_me_subscriptions_videos_nsfw import (
+from peertube.models.get_api_v1_users_me_subscriptions_videos_nsfw import (
     GetApiV1UsersMeSubscriptionsVideosNsfw,
 )
-from ...models.get_api_v1_users_me_subscriptions_videos_skip_count import (
+from peertube.models.get_api_v1_users_me_subscriptions_videos_skip_count import (
     GetApiV1UsersMeSubscriptionsVideosSkipCount,
 )
-from ...models.get_api_v1_users_me_subscriptions_videos_sort import (
+from peertube.models.get_api_v1_users_me_subscriptions_videos_sort import (
     GetApiV1UsersMeSubscriptionsVideosSort,
 )
-from ...models.nsfw_flag import NSFWFlag
-from ...models.video_list_response import VideoListResponse
-from ...models.video_privacy_set import VideoPrivacySet
-from ...types import UNSET, Response, Unset
+from peertube.models.nsfw_flag import NSFWFlag
+from peertube.models.video_list_response import VideoListResponse
+from peertube.models.video_privacy_set import VideoPrivacySet
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

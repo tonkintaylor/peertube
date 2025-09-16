@@ -10,10 +10,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.add_user_response_user import AddUserResponseUser
+    from peertube.models.add_user_response_user import AddUserResponseUser
 
 
 T = TypeVar("T", bound="AddUserResponse")
@@ -43,7 +43,7 @@ class AddUserResponse:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.add_user_response_user import AddUserResponseUser
+        from peertube.models.add_user_response_user import AddUserResponseUser
 
         d = dict(src_dict)
         _user = d.pop("user", UNSET)

@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.get_me_video_rating_rating import GetMeVideoRatingRating
+from peertube.models.get_me_video_rating_rating import GetMeVideoRatingRating
 
 T = TypeVar("T", bound="GetMeVideoRating")
 

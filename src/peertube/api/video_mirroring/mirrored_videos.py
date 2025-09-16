@@ -3,12 +3,12 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_mirrored_videos_sort import GetMirroredVideosSort
-from ...models.get_mirrored_videos_target import GetMirroredVideosTarget
-from ...models.video_redundancy import VideoRedundancy
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_mirrored_videos_sort import GetMirroredVideosSort
+from peertube.models.get_mirrored_videos_target import GetMirroredVideosTarget
+from peertube.models.video_redundancy import VideoRedundancy
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

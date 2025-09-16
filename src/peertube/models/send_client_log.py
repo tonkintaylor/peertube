@@ -8,8 +8,8 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.send_client_log_level import SendClientLogLevel
-from ..types import UNSET, Unset
+from peertube.models.send_client_log_level import SendClientLogLevel
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="SendClientLog")
 

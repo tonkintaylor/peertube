@@ -4,9 +4,9 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...types import Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.types import Response
 
 
 def _get_kwargs(

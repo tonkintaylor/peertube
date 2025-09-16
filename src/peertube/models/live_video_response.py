@@ -10,12 +10,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.live_video_latency_mode import LiveVideoLatencyMode
-from ..types import UNSET, Unset
+from peertube.models.live_video_latency_mode import LiveVideoLatencyMode
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.live_schedule import LiveSchedule
-    from ..models.live_video_replay_settings import LiveVideoReplaySettings
+    from peertube.models.live_schedule import LiveSchedule
+    from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
 
 T = TypeVar("T", bound="LiveVideoResponse")
@@ -96,8 +96,8 @@ class LiveVideoResponse:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.live_schedule import LiveSchedule
-        from ..models.live_video_replay_settings import LiveVideoReplaySettings
+        from peertube.models.live_schedule import LiveSchedule
+        from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
         d = dict(src_dict)
         rtmp_url = d.pop("rtmpUrl", UNSET)

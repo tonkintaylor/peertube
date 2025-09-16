@@ -3,10 +3,10 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.list_user_exports_response_200 import ListUserExportsResponse200
-from ...types import Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.list_user_exports_response_200 import ListUserExportsResponse200
+from peertube.types import Response
 
 
 def _get_kwargs(

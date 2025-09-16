@@ -10,10 +10,10 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.file_redundancy_information_strategy import (
+from peertube.models.file_redundancy_information_strategy import (
     FileRedundancyInformationStrategy,
 )
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="FileRedundancyInformation")
 

@@ -9,9 +9,9 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from .. import types
-from ..models.video_playlist_privacy_set import VideoPlaylistPrivacySet
-from ..types import UNSET, File, FileTypes, Unset
+from peertube import types
+from peertube.models.video_playlist_privacy_set import VideoPlaylistPrivacySet
+from peertube.types import UNSET, File, FileTypes, Unset
 
 T = TypeVar("T", bound="AddPlaylistBody")
 

@@ -10,15 +10,17 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.actor_image import ActorImage
-    from ..models.server_config_instance_customizations import (
+    from peertube.models.actor_image import ActorImage
+    from peertube.models.server_config_instance_customizations import (
         ServerConfigInstanceCustomizations,
     )
-    from ..models.server_config_instance_social import ServerConfigInstanceSocial
-    from ..models.server_config_instance_support import ServerConfigInstanceSupport
+    from peertube.models.server_config_instance_social import ServerConfigInstanceSocial
+    from peertube.models.server_config_instance_support import (
+        ServerConfigInstanceSupport,
+    )
 
 
 T = TypeVar("T", bound="ServerConfigInstance")
@@ -128,12 +130,16 @@ class ServerConfigInstance:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.actor_image import ActorImage
-        from ..models.server_config_instance_customizations import (
+        from peertube.models.actor_image import ActorImage
+        from peertube.models.server_config_instance_customizations import (
             ServerConfigInstanceCustomizations,
         )
-        from ..models.server_config_instance_social import ServerConfigInstanceSocial
-        from ..models.server_config_instance_support import ServerConfigInstanceSupport
+        from peertube.models.server_config_instance_social import (
+            ServerConfigInstanceSocial,
+        )
+        from peertube.models.server_config_instance_support import (
+            ServerConfigInstanceSupport,
+        )
 
         d = dict(src_dict)
         name = d.pop("name", UNSET)

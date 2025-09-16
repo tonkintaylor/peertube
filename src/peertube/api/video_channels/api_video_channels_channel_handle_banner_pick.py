@@ -3,15 +3,15 @@ from typing import Any, cast
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.post_api_v1_video_channels_channel_handle_banner_pick_body import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.post_api_v1_video_channels_channel_handle_banner_pick_body import (
     PostApiV1VideoChannelsChannelHandleBannerPickBody,
 )
-from ...models.post_api_v1_video_channels_channel_handle_banner_pick_response_200 import (
+from peertube.models.post_api_v1_video_channels_channel_handle_banner_pick_response_200 import (
     PostApiV1VideoChannelsChannelHandleBannerPickResponse200,
 )
-from ...types import Response
+from peertube.types import Response
 
 
 def _get_kwargs(

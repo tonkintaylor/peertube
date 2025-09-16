@@ -3,11 +3,13 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_account_followers_response_200 import GetAccountFollowersResponse200
-from ...models.get_account_followers_sort import GetAccountFollowersSort
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_account_followers_response_200 import (
+    GetAccountFollowersResponse200,
+)
+from peertube.models.get_account_followers_sort import GetAccountFollowersSort
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

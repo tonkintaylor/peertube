@@ -12,13 +12,13 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.job_state import JobState
-from ..models.job_type import JobType
-from ..types import UNSET, Unset
+from peertube.models.job_state import JobState
+from peertube.models.job_type import JobType
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.job_data import JobData
-    from ..models.job_error import JobError
+    from peertube.models.job_data import JobData
+    from peertube.models.job_error import JobError
 
 
 T = TypeVar("T", bound="Job")
@@ -102,8 +102,8 @@ class Job:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.job_data import JobData
-        from ..models.job_error import JobError
+        from peertube.models.job_data import JobData
+        from peertube.models.job_error import JobError
 
         d = dict(src_dict)
         id = d.pop("id", UNSET)

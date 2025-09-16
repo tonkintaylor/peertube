@@ -10,13 +10,13 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_custom_defaults_p2p_embed import (
+    from peertube.models.server_config_custom_defaults_p2p_embed import (
         ServerConfigCustomDefaultsP2PEmbed,
     )
-    from ..models.server_config_custom_defaults_p2p_webapp import (
+    from peertube.models.server_config_custom_defaults_p2p_webapp import (
         ServerConfigCustomDefaultsP2PWebapp,
     )
 
@@ -56,10 +56,10 @@ class ServerConfigCustomDefaultsP2P:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_custom_defaults_p2p_embed import (
+        from peertube.models.server_config_custom_defaults_p2p_embed import (
             ServerConfigCustomDefaultsP2PEmbed,
         )
-        from ..models.server_config_custom_defaults_p2p_webapp import (
+        from peertube.models.server_config_custom_defaults_p2p_webapp import (
             ServerConfigCustomDefaultsP2PWebapp,
         )
 

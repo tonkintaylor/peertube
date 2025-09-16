@@ -10,14 +10,14 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_import_users import ServerConfigImportUsers
-    from ..models.server_config_import_video_channel_synchronization import (
+    from peertube.models.server_config_import_users import ServerConfigImportUsers
+    from peertube.models.server_config_import_video_channel_synchronization import (
         ServerConfigImportVideoChannelSynchronization,
     )
-    from ..models.server_config_import_videos import ServerConfigImportVideos
+    from peertube.models.server_config_import_videos import ServerConfigImportVideos
 
 
 T = TypeVar("T", bound="ServerConfigImport")
@@ -65,11 +65,11 @@ class ServerConfigImport:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_import_users import ServerConfigImportUsers
-        from ..models.server_config_import_video_channel_synchronization import (
+        from peertube.models.server_config_import_users import ServerConfigImportUsers
+        from peertube.models.server_config_import_video_channel_synchronization import (
             ServerConfigImportVideoChannelSynchronization,
         )
-        from ..models.server_config_import_videos import ServerConfigImportVideos
+        from peertube.models.server_config_import_videos import ServerConfigImportVideos
 
         d = dict(src_dict)
         _videos = d.pop("videos", UNSET)

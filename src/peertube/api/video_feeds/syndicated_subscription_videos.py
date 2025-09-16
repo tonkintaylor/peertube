@@ -3,20 +3,20 @@ from typing import Any, cast
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_syndicated_subscription_videos_format import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_syndicated_subscription_videos_format import (
     GetSyndicatedSubscriptionVideosFormat,
 )
-from ...models.get_syndicated_subscription_videos_include import (
+from peertube.models.get_syndicated_subscription_videos_include import (
     GetSyndicatedSubscriptionVideosInclude,
 )
-from ...models.get_syndicated_subscription_videos_nsfw import (
+from peertube.models.get_syndicated_subscription_videos_nsfw import (
     GetSyndicatedSubscriptionVideosNsfw,
 )
-from ...models.video_privacy_set import VideoPrivacySet
-from ...models.videos_for_xml_item import VideosForXMLItem
-from ...types import UNSET, Response, Unset
+from peertube.models.video_privacy_set import VideoPrivacySet
+from peertube.models.videos_for_xml_item import VideosForXMLItem
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

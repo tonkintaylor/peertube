@@ -10,10 +10,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.add_video_channel_response_200_video_channel import (
+    from peertube.models.add_video_channel_response_200_video_channel import (
         AddVideoChannelResponse200VideoChannel,
     )
 
@@ -45,7 +45,7 @@ class AddVideoChannelResponse200:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.add_video_channel_response_200_video_channel import (
+        from peertube.models.add_video_channel_response_200_video_channel import (
             AddVideoChannelResponse200VideoChannel,
         )
 

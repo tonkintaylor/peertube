@@ -10,10 +10,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.request_user_export_response_200_export import (
+    from peertube.models.request_user_export_response_200_export import (
         RequestUserExportResponse200Export,
     )
 
@@ -45,7 +45,7 @@ class RequestUserExportResponse200:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.request_user_export_response_200_export import (
+        from peertube.models.request_user_export_response_200_export import (
             RequestUserExportResponse200Export,
         )
 

@@ -11,16 +11,16 @@ from attrs import field as _attrs_field
 from typing_extensions import Self
 
 if TYPE_CHECKING:
-    from ..models.post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding import (
+    from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding import (
         PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding,
     )
-    from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding import (
+    from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding import (
         PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding,
     )
-    from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vod_web_video_transcoding import (
+    from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_web_video_transcoding import (
         PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding,
     )
-    from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
+    from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
         PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding,
     )
 
@@ -50,13 +50,13 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding import (
+        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding,
         )
-        from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vod_web_video_transcoding import (
+        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_web_video_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding,
         )
-        from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
+        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding,
         )
 
@@ -66,17 +66,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
 
         payload: dict[str, Any]
         if (
-            isinstance(
-                self.payload,
-                PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding,
-            )
-            or isinstance(
-                self.payload, PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding
-            )
-            or isinstance(
-                self.payload,
-                PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding,
-            )
+            isinstance(self.payload, (PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding, PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding, PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding))
         ):
             payload = self.payload.to_dict()
         else:
@@ -96,16 +86,16 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding import (
+        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding,
         )
-        from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding import (
+        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding,
         )
-        from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vod_web_video_transcoding import (
+        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_web_video_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding,
         )
-        from ..models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
+        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding,
         )
 

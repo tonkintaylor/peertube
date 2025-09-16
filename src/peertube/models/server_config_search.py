@@ -10,10 +10,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_search_remote_uri import ServerConfigSearchRemoteUri
+    from peertube.models.server_config_search_remote_uri import (
+        ServerConfigSearchRemoteUri,
+    )
 
 
 T = TypeVar("T", bound="ServerConfigSearch")
@@ -43,7 +45,9 @@ class ServerConfigSearch:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_search_remote_uri import ServerConfigSearchRemoteUri
+        from peertube.models.server_config_search_remote_uri import (
+            ServerConfigSearchRemoteUri,
+        )
 
         d = dict(src_dict)
         _remote_uri = d.pop("remoteUri", UNSET)

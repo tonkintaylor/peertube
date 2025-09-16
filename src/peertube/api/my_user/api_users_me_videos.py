@@ -3,18 +3,20 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_users_me_videos_include import GetApiV1UsersMeVideosInclude
-from ...models.get_api_v1_users_me_videos_nsfw import GetApiV1UsersMeVideosNsfw
-from ...models.get_api_v1_users_me_videos_skip_count import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_users_me_videos_include import (
+    GetApiV1UsersMeVideosInclude,
+)
+from peertube.models.get_api_v1_users_me_videos_nsfw import GetApiV1UsersMeVideosNsfw
+from peertube.models.get_api_v1_users_me_videos_skip_count import (
     GetApiV1UsersMeVideosSkipCount,
 )
-from ...models.get_api_v1_users_me_videos_sort import GetApiV1UsersMeVideosSort
-from ...models.nsfw_flag import NSFWFlag
-from ...models.video_list_response import VideoListResponse
-from ...models.video_privacy_set import VideoPrivacySet
-from ...types import UNSET, Response, Unset
+from peertube.models.get_api_v1_users_me_videos_sort import GetApiV1UsersMeVideosSort
+from peertube.models.nsfw_flag import NSFWFlag
+from peertube.models.video_list_response import VideoListResponse
+from peertube.models.video_privacy_set import VideoPrivacySet
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

@@ -3,10 +3,10 @@ from typing import Any, cast
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.custom_homepage import CustomHomepage
-from ...types import Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.custom_homepage import CustomHomepage
+from peertube.types import Response
 
 
 def _get_kwargs() -> dict[str, Any]:

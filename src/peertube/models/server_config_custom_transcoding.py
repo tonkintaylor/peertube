@@ -10,22 +10,22 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.server_config_custom_transcoding_profile import (
+from peertube.models.server_config_custom_transcoding_profile import (
     ServerConfigCustomTranscodingProfile,
 )
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_custom_transcoding_hls import (
+    from peertube.models.server_config_custom_transcoding_hls import (
         ServerConfigCustomTranscodingHls,
     )
-    from ..models.server_config_custom_transcoding_original_file import (
+    from peertube.models.server_config_custom_transcoding_original_file import (
         ServerConfigCustomTranscodingOriginalFile,
     )
-    from ..models.server_config_custom_transcoding_resolutions import (
+    from peertube.models.server_config_custom_transcoding_resolutions import (
         ServerConfigCustomTranscodingResolutions,
     )
-    from ..models.server_config_custom_transcoding_web_videos import (
+    from peertube.models.server_config_custom_transcoding_web_videos import (
         ServerConfigCustomTranscodingWebVideos,
     )
 
@@ -124,16 +124,16 @@ class ServerConfigCustomTranscoding:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_custom_transcoding_hls import (
+        from peertube.models.server_config_custom_transcoding_hls import (
             ServerConfigCustomTranscodingHls,
         )
-        from ..models.server_config_custom_transcoding_original_file import (
+        from peertube.models.server_config_custom_transcoding_original_file import (
             ServerConfigCustomTranscodingOriginalFile,
         )
-        from ..models.server_config_custom_transcoding_resolutions import (
+        from peertube.models.server_config_custom_transcoding_resolutions import (
             ServerConfigCustomTranscodingResolutions,
         )
-        from ..models.server_config_custom_transcoding_web_videos import (
+        from peertube.models.server_config_custom_transcoding_web_videos import (
             ServerConfigCustomTranscodingWebVideos,
         )
 

@@ -4,17 +4,17 @@ from typing import Any, cast
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.nsfw_flag import NSFWFlag
-from ...models.search_videos_include import SearchVideosInclude
-from ...models.search_videos_nsfw import SearchVideosNsfw
-from ...models.search_videos_search_target import SearchVideosSearchTarget
-from ...models.search_videos_skip_count import SearchVideosSkipCount
-from ...models.search_videos_sort import SearchVideosSort
-from ...models.video_list_response import VideoListResponse
-from ...models.video_privacy_set import VideoPrivacySet
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.nsfw_flag import NSFWFlag
+from peertube.models.search_videos_include import SearchVideosInclude
+from peertube.models.search_videos_nsfw import SearchVideosNsfw
+from peertube.models.search_videos_search_target import SearchVideosSearchTarget
+from peertube.models.search_videos_skip_count import SearchVideosSkipCount
+from peertube.models.search_videos_sort import SearchVideosSort
+from peertube.models.video_list_response import VideoListResponse
+from peertube.models.video_privacy_set import VideoPrivacySet
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

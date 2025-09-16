@@ -10,8 +10,8 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.video_privacy_set import VideoPrivacySet
-from ..types import UNSET, Unset
+from peertube.models.video_privacy_set import VideoPrivacySet
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="VideoScheduledUpdate")
 

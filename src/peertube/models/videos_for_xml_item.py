@@ -12,19 +12,23 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.videos_for_xml_item_mediarating import VideosForXMLItemMediarating
-from ..types import UNSET, Unset
+from peertube.models.videos_for_xml_item_mediarating import VideosForXMLItemMediarating
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.mrss_group_content import MRSSGroupContent
-    from ..models.mrss_peer_link import MRSSPeerLink
-    from ..models.videos_for_xml_item_enclosure import VideosForXMLItemEnclosure
-    from ..models.videos_for_xml_item_mediacommunity import (
+    from peertube.models.mrss_group_content import MRSSGroupContent
+    from peertube.models.mrss_peer_link import MRSSPeerLink
+    from peertube.models.videos_for_xml_item_enclosure import VideosForXMLItemEnclosure
+    from peertube.models.videos_for_xml_item_mediacommunity import (
         VideosForXMLItemMediacommunity,
     )
-    from ..models.videos_for_xml_item_mediaembed import VideosForXMLItemMediaembed
-    from ..models.videos_for_xml_item_mediaplayer import VideosForXMLItemMediaplayer
-    from ..models.videos_for_xml_item_mediathumbnail import (
+    from peertube.models.videos_for_xml_item_mediaembed import (
+        VideosForXMLItemMediaembed,
+    )
+    from peertube.models.videos_for_xml_item_mediaplayer import (
+        VideosForXMLItemMediaplayer,
+    )
+    from peertube.models.videos_for_xml_item_mediathumbnail import (
         VideosForXMLItemMediathumbnail,
     )
 
@@ -77,7 +81,7 @@ class VideosForXMLItem:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.mrss_peer_link import MRSSPeerLink
+        from peertube.models.mrss_peer_link import MRSSPeerLink
 
         link = self.link
 
@@ -175,15 +179,21 @@ class VideosForXMLItem:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.mrss_group_content import MRSSGroupContent
-        from ..models.mrss_peer_link import MRSSPeerLink
-        from ..models.videos_for_xml_item_enclosure import VideosForXMLItemEnclosure
-        from ..models.videos_for_xml_item_mediacommunity import (
+        from peertube.models.mrss_group_content import MRSSGroupContent
+        from peertube.models.mrss_peer_link import MRSSPeerLink
+        from peertube.models.videos_for_xml_item_enclosure import (
+            VideosForXMLItemEnclosure,
+        )
+        from peertube.models.videos_for_xml_item_mediacommunity import (
             VideosForXMLItemMediacommunity,
         )
-        from ..models.videos_for_xml_item_mediaembed import VideosForXMLItemMediaembed
-        from ..models.videos_for_xml_item_mediaplayer import VideosForXMLItemMediaplayer
-        from ..models.videos_for_xml_item_mediathumbnail import (
+        from peertube.models.videos_for_xml_item_mediaembed import (
+            VideosForXMLItemMediaembed,
+        )
+        from peertube.models.videos_for_xml_item_mediaplayer import (
+            VideosForXMLItemMediaplayer,
+        )
+        from peertube.models.videos_for_xml_item_mediathumbnail import (
             VideosForXMLItemMediathumbnail,
         )
 

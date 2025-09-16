@@ -3,16 +3,18 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_server_following_actor_type import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_server_following_actor_type import (
     GetApiV1ServerFollowingActorType,
 )
-from ...models.get_api_v1_server_following_response_200 import (
+from peertube.models.get_api_v1_server_following_response_200 import (
     GetApiV1ServerFollowingResponse200,
 )
-from ...models.get_api_v1_server_following_state import GetApiV1ServerFollowingState
-from ...types import UNSET, Response, Unset
+from peertube.models.get_api_v1_server_following_state import (
+    GetApiV1ServerFollowingState,
+)
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

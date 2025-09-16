@@ -3,11 +3,11 @@ from typing import Any, Union
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.add_plugin_body_type_0 import AddPluginBodyType0
-from ...models.add_plugin_body_type_1 import AddPluginBodyType1
-from ...types import Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.add_plugin_body_type_0 import AddPluginBodyType0
+from peertube.models.add_plugin_body_type_1 import AddPluginBodyType1
+from peertube.types import Response
 
 
 def _get_kwargs(

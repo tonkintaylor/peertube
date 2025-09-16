@@ -14,17 +14,19 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.runner_job_type import RunnerJobType
-from ..types import UNSET, Unset
+from peertube.models.runner_job_type import RunnerJobType
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.runner_job_admin_private_payload import RunnerJobAdminPrivatePayload
-    from ..models.runner_job_parent_type_0 import RunnerJobParentType0
-    from ..models.runner_job_runner import RunnerJobRunner
-    from ..models.runner_job_state_constant import RunnerJobStateConstant
-    from ..models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
-    from ..models.vod_web_video_transcoding import VODWebVideoTranscoding
-    from ..models.vodhls_transcoding import VODHLSTranscoding
+    from peertube.models.runner_job_admin_private_payload import (
+        RunnerJobAdminPrivatePayload,
+    )
+    from peertube.models.runner_job_parent_type_0 import RunnerJobParentType0
+    from peertube.models.runner_job_runner import RunnerJobRunner
+    from peertube.models.runner_job_state_constant import RunnerJobStateConstant
+    from peertube.models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
+    from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
+    from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
 
 T = TypeVar("T", bound="RunnerJobAdmin")
@@ -71,9 +73,9 @@ class RunnerJobAdmin:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.runner_job_parent_type_0 import RunnerJobParentType0
-        from ..models.vod_web_video_transcoding import VODWebVideoTranscoding
-        from ..models.vodhls_transcoding import VODHLSTranscoding
+        from peertube.models.runner_job_parent_type_0 import RunnerJobParentType0
+        from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
+        from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
         uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
@@ -90,9 +92,7 @@ class RunnerJobAdmin:
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
             payload = UNSET
-        elif isinstance(self.payload, VODWebVideoTranscoding) or isinstance(
-            self.payload, VODHLSTranscoding
-        ):
+        elif isinstance(self.payload, (VODWebVideoTranscoding, VODHLSTranscoding)):
             payload = self.payload.to_dict()
         else:
             payload = self.payload.to_dict()
@@ -179,15 +179,15 @@ class RunnerJobAdmin:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.runner_job_admin_private_payload import (
+        from peertube.models.runner_job_admin_private_payload import (
             RunnerJobAdminPrivatePayload,
         )
-        from ..models.runner_job_parent_type_0 import RunnerJobParentType0
-        from ..models.runner_job_runner import RunnerJobRunner
-        from ..models.runner_job_state_constant import RunnerJobStateConstant
-        from ..models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
-        from ..models.vod_web_video_transcoding import VODWebVideoTranscoding
-        from ..models.vodhls_transcoding import VODHLSTranscoding
+        from peertube.models.runner_job_parent_type_0 import RunnerJobParentType0
+        from peertube.models.runner_job_runner import RunnerJobRunner
+        from peertube.models.runner_job_state_constant import RunnerJobStateConstant
+        from peertube.models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
+        from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
+        from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
         d = dict(src_dict)
         _uuid = d.pop("uuid", UNSET)

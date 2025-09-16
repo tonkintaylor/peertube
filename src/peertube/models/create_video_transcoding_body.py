@@ -8,10 +8,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.create_video_transcoding_body_transcoding_type import (
+from peertube.models.create_video_transcoding_body_transcoding_type import (
     CreateVideoTranscodingBodyTranscodingType,
 )
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="CreateVideoTranscodingBody")
 

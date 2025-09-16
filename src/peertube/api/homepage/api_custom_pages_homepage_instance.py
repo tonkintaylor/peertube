@@ -3,12 +3,12 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.put_api_v1_custom_pages_homepage_instance_body import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.put_api_v1_custom_pages_homepage_instance_body import (
     PutApiV1CustomPagesHomepageInstanceBody,
 )
-from ...types import Response
+from peertube.types import Response
 
 
 def _get_kwargs(

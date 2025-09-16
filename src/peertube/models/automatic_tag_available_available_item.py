@@ -8,10 +8,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.automatic_tag_available_available_item_type import (
+from peertube.models.automatic_tag_available_available_item_type import (
     AutomaticTagAvailableAvailableItemType,
 )
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="AutomaticTagAvailableAvailableItem")
 

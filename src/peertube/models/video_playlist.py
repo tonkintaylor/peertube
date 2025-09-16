@@ -13,13 +13,15 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.account_summary import AccountSummary
-    from ..models.video_channel_summary import VideoChannelSummary
-    from ..models.video_playlist_privacy_constant import VideoPlaylistPrivacyConstant
-    from ..models.video_playlist_type_constant import VideoPlaylistTypeConstant
+    from peertube.models.account_summary import AccountSummary
+    from peertube.models.video_channel_summary import VideoChannelSummary
+    from peertube.models.video_playlist_privacy_constant import (
+        VideoPlaylistPrivacyConstant,
+    )
+    from peertube.models.video_playlist_type_constant import VideoPlaylistTypeConstant
 
 
 T = TypeVar("T", bound="VideoPlaylist")
@@ -146,12 +148,14 @@ class VideoPlaylist:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.account_summary import AccountSummary
-        from ..models.video_channel_summary import VideoChannelSummary
-        from ..models.video_playlist_privacy_constant import (
+        from peertube.models.account_summary import AccountSummary
+        from peertube.models.video_channel_summary import VideoChannelSummary
+        from peertube.models.video_playlist_privacy_constant import (
             VideoPlaylistPrivacyConstant,
         )
-        from ..models.video_playlist_type_constant import VideoPlaylistTypeConstant
+        from peertube.models.video_playlist_type_constant import (
+            VideoPlaylistTypeConstant,
+        )
 
         d = dict(src_dict)
         id = d.pop("id", UNSET)

@@ -10,31 +10,31 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_auto_blacklist import ServerConfigAutoBlacklist
-    from ..models.server_config_avatar import ServerConfigAvatar
-    from ..models.server_config_contact_form import ServerConfigContactForm
-    from ..models.server_config_email import ServerConfigEmail
-    from ..models.server_config_export import ServerConfigExport
-    from ..models.server_config_federation import ServerConfigFederation
-    from ..models.server_config_followings import ServerConfigFollowings
-    from ..models.server_config_homepage import ServerConfigHomepage
-    from ..models.server_config_import import ServerConfigImport
-    from ..models.server_config_instance import ServerConfigInstance
-    from ..models.server_config_open_telemetry import ServerConfigOpenTelemetry
-    from ..models.server_config_plugin import ServerConfigPlugin
-    from ..models.server_config_search import ServerConfigSearch
-    from ..models.server_config_signup import ServerConfigSignup
-    from ..models.server_config_theme import ServerConfigTheme
-    from ..models.server_config_tracker import ServerConfigTracker
-    from ..models.server_config_transcoding import ServerConfigTranscoding
-    from ..models.server_config_trending import ServerConfigTrending
-    from ..models.server_config_user import ServerConfigUser
-    from ..models.server_config_video import ServerConfigVideo
-    from ..models.server_config_video_caption import ServerConfigVideoCaption
-    from ..models.server_config_views import ServerConfigViews
+    from peertube.models.server_config_auto_blacklist import ServerConfigAutoBlacklist
+    from peertube.models.server_config_avatar import ServerConfigAvatar
+    from peertube.models.server_config_contact_form import ServerConfigContactForm
+    from peertube.models.server_config_email import ServerConfigEmail
+    from peertube.models.server_config_export import ServerConfigExport
+    from peertube.models.server_config_federation import ServerConfigFederation
+    from peertube.models.server_config_followings import ServerConfigFollowings
+    from peertube.models.server_config_homepage import ServerConfigHomepage
+    from peertube.models.server_config_import import ServerConfigImport
+    from peertube.models.server_config_instance import ServerConfigInstance
+    from peertube.models.server_config_open_telemetry import ServerConfigOpenTelemetry
+    from peertube.models.server_config_plugin import ServerConfigPlugin
+    from peertube.models.server_config_search import ServerConfigSearch
+    from peertube.models.server_config_signup import ServerConfigSignup
+    from peertube.models.server_config_theme import ServerConfigTheme
+    from peertube.models.server_config_tracker import ServerConfigTracker
+    from peertube.models.server_config_transcoding import ServerConfigTranscoding
+    from peertube.models.server_config_trending import ServerConfigTrending
+    from peertube.models.server_config_user import ServerConfigUser
+    from peertube.models.server_config_video import ServerConfigVideo
+    from peertube.models.server_config_video_caption import ServerConfigVideoCaption
+    from peertube.models.server_config_views import ServerConfigViews
 
 
 T = TypeVar("T", bound="ServerConfig")
@@ -244,28 +244,32 @@ class ServerConfig:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_auto_blacklist import ServerConfigAutoBlacklist
-        from ..models.server_config_avatar import ServerConfigAvatar
-        from ..models.server_config_contact_form import ServerConfigContactForm
-        from ..models.server_config_email import ServerConfigEmail
-        from ..models.server_config_export import ServerConfigExport
-        from ..models.server_config_federation import ServerConfigFederation
-        from ..models.server_config_followings import ServerConfigFollowings
-        from ..models.server_config_homepage import ServerConfigHomepage
-        from ..models.server_config_import import ServerConfigImport
-        from ..models.server_config_instance import ServerConfigInstance
-        from ..models.server_config_open_telemetry import ServerConfigOpenTelemetry
-        from ..models.server_config_plugin import ServerConfigPlugin
-        from ..models.server_config_search import ServerConfigSearch
-        from ..models.server_config_signup import ServerConfigSignup
-        from ..models.server_config_theme import ServerConfigTheme
-        from ..models.server_config_tracker import ServerConfigTracker
-        from ..models.server_config_transcoding import ServerConfigTranscoding
-        from ..models.server_config_trending import ServerConfigTrending
-        from ..models.server_config_user import ServerConfigUser
-        from ..models.server_config_video import ServerConfigVideo
-        from ..models.server_config_video_caption import ServerConfigVideoCaption
-        from ..models.server_config_views import ServerConfigViews
+        from peertube.models.server_config_auto_blacklist import (
+            ServerConfigAutoBlacklist,
+        )
+        from peertube.models.server_config_avatar import ServerConfigAvatar
+        from peertube.models.server_config_contact_form import ServerConfigContactForm
+        from peertube.models.server_config_email import ServerConfigEmail
+        from peertube.models.server_config_export import ServerConfigExport
+        from peertube.models.server_config_federation import ServerConfigFederation
+        from peertube.models.server_config_followings import ServerConfigFollowings
+        from peertube.models.server_config_homepage import ServerConfigHomepage
+        from peertube.models.server_config_import import ServerConfigImport
+        from peertube.models.server_config_instance import ServerConfigInstance
+        from peertube.models.server_config_open_telemetry import (
+            ServerConfigOpenTelemetry,
+        )
+        from peertube.models.server_config_plugin import ServerConfigPlugin
+        from peertube.models.server_config_search import ServerConfigSearch
+        from peertube.models.server_config_signup import ServerConfigSignup
+        from peertube.models.server_config_theme import ServerConfigTheme
+        from peertube.models.server_config_tracker import ServerConfigTracker
+        from peertube.models.server_config_transcoding import ServerConfigTranscoding
+        from peertube.models.server_config_trending import ServerConfigTrending
+        from peertube.models.server_config_user import ServerConfigUser
+        from peertube.models.server_config_video import ServerConfigVideo
+        from peertube.models.server_config_video_caption import ServerConfigVideoCaption
+        from peertube.models.server_config_views import ServerConfigViews
 
         d = dict(src_dict)
         _instance = d.pop("instance", UNSET)

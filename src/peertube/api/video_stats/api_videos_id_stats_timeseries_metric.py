@@ -5,13 +5,13 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_videos_id_stats_timeseries_metric_metric import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_videos_id_stats_timeseries_metric_metric import (
     GetApiV1VideosIdStatsTimeseriesMetricMetric,
 )
-from ...models.video_stats_timeserie import VideoStatsTimeserie
-from ...types import UNSET, Response, Unset
+from peertube.models.video_stats_timeserie import VideoStatsTimeserie
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

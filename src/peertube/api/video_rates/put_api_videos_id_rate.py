@@ -4,10 +4,10 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.put_api_v1_videos_id_rate_body import PutApiV1VideosIdRateBody
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.put_api_v1_videos_id_rate_body import PutApiV1VideosIdRateBody
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

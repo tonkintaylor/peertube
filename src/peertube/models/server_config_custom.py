@@ -10,25 +10,33 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_custom_admin import ServerConfigCustomAdmin
-    from ..models.server_config_custom_auto_blacklist import (
+    from peertube.models.server_config_custom_admin import ServerConfigCustomAdmin
+    from peertube.models.server_config_custom_auto_blacklist import (
         ServerConfigCustomAutoBlacklist,
     )
-    from ..models.server_config_custom_cache import ServerConfigCustomCache
-    from ..models.server_config_custom_contact_form import ServerConfigCustomContactForm
-    from ..models.server_config_custom_defaults import ServerConfigCustomDefaults
-    from ..models.server_config_custom_followers import ServerConfigCustomFollowers
-    from ..models.server_config_custom_import import ServerConfigCustomImport
-    from ..models.server_config_custom_instance import ServerConfigCustomInstance
-    from ..models.server_config_custom_services import ServerConfigCustomServices
-    from ..models.server_config_custom_signup import ServerConfigCustomSignup
-    from ..models.server_config_custom_storyboard import ServerConfigCustomStoryboard
-    from ..models.server_config_custom_theme import ServerConfigCustomTheme
-    from ..models.server_config_custom_transcoding import ServerConfigCustomTranscoding
-    from ..models.server_config_custom_user import ServerConfigCustomUser
+    from peertube.models.server_config_custom_cache import ServerConfigCustomCache
+    from peertube.models.server_config_custom_contact_form import (
+        ServerConfigCustomContactForm,
+    )
+    from peertube.models.server_config_custom_defaults import ServerConfigCustomDefaults
+    from peertube.models.server_config_custom_followers import (
+        ServerConfigCustomFollowers,
+    )
+    from peertube.models.server_config_custom_import import ServerConfigCustomImport
+    from peertube.models.server_config_custom_instance import ServerConfigCustomInstance
+    from peertube.models.server_config_custom_services import ServerConfigCustomServices
+    from peertube.models.server_config_custom_signup import ServerConfigCustomSignup
+    from peertube.models.server_config_custom_storyboard import (
+        ServerConfigCustomStoryboard,
+    )
+    from peertube.models.server_config_custom_theme import ServerConfigCustomTheme
+    from peertube.models.server_config_custom_transcoding import (
+        ServerConfigCustomTranscoding,
+    )
+    from peertube.models.server_config_custom_user import ServerConfigCustomUser
 
 
 T = TypeVar("T", bound="ServerConfigCustom")
@@ -162,28 +170,36 @@ class ServerConfigCustom:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_custom_admin import ServerConfigCustomAdmin
-        from ..models.server_config_custom_auto_blacklist import (
+        from peertube.models.server_config_custom_admin import ServerConfigCustomAdmin
+        from peertube.models.server_config_custom_auto_blacklist import (
             ServerConfigCustomAutoBlacklist,
         )
-        from ..models.server_config_custom_cache import ServerConfigCustomCache
-        from ..models.server_config_custom_contact_form import (
+        from peertube.models.server_config_custom_cache import ServerConfigCustomCache
+        from peertube.models.server_config_custom_contact_form import (
             ServerConfigCustomContactForm,
         )
-        from ..models.server_config_custom_defaults import ServerConfigCustomDefaults
-        from ..models.server_config_custom_followers import ServerConfigCustomFollowers
-        from ..models.server_config_custom_import import ServerConfigCustomImport
-        from ..models.server_config_custom_instance import ServerConfigCustomInstance
-        from ..models.server_config_custom_services import ServerConfigCustomServices
-        from ..models.server_config_custom_signup import ServerConfigCustomSignup
-        from ..models.server_config_custom_storyboard import (
+        from peertube.models.server_config_custom_defaults import (
+            ServerConfigCustomDefaults,
+        )
+        from peertube.models.server_config_custom_followers import (
+            ServerConfigCustomFollowers,
+        )
+        from peertube.models.server_config_custom_import import ServerConfigCustomImport
+        from peertube.models.server_config_custom_instance import (
+            ServerConfigCustomInstance,
+        )
+        from peertube.models.server_config_custom_services import (
+            ServerConfigCustomServices,
+        )
+        from peertube.models.server_config_custom_signup import ServerConfigCustomSignup
+        from peertube.models.server_config_custom_storyboard import (
             ServerConfigCustomStoryboard,
         )
-        from ..models.server_config_custom_theme import ServerConfigCustomTheme
-        from ..models.server_config_custom_transcoding import (
+        from peertube.models.server_config_custom_theme import ServerConfigCustomTheme
+        from peertube.models.server_config_custom_transcoding import (
             ServerConfigCustomTranscoding,
         )
-        from ..models.server_config_custom_user import ServerConfigCustomUser
+        from peertube.models.server_config_custom_user import ServerConfigCustomUser
 
         d = dict(src_dict)
         _instance = d.pop("instance", UNSET)

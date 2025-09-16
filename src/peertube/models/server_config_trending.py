@@ -10,10 +10,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_trending_videos import ServerConfigTrendingVideos
+    from peertube.models.server_config_trending_videos import ServerConfigTrendingVideos
 
 
 T = TypeVar("T", bound="ServerConfigTrending")
@@ -43,7 +43,9 @@ class ServerConfigTrending:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_trending_videos import ServerConfigTrendingVideos
+        from peertube.models.server_config_trending_videos import (
+            ServerConfigTrendingVideos,
+        )
 
         d = dict(src_dict)
         _videos = d.pop("videos", UNSET)

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# ruff: noqa: F841
 """Example usage of the PeerTube API client.
 
 This script demonstrates the basic usage patterns for the generated PeerTube client.

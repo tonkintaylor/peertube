@@ -3,9 +3,9 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...types import UNSET, File, Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.types import UNSET, File, Response
 
 
 def _get_kwargs(

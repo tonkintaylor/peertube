@@ -10,11 +10,11 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.server_config_video_file import ServerConfigVideoFile
-    from ..models.server_config_video_image import ServerConfigVideoImage
+    from peertube.models.server_config_video_file import ServerConfigVideoFile
+    from peertube.models.server_config_video_image import ServerConfigVideoImage
 
 
 T = TypeVar("T", bound="ServerConfigVideo")
@@ -52,8 +52,8 @@ class ServerConfigVideo:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.server_config_video_file import ServerConfigVideoFile
-        from ..models.server_config_video_image import ServerConfigVideoImage
+        from peertube.models.server_config_video_file import ServerConfigVideoFile
+        from peertube.models.server_config_video_image import ServerConfigVideoImage
 
         d = dict(src_dict)
         _image = d.pop("image", UNSET)

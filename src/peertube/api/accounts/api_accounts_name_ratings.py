@@ -3,13 +3,13 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_accounts_name_ratings_rating import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_accounts_name_ratings_rating import (
     GetApiV1AccountsNameRatingsRating,
 )
-from ...models.video_rating import VideoRating
-from ...types import UNSET, Response, Unset
+from peertube.models.video_rating import VideoRating
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

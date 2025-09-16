@@ -11,10 +11,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..types import UNSET, Unset
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.video import Video
+    from peertube.models.video import Video
 
 
 T = TypeVar("T", bound="PlaylistElement")
@@ -36,7 +36,7 @@ class PlaylistElement:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.video import Video
+        from peertube.models.video import Video
 
         position = self.position
 
@@ -68,7 +68,7 @@ class PlaylistElement:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.video import Video
+        from peertube.models.video import Video
 
         d = dict(src_dict)
         position = d.pop("position", UNSET)

@@ -4,12 +4,12 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_videos_id_comment_threads_sort import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_videos_id_comment_threads_sort import (
     GetApiV1VideosIdCommentThreadsSort,
 )
-from ...types import UNSET, Response, Unset
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

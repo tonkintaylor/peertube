@@ -4,15 +4,15 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.post_api_v1_runners_jobs_job_uuid_accept_body import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.post_api_v1_runners_jobs_job_uuid_accept_body import (
     PostApiV1RunnersJobsJobUUIDAcceptBody,
 )
-from ...models.post_api_v1_runners_jobs_job_uuid_accept_response_200 import (
+from peertube.models.post_api_v1_runners_jobs_job_uuid_accept_response_200 import (
     PostApiV1RunnersJobsJobUUIDAcceptResponse200,
 )
-from ...types import Response
+from peertube.types import Response
 
 
 def _get_kwargs(

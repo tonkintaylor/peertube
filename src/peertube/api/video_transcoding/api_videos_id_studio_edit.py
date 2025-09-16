@@ -4,13 +4,13 @@ from uuid import UUID
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.add_intro import AddIntro
-from ...models.add_outro import AddOutro
-from ...models.add_watermark import AddWatermark
-from ...models.cut import Cut
-from ...types import Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.add_intro import AddIntro
+from peertube.models.add_outro import AddOutro
+from peertube.models.add_watermark import AddWatermark
+from peertube.models.cut import Cut
+from peertube.types import Response
 
 
 def _get_kwargs(

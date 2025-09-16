@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.put_api_v1_videos_id_rate_body_rating import (
+from peertube.models.put_api_v1_videos_id_rate_body_rating import (
     PutApiV1VideosIdRateBodyRating,
 )
 

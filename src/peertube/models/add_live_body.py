@@ -13,16 +13,16 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from .. import types
-from ..models.live_video_latency_mode import LiveVideoLatencyMode
-from ..models.nsfw_flag import NSFWFlag
-from ..models.video_comments_policy_set import VideoCommentsPolicySet
-from ..models.video_privacy_set import VideoPrivacySet
-from ..types import UNSET, File, FileTypes, Unset
+from peertube import types
+from peertube.models.live_video_latency_mode import LiveVideoLatencyMode
+from peertube.models.nsfw_flag import NSFWFlag
+from peertube.models.video_comments_policy_set import VideoCommentsPolicySet
+from peertube.models.video_privacy_set import VideoPrivacySet
+from peertube.types import UNSET, File, FileTypes, Unset
 
 if TYPE_CHECKING:
-    from ..models.live_schedule import LiveSchedule
-    from ..models.live_video_replay_settings import LiveVideoReplaySettings
+    from peertube.models.live_schedule import LiveSchedule
+    from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
 
 T = TypeVar("T", bound="AddLiveBody")
@@ -342,8 +342,8 @@ class AddLiveBody:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.live_schedule import LiveSchedule
-        from ..models.live_video_replay_settings import LiveVideoReplaySettings
+        from peertube.models.live_schedule import LiveSchedule
+        from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
         d = dict(src_dict)
         channel_id = d.pop("channelId")

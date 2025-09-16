@@ -8,8 +8,8 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.user_registration_state_id import UserRegistrationStateId
-from ..types import UNSET, Unset
+from peertube.models.user_registration_state_id import UserRegistrationStateId
+from peertube.types import UNSET, Unset
 
 T = TypeVar("T", bound="UserRegistrationState")
 

@@ -3,16 +3,16 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_videos_include import GetVideosInclude
-from ...models.get_videos_nsfw import GetVideosNsfw
-from ...models.get_videos_skip_count import GetVideosSkipCount
-from ...models.get_videos_sort import GetVideosSort
-from ...models.nsfw_flag import NSFWFlag
-from ...models.video_list_response import VideoListResponse
-from ...models.video_privacy_set import VideoPrivacySet
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_videos_include import GetVideosInclude
+from peertube.models.get_videos_nsfw import GetVideosNsfw
+from peertube.models.get_videos_skip_count import GetVideosSkipCount
+from peertube.models.get_videos_sort import GetVideosSort
+from peertube.models.nsfw_flag import NSFWFlag
+from peertube.models.video_list_response import VideoListResponse
+from peertube.models.video_privacy_set import VideoPrivacySet
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

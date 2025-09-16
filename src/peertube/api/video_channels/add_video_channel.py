@@ -3,11 +3,11 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.add_video_channel_response_200 import AddVideoChannelResponse200
-from ...models.video_channel_create import VideoChannelCreate
-from ...types import Response
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.add_video_channel_response_200 import AddVideoChannelResponse200
+from peertube.models.video_channel_create import VideoChannelCreate
+from peertube.types import Response
 
 
 def _get_kwargs(

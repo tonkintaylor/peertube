@@ -3,12 +3,12 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_jobs_job_type import GetJobsJobType
-from ...models.get_jobs_response_200 import GetJobsResponse200
-from ...models.get_jobs_state import GetJobsState
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_jobs_job_type import GetJobsJobType
+from peertube.models.get_jobs_response_200 import GetJobsResponse200
+from peertube.models.get_jobs_state import GetJobsState
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

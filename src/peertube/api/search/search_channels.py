@@ -3,10 +3,10 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.search_channels_search_target import SearchChannelsSearchTarget
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.search_channels_search_target import SearchChannelsSearchTarget
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

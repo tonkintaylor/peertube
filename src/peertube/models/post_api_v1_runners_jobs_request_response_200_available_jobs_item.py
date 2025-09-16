@@ -11,13 +11,13 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.runner_job_type import RunnerJobType
-from ..types import UNSET, Unset
+from peertube.models.runner_job_type import RunnerJobType
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
-    from ..models.vod_web_video_transcoding import VODWebVideoTranscoding
-    from ..models.vodhls_transcoding import VODHLSTranscoding
+    from peertube.models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
+    from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
+    from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
 
 T = TypeVar("T", bound="PostApiV1RunnersJobsRequestResponse200AvailableJobsItem")
@@ -39,8 +39,8 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.vod_web_video_transcoding import VODWebVideoTranscoding
-        from ..models.vodhls_transcoding import VODHLSTranscoding
+        from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
+        from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
         uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
@@ -53,9 +53,7 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
             payload = UNSET
-        elif isinstance(self.payload, VODWebVideoTranscoding) or isinstance(
-            self.payload, VODHLSTranscoding
-        ):
+        elif isinstance(self.payload, (VODWebVideoTranscoding, VODHLSTranscoding)):
             payload = self.payload.to_dict()
         else:
             payload = self.payload.to_dict()
@@ -74,9 +72,9 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
-        from ..models.vod_web_video_transcoding import VODWebVideoTranscoding
-        from ..models.vodhls_transcoding import VODHLSTranscoding
+        from peertube.models.vod_audio_merge_transcoding import VODAudioMergeTranscoding
+        from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
+        from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
         d = dict(src_dict)
         _uuid = d.pop("uuid", UNSET)

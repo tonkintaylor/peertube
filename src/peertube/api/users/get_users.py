@@ -3,10 +3,10 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_users_sort import GetUsersSort
-from ...types import UNSET, Response, Unset
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_users_sort import GetUsersSort
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

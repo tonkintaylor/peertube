@@ -12,11 +12,11 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.plugin_type import PluginType
-from ..types import UNSET, Unset
+from peertube.models.plugin_type import PluginType
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.plugin_settings import PluginSettings
+    from peertube.models.plugin_settings import PluginSettings
 
 
 T = TypeVar("T", bound="Plugin")
@@ -120,7 +120,7 @@ class Plugin:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.plugin_settings import PluginSettings
+        from peertube.models.plugin_settings import PluginSettings
 
         d = dict(src_dict)
         name = d.pop("name", UNSET)

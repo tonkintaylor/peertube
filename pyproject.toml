@@ -171,6 +171,48 @@ lint.per-file-ignores."examples/**" = [
 lint.per-file-ignores."src/peertube/auth/**" = [
   "PLR0913", # Registration functions legitimately need many arguments
 ]
+# Generated OpenAPI client code - less strict linting
+lint.per-file-ignores."src/peertube/api/**" = [
+  "A001",    # Variable name shadows builtin
+  "A002",    # Function argument shadows builtin
+  "ARG001",  # Unused function argument
+  "B032",    # Possible unintentional type annotation
+  "C901",    # Complex function (generated code)
+  "D101",    # Missing docstring in public class
+  "D102",    # Missing docstring in public method
+  "D205",    # Blank line between summary and description
+  "D417",    # Missing argument descriptions in docstring
+  "E501",    # Line too long (auto-generated code)
+  "PLC0415", # Import outside top-level
+  "PLR0911", # Too many return statements
+  "PLR0912", # Too many branches
+  "PLR0913", # Too many arguments
+  "PLR0915", # Too many statements
+  "S110",    # Try-except-pass
+  "TRY300",  # Try without except
+]
+lint.per-file-ignores."src/peertube/models/**" = [
+  "A001",    # Variable name shadows builtin
+  "A002",    # Function argument shadows builtin
+  "C901",    # Complex function (generated code)
+  "D101",    # Missing docstring in public class
+  "D102",    # Missing docstring in public method
+  "D205",    # Blank line between summary and description
+  "D419",    # Empty docstring
+  "E501",    # Line too long (auto-generated code)
+  "N818",    # Exception name should be named with an Error suffix
+  "PLC0415", # Import outside top-level (circular import handling)
+  "S110",    # Try-except-pass
+  "TRY300",  # Try without except
+]
+lint.per-file-ignores."src/peertube/types.py" = [
+  "D101",    # Missing docstring in public class
+  "E501",    # Line too long
+  "UP007",   # Use X | Y instead of Union (compatibility)
+]
+lint.per-file-ignores."src/peertube/client.py" = [
+  "E501",    # Line too long (docstrings and generated code)
+]
 # We aren't as strict about code quality in notebooks and scripts
 lint.per-file-ignores."src/{scripts,notebooks}/**" = [
   "ANN",     # Annotations

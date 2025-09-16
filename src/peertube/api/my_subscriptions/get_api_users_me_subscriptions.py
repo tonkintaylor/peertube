@@ -3,12 +3,12 @@ from typing import Any
 
 import httpx
 
-from ... import errors
-from ...client import AuthenticatedClient, Client
-from ...models.get_api_v1_users_me_subscriptions_sort import (
+from peertube import errors
+from peertube.client import AuthenticatedClient, Client
+from peertube.models.get_api_v1_users_me_subscriptions_sort import (
     GetApiV1UsersMeSubscriptionsSort,
 )
-from ...types import UNSET, Response, Unset
+from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(

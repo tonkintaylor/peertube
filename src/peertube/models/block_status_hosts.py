@@ -10,7 +10,7 @@ from attrs import field as _attrs_field
 from typing_extensions import Self
 
 if TYPE_CHECKING:
-    from ..models.block_status_hosts_additional_property import (
+    from peertube.models.block_status_hosts_additional_property import (
         BlockStatusHostsAdditionalProperty,
     )
 
@@ -35,7 +35,7 @@ class BlockStatusHosts:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.block_status_hosts_additional_property import (
+        from peertube.models.block_status_hosts_additional_property import (
             BlockStatusHostsAdditionalProperty,
         )
 

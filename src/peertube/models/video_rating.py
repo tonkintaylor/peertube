@@ -9,10 +9,10 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.video_rating_rating import VideoRatingRating
+from peertube.models.video_rating_rating import VideoRatingRating
 
 if TYPE_CHECKING:
-    from ..models.video import Video
+    from peertube.models.video import Video
 
 
 T = TypeVar("T", bound="VideoRating")
@@ -47,7 +47,7 @@ class VideoRating:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.video import Video
+        from peertube.models.video import Video
 
         d = dict(src_dict)
         video = Video.from_dict(d.pop("video"))

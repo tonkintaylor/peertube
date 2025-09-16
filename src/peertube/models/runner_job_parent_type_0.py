@@ -11,11 +11,11 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-from ..models.runner_job_type import RunnerJobType
-from ..types import UNSET, Unset
+from peertube.models.runner_job_type import RunnerJobType
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.runner_job_state_constant import RunnerJobStateConstant
+    from peertube.models.runner_job_state_constant import RunnerJobStateConstant
 
 
 T = TypeVar("T", bound="RunnerJobParentType0")
@@ -63,7 +63,7 @@ class RunnerJobParentType0:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.runner_job_state_constant import RunnerJobStateConstant
+        from peertube.models.runner_job_state_constant import RunnerJobStateConstant
 
         d = dict(src_dict)
         _type_ = d.pop("type", UNSET)

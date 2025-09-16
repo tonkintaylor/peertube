@@ -14,20 +14,24 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 from typing_extensions import Self
 
-from ..models.nsfw_flag import NSFWFlag
-from ..types import UNSET, Unset
+from peertube.models.nsfw_flag import NSFWFlag
+from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.account_summary import AccountSummary
-    from ..models.live_schedule import LiveSchedule
-    from ..models.video_channel_summary import VideoChannelSummary
-    from ..models.video_constant_number_category import VideoConstantNumberCategory
-    from ..models.video_constant_number_licence import VideoConstantNumberLicence
-    from ..models.video_constant_string_language import VideoConstantStringLanguage
-    from ..models.video_privacy_constant import VideoPrivacyConstant
-    from ..models.video_scheduled_update import VideoScheduledUpdate
-    from ..models.video_state_constant import VideoStateConstant
-    from ..models.video_user_history_type_0 import VideoUserHistoryType0
+    from peertube.models.account_summary import AccountSummary
+    from peertube.models.live_schedule import LiveSchedule
+    from peertube.models.video_channel_summary import VideoChannelSummary
+    from peertube.models.video_constant_number_category import (
+        VideoConstantNumberCategory,
+    )
+    from peertube.models.video_constant_number_licence import VideoConstantNumberLicence
+    from peertube.models.video_constant_string_language import (
+        VideoConstantStringLanguage,
+    )
+    from peertube.models.video_privacy_constant import VideoPrivacyConstant
+    from peertube.models.video_scheduled_update import VideoScheduledUpdate
+    from peertube.models.video_state_constant import VideoStateConstant
+    from peertube.models.video_user_history_type_0 import VideoUserHistoryType0
 
 
 T = TypeVar("T", bound="Video")
@@ -127,8 +131,8 @@ class Video:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.video_scheduled_update import VideoScheduledUpdate
-        from ..models.video_user_history_type_0 import VideoUserHistoryType0
+        from peertube.models.video_scheduled_update import VideoScheduledUpdate
+        from peertube.models.video_user_history_type_0 import VideoUserHistoryType0
 
         id = self.id
 
@@ -349,16 +353,22 @@ class Video:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from ..models.account_summary import AccountSummary
-        from ..models.live_schedule import LiveSchedule
-        from ..models.video_channel_summary import VideoChannelSummary
-        from ..models.video_constant_number_category import VideoConstantNumberCategory
-        from ..models.video_constant_number_licence import VideoConstantNumberLicence
-        from ..models.video_constant_string_language import VideoConstantStringLanguage
-        from ..models.video_privacy_constant import VideoPrivacyConstant
-        from ..models.video_scheduled_update import VideoScheduledUpdate
-        from ..models.video_state_constant import VideoStateConstant
-        from ..models.video_user_history_type_0 import VideoUserHistoryType0
+        from peertube.models.account_summary import AccountSummary
+        from peertube.models.live_schedule import LiveSchedule
+        from peertube.models.video_channel_summary import VideoChannelSummary
+        from peertube.models.video_constant_number_category import (
+            VideoConstantNumberCategory,
+        )
+        from peertube.models.video_constant_number_licence import (
+            VideoConstantNumberLicence,
+        )
+        from peertube.models.video_constant_string_language import (
+            VideoConstantStringLanguage,
+        )
+        from peertube.models.video_privacy_constant import VideoPrivacyConstant
+        from peertube.models.video_scheduled_update import VideoScheduledUpdate
+        from peertube.models.video_state_constant import VideoStateConstant
+        from peertube.models.video_user_history_type_0 import VideoUserHistoryType0
 
         d = dict(src_dict)
         id = d.pop("id", UNSET)
