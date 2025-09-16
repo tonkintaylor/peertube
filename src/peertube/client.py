@@ -1,4 +1,5 @@
 import ssl
+from types import TracebackType
 from typing import Any
 
 import httpx
@@ -38,7 +39,12 @@ class Client:
     _base_url: str = field(alias="base_url")
     _cookies: dict[str, str] = field(factory=dict, kw_only=True, alias="cookies")
     _headers: dict[str, str] = field(factory=dict, kw_only=True, alias="headers")
-    _timeout: httpx.Timeout | None = field(default=None, kw_only=True, alias="timeout")
+    _timeout: httpx.Timeout | None = field(
+        default=None,
+        kw_only=True,
+        alias="timeout",
+        converter=lambda x: None if x is None else httpx.Timeout(x),
+    )
     _verify_ssl: str | bool | ssl.SSLContext = field(
         default=True, kw_only=True, alias="verify_ssl"
     )
@@ -100,9 +106,14 @@ class Client:
         self.get_httpx_client().__enter__()
         return self
 
-    def __exit__(self, *args: object, **kwargs: Any) -> None:
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for internal httpx.Client (see httpx docs)"""
-        self.get_httpx_client().__exit__(*args, **kwargs)
+        self.get_httpx_client().__exit__(exc_type, exc_value, traceback)
 
     def set_async_httpx_client(self, async_client: httpx.AsyncClient) -> "Client":
         """Manually the underlying httpx.AsyncClient
@@ -131,9 +142,14 @@ class Client:
         await self.get_async_httpx_client().__aenter__()
         return self
 
-    async def __aexit__(self, *args: object, **kwargs: Any) -> None:
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for underlying httpx.AsyncClient (see httpx docs)"""
-        await self.get_async_httpx_client().__aexit__(*args, **kwargs)
+        await self.get_async_httpx_client().__aexit__(exc_type, exc_value, traceback)
 
 
 @define
@@ -172,7 +188,12 @@ class AuthenticatedClient:
     _base_url: str = field(alias="base_url")
     _cookies: dict[str, str] = field(factory=dict, kw_only=True, alias="cookies")
     _headers: dict[str, str] = field(factory=dict, kw_only=True, alias="headers")
-    _timeout: httpx.Timeout | None = field(default=None, kw_only=True, alias="timeout")
+    _timeout: httpx.Timeout | None = field(
+        default=None,
+        kw_only=True,
+        alias="timeout",
+        converter=lambda x: None if x is None else httpx.Timeout(x),
+    )
     _verify_ssl: str | bool | ssl.SSLContext = field(
         default=True, kw_only=True, alias="verify_ssl"
     )
@@ -241,9 +262,14 @@ class AuthenticatedClient:
         self.get_httpx_client().__enter__()
         return self
 
-    def __exit__(self, *args: object, **kwargs: Any) -> None:
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for internal httpx.Client (see httpx docs)"""
-        self.get_httpx_client().__exit__(*args, **kwargs)
+        self.get_httpx_client().__exit__(exc_type, exc_value, traceback)
 
     def set_async_httpx_client(
         self, async_client: httpx.AsyncClient
@@ -277,6 +303,11 @@ class AuthenticatedClient:
         await self.get_async_httpx_client().__aenter__()
         return self
 
-    async def __aexit__(self, *args: object, **kwargs: Any) -> None:
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for underlying httpx.AsyncClient (see httpx docs)"""
-        await self.get_async_httpx_client().__aexit__(*args, **kwargs)
+        await self.get_async_httpx_client().__aexit__(exc_type, exc_value, traceback)

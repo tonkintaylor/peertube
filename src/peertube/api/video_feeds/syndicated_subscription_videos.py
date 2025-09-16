@@ -1,3 +1,4 @@
+import json
 from http import HTTPStatus
 from typing import Any, cast
 
@@ -80,7 +81,7 @@ def _parse_response(
 ) -> Any | list["VideosForXMLItem"] | None:
     if response.status_code == 200:
         response_200 = []
-        _response_200 = response.text
+        _response_200 = json.loads(response.text)
         for componentsschemas_videos_for_xml_item_data in _response_200:
             componentsschemas_videos_for_xml_item = VideosForXMLItem.from_dict(
                 componentsschemas_videos_for_xml_item_data

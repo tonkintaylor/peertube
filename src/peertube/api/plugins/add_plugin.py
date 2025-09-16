@@ -21,7 +21,6 @@ def _get_kwargs(
         "url": "/api/v1/plugins/install",
     }
 
-    _kwargs["json"]: dict[str, Any]
     if isinstance(body, AddPluginBodyType0):
         _kwargs["json"] = body.to_dict()
     else:
