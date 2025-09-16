@@ -71,6 +71,7 @@ def sync_detailed(
 
     Args:
         registration_id (int):  Example: 42.
+        client: Authenticated HTTP client for API requests.
         body (VerifyRegistrationEmailBody):
 
     Raises:
@@ -106,6 +107,7 @@ async def asyncio_detailed(
 
     Args:
         registration_id (int):  Example: 42.
+        client: Authenticated HTTP client for API requests.
         body (VerifyRegistrationEmailBody):
 
     Raises:

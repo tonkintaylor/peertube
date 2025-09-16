@@ -70,6 +70,7 @@ def sync_detailed(
      Signup has to be enabled and signup approval is not required
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (RegisterUser):
 
     Raises:
@@ -101,6 +102,7 @@ async def asyncio_detailed(
      Signup has to be enabled and signup approval is not required
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (RegisterUser):
 
     Raises:

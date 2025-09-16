@@ -53,6 +53,7 @@ def sync_detailed(
     any)
 
     Args:
+        client: Authenticated HTTP client for API requests.
         registration_id (int):  Example: 42.
 
     Raises:
@@ -85,6 +86,7 @@ async def asyncio_detailed(
     any)
 
     Args:
+        client: Authenticated HTTP client for API requests.
         registration_id (int):  Example: 42.
 
     Raises:

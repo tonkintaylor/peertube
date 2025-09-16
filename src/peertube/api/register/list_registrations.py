@@ -81,6 +81,7 @@ def sync_detailed(
         start (Union[Unset, int]):
         count (Union[Unset, int]):  Default: 15.
         search (Union[Unset, str]):
+        client: Authenticated HTTP client for API requests.
         sort (Union[Unset, ListRegistrationsSort]):
 
     Raises:
@@ -119,6 +120,7 @@ def sync(
         start (Union[Unset, int]):
         count (Union[Unset, int]):  Default: 15.
         search (Union[Unset, str]):
+        client: Authenticated HTTP client for API requests.
         sort (Union[Unset, ListRegistrationsSort]):
 
     Raises:
@@ -152,6 +154,7 @@ async def asyncio_detailed(
         start (Union[Unset, int]):
         count (Union[Unset, int]):  Default: 15.
         search (Union[Unset, str]):
+        client: Authenticated HTTP client for API requests.
         sort (Union[Unset, ListRegistrationsSort]):
 
     Raises:
@@ -188,6 +191,7 @@ async def asyncio(
         start (Union[Unset, int]):
         count (Union[Unset, int]):  Default: 15.
         search (Union[Unset, str]):
+        client: Authenticated HTTP client for API requests.
         sort (Union[Unset, ListRegistrationsSort]):
 
     Raises:

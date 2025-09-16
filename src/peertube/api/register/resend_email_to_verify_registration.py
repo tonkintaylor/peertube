@@ -61,6 +61,7 @@ def sync_detailed(
     """Resend verification link to registration request email
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (ResendEmailToVerifyRegistrationBody):
 
     Raises:
@@ -90,6 +91,7 @@ async def asyncio_detailed(
     """Resend verification link to registration request email
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (ResendEmailToVerifyRegistrationBody):
 
     Raises:

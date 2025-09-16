@@ -57,6 +57,7 @@ def sync_detailed(
     """List token sessions
 
     Args:
+        client: Authenticated HTTP client for API requests.
         id (int):  Example: 42.
 
     Raises:
@@ -86,6 +87,7 @@ def sync(
     """List token sessions
 
     Args:
+        client: Authenticated HTTP client for API requests.
         id (int):  Example: 42.
 
     Raises:
@@ -110,6 +112,7 @@ async def asyncio_detailed(
     """List token sessions
 
     Args:
+        client: Authenticated HTTP client for API requests.
         id (int):  Example: 42.
 
     Raises:
@@ -137,6 +140,7 @@ async def asyncio(
     """List token sessions
 
     Args:
+        client: Authenticated HTTP client for API requests.
         id (int):  Example: 42.
 
     Raises:

@@ -76,6 +76,7 @@ def sync_detailed(
      Signup has to be enabled and require approval on the instance
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest):
 
     Raises:
@@ -107,6 +108,7 @@ def sync(
      Signup has to be enabled and require approval on the instance
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest):
 
     Raises:
@@ -133,6 +135,7 @@ async def asyncio_detailed(
      Signup has to be enabled and require approval on the instance
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest):
 
     Raises:
@@ -162,6 +165,7 @@ async def asyncio(
      Signup has to be enabled and require approval on the instance
 
     Args:
+        client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest):
 
     Raises:

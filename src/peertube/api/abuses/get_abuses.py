@@ -149,6 +149,7 @@ def sync_detailed(
         filter_ (Union[Unset, GetAbusesFilter]):
         start (Union[Unset, int]):
         count (Union[Unset, int]):  Default: 15.
+        client: Authenticated HTTP client for API requests.
         sort (Union[Unset, GetAbusesSort]):
 
     Raises:
@@ -216,6 +217,7 @@ async def asyncio_detailed(
         filter_ (Union[Unset, GetAbusesFilter]):
         start (Union[Unset, int]):
         count (Union[Unset, int]):  Default: 15.
+        client: Authenticated HTTP client for API requests.
         sort (Union[Unset, GetAbusesSort]):
 
     Raises:
