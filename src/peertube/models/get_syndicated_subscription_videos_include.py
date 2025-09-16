@@ -3,6 +3,7 @@ from enum import IntEnum
 
 class GetSyndicatedSubscriptionVideosInclude(IntEnum):
     """GetSyndicatedSubscriptionVideosInclude enumeration."""
+
     VALUE_0 = 0
     VALUE_1 = 1
     VALUE_2 = 2

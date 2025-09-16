@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetSyndicatedVideosNsfw(str, Enum):
     """GetSyndicatedVideosNsfw enumeration."""
+
     FALSE = "false"
     TRUE = "true"
 

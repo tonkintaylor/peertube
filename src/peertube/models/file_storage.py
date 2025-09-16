@@ -3,6 +3,7 @@ from enum import IntEnum
 
 class FileStorage(IntEnum):
     """FileStorage enumeration."""
+
     VALUE_0 = 0
     VALUE_1 = 1
 

@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetApiV1ServerFollowingActorType(str, Enum):
     """GetApiV1ServerFollowingActorType enumeration."""
+
     APPLICATION = "Application"
     GROUP = "Group"
     ORGANIZATION = "Organization"

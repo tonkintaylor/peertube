@@ -3,6 +3,7 @@ from enum import Enum
 
 class GetJobsState(str, Enum):
     """GetJobsState enumeration."""
+
     ACTIVE = "active"
     COMPLETED = "completed"
     DELAYED = "delayed"

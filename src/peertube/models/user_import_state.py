@@ -3,6 +3,7 @@ from enum import IntEnum
 
 class UserImportState(IntEnum):
     """UserImportState enumeration."""
+
     VALUE_1 = 1
     VALUE_2 = 2
     VALUE_3 = 3

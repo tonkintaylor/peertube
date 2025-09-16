@@ -9,6 +9,7 @@ from attrs import define
 
 class Unset:
     """Unset class."""
+
     def __bool__(self) -> Literal[False]:
         return False
 
