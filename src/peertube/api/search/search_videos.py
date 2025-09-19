@@ -25,7 +25,7 @@ def _get_kwargs(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -75,7 +75,7 @@ def _get_kwargs(
 
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
-        json_sort = sort.value
+        json_sort = sort.value if hasattr(sort, 'value') else sort
 
     params["sort"] = json_sort
 
@@ -258,7 +258,7 @@ def sync_detailed(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -293,8 +293,8 @@ def sync_detailed(
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
+        sort (Union[Unset, str, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
+            `DESC` order). Can be a string (e.g., "-publishedAt") or SearchVideosSort enum:
               * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
             dislikes and comments and publication date
               * `best` - Same than `hot`, but also takes into account user video history
@@ -393,7 +393,7 @@ def sync(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -428,8 +428,8 @@ def sync(
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
+        sort (Union[Unset, str, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
+            `DESC` order). Can be a string (e.g., "-publishedAt") or SearchVideosSort enum:
               * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
             dislikes and comments and publication date
               * `best` - Same than `hot`, but also takes into account user video history
@@ -523,7 +523,7 @@ async def asyncio_detailed(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -558,8 +558,8 @@ async def asyncio_detailed(
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
+        sort (Union[Unset, str, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
+            `DESC` order). Can be a string (e.g., "-publishedAt") or SearchVideosSort enum:
               * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
             dislikes and comments and publication date
               * `best` - Same than `hot`, but also takes into account user video history
@@ -656,7 +656,7 @@ async def asyncio(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -691,8 +691,8 @@ async def asyncio(
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
+        sort (Union[Unset, str, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
+            `DESC` order). Can be a string (e.g., "-publishedAt") or SearchVideosSort enum:
               * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
             dislikes and comments and publication date
               * `best` - Same than `hot`, but also takes into account user video history
