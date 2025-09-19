@@ -1,8 +1,6 @@
 from collections.abc import Mapping
 from typing import (
-    Any,
-    TypeVar,
-)
+    Any, TypeVar)
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,7 +8,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T = TypeVar("T", bound="VideoChannelCreate")
+T=TypeVar("T", bound="VideoChannelCreate")
 
 
 @_attrs_define
@@ -22,70 +20,69 @@ class VideoChannelCreate:
     support (Union[Unset, Any]): How to support/fund the channel
     """
 
+
     name: str
-    display_name: Unset | Any = UNSET
-    description: Unset | Any = UNSET
-    support: Unset | Any = UNSET
-    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+    display_name: Unset | Any=UNSET
+    description: Unset | Any=UNSET
+    support: Unset | Any=UNSET
+    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
-        name = self.name
 
-        display_name = self.display_name
+        name=self.name
 
-        description = self.description
+        display_name=self.display_name
 
-        support = self.support
+        description=self.description
 
-        field_dict: dict[str, Any] = {}
+        support=self.support
+
+        field_dict: dict[str, Any]={}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "name": name,
-            }
+                "name": name, }
         )
         if display_name is not UNSET:
-            field_dict["displayName"] = display_name
+            field_dict["displayName"]=display_name
         if description is not UNSET:
-            field_dict["description"] = description
+            field_dict["description"]=description
         if support is not UNSET:
-            field_dict["support"] = support
+            field_dict["support"]=support
 
         return field_dict
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
-        d = dict(src_dict)
-        name = d.pop("name")
 
-        display_name = d.pop("displayName", UNSET)
+        d=dict(src_dict)
+        name=d.pop("name")
 
-        description = d.pop("description", UNSET)
+        display_name=d.pop("displayName", UNSET)
 
-        support = d.pop("support", UNSET)
+        description=d.pop("description", UNSET)
 
-        video_channel_create = cls(
-            name=name,
-            display_name=display_name,
-            description=description,
-            support=support,
-        )
+        support=d.pop("support", UNSET)
 
-        video_channel_create.additional_properties = d
+        video_channel_create=cls(
+            name=name, display_name=display_name, description=description, support=support)
+
+        video_channel_create.additional_properties=d
         return video_channel_create
 
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key] = value
+        self.additional_properties[key]=value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]

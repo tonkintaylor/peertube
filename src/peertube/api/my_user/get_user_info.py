@@ -9,10 +9,8 @@ from peertube.types import Response
 
 
 def _get_kwargs() -> dict[str, Any]:
-    _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": "/api/v1/users/me",
-    }
+    _kwargs: dict[str, Any]={
+        "method": "get", "url": "/api/v1/users/me", }
 
     return _kwargs
 
@@ -28,18 +26,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient,
-) -> Response[Any]:
+    *, client: AuthenticatedClient) -> Response[Any]:
     """Get my user information
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -48,19 +42,19 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
+
     kwargs = _get_kwargs()
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 def sync(
-    *,
-    client: AuthenticatedClient,
-) -> Any | None:
+    *, client: AuthenticatedClient) -> Any | None:
     """Get my user information
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -69,15 +63,15 @@ def sync(
     Returns:
         Any
     """
+
     return sync_detailed(
-        client=client,
-    ).parsed
+        client = client).parsed
+
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient,
-) -> Response[Any]:
+    *, client: AuthenticatedClient) -> Response[Any]:
     """Get my user information
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -86,8 +80,9 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
+
     kwargs = _get_kwargs()
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)

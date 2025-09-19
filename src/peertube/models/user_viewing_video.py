@@ -1,8 +1,6 @@
 from collections.abc import Mapping
 from typing import (
-    Any,
-    TypeVar,
-)
+    Any, TypeVar)
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +10,7 @@ from peertube.models.user_viewing_video_view_event import UserViewingVideoViewEv
 from peertube.models.video_stats_user_agent_device import VideoStatsUserAgentDevice
 from peertube.types import UNSET, Unset
 
-T = TypeVar("T", bound="UserViewingVideo")
+T=TypeVar("T", bound="UserViewingVideo")
 
 
 @_attrs_define
@@ -27,104 +25,99 @@ class UserViewingVideo:
     client (Union[Unset, str]): Client software used to watch the video. For example "Firefox", "PeerTube Approval
         Android", etc.
     device (Union[Unset, VideoStatsUserAgentDevice]):
-    operating_system (Union[Unset, str]): Operating system used to watch the video. For example "Windows", "Ubuntu",
-        etc.
+    operating_system (Union[Unset, str]): Operating system used to watch the video. For example "Windows", "Ubuntu", etc.
     """
 
     current_time: int
-    view_event: Unset | UserViewingVideoViewEvent = UNSET
-    session_id: Unset | str = UNSET
-    client: Unset | str = UNSET
-    device: Unset | VideoStatsUserAgentDevice = UNSET
-    operating_system: Unset | str = UNSET
-    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+    view_event: Unset | UserViewingVideoViewEvent=UNSET
+    session_id: Unset | str=UNSET
+    client: Unset | str=UNSET
+    device: Unset | VideoStatsUserAgentDevice=UNSET
+    operating_system: Unset | str=UNSET
+    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
-        current_time = self.current_time
 
-        view_event: Unset | str = UNSET
+        current_time=self.current_time
+
+        view_event: Unset | str=UNSET
         if not isinstance(self.view_event, Unset):
-            view_event = self.view_event.value
+            view_event=self.view_event.value
 
-        session_id = self.session_id
+        session_id=self.session_id
 
-        client = self.client
+        client=self.client
 
-        device: Unset | str = UNSET
+        device: Unset | str=UNSET
         if not isinstance(self.device, Unset):
-            device = self.device.value
+            device=self.device.value
 
-        operating_system = self.operating_system
+        operating_system=self.operating_system
 
-        field_dict: dict[str, Any] = {}
+        field_dict: dict[str, Any]={}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "currentTime": current_time,
-            }
+                "currentTime": current_time, }
         )
         if view_event is not UNSET:
-            field_dict["viewEvent"] = view_event
+            field_dict["viewEvent"]=view_event
         if session_id is not UNSET:
-            field_dict["sessionId"] = session_id
+            field_dict["sessionId"]=session_id
         if client is not UNSET:
-            field_dict["client"] = client
+            field_dict["client"]=client
         if device is not UNSET:
-            field_dict["device"] = device
+            field_dict["device"]=device
         if operating_system is not UNSET:
-            field_dict["operatingSystem"] = operating_system
+            field_dict["operatingSystem"]=operating_system
 
         return field_dict
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
-        d = dict(src_dict)
-        current_time = d.pop("currentTime")
 
-        _view_event = d.pop("viewEvent", UNSET)
+        d=dict(src_dict)
+        current_time=d.pop("currentTime")
+
+        _view_event=d.pop("viewEvent", UNSET)
         view_event: Unset | UserViewingVideoViewEvent
         if isinstance(_view_event, Unset):
-            view_event = UNSET
+            view_event=UNSET
         else:
-            view_event = UserViewingVideoViewEvent(_view_event)
+            view_event=UserViewingVideoViewEvent(_view_event)
 
-        session_id = d.pop("sessionId", UNSET)
+        session_id=d.pop("sessionId", UNSET)
 
-        client = d.pop("client", UNSET)
+        client=d.pop("client", UNSET)
 
-        _device = d.pop("device", UNSET)
+        _device=d.pop("device", UNSET)
         device: Unset | VideoStatsUserAgentDevice
         if isinstance(_device, Unset):
-            device = UNSET
+            device=UNSET
         else:
-            device = VideoStatsUserAgentDevice(_device)
+            device=VideoStatsUserAgentDevice(_device)
 
-        operating_system = d.pop("operatingSystem", UNSET)
+        operating_system=d.pop("operatingSystem", UNSET)
 
-        user_viewing_video = cls(
-            current_time=current_time,
-            view_event=view_event,
-            session_id=session_id,
-            client=client,
-            device=device,
-            operating_system=operating_system,
-        )
+        user_viewing_video=cls(
+            current_time=current_time, view_event=view_event, session_id=session_id, client=client, device=device, operating_system=operating_system)
 
-        user_viewing_video.additional_properties = d
+        user_viewing_video.additional_properties=d
         return user_viewing_video
 
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key] = value
+        self.additional_properties[key]=value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]

@@ -10,25 +10,20 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: UUID | int | str,
-    *,
-    x_peertube_video_password: Unset | str = UNSET,
-) -> dict[str, Any]:
-    headers: dict[str, Any] = {}
+    id: UUID | int | str, *, x_peertube_video_password: Unset | str = UNSET) -> dict[str, Any]:
+    headers: dict[str, Any]={}
     if not isinstance(x_peertube_video_password, Unset):
-        headers["x-peertube-video-password"] = x_peertube_video_password
-    _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": f"/api/v1/videos/{id}/description",
-    }
+        headers["x-peertube-video-password"]=x_peertube_video_password
+    _kwargs: dict[str, Any]={
+        "method": "get", "url": f"/api/v1/videos/{id}/description", }
 
-    _kwargs["headers"] = headers
+    _kwargs["headers"]=headers
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> None | str:
-    if response.status_code == 200:
+    if response.status_code== 200:
         def _parse_response_200(data: object) -> None | str:
             if data is None:
                 return data
@@ -46,20 +41,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[None | str]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
-    x_peertube_video_password: Unset | str = UNSET,
-) -> Response[None | str]:
+    id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> Response[None | str]:
     """Get complete video description
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -70,25 +59,21 @@ def sync_detailed(
     Returns:
         Response[Union[None, str]]
     """
+
     kwargs = _get_kwargs(
-        id=id,
-        x_peertube_video_password=x_peertube_video_password,
-    )
+        id = id, x_peertube_video_password = x_peertube_video_password)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 def sync(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
-    x_peertube_video_password: Unset | str = UNSET,
-) -> None | str:
+    id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> None | str:
     """Get complete video description
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -99,19 +84,15 @@ def sync(
     Returns:
         Union[None, str]
     """
+
     return sync_detailed(
-        id=id,
-        client=client,
-        x_peertube_video_password=x_peertube_video_password,
-    ).parsed
+        id = id, client = client, x_peertube_video_password = x_peertube_video_password).parsed
+
 
 async def asyncio_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
-    x_peertube_video_password: Unset | str = UNSET,
-) -> Response[None | str]:
+    id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> Response[None | str]:
     """Get complete video description
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -122,23 +103,20 @@ async def asyncio_detailed(
     Returns:
         Response[Union[None, str]]
     """
+
     kwargs = _get_kwargs(
-        id=id,
-        x_peertube_video_password=x_peertube_video_password,
-    )
+        id = id, x_peertube_video_password = x_peertube_video_password)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 async def asyncio(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
-    x_peertube_video_password: Unset | str = UNSET,
-) -> None | str:
+    id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> None | str:
     """Get complete video description
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -149,10 +127,8 @@ async def asyncio(
     Returns:
         Union[None, str]
     """
+
     return (
         await asyncio_detailed(
-            id=id,
-            client=client,
-            x_peertube_video_password=x_peertube_video_password,
-        )
+            id = id, client = client, x_peertube_video_password = x_peertube_video_password)
     ).parsed

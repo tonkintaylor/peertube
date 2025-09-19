@@ -12,40 +12,31 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    state: GetJobsState,
-    *,
-    job_type: Unset | GetJobsJobType = UNSET,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | str = UNSET,
-) -> dict[str, Any]:
-    params: dict[str, Any] = {}
+    state: GetJobsState, *, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> dict[str, Any]:
+    params: dict[str, Any]={}
 
     json_job_type: Unset | str = UNSET
     if not isinstance(job_type, Unset):
         json_job_type = job_type.value
 
-    params["jobType"] = json_job_type
+    params["jobType"]=json_job_type
 
-    params["start"] = start
+    params["start"]=start
 
-    params["count"] = count
+    params["count"]=count
 
-    params["sort"] = sort
-    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+    params["sort"]=sort
+    params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": f"/api/v1/jobs/{state}",
-        "params": params,
-    }
+    _kwargs: dict[str, Any]={
+        "method": "get", "url": f"/api/v1/jobs/{state}", "params": params, }
 
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetJobsResponse200 | None:
-    if response.status_code == 200:
+    if response.status_code== 200:
         response_200 = GetJobsResponse200.from_dict(response.json())
 
         return response_200
@@ -58,23 +49,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[GetJobsResponse200]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    state: GetJobsState,
-    *,
-    client: AuthenticatedClient,
-    job_type: Unset | GetJobsJobType = UNSET,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | str = UNSET,
-) -> Response[GetJobsResponse200]:
+    state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetJobsResponse200]:
     """List instance jobs
+
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -89,31 +71,21 @@ def sync_detailed(
     Returns:
         Response[GetJobsResponse200]
     """
+
     kwargs = _get_kwargs(
-        state=state,
-        job_type=job_type,
-        start=start,
-        count=count,
-        sort=sort,
-    )
+        state = state, job_type = job_type, start = start, count = count, sort = sort)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 def sync(
-    state: GetJobsState,
-    *,
-    client: AuthenticatedClient,
-    job_type: Unset | GetJobsJobType = UNSET,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | str = UNSET,
-) -> GetJobsResponse200 | None:
+    state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetJobsResponse200 | None:
     """List instance jobs
+
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -128,25 +100,15 @@ def sync(
     Returns:
         GetJobsResponse200
     """
+
     return sync_detailed(
-        state=state,
-        client=client,
-        job_type=job_type,
-        start=start,
-        count=count,
-        sort=sort,
-    ).parsed
+        state = state, client = client, job_type = job_type, start = start, count = count, sort = sort).parsed
+
 
 async def asyncio_detailed(
-    state: GetJobsState,
-    *,
-    client: AuthenticatedClient,
-    job_type: Unset | GetJobsJobType = UNSET,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | str = UNSET,
-) -> Response[GetJobsResponse200]:
+    state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetJobsResponse200]:
     """List instance jobs
+
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -161,29 +123,20 @@ async def asyncio_detailed(
     Returns:
         Response[GetJobsResponse200]
     """
+
     kwargs = _get_kwargs(
-        state=state,
-        job_type=job_type,
-        start=start,
-        count=count,
-        sort=sort,
-    )
+        state = state, job_type = job_type, start = start, count = count, sort = sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 async def asyncio(
-    state: GetJobsState,
-    *,
-    client: AuthenticatedClient,
-    job_type: Unset | GetJobsJobType = UNSET,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | str = UNSET,
-) -> GetJobsResponse200 | None:
+    state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetJobsResponse200 | None:
     """List instance jobs
+
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -198,13 +151,8 @@ async def asyncio(
     Returns:
         GetJobsResponse200
     """
+
     return (
         await asyncio_detailed(
-            state=state,
-            client=client,
-            job_type=job_type,
-            start=start,
-            count=count,
-            sort=sort,
-        )
+            state = state, client = client, job_type = job_type, start = start, count = count, sort = sort)
     ).parsed

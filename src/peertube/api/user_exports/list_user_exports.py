@@ -10,19 +10,16 @@ from peertube.types import Response
 
 
 def _get_kwargs(
-    user_id: int,
-) -> dict[str, Any]:
-    _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": f"/api/v1/users/{user_id}/exports",
-    }
+    user_id: int) -> dict[str, Any]:
+    _kwargs: dict[str, Any]={
+        "method": "get", "url": f"/api/v1/users/{user_id}/exports", }
 
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> ListUserExportsResponse200 | None:
-    if response.status_code == 200:
+    if response.status_code== 200:
         response_200 = ListUserExportsResponse200.from_dict(response.json())
 
         return response_200
@@ -35,21 +32,15 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[ListUserExportsResponse200]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
-) -> Response[ListUserExportsResponse200]:
+    user_id: int, *, client: AuthenticatedClient) -> Response[ListUserExportsResponse200]:
     """List user exports
 
-     **PeerTube >= 6.1**
+     **PeerTube >=6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -60,25 +51,22 @@ def sync_detailed(
     Returns:
         Response[ListUserExportsResponse200]
     """
+
     kwargs = _get_kwargs(
-        user_id=user_id,
-    )
+        user_id = user_id)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 def sync(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
-) -> ListUserExportsResponse200 | None:
+    user_id: int, *, client: AuthenticatedClient) -> ListUserExportsResponse200 | None:
     """List user exports
 
-     **PeerTube >= 6.1**
+     **PeerTube >=6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -89,19 +77,16 @@ def sync(
     Returns:
         ListUserExportsResponse200
     """
+
     return sync_detailed(
-        user_id=user_id,
-        client=client,
-    ).parsed
+        user_id = user_id, client = client).parsed
+
 
 async def asyncio_detailed(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
-) -> Response[ListUserExportsResponse200]:
+    user_id: int, *, client: AuthenticatedClient) -> Response[ListUserExportsResponse200]:
     """List user exports
 
-     **PeerTube >= 6.1**
+     **PeerTube >=6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -112,23 +97,21 @@ async def asyncio_detailed(
     Returns:
         Response[ListUserExportsResponse200]
     """
+
     kwargs = _get_kwargs(
-        user_id=user_id,
-    )
+        user_id = user_id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 async def asyncio(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
-) -> ListUserExportsResponse200 | None:
+    user_id: int, *, client: AuthenticatedClient) -> ListUserExportsResponse200 | None:
     """List user exports
 
-     **PeerTube >= 6.1**
+     **PeerTube >=6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -139,9 +122,8 @@ async def asyncio(
     Returns:
         ListUserExportsResponse200
     """
+
     return (
         await asyncio_detailed(
-            user_id=user_id,
-            client=client,
-        )
+            user_id = user_id, client = client)
     ).parsed

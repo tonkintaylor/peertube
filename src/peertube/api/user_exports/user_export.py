@@ -9,20 +9,16 @@ from peertube.types import Response
 
 
 def _get_kwargs(
-    user_id: int,
-    id: int,
-) -> dict[str, Any]:
-    _kwargs: dict[str, Any] = {
-        "method": "delete",
-        "url": f"/api/v1/users/{user_id}/exports/{id}",
-    }
+    user_id: int, id: int) -> dict[str, Any]:
+    _kwargs: dict[str, Any]={
+        "method": "delete", "url": f"/api/v1/users/{user_id}/exports/{id}", }
 
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code == 204:
+    if response.status_code== 204:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
@@ -33,22 +29,15 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    user_id: int,
-    id: int,
-    *,
-    client: AuthenticatedClient,
-) -> Response[Any]:
+    user_id: int, id: int, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete a user export
 
-     **PeerTube >= 6.1**
+     **PeerTube >=6.1**
     Args:
         user_id (int):  Example: 42.
         id (int):  Example: 42.
@@ -60,24 +49,20 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
+
     kwargs = _get_kwargs(
-        user_id=user_id,
-        id=id,
-    )
+        user_id = user_id, id = id)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 def sync(
-    user_id: int,
-    id: int,
-    *,
-    client: AuthenticatedClient,
-) -> Any | None:
+    user_id: int, id: int, *, client: AuthenticatedClient) -> Any | None:
     """Delete a user export
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -86,21 +71,16 @@ def sync(
     Returns:
         Any
     """
+
     return sync_detailed(
-        user_id=user_id,
-        id=id,
-        client=client,
-    ).parsed
+        user_id = user_id, id = id, client = client).parsed
+
 
 async def asyncio_detailed(
-    user_id: int,
-    id: int,
-    *,
-    client: AuthenticatedClient,
-) -> Response[Any]:
+    user_id: int, id: int, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete a user export
 
-     **PeerTube >= 6.1**
+     **PeerTube >=6.1**
     Args:
         user_id (int):  Example: 42.
         id (int):  Example: 42.
@@ -112,11 +92,10 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
+
     kwargs = _get_kwargs(
-        user_id=user_id,
-        id=id,
-    )
+        user_id = user_id, id = id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)

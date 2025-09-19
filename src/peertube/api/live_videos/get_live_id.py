@@ -11,19 +11,16 @@ from peertube.types import Response
 
 
 def _get_kwargs(
-    id: UUID | int | str,
-) -> dict[str, Any]:
-    _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": f"/api/v1/videos/live/{id}",
-    }
+    id: UUID | int | str) -> dict[str, Any]:
+    _kwargs: dict[str, Any]={
+        "method": "get", "url": f"/api/v1/videos/live/{id}", }
 
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> LiveVideoResponse | None:
-    if response.status_code == 200:
+    if response.status_code== 200:
         response_200 = LiveVideoResponse.from_dict(response.json())
 
         return response_200
@@ -36,19 +33,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[LiveVideoResponse]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
-) -> Response[LiveVideoResponse]:
+    id: UUID | int | str, *, client: AuthenticatedClient) -> Response[LiveVideoResponse]:
     """Get information about a live
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -59,23 +51,21 @@ def sync_detailed(
     Returns:
         Response[LiveVideoResponse]
     """
+
     kwargs = _get_kwargs(
-        id=id,
-    )
+        id = id)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 def sync(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
-) -> LiveVideoResponse | None:
+    id: UUID | int | str, *, client: AuthenticatedClient) -> LiveVideoResponse | None:
     """Get information about a live
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -86,17 +76,15 @@ def sync(
     Returns:
         LiveVideoResponse
     """
+
     return sync_detailed(
-        id=id,
-        client=client,
-    ).parsed
+        id = id, client = client).parsed
+
 
 async def asyncio_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
-) -> Response[LiveVideoResponse]:
+    id: UUID | int | str, *, client: AuthenticatedClient) -> Response[LiveVideoResponse]:
     """Get information about a live
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -107,21 +95,20 @@ async def asyncio_detailed(
     Returns:
         Response[LiveVideoResponse]
     """
+
     kwargs = _get_kwargs(
-        id=id,
-    )
+        id = id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 async def asyncio(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
-) -> LiveVideoResponse | None:
+    id: UUID | int | str, *, client: AuthenticatedClient) -> LiveVideoResponse | None:
     """Get information about a live
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -132,9 +119,8 @@ async def asyncio(
     Returns:
         LiveVideoResponse
     """
+
     return (
         await asyncio_detailed(
-            id=id,
-            client=client,
-        )
+            id = id, client = client)
     ).parsed

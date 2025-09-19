@@ -9,22 +9,19 @@ from peertube.types import Response
 
 
 def _get_kwargs(
-    handle: str,
-) -> dict[str, Any]:
-    _kwargs: dict[str, Any] = {
-        "method": "delete",
-        "url": f"/api/v1/server/followers/{handle}",
-    }
+    handle: str) -> dict[str, Any]:
+    _kwargs: dict[str, Any]={
+        "method": "delete", "url": f"/api/v1/server/followers/{handle}", }
 
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code == 204:
+    if response.status_code== 204:
         return None
 
-    if response.status_code == 404:
+    if response.status_code== 404:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
@@ -35,19 +32,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    handle: str,
-    *,
-    client: AuthenticatedClient,
-) -> Response[Any]:
+    handle: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Remove or reject a follower to your server
+
     Args:
         handle (str): Parameter for handle.
 
@@ -58,22 +50,20 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
+
     kwargs = _get_kwargs(
-        handle=handle,
-    )
+        handle = handle)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 def sync(
-    handle: str,
-    *,
-    client: AuthenticatedClient,
-) -> Any | None:
+    handle: str, *, client: AuthenticatedClient) -> Any | None:
     """Remove or reject a follower to your server
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -82,17 +72,15 @@ def sync(
     Returns:
         Any
     """
+
     return sync_detailed(
-        handle=handle,
-        client=client,
-    ).parsed
+        handle = handle, client = client).parsed
+
 
 async def asyncio_detailed(
-    handle: str,
-    *,
-    client: AuthenticatedClient,
-) -> Response[Any]:
+    handle: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Remove or reject a follower to your server
+
     Args:
         handle (str): Parameter for handle.
 
@@ -103,10 +91,10 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
+
     kwargs = _get_kwargs(
-        handle=handle,
-    )
+        handle = handle)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)

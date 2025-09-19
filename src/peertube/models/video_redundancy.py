@@ -1,10 +1,6 @@
 from collections.abc import Mapping
 from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+    TYPE_CHECKING, Any, TypeVar, Union)
 from uuid import UUID
 
 from attrs import define as _attrs_define
@@ -15,11 +11,10 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.video_redundancy_redundancies import (
-        VideoRedundancyRedundancies,
-    )
+        VideoRedundancyRedundancies)
 
 
-T = TypeVar("T", bound="VideoRedundancy")
+T=TypeVar("T", bound="VideoRedundancy")
 
 
 @_attrs_define
@@ -32,94 +27,92 @@ class VideoRedundancy:
     redundancies (Union[Unset, VideoRedundancyRedundancies]):
     """
 
-    id: Unset | int = UNSET
-    name: Unset | str = UNSET
-    url: Unset | str = UNSET
-    uuid: Unset | UUID = UNSET
-    redundancies: Union[Unset, "VideoRedundancyRedundancies"] = UNSET
-    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    id: Unset | int=UNSET
+    name: Unset | str=UNSET
+    url: Unset | str=UNSET
+    uuid: Unset | UUID=UNSET
+    redundancies: Union[Unset, "VideoRedundancyRedundancies"]=UNSET
+    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
-        id = self.id
 
-        name = self.name
+        id=self.id
 
-        url = self.url
+        name=self.name
 
-        uuid: Unset | str = UNSET
+        url=self.url
+
+        uuid: Unset | str=UNSET
         if not isinstance(self.uuid, Unset):
-            uuid = str(self.uuid)
+            uuid=str(self.uuid)
 
-        redundancies: Unset | dict[str, Any] = UNSET
+        redundancies: Unset | dict[str, Any]=UNSET
         if not isinstance(self.redundancies, Unset):
-            redundancies = self.redundancies.to_dict()
+            redundancies=self.redundancies.to_dict()
 
-        field_dict: dict[str, Any] = {}
+        field_dict: dict[str, Any]={}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
-            field_dict["id"] = id
+            field_dict["id"]=id
         if name is not UNSET:
-            field_dict["name"] = name
+            field_dict["name"]=name
         if url is not UNSET:
-            field_dict["url"] = url
+            field_dict["url"]=url
         if uuid is not UNSET:
-            field_dict["uuid"] = uuid
+            field_dict["uuid"]=uuid
         if redundancies is not UNSET:
-            field_dict["redundancies"] = redundancies
+            field_dict["redundancies"]=redundancies
 
         return field_dict
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.video_redundancy_redundancies import (
-            VideoRedundancyRedundancies,
-        )
+            VideoRedundancyRedundancies)
 
-        d = dict(src_dict)
-        id = d.pop("id", UNSET)
+        d=dict(src_dict)
+        id=d.pop("id", UNSET)
 
-        name = d.pop("name", UNSET)
+        name=d.pop("name", UNSET)
 
-        url = d.pop("url", UNSET)
+        url=d.pop("url", UNSET)
 
-        _uuid = d.pop("uuid", UNSET)
+        _uuid=d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
-            uuid = UNSET
+            uuid=UNSET
         else:
-            uuid = UUID(_uuid)
+            uuid=UUID(_uuid)
 
-        _redundancies = d.pop("redundancies", UNSET)
+        _redundancies=d.pop("redundancies", UNSET)
         redundancies: Unset | VideoRedundancyRedundancies
         if isinstance(_redundancies, Unset):
-            redundancies = UNSET
+            redundancies=UNSET
         else:
-            redundancies = VideoRedundancyRedundancies.from_dict(_redundancies)
+            redundancies=VideoRedundancyRedundancies.from_dict(_redundancies)
 
-        video_redundancy = cls(
-            id=id,
-            name=name,
-            url=url,
-            uuid=uuid,
-            redundancies=redundancies,
-        )
+        video_redundancy=cls(
+            id=id, name=name, url=url, uuid=uuid, redundancies=redundancies)
 
-        video_redundancy.additional_properties = d
+        video_redundancy.additional_properties=d
         return video_redundancy
 
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key] = value
+        self.additional_properties[key]=value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]

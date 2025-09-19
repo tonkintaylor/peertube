@@ -1,8 +1,6 @@
 from collections.abc import Mapping
 from typing import (
-    Any,
-    TypeVar,
-)
+    Any, TypeVar)
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,7 +8,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T = TypeVar("T", bound="VideoStatsTimeserieDataItem")
+T=TypeVar("T", bound="VideoStatsTimeserieDataItem")
 
 
 @_attrs_define
@@ -20,52 +18,54 @@ class VideoStatsTimeserieDataItem:
     value (Union[Unset, float]):
     """
 
-    date: Unset | str = UNSET
-    value: Unset | float = UNSET
-    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    date: Unset | str=UNSET
+    value: Unset | float=UNSET
+    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
-        date = self.date
 
-        value = self.value
+        date=self.date
 
-        field_dict: dict[str, Any] = {}
+        value=self.value
+
+        field_dict: dict[str, Any]={}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if date is not UNSET:
-            field_dict["date"] = date
+            field_dict["date"]=date
         if value is not UNSET:
-            field_dict["value"] = value
+            field_dict["value"]=value
 
         return field_dict
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
-        d = dict(src_dict)
-        date = d.pop("date", UNSET)
 
-        value = d.pop("value", UNSET)
+        d=dict(src_dict)
+        date=d.pop("date", UNSET)
 
-        video_stats_timeserie_data_item = cls(
-            date=date,
-            value=value,
-        )
+        value=d.pop("value", UNSET)
 
-        video_stats_timeserie_data_item.additional_properties = d
+        video_stats_timeserie_data_item=cls(
+            date=date, value=value)
+
+        video_stats_timeserie_data_item.additional_properties=d
         return video_stats_timeserie_data_item
 
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key] = value
+        self.additional_properties[key]=value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]

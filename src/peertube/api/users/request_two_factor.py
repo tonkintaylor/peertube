@@ -11,28 +11,23 @@ from peertube.types import Response
 
 
 def _get_kwargs(
-    id: int,
-    *,
-    body: RequestTwoFactorBody,
-) -> dict[str, Any]:
-    headers: dict[str, Any] = {}
+    id: int, *, body: RequestTwoFactorBody) -> dict[str, Any]:
+    headers: dict[str, Any]={}
 
-    _kwargs: dict[str, Any] = {
-        "method": "post",
-        "url": f"/api/v1/users/{id}/two-factor/request",
-    }
-    _kwargs["json"] = body.to_dict()
+    _kwargs: dict[str, Any]={
+        "method": "post", "url": f"/api/v1/users/{id}/two-factor/request", }
+    _kwargs["json"]=body.to_dict()
 
-    headers["Content-Type"] = "application/json"
+    headers["Content-Type"]="application/json"
 
-    _kwargs["headers"] = headers
+    _kwargs["headers"]=headers
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | list["RequestTwoFactorResponse"] | None:
-    if response.status_code == 200:
-        response_200 = []
+    if response.status_code== 200:
+        response_200=[]
         _response_200 = response.json()
         for response_200_item_data in _response_200:
             response_200_item = RequestTwoFactorResponse.from_dict(
@@ -42,10 +37,10 @@ def _parse_response(
             response_200.append(response_200_item)
 
         return response_200
-    if response.status_code == 403:
+    if response.status_code== 403:
         response_403 = cast("Any", None)
         return response_403
-    if response.status_code == 404:
+    if response.status_code== 404:
         response_404 = cast("Any", None)
         return response_404
     if client.raise_on_unexpected_status:
@@ -57,19 +52,12 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | list["RequestTwoFactorResponse"]]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
-) -> Response[Any | list["RequestTwoFactorResponse"]]:
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody) -> Response[Any | list["RequestTwoFactorResponse"]]:
     """Request two factor auth
 
      Request two factor authentication for a user
@@ -83,24 +71,19 @@ def sync_detailed(
     Returns:
         Response[Union[Any, list['RequestTwoFactorResponse']]]
     """
+
     kwargs = _get_kwargs(
-        id=id,
-        body=body,
-    )
+        id = id, body = body)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 def sync(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
-) -> Any | list["RequestTwoFactorResponse"] | None:
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody) -> Any | list["RequestTwoFactorResponse"] | None:
     """Request two factor auth
 
      Request two factor authentication for a user
@@ -114,18 +97,13 @@ def sync(
     Returns:
         Union[Any, list['RequestTwoFactorResponse']]
     """
+
     return sync_detailed(
-        id=id,
-        client=client,
-        body=body,
-    ).parsed
+        id = id, client = client, body = body).parsed
+
 
 async def asyncio_detailed(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
-) -> Response[Any | list["RequestTwoFactorResponse"]]:
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody) -> Response[Any | list["RequestTwoFactorResponse"]]:
     """Request two factor auth
 
      Request two factor authentication for a user
@@ -139,22 +117,18 @@ async def asyncio_detailed(
     Returns:
         Response[Union[Any, list['RequestTwoFactorResponse']]]
     """
+
     kwargs = _get_kwargs(
-        id=id,
-        body=body,
-    )
+        id = id, body = body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 async def asyncio(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
-) -> Any | list["RequestTwoFactorResponse"] | None:
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody) -> Any | list["RequestTwoFactorResponse"] | None:
     """Request two factor auth
 
      Request two factor authentication for a user
@@ -168,10 +142,8 @@ async def asyncio(
     Returns:
         Union[Any, list['RequestTwoFactorResponse']]
     """
+
     return (
         await asyncio_detailed(
-            id=id,
-            client=client,
-            body=body,
-        )
+            id = id, client = client, body = body)
     ).parsed

@@ -1,5 +1,6 @@
 """Test the generated API functions for PeerTube."""
 
+
 from unittest.mock import patch
 
 import pytest
@@ -14,14 +15,16 @@ from peertube.types import Response
 try:
     from peertube.models import VideoConstantNumberCategory
 except ImportError:
-    VideoConstantNumberCategory = None
+    VideoConstantNumberCategory=None
 
 
 class TestGeneratedAPI:
     """Test that generated API functions can be imported and have correct structure."""
 
+
     def test_import_video_api_functions(self):
         """Test that video API functions can be imported."""
+
         try:
             assert get_video is not None
             assert get_categories is not None
@@ -31,6 +34,7 @@ class TestGeneratedAPI:
 
     def test_import_account_api_functions(self):
         """Test that account API functions can be imported."""
+
         try:
             assert get_accounts is not None
             assert get_account is not None
@@ -49,26 +53,28 @@ class TestGeneratedAPI:
     def test_api_function_call_structure(self, mock_get_categories):
         """Test that API functions can be called with client parameter."""
         # Mock response
-        mock_get_categories.return_value = {"1": "Music", "2": "Films"}
+        mock_get_categories.return_value={"1": "Music", "2": "Films"}
 
         # Create client
-        client = Client(base_url="https://example.peertube.com")
+        client=Client(base_url="https://example.peertube.com")
 
         # Call API function
-        result = get_categories.sync(client=client)
+        result=get_categories.sync(client=client)
 
         # Verify call was made with client
         mock_get_categories.assert_called_once_with(client=client)
-        assert result == {"1": "Music", "2": "Films"}
+        assert result== {"1": "Music", "2": "Films"}
 
     def test_model_imports(self):
         """Test that generated models can be imported."""
+
         if VideoConstantNumberCategory is None:
             pytest.skip("VideoConstantNumberCategory not available")
         assert VideoConstantNumberCategory is not None
 
     def test_types_import(self):
         """Test that generated types can be imported."""
+
         try:
             assert Response is not None
         except (ImportError, AttributeError) as e:
@@ -76,6 +82,7 @@ class TestGeneratedAPI:
 
     def test_errors_import(self):
         """Test that generated errors can be imported."""
+
         try:
             assert UnexpectedStatus is not None
         except (ImportError, AttributeError) as e:

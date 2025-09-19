@@ -10,21 +10,19 @@ from peertube.types import Response
 
 
 def _get_kwargs() -> dict[str, Any]:
-    _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": "/api/v1/custom-pages/homepage/instance",
-    }
+    _kwargs: dict[str, Any]={
+        "method": "get", "url": "/api/v1/custom-pages/homepage/instance", }
 
     return _kwargs
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | CustomHomepage | None:
-    if response.status_code == 200:
+    if response.status_code== 200:
         response_200 = CustomHomepage.from_dict(response.json())
 
         return response_200
-    if response.status_code == 404:
+    if response.status_code== 404:
         response_404 = cast("Any", None)
         return response_404
     if client.raise_on_unexpected_status:
@@ -36,18 +34,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | CustomHomepage]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient | Client,
-) -> Response[Any | CustomHomepage]:
+    *, client: AuthenticatedClient | Client) -> Response[Any | CustomHomepage]:
     """Get instance custom homepage
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -55,20 +49,20 @@ def sync_detailed(
     Returns:
         Response[Union[Any, CustomHomepage]]
     """
+
     kwargs = _get_kwargs()
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 def sync(
-    *,
-    client: AuthenticatedClient | Client,
-) -> Any | CustomHomepage | None:
+    *, client: AuthenticatedClient | Client) -> Any | CustomHomepage | None:
     """Get instance custom homepage
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -76,15 +70,15 @@ def sync(
     Returns:
         Union[Any, CustomHomepage]
     """
+
     return sync_detailed(
-        client=client,
-    ).parsed
+        client = client).parsed
+
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient | Client,
-) -> Response[Any | CustomHomepage]:
+    *, client: AuthenticatedClient | Client) -> Response[Any | CustomHomepage]:
     """Get instance custom homepage
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -92,18 +86,19 @@ async def asyncio_detailed(
     Returns:
         Response[Union[Any, CustomHomepage]]
     """
+
     kwargs = _get_kwargs()
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client=client, response=response)
+    return _build_response(client = client, response = response)
+
 
 
 async def asyncio(
-    *,
-    client: AuthenticatedClient | Client,
-) -> Any | CustomHomepage | None:
+    *, client: AuthenticatedClient | Client) -> Any | CustomHomepage | None:
     """Get instance custom homepage
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -111,8 +106,8 @@ async def asyncio(
     Returns:
         Union[Any, CustomHomepage]
     """
+
     return (
         await asyncio_detailed(
-            client=client,
-        )
+            client = client)
     ).parsed
