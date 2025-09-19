@@ -42,10 +42,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, body: UninstallPluginBody) -> Response[Any]:
     """Uninstall a plugin
+
 
     Args:
         body (UninstallPluginBody): Request body data.
@@ -87,6 +87,7 @@ def sync(
 async def asyncio_detailed(
     *, client: AuthenticatedClient, body: UninstallPluginBody) -> Response[Any]:
     """Uninstall a plugin
+
 
     Args:
         body (UninstallPluginBody): Request body data.

@@ -52,10 +52,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType = UNSET, search: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoBlocksSort = UNSET) -> Response[Any]:
     """List video blocks
+
 
     Args:
         type_ (Union[Unset, GetVideoBlocksType]): Parameter for type (underscore avoids keyword conflict).
@@ -95,12 +95,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, type_ = type_, search = search, start = start, count = count, sort = sort).parsed
+        client = client, type_ = type_, search = search, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType = UNSET, search: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoBlocksSort = UNSET) -> Response[Any]:
     """List video blocks
+
 
     Args:
         type_ (Union[Unset, GetVideoBlocksType]): Parameter for type (underscore avoids keyword conflict).

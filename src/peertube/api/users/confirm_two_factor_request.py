@@ -45,7 +45,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     id: int, *, client: AuthenticatedClient, body: ConfirmTwoFactorRequestBody) -> Response[Any]:
     """Confirm two factor auth

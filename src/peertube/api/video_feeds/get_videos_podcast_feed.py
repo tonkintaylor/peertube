@@ -40,10 +40,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient | Client, video_channel_id: str) -> Response[Any]:
     """Videos podcast feed
+
 
     Args:
         video_channel_id (str): Video-related parameter.
@@ -85,6 +85,7 @@ def sync(
 async def asyncio_detailed(
     *, client: AuthenticatedClient | Client, video_channel_id: str) -> Response[Any]:
     """Videos podcast feed
+
 
     Args:
         video_channel_id (str): Video-related parameter.

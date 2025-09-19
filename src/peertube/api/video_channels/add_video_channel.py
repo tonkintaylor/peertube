@@ -42,10 +42,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, body: VideoChannelCreate) -> Response[AddVideoChannelResponse200]:
     """Create a video channel
+
 
     Args:
         body (VideoChannelCreate): Request body data.
@@ -67,10 +67,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient, body: VideoChannelCreate) -> AddVideoChannelResponse200 | None:
     """Create a video channel
+
 
     Args:
         body (VideoChannelCreate): Request body data.
@@ -91,6 +91,7 @@ async def asyncio_detailed(
     *, client: AuthenticatedClient, body: VideoChannelCreate) -> Response[AddVideoChannelResponse200]:
     """Create a video channel
 
+
     Args:
         body (VideoChannelCreate): Request body data.
 
@@ -110,10 +111,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient, body: VideoChannelCreate) -> AddVideoChannelResponse200 | None:
     """Create a video channel
+
 
     Args:
         body (VideoChannelCreate): Request body data.

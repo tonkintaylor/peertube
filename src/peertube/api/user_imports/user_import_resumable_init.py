@@ -41,7 +41,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     user_id: int, *, client: AuthenticatedClient, body: UserImportResumable, x_upload_content_length: float, x_upload_content_type: str) -> Response[Any]:
     """Initialize the resumable user import
@@ -85,7 +84,8 @@ def sync(
     """
 
     return sync_detailed(
-        user_id = user_id, client = client, body = body, x_upload_content_length = x_upload_content_length, x_upload_content_type = x_upload_content_type).parsed
+        user_id = user_id, client = client, body = body, x_upload_content_length = x_upload_content_length, x_upload_content_type = x_upload_content_type,
+    ).parsed
 
 
 async def asyncio_detailed(

@@ -46,7 +46,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str = UNSET) -> Response[Any | VideoTokenResponse]:
     """Request video token
@@ -73,7 +72,6 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str = UNSET) -> Any | VideoTokenResponse | None:
     """Request video token
@@ -92,7 +90,8 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, client = client, x_peertube_video_password = x_peertube_video_password).parsed
+        id = id, client = client, x_peertube_video_password = x_peertube_video_password,
+    ).parsed
 
 
 async def asyncio_detailed(
@@ -118,7 +117,6 @@ async def asyncio_detailed(
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client = client, response = response)
-
 
 
 async def asyncio(

@@ -53,10 +53,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchChannelsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, handles: Unset | Any = UNSET) -> Response[Any]:
     """Search channels
+
 
     Args:
         search (str): Search query filter.
@@ -98,12 +98,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, search = search, start = start, count = count, search_target = search_target, sort = sort, host = host, handles = handles).parsed
+        client = client, search = search, start = start, count = count, search_target = search_target, sort = sort, host = host, handles = handles,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchChannelsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, handles: Unset | Any = UNSET) -> Response[Any]:
     """Search channels
+
 
     Args:
         search (str): Search query filter.

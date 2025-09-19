@@ -68,10 +68,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
+
 
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
@@ -97,10 +97,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
+
 
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
@@ -118,12 +118,14 @@ def sync(
     """
 
     return sync_detailed(
-        format_ = format_, client = client, video_id = video_id, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name).parsed
+        format_ = format_, client = client, video_id = video_id, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name,
+    ).parsed
 
 
 async def asyncio_detailed(
     format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
+
 
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
@@ -148,10 +150,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
+
 
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).

@@ -43,7 +43,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str = UNSET) -> Response[Any]:
     """Get private Web Video file
@@ -84,7 +83,8 @@ def sync(
     """
 
     return sync_detailed(
-        filename = filename, client = client, video_file_token = video_file_token).parsed
+        filename = filename, client = client, video_file_token = video_file_token,
+    ).parsed
 
 
 async def asyncio_detailed(

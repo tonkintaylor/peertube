@@ -51,10 +51,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, type_one_of: Unset | list[NotificationType]=UNSET, unread: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
     """List my notifications
+
 
     Args:
         type_one_of (Union[Unset, list[NotificationType]]): Parameter for type one of.
@@ -94,12 +94,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, type_one_of = type_one_of, unread = unread, start = start, count = count, sort = sort).parsed
+        client = client, type_one_of = type_one_of, unread = unread, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, type_one_of: Unset | list[NotificationType]=UNSET, unread: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
     """List my notifications
+
 
     Args:
         type_one_of (Union[Unset, list[NotificationType]]): Parameter for type one of.

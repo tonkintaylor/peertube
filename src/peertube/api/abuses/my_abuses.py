@@ -51,10 +51,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, id: Unset | int = UNSET, state: Unset | AbuseStateSet = UNSET, sort: Unset | GetMyAbusesSort = UNSET, start: Unset | int = UNSET, count: Unset | int = 15) -> Response[Any]:
     """List my abuses
+
 
     Args:
         id (Union[Unset, int]): Unique identifier for the entity.
@@ -95,12 +95,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, id = id, state = state, sort = sort, start = start, count = count).parsed
+        client = client, id = id, state = state, sort = sort, start = start, count = count,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, id: Unset | int = UNSET, state: Unset | AbuseStateSet = UNSET, sort: Unset | GetMyAbusesSort = UNSET, start: Unset | int = UNSET, count: Unset | int = 15) -> Response[Any]:
     """List my abuses
+
 
     Args:
         id (Union[Unset, int]): Unique identifier for the entity.

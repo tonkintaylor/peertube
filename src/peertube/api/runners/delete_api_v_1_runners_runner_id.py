@@ -40,10 +40,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     runner_id: int, *, client: AuthenticatedClient, body: DeleteApiV1RunnersRunnerIdBody) -> Response[Any]:
     """Delete a runner
+
 
     Args:
         runner_id (int): Parameter for runner id.
@@ -86,6 +86,7 @@ def sync(
 async def asyncio_detailed(
     runner_id: int, *, client: AuthenticatedClient, body: DeleteApiV1RunnersRunnerIdBody) -> Response[Any]:
     """Delete a runner
+
 
     Args:
         runner_id (int): Parameter for runner id.

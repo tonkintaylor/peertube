@@ -41,7 +41,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     user_id: int, *, client: AuthenticatedClient, upload_id: str, content_length: float) -> Response[Any]:
     """Cancel the resumable user import
@@ -84,7 +83,8 @@ def sync(
     """
 
     return sync_detailed(
-        user_id = user_id, client = client, upload_id = upload_id, content_length = content_length).parsed
+        user_id = user_id, client = client, upload_id = upload_id, content_length = content_length,
+    ).parsed
 
 
 async def asyncio_detailed(

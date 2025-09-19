@@ -8,7 +8,6 @@ This script demonstrates the basic usage patterns for the generated PeerTube cli
 from peertube import AuthenticatedClient, Client
 
 
-
 def basic_client_usage():
     """Demonstrate basic unauthenticated client usage."""
 
@@ -29,7 +28,6 @@ def basic_client_usage():
     print()
 
 
-
 def authenticated_client_usage():
     """Demonstrate authenticated client usage."""
 
@@ -47,7 +45,6 @@ def authenticated_client_usage():
     print()
 
 
-
 def async_client_usage():
     """Demonstrate async client usage patterns."""
 
@@ -60,7 +57,6 @@ def async_client_usage():
     print("        languages=await get_languages.asyncio(client=async_client)")
     print("        return categories, languages")
     print()
-
 
 
 def advanced_client_configuration():
@@ -82,7 +78,6 @@ def advanced_client_configuration():
     print()
 
 
-
 def response_handling_patterns():
     """Demonstrate response handling patterns."""
 
@@ -98,7 +93,6 @@ def response_handling_patterns():
     print("    print(f'Status: {response.status_code}')")
     print("    print(f'Headers: {response.headers}')")
     print()
-
 
 
 def main():

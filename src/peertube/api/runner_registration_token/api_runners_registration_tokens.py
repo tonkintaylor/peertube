@@ -52,10 +52,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET) -> Response[GetApiV1RunnersRegistrationTokensResponse200]:
     """List registration tokens
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -79,10 +79,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET) -> GetApiV1RunnersRegistrationTokensResponse200 | None:
     """List registration tokens
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -105,6 +105,7 @@ async def asyncio_detailed(
     *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET) -> Response[GetApiV1RunnersRegistrationTokensResponse200]:
     """List registration tokens
 
+
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -126,10 +127,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET) -> GetApiV1RunnersRegistrationTokensResponse200 | None:
     """List registration tokens
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.

@@ -39,10 +39,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
     """List the synchronizations of video channels of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -81,12 +81,14 @@ def sync(
     """
 
     return sync_detailed(
-        name = name, client = client, start = start, count = count, sort = sort).parsed
+        name = name, client = client, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
     """List the synchronizations of video channels of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.

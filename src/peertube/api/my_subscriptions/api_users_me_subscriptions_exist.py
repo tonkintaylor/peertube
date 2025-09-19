@@ -45,10 +45,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, uris: list[str]) -> Response[GetApiV1UsersMeSubscriptionsExistResponse200]:
     """Get if subscriptions exist for my user
+
 
     Args:
         uris (list[str]): Parameter for uris.
@@ -70,10 +70,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient, uris: list[str]) -> GetApiV1UsersMeSubscriptionsExistResponse200 | None:
     """Get if subscriptions exist for my user
+
 
     Args:
         uris (list[str]): Parameter for uris.
@@ -94,6 +94,7 @@ async def asyncio_detailed(
     *, client: AuthenticatedClient, uris: list[str]) -> Response[GetApiV1UsersMeSubscriptionsExistResponse200]:
     """Get if subscriptions exist for my user
 
+
     Args:
         uris (list[str]): Parameter for uris.
 
@@ -113,10 +114,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient, uris: list[str]) -> GetApiV1UsersMeSubscriptionsExistResponse200 | None:
     """Get if subscriptions exist for my user
+
 
     Args:
         uris (list[str]): Parameter for uris.

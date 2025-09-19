@@ -47,10 +47,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, blocked: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetUsersSort = UNSET) -> Response[Any]:
     """List users
+
 
     Args:
         search (Union[Unset, str]): Search query filter.
@@ -90,12 +90,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, search = search, blocked = blocked, start = start, count = count, sort = sort).parsed
+        client = client, search = search, blocked = blocked, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, blocked: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetUsersSort = UNSET) -> Response[Any]:
     """List users
+
 
     Args:
         search (Union[Unset, str]): Search query filter.

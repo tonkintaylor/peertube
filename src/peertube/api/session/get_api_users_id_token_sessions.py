@@ -38,10 +38,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     id: int, *, client: AuthenticatedClient) -> Response[GetApiV1UsersIdTokenSessionsResponse200]:
     """List token sessions
+
 
     Args:
         id (int):  Example: 42.
@@ -63,10 +63,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     id: int, *, client: AuthenticatedClient) -> GetApiV1UsersIdTokenSessionsResponse200 | None:
     """List token sessions
+
 
     Args:
         id (int):  Example: 42.
@@ -87,6 +87,7 @@ async def asyncio_detailed(
     id: int, *, client: AuthenticatedClient) -> Response[GetApiV1UsersIdTokenSessionsResponse200]:
     """List token sessions
 
+
     Args:
         id (int):  Example: 42.
 
@@ -106,10 +107,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     id: int, *, client: AuthenticatedClient) -> GetApiV1UsersIdTokenSessionsResponse200 | None:
     """List token sessions
+
 
     Args:
         id (int):  Example: 42.

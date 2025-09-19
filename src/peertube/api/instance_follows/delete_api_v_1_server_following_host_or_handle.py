@@ -35,7 +35,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     host_or_handle: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Unfollow an actor (PeerTube instance, channel or account)

@@ -40,7 +40,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     account_name: str, *, client: AuthenticatedClient) -> Response[GetApiV1WatchedWordsAccountsAccountNameListsResponse200]:
     """List account watched words
@@ -64,7 +63,6 @@ def sync_detailed(
         **kwargs)
 
     return _build_response(client = client, response = response)
-
 
 
 def sync(
@@ -109,7 +107,6 @@ async def asyncio_detailed(
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client = client, response = response)
-
 
 
 async def asyncio(

@@ -36,10 +36,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     id: UUID | int | str, caption_language: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete a video caption
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -83,6 +83,7 @@ def sync(
 async def asyncio_detailed(
     id: UUID | int | str, caption_language: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete a video caption
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.

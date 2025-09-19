@@ -60,10 +60,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowersState = UNSET, actor_type: Unset | GetApiV1ServerFollowersActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetApiV1ServerFollowersResponse200]:
     """List instances following the server
+
 
     Args:
         state (Union[Unset, GetApiV1ServerFollowersState]): Current state or status filter.
@@ -89,10 +89,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowersState = UNSET, actor_type: Unset | GetApiV1ServerFollowersActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetApiV1ServerFollowersResponse200 | None:
     """List instances following the server
+
 
     Args:
         state (Union[Unset, GetApiV1ServerFollowersState]): Current state or status filter.
@@ -110,12 +110,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, state = state, actor_type = actor_type, start = start, count = count, sort = sort).parsed
+        client = client, state = state, actor_type = actor_type, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowersState = UNSET, actor_type: Unset | GetApiV1ServerFollowersActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetApiV1ServerFollowersResponse200]:
     """List instances following the server
+
 
     Args:
         state (Union[Unset, GetApiV1ServerFollowersState]): Current state or status filter.
@@ -140,10 +142,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowersState = UNSET, actor_type: Unset | GetApiV1ServerFollowersActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetApiV1ServerFollowersResponse200 | None:
     """List instances following the server
+
 
     Args:
         state (Union[Unset, GetApiV1ServerFollowersState]): Current state or status filter.

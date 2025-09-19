@@ -153,10 +153,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, skip_count: Unset | GetAccountVideosSkipCount = GetAccountVideosSkipCount.FALSE, sort: Unset | GetAccountVideosSort = UNSET, nsfw: Unset | GetAccountVideosNsfw = UNSET, nsfw_flags_included: Unset | NSFWFlag = UNSET, nsfw_flags_excluded: Unset | NSFWFlag = UNSET, is_live: Unset | bool = UNSET, include_scheduled_live: Unset | bool = UNSET, category_one_of: Unset | int | list[int]=UNSET, licence_one_of: Unset | int | list[int]=UNSET, language_one_of: Unset | list[str] | str = UNSET, tags_one_of: Unset | list[str] | str = UNSET, tags_all_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetAccountVideosInclude = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET, host: Unset | str = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, exclude_already_watched: Unset | bool = UNSET, search: Unset | str = UNSET) -> Response[VideoListResponse]:
     """List videos of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -216,10 +216,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, skip_count: Unset | GetAccountVideosSkipCount = GetAccountVideosSkipCount.FALSE, sort: Unset | GetAccountVideosSort = UNSET, nsfw: Unset | GetAccountVideosNsfw = UNSET, nsfw_flags_included: Unset | NSFWFlag = UNSET, nsfw_flags_excluded: Unset | NSFWFlag = UNSET, is_live: Unset | bool = UNSET, include_scheduled_live: Unset | bool = UNSET, category_one_of: Unset | int | list[int]=UNSET, licence_one_of: Unset | int | list[int]=UNSET, language_one_of: Unset | list[str] | str = UNSET, tags_one_of: Unset | list[str] | str = UNSET, tags_all_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetAccountVideosInclude = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET, host: Unset | str = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, exclude_already_watched: Unset | bool = UNSET, search: Unset | str = UNSET) -> VideoListResponse | None:
     """List videos of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -271,12 +271,14 @@ def sync(
         VideoListResponse
     """
     return sync_detailed(
-        name = name, client = client, start = start, count = count, skip_count = skip_count, sort = sort, nsfw = nsfw, nsfw_flags_included = nsfw_flags_included, nsfw_flags_excluded = nsfw_flags_excluded, is_live = is_live, include_scheduled_live = include_scheduled_live, category_one_of = category_one_of, licence_one_of = licence_one_of, language_one_of = language_one_of, tags_one_of = tags_one_of, tags_all_of = tags_all_of, is_local = is_local, include = include, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files, host = host, auto_tag_one_of = auto_tag_one_of, privacy_one_of = privacy_one_of, exclude_already_watched = exclude_already_watched, search = search).parsed
+        name = name, client = client, start = start, count = count, skip_count = skip_count, sort = sort, nsfw = nsfw, nsfw_flags_included = nsfw_flags_included, nsfw_flags_excluded = nsfw_flags_excluded, is_live = is_live, include_scheduled_live = include_scheduled_live, category_one_of = category_one_of, licence_one_of = licence_one_of, language_one_of = language_one_of, tags_one_of = tags_one_of, tags_all_of = tags_all_of, is_local = is_local, include = include, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files, host = host, auto_tag_one_of = auto_tag_one_of, privacy_one_of = privacy_one_of, exclude_already_watched = exclude_already_watched, search = search,
+    ).parsed
 
 
 async def asyncio_detailed(
     name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, skip_count: Unset | GetAccountVideosSkipCount = GetAccountVideosSkipCount.FALSE, sort: Unset | GetAccountVideosSort = UNSET, nsfw: Unset | GetAccountVideosNsfw = UNSET, nsfw_flags_included: Unset | NSFWFlag = UNSET, nsfw_flags_excluded: Unset | NSFWFlag = UNSET, is_live: Unset | bool = UNSET, include_scheduled_live: Unset | bool = UNSET, category_one_of: Unset | int | list[int]=UNSET, licence_one_of: Unset | int | list[int]=UNSET, language_one_of: Unset | list[str] | str = UNSET, tags_one_of: Unset | list[str] | str = UNSET, tags_all_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetAccountVideosInclude = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET, host: Unset | str = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, exclude_already_watched: Unset | bool = UNSET, search: Unset | str = UNSET) -> Response[VideoListResponse]:
     """List videos of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -335,10 +337,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, skip_count: Unset | GetAccountVideosSkipCount = GetAccountVideosSkipCount.FALSE, sort: Unset | GetAccountVideosSort = UNSET, nsfw: Unset | GetAccountVideosNsfw = UNSET, nsfw_flags_included: Unset | NSFWFlag = UNSET, nsfw_flags_excluded: Unset | NSFWFlag = UNSET, is_live: Unset | bool = UNSET, include_scheduled_live: Unset | bool = UNSET, category_one_of: Unset | int | list[int]=UNSET, licence_one_of: Unset | int | list[int]=UNSET, language_one_of: Unset | list[str] | str = UNSET, tags_one_of: Unset | list[str] | str = UNSET, tags_all_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetAccountVideosInclude = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET, host: Unset | str = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, exclude_already_watched: Unset | bool = UNSET, search: Unset | str = UNSET) -> VideoListResponse | None:
     """List videos of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.

@@ -43,10 +43,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     npm_name: str, *, client: AuthenticatedClient, body: PutApiV1PluginsNpmNameSettingsBody) -> Response[Any]:
     """Set a plugin's settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
@@ -89,6 +89,7 @@ def sync(
 async def asyncio_detailed(
     npm_name: str, *, client: AuthenticatedClient, body: PutApiV1PluginsNpmNameSettingsBody) -> Response[Any]:
     """Set a plugin's settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.

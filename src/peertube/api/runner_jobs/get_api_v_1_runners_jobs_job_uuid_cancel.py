@@ -33,10 +33,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     job_uuid: UUID, *, client: AuthenticatedClient) -> Response[Any]:
     """Cancel a job
+
 
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
@@ -78,6 +78,7 @@ def sync(
 async def asyncio_detailed(
     job_uuid: UUID, *, client: AuthenticatedClient) -> Response[Any]:
     """Cancel a job
+
 
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.

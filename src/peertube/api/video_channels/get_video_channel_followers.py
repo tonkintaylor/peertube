@@ -52,10 +52,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> Response[GetVideoChannelFollowersResponse200]:
     """List followers of a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -81,10 +81,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> GetVideoChannelFollowersResponse200 | None:
     """List followers of a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -102,12 +102,14 @@ def sync(
     """
 
     return sync_detailed(
-        channel_handle = channel_handle, client = client, start = start, count = count, sort = sort, search = search).parsed
+        channel_handle = channel_handle, client = client, start = start, count = count, sort = sort, search = search,
+    ).parsed
 
 
 async def asyncio_detailed(
     channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> Response[GetVideoChannelFollowersResponse200]:
     """List followers of a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -132,10 +134,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> GetVideoChannelFollowersResponse200 | None:
     """List followers of a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.

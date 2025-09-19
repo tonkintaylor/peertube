@@ -40,10 +40,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> Response[GetVideoCaptionsResponse200]:
     """List captions of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -66,10 +66,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> GetVideoCaptionsResponse200 | None:
     """List captions of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -84,12 +84,14 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, client = client, x_peertube_video_password = x_peertube_video_password).parsed
+        id = id, client = client, x_peertube_video_password = x_peertube_video_password,
+    ).parsed
 
 
 async def asyncio_detailed(
     id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> Response[GetVideoCaptionsResponse200]:
     """List captions of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -111,10 +113,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     id: UUID | int | str, *, client: AuthenticatedClient | Client, x_peertube_video_password: Unset | str = UNSET) -> GetVideoCaptionsResponse200 | None:
     """List captions of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.

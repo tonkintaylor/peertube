@@ -53,10 +53,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, plugin_type: Unset | int = UNSET, current_peer_tube_engine: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any | PluginResponse]:
     """List available plugins
+
 
     Args:
         search (Union[Unset, str]): Search query filter.
@@ -82,10 +82,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, plugin_type: Unset | int = UNSET, current_peer_tube_engine: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Any | PluginResponse | None:
     """List available plugins
+
 
     Args:
         search (Union[Unset, str]): Search query filter.
@@ -103,12 +103,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, search = search, plugin_type = plugin_type, current_peer_tube_engine = current_peer_tube_engine, start = start, count = count, sort = sort).parsed
+        client = client, search = search, plugin_type = plugin_type, current_peer_tube_engine = current_peer_tube_engine, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, plugin_type: Unset | int = UNSET, current_peer_tube_engine: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any | PluginResponse]:
     """List available plugins
+
 
     Args:
         search (Union[Unset, str]): Search query filter.
@@ -133,10 +135,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, plugin_type: Unset | int = UNSET, current_peer_tube_engine: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Any | PluginResponse | None:
     """List available plugins
+
 
     Args:
         search (Union[Unset, str]): Search query filter.

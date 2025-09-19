@@ -55,10 +55,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     channel_handle: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> Response[GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200]:
     """List playlists of a channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -84,10 +84,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     channel_handle: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200 | None:
     """List playlists of a channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -105,12 +105,14 @@ def sync(
     """
 
     return sync_detailed(
-        channel_handle = channel_handle, client = client, start = start, count = count, sort = sort, playlist_type = playlist_type).parsed
+        channel_handle = channel_handle, client = client, start = start, count = count, sort = sort, playlist_type = playlist_type,
+    ).parsed
 
 
 async def asyncio_detailed(
     channel_handle: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> Response[GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200]:
     """List playlists of a channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -135,10 +137,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     channel_handle: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200 | None:
     """List playlists of a channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.

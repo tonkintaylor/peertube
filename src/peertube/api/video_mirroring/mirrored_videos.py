@@ -57,10 +57,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
+
 
     Args:
         target (GetMirroredVideosTarget): Parameter for target.
@@ -85,10 +85,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
+
 
     Args:
         target (GetMirroredVideosTarget): Parameter for target.
@@ -105,12 +105,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, target = target, start = start, count = count, sort = sort).parsed
+        client = client, target = target, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
+
 
     Args:
         target (GetMirroredVideosTarget): Parameter for target.
@@ -134,10 +136,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
+
 
     Args:
         target (GetMirroredVideosTarget): Parameter for target.

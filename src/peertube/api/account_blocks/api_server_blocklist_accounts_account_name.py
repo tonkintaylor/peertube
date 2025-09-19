@@ -35,10 +35,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     account_name: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Unblock an account by its handle
+
 
     Args:
         account_name (str): Parameter for account name.
@@ -80,6 +80,7 @@ def sync(
 async def asyncio_detailed(
     account_name: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Unblock an account by its handle
+
 
     Args:
         account_name (str): Parameter for account name.

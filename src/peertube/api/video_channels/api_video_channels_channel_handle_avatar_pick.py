@@ -49,10 +49,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     channel_handle: str, *, client: AuthenticatedClient, body: PostApiV1VideoChannelsChannelHandleAvatarPickBody) -> Response[Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200]:
     """Update channel avatar
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -74,10 +74,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     channel_handle: str, *, client: AuthenticatedClient, body: PostApiV1VideoChannelsChannelHandleAvatarPickBody) -> Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200 | None:
     """Update channel avatar
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -98,6 +98,7 @@ async def asyncio_detailed(
     channel_handle: str, *, client: AuthenticatedClient, body: PostApiV1VideoChannelsChannelHandleAvatarPickBody) -> Response[Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200]:
     """Update channel avatar
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         body (PostApiV1VideoChannelsChannelHandleAvatarPickBody): Request body data.
@@ -117,10 +118,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     channel_handle: str, *, client: AuthenticatedClient, body: PostApiV1VideoChannelsChannelHandleAvatarPickBody) -> Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200 | None:
     """Update channel avatar
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.

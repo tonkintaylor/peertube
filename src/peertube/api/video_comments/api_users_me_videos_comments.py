@@ -54,7 +54,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, search_account: Unset | str = UNSET, search_video: Unset | str = UNSET, video_id: Unset | int = UNSET, video_channel_id: Unset | int = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, is_held_for_review: Unset | bool = UNSET) -> Response[Any]:
     """List comments on user's videos
@@ -100,7 +99,8 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, search = search, search_account = search_account, search_video = search_video, video_id = video_id, video_channel_id = video_channel_id, auto_tag_one_of = auto_tag_one_of, is_held_for_review = is_held_for_review).parsed
+        client = client, search = search, search_account = search_account, search_video = search_video, video_id = video_id, video_channel_id = video_channel_id, auto_tag_one_of = auto_tag_one_of, is_held_for_review = is_held_for_review,
+    ).parsed
 
 
 async def asyncio_detailed(

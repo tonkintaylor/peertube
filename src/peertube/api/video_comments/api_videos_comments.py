@@ -56,10 +56,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, search_account: Unset | str = UNSET, search_video: Unset | str = UNSET, video_id: Unset | int = UNSET, video_channel_id: Unset | int = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, on_local_video: Unset | bool = UNSET) -> Response[Any]:
     """List instance comments
+
 
     Args:
         search (Union[Unset, str]): Search query filter.
@@ -102,12 +102,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, search = search, search_account = search_account, search_video = search_video, video_id = video_id, video_channel_id = video_channel_id, auto_tag_one_of = auto_tag_one_of, is_local = is_local, on_local_video = on_local_video).parsed
+        client = client, search = search, search_account = search_account, search_video = search_video, video_id = video_id, video_channel_id = video_channel_id, auto_tag_one_of = auto_tag_one_of, is_local = is_local, on_local_video = on_local_video,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, search: Unset | str = UNSET, search_account: Unset | str = UNSET, search_video: Unset | str = UNSET, video_id: Unset | int = UNSET, video_channel_id: Unset | int = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, on_local_video: Unset | bool = UNSET) -> Response[Any]:
     """List instance comments
+
 
     Args:
         search (Union[Unset, str]): Search query filter.

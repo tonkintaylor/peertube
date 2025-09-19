@@ -52,7 +52,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     id: UUID | int | str, *, client: AuthenticatedClient, body: VideoReplaceSourceRequestResumable, x_upload_content_length: float, x_upload_content_type: str) -> Response[Any]:
     """Initialize the resumable replacement of a video
@@ -96,7 +95,8 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, client = client, body = body, x_upload_content_length = x_upload_content_length, x_upload_content_type = x_upload_content_type).parsed
+        id = id, client = client, body = body, x_upload_content_length = x_upload_content_length, x_upload_content_type = x_upload_content_type,
+    ).parsed
 
 
 async def asyncio_detailed(

@@ -39,10 +39,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     channel_handle: str, *, client: AuthenticatedClient, body: VideoChannelUpdate) -> Response[Any]:
     """Update a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -85,6 +85,7 @@ def sync(
 async def asyncio_detailed(
     channel_handle: str, *, client: AuthenticatedClient, body: VideoChannelUpdate) -> Response[Any]:
     """Update a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.

@@ -30,10 +30,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     subscription_handle: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Get subscription of my user
+
 
     Args:
         subscription_handle (str):  Example: my_username | my_username@example.com.
@@ -75,6 +75,7 @@ def sync(
 async def asyncio_detailed(
     subscription_handle: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Get subscription of my user
+
 
     Args:
         subscription_handle (str):  Example: my_username | my_username@example.com.

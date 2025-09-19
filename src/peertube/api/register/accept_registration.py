@@ -40,10 +40,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     registration_id: int, *, client: AuthenticatedClient, body: UserRegistrationAcceptOrReject) -> Response[Any]:
     """Accept registration
+
 
     Args:
         registration_id (int):  Example: 42.
@@ -87,6 +87,7 @@ def sync(
 async def asyncio_detailed(
     registration_id: int, *, client: AuthenticatedClient, body: UserRegistrationAcceptOrReject) -> Response[Any]:
     """Accept registration
+
 
     Args:
         registration_id (int):  Example: 42.

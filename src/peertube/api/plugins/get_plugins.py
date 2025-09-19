@@ -48,10 +48,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, plugin_type: Unset | int = UNSET, uninstalled: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[PluginResponse]:
     """List plugins
+
 
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.
@@ -77,10 +77,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient, plugin_type: Unset | int = UNSET, uninstalled: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> PluginResponse | None:
     """List plugins
+
 
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.
@@ -98,12 +98,14 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, plugin_type = plugin_type, uninstalled = uninstalled, start = start, count = count, sort = sort).parsed
+        client = client, plugin_type = plugin_type, uninstalled = uninstalled, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     *, client: AuthenticatedClient, plugin_type: Unset | int = UNSET, uninstalled: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[PluginResponse]:
     """List plugins
+
 
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.
@@ -128,10 +130,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient, plugin_type: Unset | int = UNSET, uninstalled: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> PluginResponse | None:
     """List plugins
+
 
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.

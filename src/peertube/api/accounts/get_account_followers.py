@@ -51,10 +51,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAccountFollowersSort = UNSET, search: Unset | str = UNSET) -> Response[GetAccountFollowersResponse200]:
     """List followers of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -80,10 +80,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAccountFollowersSort = UNSET, search: Unset | str = UNSET) -> GetAccountFollowersResponse200 | None:
     """List followers of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -101,12 +101,14 @@ def sync(
     """
 
     return sync_detailed(
-        name = name, client = client, start = start, count = count, sort = sort, search = search).parsed
+        name = name, client = client, start = start, count = count, sort = sort, search = search,
+    ).parsed
 
 
 async def asyncio_detailed(
     name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAccountFollowersSort = UNSET, search: Unset | str = UNSET) -> Response[GetAccountFollowersResponse200]:
     """List followers of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -131,10 +133,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAccountFollowersSort = UNSET, search: Unset | str = UNSET) -> GetAccountFollowersResponse200 | None:
     """List followers of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.

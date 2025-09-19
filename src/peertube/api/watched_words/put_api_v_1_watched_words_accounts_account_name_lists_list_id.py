@@ -40,7 +40,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     account_name: str, list_id: str, *, client: AuthenticatedClient, body: PutApiV1WatchedWordsAccountsAccountNameListsListIdBody) -> Response[Any]:
     """Update account watched words
@@ -82,7 +81,8 @@ def sync(
     """
 
     return sync_detailed(
-        account_name = account_name, list_id = list_id, client = client, body = body).parsed
+        account_name = account_name, list_id = list_id, client = client, body = body,
+    ).parsed
 
 
 async def asyncio_detailed(

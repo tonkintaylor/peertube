@@ -32,10 +32,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     name: str, *, client: AuthenticatedClient | Client) -> Response[Any]:
     """Get an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -77,6 +77,7 @@ def sync(
 async def asyncio_detailed(
     name: str, *, client: AuthenticatedClient | Client) -> Response[Any]:
     """Get an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.

@@ -52,10 +52,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetJobsResponse200]:
     """List instance jobs
+
 
     Args:
         state (GetJobsState): Current state or status filter.
@@ -81,10 +81,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetJobsResponse200 | None:
     """List instance jobs
+
 
     Args:
         state (GetJobsState): Current state or status filter.
@@ -102,12 +102,14 @@ def sync(
     """
 
     return sync_detailed(
-        state = state, client = client, job_type = job_type, start = start, count = count, sort = sort).parsed
+        state = state, client = client, job_type = job_type, start = start, count = count, sort = sort,
+    ).parsed
 
 
 async def asyncio_detailed(
     state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetJobsResponse200]:
     """List instance jobs
+
 
     Args:
         state (GetJobsState): Current state or status filter.
@@ -132,10 +134,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     state: GetJobsState, *, client: AuthenticatedClient, job_type: Unset | GetJobsJobType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetJobsResponse200 | None:
     """List instance jobs
+
 
     Args:
         state (GetJobsState): Current state or status filter.

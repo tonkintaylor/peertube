@@ -35,10 +35,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     redundancy_id: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete a mirror done on a video
+
 
     Args:
         redundancy_id (str): Parameter for redundancy id.
@@ -80,6 +80,7 @@ def sync(
 async def asyncio_detailed(
     redundancy_id: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete a mirror done on a video
+
 
     Args:
         redundancy_id (str): Parameter for redundancy id.

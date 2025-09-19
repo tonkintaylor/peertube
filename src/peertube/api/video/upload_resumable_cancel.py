@@ -44,7 +44,6 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, upload_id: str, content_length: float) -> Response[Any]:
     """Cancel the resumable upload of a video, deleting any data uploaded so far
@@ -86,7 +85,8 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, upload_id = upload_id, content_length = content_length).parsed
+        client = client, upload_id = upload_id, content_length = content_length,
+    ).parsed
 
 
 async def asyncio_detailed(

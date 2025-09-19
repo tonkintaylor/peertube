@@ -49,10 +49,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> Response[VideoStatsUserAgent]:
     """Get user agent stats of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -76,10 +76,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> VideoStatsUserAgent | None:
     """Get user agent stats of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -95,12 +95,14 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, client = client, start_date = start_date, end_date = end_date).parsed
+        id = id, client = client, start_date = start_date, end_date = end_date,
+    ).parsed
 
 
 async def asyncio_detailed(
     id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> Response[VideoStatsUserAgent]:
     """Get user agent stats of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -123,10 +125,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> VideoStatsUserAgent | None:
     """Get user agent stats of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.

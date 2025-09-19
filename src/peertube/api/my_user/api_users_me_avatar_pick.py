@@ -45,10 +45,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     *, client: AuthenticatedClient, body: PostApiV1UsersMeAvatarPickBody) -> Response[Any | PostApiV1UsersMeAvatarPickResponse200]:
     """Update my user avatar
+
 
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.
@@ -69,10 +69,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     *, client: AuthenticatedClient, body: PostApiV1UsersMeAvatarPickBody) -> Any | PostApiV1UsersMeAvatarPickResponse200 | None:
     """Update my user avatar
+
 
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.
@@ -92,6 +92,7 @@ async def asyncio_detailed(
     *, client: AuthenticatedClient, body: PostApiV1UsersMeAvatarPickBody) -> Response[Any | PostApiV1UsersMeAvatarPickResponse200]:
     """Update my user avatar
 
+
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
@@ -110,10 +111,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     *, client: AuthenticatedClient, body: PostApiV1UsersMeAvatarPickBody) -> Any | PostApiV1UsersMeAvatarPickResponse200 | None:
     """Update my user avatar
+
 
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.

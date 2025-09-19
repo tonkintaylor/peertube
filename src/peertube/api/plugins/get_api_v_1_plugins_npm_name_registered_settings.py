@@ -41,10 +41,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     npm_name: str, *, client: AuthenticatedClient) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
     """Get a plugin's registered settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
@@ -65,10 +65,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     npm_name: str, *, client: AuthenticatedClient) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
     """Get a plugin's registered settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
@@ -88,6 +88,7 @@ async def asyncio_detailed(
     npm_name: str, *, client: AuthenticatedClient) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
     """Get a plugin's registered settings
 
+
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
 
@@ -106,10 +107,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     npm_name: str, *, client: AuthenticatedClient) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
     """Get a plugin's registered settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.

@@ -11,7 +11,6 @@ import sys
 from pathlib import Path
 
 
-
 def generate_client() -> bool:
     """Generate the OpenAPI client from the specification."""
 

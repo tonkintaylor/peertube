@@ -83,10 +83,10 @@ def _build_response(
         status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
 
 
-
 def sync_detailed(
     format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Response[Any | list["VideosForXMLItem"]]:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
@@ -117,10 +117,10 @@ def sync_detailed(
     return _build_response(client = client, response = response)
 
 
-
 def sync(
     format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Any | list["VideosForXMLItem"] | None:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
@@ -143,12 +143,14 @@ def sync(
     """
 
     return sync_detailed(
-        format_ = format_, client = client, account_id = account_id, token = token, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files).parsed
+        format_ = format_, client = client, account_id = account_id, token = token, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files,
+    ).parsed
 
 
 async def asyncio_detailed(
     format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Response[Any | list["VideosForXMLItem"]]:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
@@ -178,10 +180,10 @@ async def asyncio_detailed(
     return _build_response(client = client, response = response)
 
 
-
 async def asyncio(
     format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Any | list["VideosForXMLItem"] | None:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
