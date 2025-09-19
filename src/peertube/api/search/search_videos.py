@@ -284,63 +284,60 @@ def sync_detailed(
     duration_min: Unset | int = UNSET,
     duration_max: Unset | int = UNSET,
 ) -> Response[Any | VideoListResponse]:
-    """Search videos
+    """Search for videos on the PeerTube instance with detailed response information.
+
+    Performs a video search on the PeerTube instance using various filtering criteria. If the user
+    can make a remote URI search and the search string is a URI, the PeerTube instance will fetch
+    the remote object and add it to its database for interaction via the REST API.
 
     Args:
-        search (str): Search query filter.
-        uuids (Union[Unset, Any]): Parameter for uuids.
-        search_target (Union[Unset, SearchVideosSearchTarget]): Search filter for target.
-        start (Union[Unset, int]): Starting index for pagination.
-        count (Union[Unset, int]):  Default: 15.
-        skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
-              * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
-            dislikes and comments and publication date
-              * `best` - Same than `hot`, but also takes into account user video history
-              * `trending` - Sort videos by recent views ("recent" is defined by the admin)
-              * `views` - Sort videos using their `views` counter
-              * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, SearchVideosNsfw]): Parameter for nsfw.
-        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]): Parameter for is live.
-        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
-        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
-        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
-        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
-        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
-        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
-        is_local (Union[Unset, bool]): Parameter for is local.
-        include (Union[Unset, SearchVideosInclude]): Parameter for include.
-        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
-        has_web_video_files (Union[Unset, bool]): Video-related parameter.
-        host (Union[Unset, str]): Parameter for host.
-        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
-        privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
-            [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
-        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
-        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
-        originally_published_start_date (Union[Unset, datetime.datetime]): Parameter for originally published start date.
-        originally_published_end_date (Union[Unset, datetime.datetime]): Parameter for originally published end date.
-        duration_min (Union[Unset, int]): Parameter for duration min.
-        duration_max (Union[Unset, int]): Parameter for duration max.
+        client: The authenticated or unauthenticated client for making requests.
+        search: String to search for. Can be a video title, description, or URI.
+        uuids: Filter results to specific video UUIDs.
+        search_target: Whether to search locally or use search index. If search index is enabled
+            by the administrator, you can override the default search target.
+        start: Starting index for pagination (0-based).
+        count: Maximum number of videos to return per page. Default: 15.
+        skip_count: Whether to skip the total count calculation for performance.
+        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
+            `best` (like hot but includes user history), `trending` (recent views),
+            `views` (total view count), `publishedAt` (publication date).
+        nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
+        nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        is_live: Filter for live videos only.
+        include_scheduled_live: Include scheduled live videos in results.
+        category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
+        licence_one_of: Filter by video licence IDs. Can be a single ID or list of IDs.
+        language_one_of: Filter by language codes. Can be a single language or list of languages.
+        tags_one_of: Filter videos that have at least one of the specified tags.
+        tags_all_of: Filter videos that have all of the specified tags.
+        is_local: Filter for local videos only (hosted on this instance).
+        include: Include additional video information in results. Administrators and moderators
+            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
+            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+        has_hls_files: Filter for videos that have HLS streaming files.
+        has_web_video_files: Filter for videos that have web-compatible video files.
+        host: Filter by the hostname where videos are hosted.
+        auto_tag_one_of: Filter by automatically generated tags.
+        privacy_one_of: Filter by video privacy settings (public, unlisted, private, internal).
+        exclude_already_watched: Exclude videos that the current user has already watched.
+        start_date: Filter for videos published after this date.
+        end_date: Filter for videos published before this date.
+        originally_published_start_date: Filter for videos originally published after this date.
+        originally_published_end_date: Filter for videos originally published before this date.
+        duration_min: Filter for videos with at least this duration (in seconds).
+        duration_max: Filter for videos with at most this duration (in seconds).
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, VideoListResponse]]
+        Response object containing the status code, headers, and parsed video list data or error information.
     """
 
     kwargs = _get_kwargs(
@@ -419,63 +416,60 @@ def sync(
     duration_min: Unset | int = UNSET,
     duration_max: Unset | int = UNSET,
 ) -> Any | VideoListResponse | None:
-    """Search videos
+    """Search for videos on the PeerTube instance.
+
+    Performs a video search on the PeerTube instance using various filtering criteria. If the user
+    can make a remote URI search and the search string is a URI, the PeerTube instance will fetch
+    the remote object and add it to its database for interaction via the REST API.
 
     Args:
-        search (str): Search query filter.
-        uuids (Union[Unset, Any]): Parameter for uuids.
-        search_target (Union[Unset, SearchVideosSearchTarget]): Search filter for target.
-        start (Union[Unset, int]): Starting index for pagination.
-        count (Union[Unset, int]):  Default: 15.
-        skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
-              * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
-            dislikes and comments and publication date
-              * `best` - Same than `hot`, but also takes into account user video history
-              * `trending` - Sort videos by recent views ("recent" is defined by the admin)
-              * `views` - Sort videos using their `views` counter
-              * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, SearchVideosNsfw]): Parameter for nsfw.
-        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]): Parameter for is live.
-        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
-        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
-        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
-        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
-        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
-        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
-        is_local (Union[Unset, bool]): Parameter for is local.
-        include (Union[Unset, SearchVideosInclude]): Parameter for include.
-        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
-        has_web_video_files (Union[Unset, bool]): Video-related parameter.
-        host (Union[Unset, str]): Parameter for host.
-        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
-        privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
-            [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
-        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
-        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
-        originally_published_start_date (Union[Unset, datetime.datetime]): Parameter for originally published start date.
-        originally_published_end_date (Union[Unset, datetime.datetime]): Parameter for originally published end date.
-        duration_min (Union[Unset, int]): Parameter for duration min.
-        duration_max (Union[Unset, int]): Parameter for duration max.
+        client: The authenticated or unauthenticated client for making requests.
+        search: String to search for. Can be a video title, description, or URI.
+        uuids: Filter results to specific video UUIDs.
+        search_target: Whether to search locally or use search index. If search index is enabled
+            by the administrator, you can override the default search target.
+        start: Starting index for pagination (0-based).
+        count: Maximum number of videos to return per page. Default: 15.
+        skip_count: Whether to skip the total count calculation for performance.
+        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
+            `best` (like hot but includes user history), `trending` (recent views),
+            `views` (total view count), `publishedAt` (publication date).
+        nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
+        nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        is_live: Filter for live videos only.
+        include_scheduled_live: Include scheduled live videos in results.
+        category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
+        licence_one_of: Filter by video licence IDs. Can be a single ID or list of IDs.
+        language_one_of: Filter by language codes. Can be a single language or list of languages.
+        tags_one_of: Filter videos that have at least one of the specified tags.
+        tags_all_of: Filter videos that have all of the specified tags.
+        is_local: Filter for local videos only (hosted on this instance).
+        include: Include additional video information in results. Administrators and moderators
+            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
+            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+        has_hls_files: Filter for videos that have HLS streaming files.
+        has_web_video_files: Filter for videos that have web-compatible video files.
+        host: Filter by the hostname where videos are hosted.
+        auto_tag_one_of: Filter by automatically generated tags.
+        privacy_one_of: Filter by video privacy settings (public, unlisted, private, internal).
+        exclude_already_watched: Exclude videos that the current user has already watched.
+        start_date: Filter for videos published after this date.
+        end_date: Filter for videos published before this date.
+        originally_published_start_date: Filter for videos originally published after this date.
+        originally_published_end_date: Filter for videos originally published before this date.
+        duration_min: Filter for videos with at least this duration (in seconds).
+        duration_max: Filter for videos with at most this duration (in seconds).
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, VideoListResponse]
+        The parsed video list response data, or None if the search index is unavailable.
     """
 
     return sync_detailed(
@@ -549,63 +543,60 @@ async def asyncio_detailed(
     duration_min: Unset | int = UNSET,
     duration_max: Unset | int = UNSET,
 ) -> Response[Any | VideoListResponse]:
-    """Search videos
+    """Search for videos on the PeerTube instance asynchronously with detailed response information.
+
+    Performs an asynchronous video search on the PeerTube instance using various filtering criteria.
+    If the user can make a remote URI search and the search string is a URI, the PeerTube instance
+    will fetch the remote object and add it to its database for interaction via the REST API.
 
     Args:
-        search (str): Search query filter.
-        uuids (Union[Unset, Any]): Parameter for uuids.
-        search_target (Union[Unset, SearchVideosSearchTarget]): Search filter for target.
-        start (Union[Unset, int]): Starting index for pagination.
-        count (Union[Unset, int]):  Default: 15.
-        skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
-              * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
-            dislikes and comments and publication date
-              * `best` - Same than `hot`, but also takes into account user video history
-              * `trending` - Sort videos by recent views ("recent" is defined by the admin)
-              * `views` - Sort videos using their `views` counter
-              * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, SearchVideosNsfw]): Parameter for nsfw.
-        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]): Parameter for is live.
-        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
-        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
-        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
-        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
-        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
-        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
-        is_local (Union[Unset, bool]): Parameter for is local.
-        include (Union[Unset, SearchVideosInclude]): Parameter for include.
-        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
-        has_web_video_files (Union[Unset, bool]): Video-related parameter.
-        host (Union[Unset, str]): Parameter for host.
-        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
-        privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
-            [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
-        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
-        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
-        originally_published_start_date (Union[Unset, datetime.datetime]): Parameter for originally published start date.
-        originally_published_end_date (Union[Unset, datetime.datetime]): Parameter for originally published end date.
-        duration_min (Union[Unset, int]): Parameter for duration min.
-        duration_max (Union[Unset, int]): Parameter for duration max.
+        client: The authenticated or unauthenticated client for making requests.
+        search: String to search for. Can be a video title, description, or URI.
+        uuids: Filter results to specific video UUIDs.
+        search_target: Whether to search locally or use search index. If search index is enabled
+            by the administrator, you can override the default search target.
+        start: Starting index for pagination (0-based).
+        count: Maximum number of videos to return per page. Default: 15.
+        skip_count: Whether to skip the total count calculation for performance.
+        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
+            `best` (like hot but includes user history), `trending` (recent views),
+            `views` (total view count), `publishedAt` (publication date).
+        nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
+        nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        is_live: Filter for live videos only.
+        include_scheduled_live: Include scheduled live videos in results.
+        category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
+        licence_one_of: Filter by video licence IDs. Can be a single ID or list of IDs.
+        language_one_of: Filter by language codes. Can be a single language or list of languages.
+        tags_one_of: Filter videos that have at least one of the specified tags.
+        tags_all_of: Filter videos that have all of the specified tags.
+        is_local: Filter for local videos only (hosted on this instance).
+        include: Include additional video information in results. Administrators and moderators
+            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
+            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+        has_hls_files: Filter for videos that have HLS streaming files.
+        has_web_video_files: Filter for videos that have web-compatible video files.
+        host: Filter by the hostname where videos are hosted.
+        auto_tag_one_of: Filter by automatically generated tags.
+        privacy_one_of: Filter by video privacy settings (public, unlisted, private, internal).
+        exclude_already_watched: Exclude videos that the current user has already watched.
+        start_date: Filter for videos published after this date.
+        end_date: Filter for videos published before this date.
+        originally_published_start_date: Filter for videos originally published after this date.
+        originally_published_end_date: Filter for videos originally published before this date.
+        duration_min: Filter for videos with at least this duration (in seconds).
+        duration_max: Filter for videos with at most this duration (in seconds).
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, VideoListResponse]]
+        Response object containing the status code, headers, and parsed video list data or error information.
     """
 
     kwargs = _get_kwargs(
@@ -682,63 +673,60 @@ async def asyncio(
     duration_min: Unset | int = UNSET,
     duration_max: Unset | int = UNSET,
 ) -> Any | VideoListResponse | None:
-    """Search videos
+    """Search for videos on the PeerTube instance asynchronously.
+
+    Performs an asynchronous video search on the PeerTube instance using various filtering criteria.
+    If the user can make a remote URI search and the search string is a URI, the PeerTube instance
+    will fetch the remote object and add it to its database for interaction via the REST API.
 
     Args:
-        search (str): Search query filter.
-        uuids (Union[Unset, Any]): Parameter for uuids.
-        search_target (Union[Unset, SearchVideosSearchTarget]): Search filter for target.
-        start (Union[Unset, int]): Starting index for pagination.
-        count (Union[Unset, int]):  Default: 15.
-        skip_count (Union[Unset, SearchVideosSkipCount]):  Default: SearchVideosSkipCount.FALSE.
-        sort (Union[Unset, SearchVideosSort]): Sort videos by criteria (prefixing with `-` means
-            `DESC` order):
-              * `hot` - Adaptation of Reddit "hot" algorithm taking into account video views, likes,
-            dislikes and comments and publication date
-              * `best` - Same than `hot`, but also takes into account user video history
-              * `trending` - Sort videos by recent views ("recent" is defined by the admin)
-              * `views` - Sort videos using their `views` counter
-              * `publishedAt` - Sort by video publication date (when it became publicly available)
-        nsfw (Union[Unset, SearchVideosNsfw]): Parameter for nsfw.
-        nsfw_flags_included (Union[Unset, NSFWFlag]): Parameter for nsfw flags included.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        nsfw_flags_excluded (Union[Unset, NSFWFlag]): Parameter for nsfw flags excluded.
-            NSFW flags (can be combined using bitwise or operator)
-            - `0` NONE
-            - `1` VIOLENT
-            - `2` EXPLICIT_SEX
-        is_live (Union[Unset, bool]): Parameter for is live.
-        include_scheduled_live (Union[Unset, bool]): Parameter for include scheduled live.
-        category_one_of (Union[Unset, int, list[int]]): Parameter for category one of.
-        licence_one_of (Union[Unset, int, list[int]]): Parameter for licence one of.
-        language_one_of (Union[Unset, list[str], str]): Parameter for language one of.
-        tags_one_of (Union[Unset, list[str], str]): Parameter for tags one of.
-        tags_all_of (Union[Unset, list[str], str]): Parameter for tags all of.
-        is_local (Union[Unset, bool]): Parameter for is local.
-        include (Union[Unset, SearchVideosInclude]): Parameter for include.
-        has_hls_files (Union[Unset, bool]): Parameter for has hls files.
-        has_web_video_files (Union[Unset, bool]): Video-related parameter.
-        host (Union[Unset, str]): Parameter for host.
-        auto_tag_one_of (Union[Unset, list[str], str]): Parameter for auto tag one of.
-        privacy_one_of (Union[Unset, VideoPrivacySet]): privacy id of the video (see
-            [/videos/privacies](#operation/getVideoPrivacyPolicies))
-        exclude_already_watched (Union[Unset, bool]): Parameter for exclude already watched.
-        start_date (Union[Unset, datetime.datetime]): Parameter for start date.
-        end_date (Union[Unset, datetime.datetime]): Parameter for end date.
-        originally_published_start_date (Union[Unset, datetime.datetime]): Parameter for originally published start date.
-        originally_published_end_date (Union[Unset, datetime.datetime]): Parameter for originally published end date.
-        duration_min (Union[Unset, int]): Parameter for duration min.
-        duration_max (Union[Unset, int]): Parameter for duration max.
+        client: The authenticated or unauthenticated client for making requests.
+        search: String to search for. Can be a video title, description, or URI.
+        uuids: Filter results to specific video UUIDs.
+        search_target: Whether to search locally or use search index. If search index is enabled
+            by the administrator, you can override the default search target.
+        start: Starting index for pagination (0-based).
+        count: Maximum number of videos to return per page. Default: 15.
+        skip_count: Whether to skip the total count calculation for performance.
+        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
+            `best` (like hot but includes user history), `trending` (recent views),
+            `views` (total view count), `publishedAt` (publication date).
+        nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
+        nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
+            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+        is_live: Filter for live videos only.
+        include_scheduled_live: Include scheduled live videos in results.
+        category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
+        licence_one_of: Filter by video licence IDs. Can be a single ID or list of IDs.
+        language_one_of: Filter by language codes. Can be a single language or list of languages.
+        tags_one_of: Filter videos that have at least one of the specified tags.
+        tags_all_of: Filter videos that have all of the specified tags.
+        is_local: Filter for local videos only (hosted on this instance).
+        include: Include additional video information in results. Administrators and moderators
+            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
+            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+        has_hls_files: Filter for videos that have HLS streaming files.
+        has_web_video_files: Filter for videos that have web-compatible video files.
+        host: Filter by the hostname where videos are hosted.
+        auto_tag_one_of: Filter by automatically generated tags.
+        privacy_one_of: Filter by video privacy settings (public, unlisted, private, internal).
+        exclude_already_watched: Exclude videos that the current user has already watched.
+        start_date: Filter for videos published after this date.
+        end_date: Filter for videos published before this date.
+        originally_published_start_date: Filter for videos originally published after this date.
+        originally_published_end_date: Filter for videos originally published before this date.
+        duration_min: Filter for videos with at least this duration (in seconds).
+        duration_max: Filter for videos with at most this duration (in seconds).
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, VideoListResponse]
+        The parsed video list response data, or None if the search index is unavailable.
     """
 
     return (
