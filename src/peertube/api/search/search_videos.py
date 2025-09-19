@@ -25,7 +25,7 @@ def _get_kwargs(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -75,7 +75,7 @@ def _get_kwargs(
 
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
-        json_sort = sort.value
+        json_sort = sort.value if hasattr(sort, 'value') else sort
 
     params["sort"] = json_sort
 
@@ -258,7 +258,7 @@ def sync_detailed(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -299,7 +299,7 @@ def sync_detailed(
         start: Starting index for pagination (0-based).
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
-        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+        sort: Sort videos by criteria. Can be a string (e.g., "-publishedAt") or SearchVideosSort enum. Prefix with `-` for descending order. Options include:
             `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
             `best` (like hot but includes user history), `trending` (recent views),
             `views` (total view count), `publishedAt` (publication date).
@@ -390,7 +390,7 @@ def sync(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -431,7 +431,7 @@ def sync(
         start: Starting index for pagination (0-based).
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
-        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+        sort: Sort videos by criteria. Can be a string (e.g., "-publishedAt") or SearchVideosSort enum. Prefix with `-` for descending order. Options include:
             `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
             `best` (like hot but includes user history), `trending` (recent views),
             `views` (total view count), `publishedAt` (publication date).
@@ -517,7 +517,7 @@ async def asyncio_detailed(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -558,7 +558,7 @@ async def asyncio_detailed(
         start: Starting index for pagination (0-based).
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
-        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+        sort: Sort videos by criteria. Can be a string (e.g., "-publishedAt") or SearchVideosSort enum. Prefix with `-` for descending order. Options include:
             `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
             `best` (like hot but includes user history), `trending` (recent views),
             `views` (total view count), `publishedAt` (publication date).
@@ -647,7 +647,7 @@ async def asyncio(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     skip_count: Unset | SearchVideosSkipCount = SearchVideosSkipCount.FALSE,
-    sort: Unset | SearchVideosSort = UNSET,
+    sort: Unset | str | SearchVideosSort = UNSET,
     nsfw: Unset | SearchVideosNsfw = UNSET,
     nsfw_flags_included: Unset | NSFWFlag = UNSET,
     nsfw_flags_excluded: Unset | NSFWFlag = UNSET,
@@ -688,7 +688,7 @@ async def asyncio(
         start: Starting index for pagination (0-based).
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
-        sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
+        sort: Sort videos by criteria. Can be a string (e.g., "-publishedAt") or SearchVideosSort enum. Prefix with `-` for descending order. Options include:
             `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
             `best` (like hot but includes user history), `trending` (recent views),
             `views` (total view count), `publishedAt` (publication date).
