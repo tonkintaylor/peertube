@@ -22,7 +22,6 @@ def _get_kwargs(
         "method": "put",
         "url": f"/api/v1/watched-words/server/lists/{list_id}",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -30,18 +29,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -63,7 +59,6 @@ def sync_detailed(
     """Update server watched words
 
      **PeerTube >= 6.2**
-
     Args:
         list_id (str): Parameter for list id.
         body (PutApiV1WatchedWordsServerListsListIdBody): Request body data.
@@ -75,7 +70,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         list_id=list_id,
         body=body,
@@ -88,12 +82,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     list_id: str,
     *,
     client: AuthenticatedClient,
     body: PutApiV1WatchedWordsServerListsListIdBody,
-
 ) -> Any | None:
     """Update server watched words
 
@@ -104,15 +96,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         list_id=list_id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     list_id: str,
@@ -123,7 +111,6 @@ async def asyncio_detailed(
     """Update server watched words
 
      **PeerTube >= 6.2**
-
     Args:
         list_id (str): Parameter for list id.
         body (PutApiV1WatchedWordsServerListsListIdBody): Request body data.
@@ -135,7 +122,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         list_id=list_id,
         body=body,

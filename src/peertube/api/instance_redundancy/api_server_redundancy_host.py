@@ -22,14 +22,12 @@ def _get_kwargs(
         "method": "put",
         "url": f"/api/v1/server/redundancy/{host}",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -39,12 +37,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -64,7 +60,6 @@ def sync_detailed(
     body: PutApiV1ServerRedundancyHostBody,
 ) -> Response[Any]:
     """Update a server redundancy policy
-
     Args:
         host (str): Parameter for host.
         body (PutApiV1ServerRedundancyHostBody): Request body data.
@@ -76,7 +71,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         host=host,
         body=body,
@@ -89,12 +83,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     host: str,
     *,
     client: AuthenticatedClient,
     body: PutApiV1ServerRedundancyHostBody,
-
 ) -> Any | None:
     """Update a server redundancy policy
 
@@ -105,15 +97,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         host=host,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     host: str,
@@ -122,7 +110,6 @@ async def asyncio_detailed(
     body: PutApiV1ServerRedundancyHostBody,
 ) -> Response[Any]:
     """Update a server redundancy policy
-
     Args:
         host (str): Parameter for host.
         body (PutApiV1ServerRedundancyHostBody): Request body data.
@@ -134,7 +121,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         host=host,
         body=body,

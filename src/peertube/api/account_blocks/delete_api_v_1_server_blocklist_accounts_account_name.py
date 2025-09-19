@@ -18,7 +18,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -27,12 +26,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -51,7 +48,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Unblock an account by its handle
-
     Args:
         account_name (str): Parameter for account name.
 
@@ -62,7 +58,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
     )
@@ -74,11 +69,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     account_name: str,
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """Unblock an account by its handle
 
@@ -89,14 +82,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         account_name=account_name,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     account_name: str,
@@ -104,7 +93,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Unblock an account by its handle
-
     Args:
         account_name (str): Parameter for account name.
 
@@ -115,7 +103,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
     )

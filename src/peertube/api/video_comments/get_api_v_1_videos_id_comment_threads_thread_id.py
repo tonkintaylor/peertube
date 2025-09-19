@@ -18,7 +18,6 @@ def _get_kwargs(
     headers: dict[str, Any] = {}
     if not isinstance(x_peertube_video_password, Unset):
         headers["x-peertube-video-password"] = x_peertube_video_password
-
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/videos/{id}/comment-threads/{thread_id}",
@@ -27,7 +26,6 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -35,7 +33,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -56,7 +53,6 @@ def sync_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any]:
     """Get a thread
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         thread_id (int): Parameter for thread id.
@@ -69,7 +65,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         thread_id=thread_id,
@@ -83,13 +78,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     thread_id: int,
     *,
     client: AuthenticatedClient | Client,
     x_peertube_video_password: Unset | str = UNSET,
-
 ) -> Any | None:
     """Get a thread
 
@@ -100,16 +93,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         thread_id=thread_id,
         client=client,
         x_peertube_video_password=x_peertube_video_password,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -119,7 +108,6 @@ async def asyncio_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any]:
     """Get a thread
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         thread_id (int): Parameter for thread id.
@@ -132,7 +120,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         thread_id=thread_id,

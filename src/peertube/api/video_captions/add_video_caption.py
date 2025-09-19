@@ -22,12 +22,10 @@ def _get_kwargs(
         "method": "put",
         "url": f"/api/v1/videos/{id}/captions/{caption_language}",
     }
-
     _kwargs["files"] = body.to_multipart()
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -37,12 +35,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -63,7 +59,6 @@ def sync_detailed(
     body: AddVideoCaptionBody,
 ) -> Response[Any]:
     """Add or replace a video caption
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
@@ -77,7 +72,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         caption_language=caption_language,
@@ -91,13 +85,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     caption_language: str,
     *,
     client: AuthenticatedClient,
     body: AddVideoCaptionBody,
-
 ) -> Any | None:
     """Add or replace a video caption
 
@@ -108,16 +100,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         caption_language=caption_language,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -127,7 +115,6 @@ async def asyncio_detailed(
     body: AddVideoCaptionBody,
 ) -> Response[Any]:
     """Add or replace a video caption
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
@@ -141,7 +128,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         caption_language=caption_language,

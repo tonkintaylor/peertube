@@ -26,14 +26,12 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/runners/jobs/{job_uuid}/accept",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -44,12 +42,10 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -71,7 +67,6 @@ def sync_detailed(
     """Accept job
 
      API used by PeerTube runners
-
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
         body (PostApiV1RunnersJobsJobUUIDAcceptBody): Request body data.
@@ -83,7 +78,6 @@ def sync_detailed(
     Returns:
         Response[PostApiV1RunnersJobsJobUUIDAcceptResponse200]
     """
-
     kwargs = _get_kwargs(
         job_uuid=job_uuid,
         body=body,
@@ -105,7 +99,6 @@ def sync(
     """Accept job
 
      API used by PeerTube runners
-
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
         body (PostApiV1RunnersJobsJobUUIDAcceptBody): Request body data.
@@ -117,13 +110,11 @@ def sync(
     Returns:
         PostApiV1RunnersJobsJobUUIDAcceptResponse200
     """
-
     return sync_detailed(
         job_uuid=job_uuid,
         client=client,
         body=body,
     ).parsed
-
 
 async def asyncio_detailed(
     job_uuid: UUID,
@@ -134,7 +125,6 @@ async def asyncio_detailed(
     """Accept job
 
      API used by PeerTube runners
-
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
         body (PostApiV1RunnersJobsJobUUIDAcceptBody): Request body data.
@@ -146,7 +136,6 @@ async def asyncio_detailed(
     Returns:
         Response[PostApiV1RunnersJobsJobUUIDAcceptResponse200]
     """
-
     kwargs = _get_kwargs(
         job_uuid=job_uuid,
         body=body,
@@ -166,7 +155,6 @@ async def asyncio(
     """Accept job
 
      API used by PeerTube runners
-
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
         body (PostApiV1RunnersJobsJobUUIDAcceptBody): Request body data.
@@ -178,7 +166,6 @@ async def asyncio(
     Returns:
         PostApiV1RunnersJobsJobUUIDAcceptResponse200
     """
-
     return (
         await asyncio_detailed(
             job_uuid=job_uuid,

@@ -20,14 +20,12 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/users/{id}/two-factor/disable",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -40,12 +38,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -67,7 +63,6 @@ def sync_detailed(
     """Disable two factor auth
 
      Disable two factor authentication of a user
-
     Args:
         id (int):  Example: 42.
         body (DisableTwoFactorBody): Request body data.
@@ -79,7 +74,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -92,12 +86,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: int,
     *,
     client: AuthenticatedClient,
     body: DisableTwoFactorBody,
-
 ) -> Any | None:
     """Disable two factor auth
 
@@ -108,15 +100,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: int,
@@ -127,7 +115,6 @@ async def asyncio_detailed(
     """Disable two factor auth
 
      Disable two factor authentication of a user
-
     Args:
         id (int):  Example: 42.
         body (DisableTwoFactorBody): Request body data.
@@ -139,7 +126,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,

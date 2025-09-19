@@ -21,7 +21,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetApiV1UsersIdTokenSessionsResponse200 | None:
@@ -31,12 +30,10 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -55,7 +52,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[GetApiV1UsersIdTokenSessionsResponse200]:
     """List token sessions
-
     Args:
         id (int):  Example: 42.
 
@@ -66,7 +62,6 @@ def sync_detailed(
     Returns:
         Response[GetApiV1UsersIdTokenSessionsResponse200]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -84,7 +79,6 @@ def sync(
     client: AuthenticatedClient,
 ) -> GetApiV1UsersIdTokenSessionsResponse200 | None:
     """List token sessions
-
     Args:
         id (int):  Example: 42.
 
@@ -95,12 +89,10 @@ def sync(
     Returns:
         GetApiV1UsersIdTokenSessionsResponse200
     """
-
     return sync_detailed(
         id=id,
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     id: int,
@@ -108,7 +100,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[GetApiV1UsersIdTokenSessionsResponse200]:
     """List token sessions
-
     Args:
         id (int):  Example: 42.
 
@@ -119,7 +110,6 @@ async def asyncio_detailed(
     Returns:
         Response[GetApiV1UsersIdTokenSessionsResponse200]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -135,7 +125,6 @@ async def asyncio(
     client: AuthenticatedClient,
 ) -> GetApiV1UsersIdTokenSessionsResponse200 | None:
     """List token sessions
-
     Args:
         id (int):  Example: 42.
 
@@ -146,7 +135,6 @@ async def asyncio(
     Returns:
         GetApiV1UsersIdTokenSessionsResponse200
     """
-
     return (
         await asyncio_detailed(
             id=id,

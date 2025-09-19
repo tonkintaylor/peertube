@@ -21,14 +21,12 @@ def _get_kwargs(
         "method": "put",
         "url": f"/api/v1/videos/live/{id}",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -41,12 +39,10 @@ def _parse_response(
 
     if response.status_code == 403:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -66,7 +62,6 @@ def sync_detailed(
     body: LiveVideoUpdate,
 ) -> Response[Any]:
     """Update information about a live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         body (LiveVideoUpdate): Request body data.
@@ -78,7 +73,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -91,12 +85,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     *,
     client: AuthenticatedClient,
     body: LiveVideoUpdate,
-
 ) -> Any | None:
     """Update information about a live
 
@@ -107,15 +99,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -124,7 +112,6 @@ async def asyncio_detailed(
     body: LiveVideoUpdate,
 ) -> Response[Any]:
     """Update information about a live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         body (LiveVideoUpdate): Request body data.
@@ -136,7 +123,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,

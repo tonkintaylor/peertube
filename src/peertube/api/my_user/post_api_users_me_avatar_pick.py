@@ -24,12 +24,10 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/users/me/avatar/pick",
     }
-
     _kwargs["files"] = body.to_multipart()
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -38,16 +36,13 @@ def _parse_response(
         response_200 = PostApiV1UsersMeAvatarPickResponse200.from_dict(response.json())
 
         return response_200
-
     if response.status_code == 413:
         response_413 = cast("Any", None)
         return response_413
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -66,18 +61,15 @@ def sync_detailed(
     body: PostApiV1UsersMeAvatarPickBody,
 ) -> Response[Any | PostApiV1UsersMeAvatarPickResponse200]:
     """Update my user avatar
-
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, PostApiV1UsersMeAvatarPickResponse200]]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -95,23 +87,19 @@ def sync(
     body: PostApiV1UsersMeAvatarPickBody,
 ) -> Any | PostApiV1UsersMeAvatarPickResponse200 | None:
     """Update my user avatar
-
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, PostApiV1UsersMeAvatarPickResponse200]
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -119,18 +107,15 @@ async def asyncio_detailed(
     body: PostApiV1UsersMeAvatarPickBody,
 ) -> Response[Any | PostApiV1UsersMeAvatarPickResponse200]:
     """Update my user avatar
-
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, PostApiV1UsersMeAvatarPickResponse200]]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -146,18 +131,15 @@ async def asyncio(
     body: PostApiV1UsersMeAvatarPickBody,
 ) -> Any | PostApiV1UsersMeAvatarPickResponse200 | None:
     """Update my user avatar
-
     Args:
         body (PostApiV1UsersMeAvatarPickBody): Request body data.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, PostApiV1UsersMeAvatarPickResponse200]
     """
-
     return (
         await asyncio_detailed(
             client=client,

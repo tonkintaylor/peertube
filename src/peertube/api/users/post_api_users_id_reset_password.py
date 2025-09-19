@@ -22,14 +22,12 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/users/{id}/reset-password",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -42,12 +40,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -67,7 +63,6 @@ def sync_detailed(
     body: PostApiV1UsersIdResetPasswordBody,
 ) -> Response[Any]:
     """Reset password
-
     Args:
         id (int):  Example: 42.
         body (PostApiV1UsersIdResetPasswordBody): Request body data.
@@ -79,7 +74,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -92,12 +86,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: int,
     *,
     client: AuthenticatedClient | Client,
     body: PostApiV1UsersIdResetPasswordBody,
-
 ) -> Any | None:
     """Reset password
 
@@ -108,15 +100,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: int,
@@ -125,7 +113,6 @@ async def asyncio_detailed(
     body: PostApiV1UsersIdResetPasswordBody,
 ) -> Response[Any]:
     """Reset password
-
     Args:
         id (int):  Example: 42.
         body (PostApiV1UsersIdResetPasswordBody): Request body data.
@@ -137,7 +124,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,

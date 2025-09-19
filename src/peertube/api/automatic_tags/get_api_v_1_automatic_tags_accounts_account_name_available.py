@@ -19,7 +19,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> AutomaticTagAvailable | None:
@@ -27,12 +26,10 @@ def _parse_response(
         response_200 = AutomaticTagAvailable.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -53,7 +50,6 @@ def sync_detailed(
     """Get account available auto tags
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
 
@@ -64,7 +60,6 @@ def sync_detailed(
     Returns:
         Response[AutomaticTagAvailable]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
     )
@@ -84,7 +79,6 @@ def sync(
     """Get account available auto tags
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
 
@@ -95,12 +89,10 @@ def sync(
     Returns:
         AutomaticTagAvailable
     """
-
     return sync_detailed(
         account_name=account_name,
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     account_name: str,
@@ -110,7 +102,6 @@ async def asyncio_detailed(
     """Get account available auto tags
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
 
@@ -121,7 +112,6 @@ async def asyncio_detailed(
     Returns:
         Response[AutomaticTagAvailable]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
     )
@@ -139,7 +129,6 @@ async def asyncio(
     """Get account available auto tags
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
 
@@ -150,7 +139,6 @@ async def asyncio(
     Returns:
         AutomaticTagAvailable
     """
-
     return (
         await asyncio_detailed(
             account_name=account_name,

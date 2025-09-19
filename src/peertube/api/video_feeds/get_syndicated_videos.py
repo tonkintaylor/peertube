@@ -40,7 +40,6 @@ def _get_kwargs(
     params["videoChannelName"] = video_channel_name
 
     params["sort"] = sort
-
     json_nsfw: Unset | str = UNSET
     if not isinstance(nsfw, Unset):
         json_nsfw = nsfw.value
@@ -48,13 +47,11 @@ def _get_kwargs(
     params["nsfw"] = json_nsfw
 
     params["isLocal"] = is_local
-
     json_include: Unset | int = UNSET
     if not isinstance(include, Unset):
         json_include = include.value
 
     params["include"] = json_include
-
     json_privacy_one_of: Unset | int = UNSET
     if not isinstance(privacy_one_of, Unset):
         json_privacy_one_of = privacy_one_of.value
@@ -64,7 +61,6 @@ def _get_kwargs(
     params["hasHLSFiles"] = has_hls_files
 
     params["hasWebVideoFiles"] = has_web_video_files
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -74,7 +70,6 @@ def _get_kwargs(
     }
 
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -90,20 +85,16 @@ def _parse_response(
             response_200.append(componentsschemas_videos_for_xml_item)
 
         return response_200
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if response.status_code == 406:
         response_406 = cast("Any", None)
         return response_406
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -133,7 +124,6 @@ def sync_detailed(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Response[Any | list["VideosForXMLItem"]]:
     """Common videos feeds
-
     Args:
         format_ (GetSyndicatedVideosFormat): Parameter for format (underscore avoids keyword conflict).
         account_id (Union[Unset, str]): Parameter for account id.
@@ -152,11 +142,9 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, list['VideosForXMLItem']]]
     """
-
     kwargs = _get_kwargs(
         format_=format_,
         account_id=account_id,
@@ -196,7 +184,6 @@ def sync(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Any | list["VideosForXMLItem"] | None:
     """Common videos feeds
-
     Args:
         format_ (GetSyndicatedVideosFormat): Parameter for format (underscore avoids keyword conflict).
         account_id (Union[Unset, str]): Parameter for account id.
@@ -215,11 +202,9 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, list['VideosForXMLItem']]
     """
-
     return sync_detailed(
         format_=format_,
         client=client,
@@ -235,7 +220,6 @@ def sync(
         has_hls_files=has_hls_files,
         has_web_video_files=has_web_video_files,
     ).parsed
-
 
 async def asyncio_detailed(
     format_: GetSyndicatedVideosFormat,
@@ -254,7 +238,6 @@ async def asyncio_detailed(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Response[Any | list["VideosForXMLItem"]]:
     """Common videos feeds
-
     Args:
         format_ (GetSyndicatedVideosFormat): Parameter for format (underscore avoids keyword conflict).
         account_id (Union[Unset, str]): Parameter for account id.
@@ -273,11 +256,9 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, list['VideosForXMLItem']]]
     """
-
     kwargs = _get_kwargs(
         format_=format_,
         account_id=account_id,
@@ -315,7 +296,6 @@ async def asyncio(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Any | list["VideosForXMLItem"] | None:
     """Common videos feeds
-
     Args:
         format_ (GetSyndicatedVideosFormat): Parameter for format (underscore avoids keyword conflict).
         account_id (Union[Unset, str]): Parameter for account id.
@@ -334,11 +314,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, list['VideosForXMLItem']]
     """
-
     return (
         await asyncio_detailed(
             format_=format_,

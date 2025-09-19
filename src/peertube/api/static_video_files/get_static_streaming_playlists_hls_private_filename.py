@@ -19,7 +19,6 @@ def _get_kwargs(
     params["videoFileToken"] = video_file_token
 
     params["reinjectVideoFileToken"] = reinject_video_file_token
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -29,7 +28,6 @@ def _get_kwargs(
     }
 
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -42,12 +40,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -68,7 +64,6 @@ def sync_detailed(
     reinject_video_file_token: Unset | bool = UNSET,
 ) -> Response[Any]:
     """Get private HLS video file
-
     Args:
         filename (str): Parameter for filename.
         video_file_token (Union[Unset, str]): Video-related parameter.
@@ -81,7 +76,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         filename=filename,
         video_file_token=video_file_token,
@@ -95,13 +89,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     filename: str,
     *,
     client: AuthenticatedClient,
     video_file_token: Unset | str = UNSET,
     reinject_video_file_token: Unset | bool = UNSET,
-
 ) -> Any | None:
     """Get private HLS video file
 
@@ -112,16 +104,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         filename=filename,
         client=client,
         video_file_token=video_file_token,
         reinject_video_file_token=reinject_video_file_token,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     filename: str,
@@ -131,7 +119,6 @@ async def asyncio_detailed(
     reinject_video_file_token: Unset | bool = UNSET,
 ) -> Response[Any]:
     """Get private HLS video file
-
     Args:
         filename (str): Parameter for filename.
         video_file_token (Union[Unset, str]): Video-related parameter.
@@ -144,7 +131,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         filename=filename,
         video_file_token=video_file_token,

@@ -20,14 +20,12 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/users/registrations/request",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -36,24 +34,19 @@ def _parse_response(
         response_200 = UserRegistration.from_dict(response.json())
 
         return response_200
-
     if response.status_code == 400:
         response_400 = cast("Any", None)
         return response_400
-
     if response.status_code == 403:
         response_403 = cast("Any", None)
         return response_403
-
     if response.status_code == 409:
         response_409 = cast("Any", None)
         return response_409
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -74,7 +67,6 @@ def sync_detailed(
     """Request registration
 
      Signup has to be enabled and require approval on the instance
-
     Args:
         client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest): Request body data.
@@ -82,11 +74,9 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, UserRegistration]]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -106,7 +96,6 @@ def sync(
     """Request registration
 
      Signup has to be enabled and require approval on the instance
-
     Args:
         client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest): Request body data.
@@ -114,16 +103,13 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, UserRegistration]
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -133,7 +119,6 @@ async def asyncio_detailed(
     """Request registration
 
      Signup has to be enabled and require approval on the instance
-
     Args:
         client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest): Request body data.
@@ -141,11 +126,9 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, UserRegistration]]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -163,7 +146,6 @@ async def asyncio(
     """Request registration
 
      Signup has to be enabled and require approval on the instance
-
     Args:
         client: Authenticated HTTP client for API requests.
         body (UserRegistrationRequest): Request body data.
@@ -171,11 +153,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, UserRegistration]
     """
-
     return (
         await asyncio_detailed(
             client=client,

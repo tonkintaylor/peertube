@@ -32,7 +32,6 @@ def _get_kwargs(
     params: dict[str, Any] = {}
 
     params["id"] = id
-
     json_predefined_reason: Unset | list[str] = UNSET
     if not isinstance(predefined_reason, Unset):
         json_predefined_reason = []
@@ -47,7 +46,6 @@ def _get_kwargs(
     params["predefinedReason"] = json_predefined_reason
 
     params["search"] = search
-
     json_state: Unset | int = UNSET
     if not isinstance(state, Unset):
         json_state = state.value
@@ -61,13 +59,11 @@ def _get_kwargs(
     params["searchVideo"] = search_video
 
     params["searchVideoChannel"] = search_video_channel
-
     json_video_is: Unset | str = UNSET
     if not isinstance(video_is, Unset):
         json_video_is = video_is.value
 
     params["videoIs"] = json_video_is
-
     json_filter_: Unset | str = UNSET
     if not isinstance(filter_, Unset):
         json_filter_ = filter_.value
@@ -77,13 +73,11 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -94,7 +88,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -102,7 +95,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -133,7 +125,6 @@ def sync_detailed(
     sort: Unset | GetAbusesSort = UNSET,
 ) -> Response[Any]:
     """List abuses
-
     Args:
         id (Union[Unset, int]): Unique identifier for the entity.
         predefined_reason (Union[Unset, list[PredefinedAbuseReasonsItem]]): Reason categories that
@@ -159,7 +150,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         predefined_reason=predefined_reason,
@@ -183,7 +173,6 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     id: Unset | int = UNSET,
@@ -199,7 +188,6 @@ def sync(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     sort: Unset | GetAbusesSort = UNSET,
-
 ) -> Any | None:
     """List abuses
 
@@ -210,7 +198,6 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         id=id,
@@ -227,9 +214,6 @@ def sync(
         count=count,
         sort=sort,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -249,7 +233,6 @@ async def asyncio_detailed(
     sort: Unset | GetAbusesSort = UNSET,
 ) -> Response[Any]:
     """List abuses
-
     Args:
         id (Union[Unset, int]): Unique identifier for the entity.
         predefined_reason (Union[Unset, list[PredefinedAbuseReasonsItem]]): Reason categories that
@@ -275,7 +258,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         predefined_reason=predefined_reason,

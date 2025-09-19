@@ -17,7 +17,6 @@ def _get_kwargs() -> dict[str, Any]:
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> OAuthClient | None:
@@ -25,12 +24,10 @@ def _parse_response(
         response_200 = OAuthClient.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -48,7 +45,6 @@ def sync_detailed(
     client: AuthenticatedClient | Client,
 ) -> Response[OAuthClient]:
     """Login prerequisite
-
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
     Raises:
@@ -58,7 +54,6 @@ def sync_detailed(
     Returns:
         Response[OAuthClient]
     """
-
     kwargs = _get_kwargs()
 
     response = client.get_httpx_client().request(
@@ -73,7 +68,6 @@ def sync(
     client: AuthenticatedClient | Client,
 ) -> OAuthClient | None:
     """Login prerequisite
-
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
     Raises:
@@ -83,18 +77,15 @@ def sync(
     Returns:
         OAuthClient
     """
-
     return sync_detailed(
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
 ) -> Response[OAuthClient]:
     """Login prerequisite
-
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
     Raises:
@@ -104,7 +95,6 @@ async def asyncio_detailed(
     Returns:
         Response[OAuthClient]
     """
-
     kwargs = _get_kwargs()
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -117,7 +107,6 @@ async def asyncio(
     client: AuthenticatedClient | Client,
 ) -> OAuthClient | None:
     """Login prerequisite
-
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
     Raises:
@@ -127,7 +116,6 @@ async def asyncio(
     Returns:
         OAuthClient
     """
-
     return (
         await asyncio_detailed(
             client=client,

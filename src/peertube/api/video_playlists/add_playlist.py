@@ -19,12 +19,10 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/video-playlists",
     }
-
     _kwargs["files"] = body.to_multipart()
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -33,7 +31,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -52,7 +49,6 @@ def sync_detailed(
     body: AddPlaylistBody,
 ) -> Response[Any]:
     """Create a video playlist
-
      If the video playlist is set as public, `videoChannelId` is mandatory.
 
     Args:
@@ -65,7 +61,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -77,11 +72,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     body: AddPlaylistBody,
-
 ) -> Any | None:
     """Create a video playlist
 
@@ -92,14 +85,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -107,7 +96,6 @@ async def asyncio_detailed(
     body: AddPlaylistBody,
 ) -> Response[Any]:
     """Create a video playlist
-
      If the video playlist is set as public, `videoChannelId` is mandatory.
 
     Args:
@@ -120,7 +108,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )

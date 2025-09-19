@@ -19,14 +19,12 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/users/register",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -42,12 +40,10 @@ def _parse_response(
 
     if response.status_code == 409:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -68,7 +64,6 @@ def sync_detailed(
     """Register a user
 
      Signup has to be enabled and signup approval is not required
-
     Args:
         client: Authenticated HTTP client for API requests.
         body (RegisterUser): Request body data.
@@ -80,7 +75,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -92,11 +86,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient | Client,
     body: RegisterUser,
-
 ) -> Any | None:
     """Register a user
 
@@ -107,14 +99,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -124,7 +112,6 @@ async def asyncio_detailed(
     """Register a user
 
      Signup has to be enabled and signup approval is not required
-
     Args:
         client: Authenticated HTTP client for API requests.
         body (RegisterUser): Request body data.
@@ -136,7 +123,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )

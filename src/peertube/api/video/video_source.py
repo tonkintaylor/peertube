@@ -20,7 +20,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> VideoSource | None:
@@ -28,12 +27,10 @@ def _parse_response(
         response_200 = VideoSource.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -54,7 +51,6 @@ def sync_detailed(
     """Get video source file metadata
 
      Get metadata and download link of original video file
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -65,7 +61,6 @@ def sync_detailed(
     Returns:
         Response[VideoSource]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -85,7 +80,6 @@ def sync(
     """Get video source file metadata
 
      Get metadata and download link of original video file
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -96,12 +90,10 @@ def sync(
     Returns:
         VideoSource
     """
-
     return sync_detailed(
         id=id,
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -111,7 +103,6 @@ async def asyncio_detailed(
     """Get video source file metadata
 
      Get metadata and download link of original video file
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -122,7 +113,6 @@ async def asyncio_detailed(
     Returns:
         Response[VideoSource]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -140,7 +130,6 @@ async def asyncio(
     """Get video source file metadata
 
      Get metadata and download link of original video file
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -151,7 +140,6 @@ async def asyncio(
     Returns:
         VideoSource
     """
-
     return (
         await asyncio_detailed(
             id=id,

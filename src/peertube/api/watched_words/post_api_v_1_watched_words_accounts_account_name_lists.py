@@ -25,14 +25,12 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/watched-words/accounts/{account_name}/lists",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -45,12 +43,10 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -72,7 +68,6 @@ def sync_detailed(
     """Add account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -84,7 +79,6 @@ def sync_detailed(
     Returns:
         Response[PostApiV1WatchedWordsAccountsAccountNameListsResponse200]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         body=body,
@@ -106,7 +100,6 @@ def sync(
     """Add account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -118,13 +111,11 @@ def sync(
     Returns:
         PostApiV1WatchedWordsAccountsAccountNameListsResponse200
     """
-
     return sync_detailed(
         account_name=account_name,
         client=client,
         body=body,
     ).parsed
-
 
 async def asyncio_detailed(
     account_name: str,
@@ -135,7 +126,6 @@ async def asyncio_detailed(
     """Add account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -147,7 +137,6 @@ async def asyncio_detailed(
     Returns:
         Response[PostApiV1WatchedWordsAccountsAccountNameListsResponse200]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         body=body,
@@ -167,7 +156,6 @@ async def asyncio(
     """Add account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -179,7 +167,6 @@ async def asyncio(
     Returns:
         PostApiV1WatchedWordsAccountsAccountNameListsResponse200
     """
-
     return (
         await asyncio_detailed(
             account_name=account_name,

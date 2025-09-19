@@ -31,7 +31,6 @@ def _get_kwargs(
     params["videoChannelId"] = video_channel_id
 
     params["videoChannelName"] = video_channel_name
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -41,7 +40,6 @@ def _get_kwargs(
     }
 
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -59,24 +57,19 @@ def _parse_response(
             response_200.append(componentsschemas_video_comments_for_xml_item)
 
         return response_200
-
     if response.status_code == 400:
         response_400 = cast("Any", None)
         return response_400
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if response.status_code == 406:
         response_406 = cast("Any", None)
         return response_406
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -100,7 +93,6 @@ def sync_detailed(
     video_channel_name: Unset | str = UNSET,
 ) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
-
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
         video_id (Union[Unset, str]): Unique identifier for the video.
@@ -112,11 +104,9 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, list['VideoCommentsForXMLItem']]]
     """
-
     kwargs = _get_kwargs(
         format_=format_,
         video_id=video_id,
@@ -144,7 +134,6 @@ def sync(
     video_channel_name: Unset | str = UNSET,
 ) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
-
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
         video_id (Union[Unset, str]): Unique identifier for the video.
@@ -156,11 +145,9 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, list['VideoCommentsForXMLItem']]
     """
-
     return sync_detailed(
         format_=format_,
         client=client,
@@ -170,7 +157,6 @@ def sync(
         video_channel_id=video_channel_id,
         video_channel_name=video_channel_name,
     ).parsed
-
 
 async def asyncio_detailed(
     format_: GetSyndicatedCommentsFormat,
@@ -183,7 +169,6 @@ async def asyncio_detailed(
     video_channel_name: Unset | str = UNSET,
 ) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
-
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
         video_id (Union[Unset, str]): Unique identifier for the video.
@@ -195,11 +180,9 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, list['VideoCommentsForXMLItem']]]
     """
-
     kwargs = _get_kwargs(
         format_=format_,
         video_id=video_id,
@@ -225,7 +208,6 @@ async def asyncio(
     video_channel_name: Unset | str = UNSET,
 ) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
-
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
         video_id (Union[Unset, str]): Unique identifier for the video.
@@ -237,11 +219,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, list['VideoCommentsForXMLItem']]
     """
-
     return (
         await asyncio_detailed(
             format_=format_,

@@ -24,14 +24,12 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/runners/register",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -40,12 +38,10 @@ def _parse_response(
         response_200 = PostApiV1RunnersRegisterResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -66,7 +62,6 @@ def sync_detailed(
     """Register a new runner
 
      API used by PeerTube runners
-
     Args:
         body (PostApiV1RunnersRegisterBody): Request body data.
 
@@ -77,7 +72,6 @@ def sync_detailed(
     Returns:
         Response[PostApiV1RunnersRegisterResponse200]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -97,7 +91,6 @@ def sync(
     """Register a new runner
 
      API used by PeerTube runners
-
     Args:
         body (PostApiV1RunnersRegisterBody): Request body data.
 
@@ -108,12 +101,10 @@ def sync(
     Returns:
         PostApiV1RunnersRegisterResponse200
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -123,7 +114,6 @@ async def asyncio_detailed(
     """Register a new runner
 
      API used by PeerTube runners
-
     Args:
         body (PostApiV1RunnersRegisterBody): Request body data.
 
@@ -134,7 +124,6 @@ async def asyncio_detailed(
     Returns:
         Response[PostApiV1RunnersRegisterResponse200]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -152,7 +141,6 @@ async def asyncio(
     """Register a new runner
 
      API used by PeerTube runners
-
     Args:
         body (PostApiV1RunnersRegisterBody): Request body data.
 
@@ -163,7 +151,6 @@ async def asyncio(
     Returns:
         PostApiV1RunnersRegisterResponse200
     """
-
     return (
         await asyncio_detailed(
             client=client,

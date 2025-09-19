@@ -21,14 +21,12 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/server/blocklist/servers",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -38,12 +36,10 @@ def _parse_response(
 
     if response.status_code == 409:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -62,7 +58,6 @@ def sync_detailed(
     body: PostApiV1ServerBlocklistServersBody,
 ) -> Response[Any]:
     """Block a server
-
     Args:
         body (PostApiV1ServerBlocklistServersBody): Request body data.
 
@@ -73,7 +68,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -85,11 +79,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     body: PostApiV1ServerBlocklistServersBody,
-
 ) -> Any | None:
     """Block a server
 
@@ -100,14 +92,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -115,7 +103,6 @@ async def asyncio_detailed(
     body: PostApiV1ServerBlocklistServersBody,
 ) -> Response[Any]:
     """Block a server
-
     Args:
         body (PostApiV1ServerBlocklistServersBody): Request body data.
 
@@ -126,7 +113,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )

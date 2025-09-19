@@ -16,7 +16,6 @@ def _get_kwargs(
     params: dict[str, Any] = {}
 
     params["withStats"] = with_stats
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -27,7 +26,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -35,7 +33,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -55,7 +52,6 @@ def sync_detailed(
     with_stats: Unset | bool = UNSET,
 ) -> Response[Any]:
     """Get a user
-
     Args:
         id (int):  Example: 42.
         with_stats (Union[Unset, bool]): Parameter for with stats.
@@ -67,7 +63,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         with_stats=with_stats,
@@ -80,12 +75,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: int,
     *,
     client: AuthenticatedClient,
     with_stats: Unset | bool = UNSET,
-
 ) -> Any | None:
     """Get a user
 
@@ -96,15 +89,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
         with_stats=with_stats,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: int,
@@ -113,7 +102,6 @@ async def asyncio_detailed(
     with_stats: Unset | bool = UNSET,
 ) -> Response[Any]:
     """Get a user
-
     Args:
         id (int):  Example: 42.
         with_stats (Union[Unset, bool]): Parameter for with stats.
@@ -125,7 +113,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         with_stats=with_stats,

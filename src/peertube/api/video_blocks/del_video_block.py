@@ -19,7 +19,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -28,12 +27,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -52,7 +49,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Unblock a video by its id
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -63,7 +59,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -75,11 +70,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """Unblock a video by its id
 
@@ -90,14 +83,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -105,7 +94,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Unblock a video by its id
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -116,7 +104,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )

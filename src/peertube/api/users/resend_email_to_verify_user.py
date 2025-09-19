@@ -19,7 +19,6 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/users/ask-send-verify-email",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -27,18 +26,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -57,7 +53,6 @@ def sync_detailed(
     body: ResendEmailToVerifyUserBody,
 ) -> Response[Any]:
     """Resend user verification link
-
     Args:
         body (ResendEmailToVerifyUserBody): Request body data.
 
@@ -68,7 +63,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -80,11 +74,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient | Client,
     body: ResendEmailToVerifyUserBody,
-
 ) -> Any | None:
     """Resend user verification link
 
@@ -95,14 +87,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -110,7 +98,6 @@ async def asyncio_detailed(
     body: ResendEmailToVerifyUserBody,
 ) -> Response[Any]:
     """Resend user verification link
-
     Args:
         body (ResendEmailToVerifyUserBody): Request body data.
 
@@ -121,7 +108,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )

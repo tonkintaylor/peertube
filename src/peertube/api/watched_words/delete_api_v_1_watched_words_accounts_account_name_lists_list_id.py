@@ -19,18 +19,15 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -52,7 +49,6 @@ def sync_detailed(
     """Delete account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         list_id (str): Parameter for list id.
@@ -64,7 +60,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         list_id=list_id,
@@ -77,12 +72,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     account_name: str,
     list_id: str,
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """Delete account watched words
 
@@ -93,15 +86,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         account_name=account_name,
         list_id=list_id,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     account_name: str,
@@ -112,7 +101,6 @@ async def asyncio_detailed(
     """Delete account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         list_id (str): Parameter for list id.
@@ -124,7 +112,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         list_id=list_id,

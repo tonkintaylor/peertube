@@ -21,7 +21,6 @@ def _get_kwargs(
     params: dict[str, Any] = {}
 
     params["upload_id"] = upload_id
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -33,7 +32,6 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -42,12 +40,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -68,7 +64,6 @@ def sync_detailed(
     content_length: float,
 ) -> Response[Any]:
     """Cancel the resumable replacement of a video
-
      **PeerTube >= 6.0** Uses [a resumable protocol](https://github.com/kukhariev/node-
     uploadx/blob/master/proto.md) to cancel the replacement of a video
 
@@ -84,7 +79,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         upload_id=upload_id,
@@ -98,13 +92,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     *,
     client: AuthenticatedClient,
     upload_id: str,
     content_length: float,
-
 ) -> Any | None:
     """Cancel the resumable replacement of a video
 
@@ -115,16 +107,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
         upload_id=upload_id,
         content_length=content_length,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -134,7 +122,6 @@ async def asyncio_detailed(
     content_length: float,
 ) -> Response[Any]:
     """Cancel the resumable replacement of a video
-
      **PeerTube >= 6.0** Uses [a resumable protocol](https://github.com/kukhariev/node-
     uploadx/blob/master/proto.md) to cancel the replacement of a video
 
@@ -150,7 +137,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         upload_id=upload_id,

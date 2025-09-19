@@ -19,19 +19,16 @@ def _get_kwargs(
     headers: dict[str, Any] = {}
     if not isinstance(x_peertube_video_password, Unset):
         headers["x-peertube-video-password"] = x_peertube_video_password
-
     _kwargs: dict[str, Any] = {
         "method": "put",
         "url": f"/api/v1/videos/{id}/rate",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -41,12 +38,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -67,7 +62,6 @@ def sync_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any]:
     """Like/dislike a video
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -80,7 +74,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -94,13 +87,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     *,
     client: AuthenticatedClient,
     body: PutApiV1VideosIdRateBody,
     x_peertube_video_password: Unset | str = UNSET,
-
 ) -> Any | None:
     """Like/dislike a video
 
@@ -111,16 +102,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
         body=body,
         x_peertube_video_password=x_peertube_video_password,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -130,7 +117,6 @@ async def asyncio_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any]:
     """Like/dislike a video
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -143,7 +129,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,

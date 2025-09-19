@@ -20,7 +20,6 @@ def _get_kwargs(
     params: dict[str, Any] = {}
 
     params["upload_id"] = upload_id
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -32,18 +31,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -64,7 +60,6 @@ def sync_detailed(
     content_length: float,
 ) -> Response[Any]:
     """Cancel the resumable user import
-
      **PeerTube >= 6.1** Uses [a resumable protocol](https://github.com/kukhariev/node-
     uploadx/blob/master/proto.md) to cancel the resumable user import
 
@@ -80,7 +75,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         user_id=user_id,
         upload_id=upload_id,
@@ -94,13 +88,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     user_id: int,
     *,
     client: AuthenticatedClient,
     upload_id: str,
     content_length: float,
-
 ) -> Any | None:
     """Cancel the resumable user import
 
@@ -111,16 +103,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         user_id=user_id,
         client=client,
         upload_id=upload_id,
         content_length=content_length,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     user_id: int,
@@ -130,7 +118,6 @@ async def asyncio_detailed(
     content_length: float,
 ) -> Response[Any]:
     """Cancel the resumable user import
-
      **PeerTube >= 6.1** Uses [a resumable protocol](https://github.com/kukhariev/node-
     uploadx/blob/master/proto.md) to cancel the resumable user import
 
@@ -146,7 +133,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         user_id=user_id,
         upload_id=upload_id,

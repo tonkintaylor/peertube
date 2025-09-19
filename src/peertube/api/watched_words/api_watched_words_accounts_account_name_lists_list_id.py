@@ -23,7 +23,6 @@ def _get_kwargs(
         "method": "put",
         "url": f"/api/v1/watched-words/accounts/{account_name}/lists/{list_id}",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -31,18 +30,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -65,7 +61,6 @@ def sync_detailed(
     """Update account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         list_id (str): Parameter for list id.
@@ -78,7 +73,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         list_id=list_id,
@@ -92,13 +86,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     account_name: str,
     list_id: str,
     *,
     client: AuthenticatedClient,
     body: PutApiV1WatchedWordsAccountsAccountNameListsListIdBody,
-
 ) -> Any | None:
     """Update account watched words
 
@@ -109,16 +101,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         account_name=account_name,
         list_id=list_id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     account_name: str,
@@ -130,7 +118,6 @@ async def asyncio_detailed(
     """Update account watched words
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         list_id (str): Parameter for list id.
@@ -143,7 +130,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         list_id=list_id,

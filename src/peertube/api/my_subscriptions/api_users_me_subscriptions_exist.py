@@ -20,7 +20,6 @@ def _get_kwargs(
     json_uris = uris
 
     params["uris"] = json_uris
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -31,7 +30,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetApiV1UsersMeSubscriptionsExistResponse200 | None:
@@ -41,12 +39,10 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -65,7 +61,6 @@ def sync_detailed(
     uris: list[str],
 ) -> Response[GetApiV1UsersMeSubscriptionsExistResponse200]:
     """Get if subscriptions exist for my user
-
     Args:
         uris (list[str]): Parameter for uris.
 
@@ -76,7 +71,6 @@ def sync_detailed(
     Returns:
         Response[GetApiV1UsersMeSubscriptionsExistResponse200]
     """
-
     kwargs = _get_kwargs(
         uris=uris,
     )
@@ -94,7 +88,6 @@ def sync(
     uris: list[str],
 ) -> GetApiV1UsersMeSubscriptionsExistResponse200 | None:
     """Get if subscriptions exist for my user
-
     Args:
         uris (list[str]): Parameter for uris.
 
@@ -105,12 +98,10 @@ def sync(
     Returns:
         GetApiV1UsersMeSubscriptionsExistResponse200
     """
-
     return sync_detailed(
         client=client,
         uris=uris,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -118,7 +109,6 @@ async def asyncio_detailed(
     uris: list[str],
 ) -> Response[GetApiV1UsersMeSubscriptionsExistResponse200]:
     """Get if subscriptions exist for my user
-
     Args:
         uris (list[str]): Parameter for uris.
 
@@ -129,7 +119,6 @@ async def asyncio_detailed(
     Returns:
         Response[GetApiV1UsersMeSubscriptionsExistResponse200]
     """
-
     kwargs = _get_kwargs(
         uris=uris,
     )
@@ -145,7 +134,6 @@ async def asyncio(
     uris: list[str],
 ) -> GetApiV1UsersMeSubscriptionsExistResponse200 | None:
     """Get if subscriptions exist for my user
-
     Args:
         uris (list[str]): Parameter for uris.
 
@@ -156,7 +144,6 @@ async def asyncio(
     Returns:
         GetApiV1UsersMeSubscriptionsExistResponse200
     """
-
     return (
         await asyncio_detailed(
             client=client,

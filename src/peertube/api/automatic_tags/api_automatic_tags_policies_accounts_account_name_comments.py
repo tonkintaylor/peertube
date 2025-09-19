@@ -22,7 +22,6 @@ def _get_kwargs(
         "method": "put",
         "url": f"/api/v1/automatic-tags/policies/accounts/{account_name}/comments",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -30,18 +29,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -63,7 +59,6 @@ def sync_detailed(
     """Update account auto tag policies on comments
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         body (PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody): Request body data.
@@ -75,7 +70,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         body=body,
@@ -88,12 +82,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     account_name: str,
     *,
     client: AuthenticatedClient,
     body: PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody,
-
 ) -> Any | None:
     """Update account auto tag policies on comments
 
@@ -104,15 +96,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         account_name=account_name,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     account_name: str,
@@ -123,7 +111,6 @@ async def asyncio_detailed(
     """Update account auto tag policies on comments
 
      **PeerTube >= 6.2**
-
     Args:
         account_name (str): Parameter for account name.
         body (PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody): Request body data.
@@ -135,7 +122,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         account_name=account_name,
         body=body,

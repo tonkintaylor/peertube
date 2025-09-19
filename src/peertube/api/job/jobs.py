@@ -32,7 +32,6 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -43,7 +42,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetJobsResponse200 | None:
@@ -51,12 +49,10 @@ def _parse_response(
         response_200 = GetJobsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -79,7 +75,6 @@ def sync_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[GetJobsResponse200]:
     """List instance jobs
-
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -94,7 +89,6 @@ def sync_detailed(
     Returns:
         Response[GetJobsResponse200]
     """
-
     kwargs = _get_kwargs(
         state=state,
         job_type=job_type,
@@ -120,7 +114,6 @@ def sync(
     sort: Unset | str = UNSET,
 ) -> GetJobsResponse200 | None:
     """List instance jobs
-
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -135,7 +128,6 @@ def sync(
     Returns:
         GetJobsResponse200
     """
-
     return sync_detailed(
         state=state,
         client=client,
@@ -144,7 +136,6 @@ def sync(
         count=count,
         sort=sort,
     ).parsed
-
 
 async def asyncio_detailed(
     state: GetJobsState,
@@ -156,7 +147,6 @@ async def asyncio_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[GetJobsResponse200]:
     """List instance jobs
-
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -171,7 +161,6 @@ async def asyncio_detailed(
     Returns:
         Response[GetJobsResponse200]
     """
-
     kwargs = _get_kwargs(
         state=state,
         job_type=job_type,
@@ -195,7 +184,6 @@ async def asyncio(
     sort: Unset | str = UNSET,
 ) -> GetJobsResponse200 | None:
     """List instance jobs
-
     Args:
         state (GetJobsState): Current state or status filter.
         job_type (Union[Unset, GetJobsJobType]): Parameter for job type.
@@ -210,7 +198,6 @@ async def asyncio(
     Returns:
         GetJobsResponse200
     """
-
     return (
         await asyncio_detailed(
             state=state,

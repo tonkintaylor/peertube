@@ -21,14 +21,12 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/users/{id}/two-factor/request",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -44,20 +42,16 @@ def _parse_response(
             response_200.append(response_200_item)
 
         return response_200
-
     if response.status_code == 403:
         response_403 = cast("Any", None)
         return response_403
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -79,7 +73,6 @@ def sync_detailed(
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -87,11 +80,9 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, list['RequestTwoFactorResponse']]]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -113,7 +104,6 @@ def sync(
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -121,17 +111,14 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, list['RequestTwoFactorResponse']]
     """
-
     return sync_detailed(
         id=id,
         client=client,
         body=body,
     ).parsed
-
 
 async def asyncio_detailed(
     id: int,
@@ -142,7 +129,6 @@ async def asyncio_detailed(
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -150,11 +136,9 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, list['RequestTwoFactorResponse']]]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -174,7 +158,6 @@ async def asyncio(
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -182,11 +165,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, list['RequestTwoFactorResponse']]
     """
-
     return (
         await asyncio_detailed(
             id=id,

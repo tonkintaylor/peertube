@@ -19,14 +19,12 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/video-channel-syncs",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -35,7 +33,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -54,7 +51,6 @@ def sync_detailed(
     body: VideoChannelSyncCreate,
 ) -> Response[Any]:
     """Create a synchronization for a video channel
-
     Args:
         body (VideoChannelSyncCreate): Request body data.
 
@@ -65,7 +61,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -77,11 +72,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     body: VideoChannelSyncCreate,
-
 ) -> Any | None:
     """Create a synchronization for a video channel
 
@@ -92,14 +85,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -107,7 +96,6 @@ async def asyncio_detailed(
     body: VideoChannelSyncCreate,
 ) -> Response[Any]:
     """Create a synchronization for a video channel
-
     Args:
         body (VideoChannelSyncCreate): Request body data.
 
@@ -118,7 +106,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )

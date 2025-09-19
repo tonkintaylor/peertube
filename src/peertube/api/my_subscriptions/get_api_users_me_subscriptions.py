@@ -22,13 +22,11 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -39,7 +37,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -47,7 +44,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -68,7 +64,6 @@ def sync_detailed(
     sort: Unset | GetApiV1UsersMeSubscriptionsSort = UNSET,
 ) -> Response[Any]:
     """List my user subscriptions
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -81,7 +76,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         start=start,
         count=count,
@@ -95,13 +89,11 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     sort: Unset | GetApiV1UsersMeSubscriptionsSort = UNSET,
-
 ) -> Any | None:
     """List my user subscriptions
 
@@ -112,16 +104,12 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         start=start,
         count=count,
         sort=sort,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -131,7 +119,6 @@ async def asyncio_detailed(
     sort: Unset | GetApiV1UsersMeSubscriptionsSort = UNSET,
 ) -> Response[Any]:
     """List my user subscriptions
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -144,7 +131,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         start=start,
         count=count,

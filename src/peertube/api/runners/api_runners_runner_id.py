@@ -22,7 +22,6 @@ def _get_kwargs(
         "method": "delete",
         "url": f"/api/v1/runners/{runner_id}",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -30,18 +29,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -61,7 +57,6 @@ def sync_detailed(
     body: DeleteApiV1RunnersRunnerIdBody,
 ) -> Response[Any]:
     """Delete a runner
-
     Args:
         runner_id (int): Parameter for runner id.
         body (DeleteApiV1RunnersRunnerIdBody): Request body data.
@@ -73,7 +68,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         runner_id=runner_id,
         body=body,
@@ -86,12 +80,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     runner_id: int,
     *,
     client: AuthenticatedClient,
     body: DeleteApiV1RunnersRunnerIdBody,
-
 ) -> Any | None:
     """Delete a runner
 
@@ -102,15 +94,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         runner_id=runner_id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     runner_id: int,
@@ -119,7 +107,6 @@ async def asyncio_detailed(
     body: DeleteApiV1RunnersRunnerIdBody,
 ) -> Response[Any]:
     """Delete a runner
-
     Args:
         runner_id (int): Parameter for runner id.
         body (DeleteApiV1RunnersRunnerIdBody): Request body data.
@@ -131,7 +118,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         runner_id=runner_id,
         body=body,

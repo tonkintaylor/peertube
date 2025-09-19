@@ -24,13 +24,11 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     json_playlist_type: Unset | int = UNSET
     if not isinstance(playlist_type, Unset):
         json_playlist_type = playlist_type.value
 
     params["playlistType"] = json_playlist_type
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -41,7 +39,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetPlaylistsResponse200 | None:
@@ -49,12 +46,10 @@ def _parse_response(
         response_200 = GetPlaylistsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -76,7 +71,6 @@ def sync_detailed(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> Response[GetPlaylistsResponse200]:
     """List video playlists
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -91,7 +85,6 @@ def sync_detailed(
     Returns:
         Response[GetPlaylistsResponse200]
     """
-
     kwargs = _get_kwargs(
         start=start,
         count=count,
@@ -115,7 +108,6 @@ def sync(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> GetPlaylistsResponse200 | None:
     """List video playlists
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -130,7 +122,6 @@ def sync(
     Returns:
         GetPlaylistsResponse200
     """
-
     return sync_detailed(
         client=client,
         start=start,
@@ -138,7 +129,6 @@ def sync(
         sort=sort,
         playlist_type=playlist_type,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -149,7 +139,6 @@ async def asyncio_detailed(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> Response[GetPlaylistsResponse200]:
     """List video playlists
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -164,7 +153,6 @@ async def asyncio_detailed(
     Returns:
         Response[GetPlaylistsResponse200]
     """
-
     kwargs = _get_kwargs(
         start=start,
         count=count,
@@ -186,7 +174,6 @@ async def asyncio(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> GetPlaylistsResponse200 | None:
     """List video playlists
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -201,7 +188,6 @@ async def asyncio(
     Returns:
         GetPlaylistsResponse200
     """
-
     return (
         await asyncio_detailed(
             client=client,

@@ -25,7 +25,6 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -36,7 +35,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -44,7 +42,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -67,7 +64,6 @@ def sync_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[Any]:
     """List video channels of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         with_stats (Union[Unset, bool]): Parameter for with stats.
@@ -82,7 +78,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         name=name,
         with_stats=with_stats,
@@ -98,7 +93,6 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     name: str,
     *,
     client: AuthenticatedClient | Client,
@@ -106,7 +100,6 @@ def sync(
     start: Unset | int = UNSET,
     count: Unset | int = 15,
     sort: Unset | str = UNSET,
-
 ) -> Any | None:
     """List video channels of an account
 
@@ -117,7 +110,6 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         name=name,
         client=client,
@@ -126,9 +118,6 @@ def sync(
         count=count,
         sort=sort,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     name: str,
@@ -140,7 +129,6 @@ async def asyncio_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[Any]:
     """List video channels of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         with_stats (Union[Unset, bool]): Parameter for with stats.
@@ -155,7 +143,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         name=name,
         with_stats=with_stats,

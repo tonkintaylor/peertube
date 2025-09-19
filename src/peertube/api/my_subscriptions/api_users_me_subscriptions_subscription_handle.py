@@ -18,18 +18,15 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -48,7 +45,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Delete subscription of my user
-
     Args:
         subscription_handle (str):  Example: my_username | my_username@example.com.
 
@@ -59,7 +55,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         subscription_handle=subscription_handle,
     )
@@ -71,11 +66,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     subscription_handle: str,
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """Delete subscription of my user
 
@@ -86,14 +79,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         subscription_handle=subscription_handle,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     subscription_handle: str,
@@ -101,7 +90,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Delete subscription of my user
-
     Args:
         subscription_handle (str):  Example: my_username | my_username@example.com.
 
@@ -112,7 +100,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         subscription_handle=subscription_handle,
     )

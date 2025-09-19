@@ -18,7 +18,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -27,12 +26,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -51,7 +48,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Delete a mirror done on a video
-
     Args:
         redundancy_id (str): Parameter for redundancy id.
 
@@ -62,7 +58,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         redundancy_id=redundancy_id,
     )
@@ -74,11 +69,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     redundancy_id: str,
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """Delete a mirror done on a video
 
@@ -89,14 +82,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         redundancy_id=redundancy_id,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     redundancy_id: str,
@@ -104,7 +93,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Delete a mirror done on a video
-
     Args:
         redundancy_id (str): Parameter for redundancy id.
 
@@ -115,7 +103,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         redundancy_id=redundancy_id,
     )

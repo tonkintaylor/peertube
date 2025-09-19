@@ -29,7 +29,6 @@ def _get_kwargs(
     params["videoId"] = video_id
 
     params["videoChannelId"] = video_channel_id
-
     json_auto_tag_one_of: Unset | list[str] | str
     if isinstance(auto_tag_one_of, Unset):
         json_auto_tag_one_of = UNSET
@@ -41,7 +40,6 @@ def _get_kwargs(
     params["autoTagOneOf"] = json_auto_tag_one_of
 
     params["isHeldForReview"] = is_held_for_review
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -52,7 +50,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -60,7 +57,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -87,7 +83,6 @@ def sync_detailed(
     """List comments on user's videos
 
      **PeerTube >= 6.2**
-
     Args:
         search (Union[Unset, str]): Search query filter.
         search_account (Union[Unset, str]): Search filter for account.
@@ -104,7 +99,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         search=search,
         search_account=search_account,
@@ -122,7 +116,6 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     search: Unset | str = UNSET,
@@ -132,7 +125,6 @@ def sync(
     video_channel_id: Unset | int = UNSET,
     auto_tag_one_of: Unset | list[str] | str = UNSET,
     is_held_for_review: Unset | bool = UNSET,
-
 ) -> Any | None:
     """List comments on user's videos
 
@@ -143,7 +135,6 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         search=search,
@@ -154,9 +145,6 @@ def sync(
         auto_tag_one_of=auto_tag_one_of,
         is_held_for_review=is_held_for_review,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -172,7 +160,6 @@ async def asyncio_detailed(
     """List comments on user's videos
 
      **PeerTube >= 6.2**
-
     Args:
         search (Union[Unset, str]): Search query filter.
         search_account (Union[Unset, str]): Search filter for account.
@@ -189,7 +176,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         search=search,
         search_account=search_account,

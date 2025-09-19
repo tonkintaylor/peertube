@@ -20,7 +20,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> LiveVideoResponse | None:
@@ -28,12 +27,10 @@ def _parse_response(
         response_200 = LiveVideoResponse.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -52,7 +49,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[LiveVideoResponse]:
     """Get information about a live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -63,7 +59,6 @@ def sync_detailed(
     Returns:
         Response[LiveVideoResponse]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -81,7 +76,6 @@ def sync(
     client: AuthenticatedClient,
 ) -> LiveVideoResponse | None:
     """Get information about a live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -92,12 +86,10 @@ def sync(
     Returns:
         LiveVideoResponse
     """
-
     return sync_detailed(
         id=id,
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -105,7 +97,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[LiveVideoResponse]:
     """Get information about a live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -116,7 +107,6 @@ async def asyncio_detailed(
     Returns:
         Response[LiveVideoResponse]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -132,7 +122,6 @@ async def asyncio(
     client: AuthenticatedClient,
 ) -> LiveVideoResponse | None:
     """Get information about a live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -143,7 +132,6 @@ async def asyncio(
     Returns:
         LiveVideoResponse
     """
-
     return (
         await asyncio_detailed(
             id=id,

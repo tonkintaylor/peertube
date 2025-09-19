@@ -19,12 +19,10 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/videos/live",
     }
-
     _kwargs["files"] = body.to_multipart()
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -34,12 +32,10 @@ def _parse_response(
 
     if response.status_code == 403:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -58,7 +54,6 @@ def sync_detailed(
     body: AddLiveBody,
 ) -> Response[Any]:
     """Create a live
-
     Args:
         body (AddLiveBody): Request body data.
 
@@ -69,7 +64,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -81,11 +75,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     body: AddLiveBody,
-
 ) -> Any | None:
     """Create a live
 
@@ -96,14 +88,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -111,7 +99,6 @@ async def asyncio_detailed(
     body: AddLiveBody,
 ) -> Response[Any]:
     """Create a live
-
     Args:
         body (AddLiveBody): Request body data.
 
@@ -122,7 +109,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )

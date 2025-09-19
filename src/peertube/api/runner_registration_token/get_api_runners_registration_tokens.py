@@ -25,13 +25,11 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -42,7 +40,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetApiV1RunnersRegistrationTokensResponse200 | None:
@@ -52,12 +49,10 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -78,7 +73,6 @@ def sync_detailed(
     sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET,
 ) -> Response[GetApiV1RunnersRegistrationTokensResponse200]:
     """List registration tokens
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -91,7 +85,6 @@ def sync_detailed(
     Returns:
         Response[GetApiV1RunnersRegistrationTokensResponse200]
     """
-
     kwargs = _get_kwargs(
         start=start,
         count=count,
@@ -113,7 +106,6 @@ def sync(
     sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET,
 ) -> GetApiV1RunnersRegistrationTokensResponse200 | None:
     """List registration tokens
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -126,14 +118,12 @@ def sync(
     Returns:
         GetApiV1RunnersRegistrationTokensResponse200
     """
-
     return sync_detailed(
         client=client,
         start=start,
         count=count,
         sort=sort,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -143,7 +133,6 @@ async def asyncio_detailed(
     sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET,
 ) -> Response[GetApiV1RunnersRegistrationTokensResponse200]:
     """List registration tokens
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -156,7 +145,6 @@ async def asyncio_detailed(
     Returns:
         Response[GetApiV1RunnersRegistrationTokensResponse200]
     """
-
     kwargs = _get_kwargs(
         start=start,
         count=count,
@@ -176,7 +164,6 @@ async def asyncio(
     sort: Unset | GetApiV1RunnersRegistrationTokensSort = UNSET,
 ) -> GetApiV1RunnersRegistrationTokensResponse200 | None:
     """List registration tokens
-
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -189,7 +176,6 @@ async def asyncio(
     Returns:
         GetApiV1RunnersRegistrationTokensResponse200
     """
-
     return (
         await asyncio_detailed(
             client=client,

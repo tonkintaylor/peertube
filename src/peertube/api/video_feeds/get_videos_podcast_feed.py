@@ -15,7 +15,6 @@ def _get_kwargs(
     params: dict[str, Any] = {}
 
     params["videoChannelId"] = video_channel_id
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -26,7 +25,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -35,12 +33,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -59,7 +55,6 @@ def sync_detailed(
     video_channel_id: str,
 ) -> Response[Any]:
     """Videos podcast feed
-
     Args:
         video_channel_id (str): Video-related parameter.
 
@@ -70,7 +65,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         video_channel_id=video_channel_id,
     )
@@ -82,11 +76,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient | Client,
     video_channel_id: str,
-
 ) -> Any | None:
     """Videos podcast feed
 
@@ -97,14 +89,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         video_channel_id=video_channel_id,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -112,7 +100,6 @@ async def asyncio_detailed(
     video_channel_id: str,
 ) -> Response[Any]:
     """Videos podcast feed
-
     Args:
         video_channel_id (str): Video-related parameter.
 
@@ -123,7 +110,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         video_channel_id=video_channel_id,
     )

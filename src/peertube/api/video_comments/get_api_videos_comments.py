@@ -30,7 +30,6 @@ def _get_kwargs(
     params["videoId"] = video_id
 
     params["videoChannelId"] = video_channel_id
-
     json_auto_tag_one_of: Unset | list[str] | str
     if isinstance(auto_tag_one_of, Unset):
         json_auto_tag_one_of = UNSET
@@ -44,7 +43,6 @@ def _get_kwargs(
     params["isLocal"] = is_local
 
     params["onLocalVideo"] = on_local_video
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -55,7 +53,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -63,7 +60,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -89,7 +85,6 @@ def sync_detailed(
     on_local_video: Unset | bool = UNSET,
 ) -> Response[Any]:
     """List instance comments
-
     Args:
         search (Union[Unset, str]): Search query filter.
         search_account (Union[Unset, str]): Search filter for account.
@@ -107,7 +102,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         search=search,
         search_account=search_account,
@@ -126,7 +120,6 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
     search: Unset | str = UNSET,
@@ -137,7 +130,6 @@ def sync(
     auto_tag_one_of: Unset | list[str] | str = UNSET,
     is_local: Unset | bool = UNSET,
     on_local_video: Unset | bool = UNSET,
-
 ) -> Any | None:
     """List instance comments
 
@@ -148,7 +140,6 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         search=search,
@@ -160,9 +151,6 @@ def sync(
         is_local=is_local,
         on_local_video=on_local_video,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -177,7 +165,6 @@ async def asyncio_detailed(
     on_local_video: Unset | bool = UNSET,
 ) -> Response[Any]:
     """List instance comments
-
     Args:
         search (Union[Unset, str]): Search query filter.
         search_account (Union[Unset, str]): Search filter for account.
@@ -195,7 +182,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         search=search,
         search_account=search_account,

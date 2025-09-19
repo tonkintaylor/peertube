@@ -18,7 +18,6 @@ def _get_kwargs(
     headers: dict[str, Any] = {}
     if not isinstance(x_peertube_video_password, Unset):
         headers["x-peertube-video-password"] = x_peertube_video_password
-
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/videos/{id}/chapters",
@@ -27,7 +26,6 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> VideoChapters | None:
@@ -35,12 +33,10 @@ def _parse_response(
         response_200 = VideoChapters.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -62,7 +58,6 @@ def sync_detailed(
     """Get chapters of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -74,7 +69,6 @@ def sync_detailed(
     Returns:
         Response[VideoChapters]
     """
-
     kwargs = _get_kwargs(
         id=id,
         x_peertube_video_password=x_peertube_video_password,
@@ -96,7 +90,6 @@ def sync(
     """Get chapters of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -108,13 +101,11 @@ def sync(
     Returns:
         VideoChapters
     """
-
     return sync_detailed(
         id=id,
         client=client,
         x_peertube_video_password=x_peertube_video_password,
     ).parsed
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -125,7 +116,6 @@ async def asyncio_detailed(
     """Get chapters of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -137,7 +127,6 @@ async def asyncio_detailed(
     Returns:
         Response[VideoChapters]
     """
-
     kwargs = _get_kwargs(
         id=id,
         x_peertube_video_password=x_peertube_video_password,
@@ -157,7 +146,6 @@ async def asyncio(
     """Get chapters of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -169,7 +157,6 @@ async def asyncio(
     Returns:
         VideoChapters
     """
-
     return (
         await asyncio_detailed(
             id=id,

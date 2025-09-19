@@ -18,7 +18,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -27,12 +26,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -53,7 +50,6 @@ def sync_detailed(
     """Get public Web Video file
 
      **PeerTube >= 6.0**
-
     Args:
         filename (str): Parameter for filename.
 
@@ -64,7 +60,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         filename=filename,
     )
@@ -76,11 +71,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     filename: str,
     *,
     client: AuthenticatedClient | Client,
-
 ) -> Any | None:
     """Get public Web Video file
 
@@ -91,14 +84,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         filename=filename,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     filename: str,
@@ -108,7 +97,6 @@ async def asyncio_detailed(
     """Get public Web Video file
 
      **PeerTube >= 6.0**
-
     Args:
         filename (str): Parameter for filename.
 
@@ -119,7 +107,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         filename=filename,
     )

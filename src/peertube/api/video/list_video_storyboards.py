@@ -22,7 +22,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> ListVideoStoryboardsResponse200 | None:
@@ -30,12 +29,10 @@ def _parse_response(
         response_200 = ListVideoStoryboardsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -56,7 +53,6 @@ def sync_detailed(
     """List storyboards of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -67,7 +63,6 @@ def sync_detailed(
     Returns:
         Response[ListVideoStoryboardsResponse200]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -87,7 +82,6 @@ def sync(
     """List storyboards of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -98,12 +92,10 @@ def sync(
     Returns:
         ListVideoStoryboardsResponse200
     """
-
     return sync_detailed(
         id=id,
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -113,7 +105,6 @@ async def asyncio_detailed(
     """List storyboards of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -124,7 +115,6 @@ async def asyncio_detailed(
     Returns:
         Response[ListVideoStoryboardsResponse200]
     """
-
     kwargs = _get_kwargs(
         id=id,
     )
@@ -142,7 +132,6 @@ async def asyncio(
     """List storyboards of a video
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -153,7 +142,6 @@ async def asyncio(
     Returns:
         ListVideoStoryboardsResponse200
     """
-
     return (
         await asyncio_detailed(
             id=id,

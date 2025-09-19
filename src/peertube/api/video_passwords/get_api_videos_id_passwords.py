@@ -24,7 +24,6 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -35,7 +34,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | VideoPasswordList | None:
@@ -43,16 +41,13 @@ def _parse_response(
         response_204 = VideoPasswordList.from_dict(response.json())
 
         return response_204
-
     if response.status_code == 400:
         response_400 = cast("Any", None)
         return response_400
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -76,7 +71,6 @@ def sync_detailed(
     """List video passwords
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -86,11 +80,9 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, VideoPasswordList]]
     """
-
     kwargs = _get_kwargs(
         id=id,
         start=start,
@@ -116,7 +108,6 @@ def sync(
     """List video passwords
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -126,11 +117,9 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, VideoPasswordList]
     """
-
     return sync_detailed(
         id=id,
         client=client,
@@ -138,7 +127,6 @@ def sync(
         count=count,
         sort=sort,
     ).parsed
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -151,7 +139,6 @@ async def asyncio_detailed(
     """List video passwords
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -161,11 +148,9 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, VideoPasswordList]]
     """
-
     kwargs = _get_kwargs(
         id=id,
         start=start,
@@ -189,7 +174,6 @@ async def asyncio(
     """List video passwords
 
      **PeerTube >= 6.0**
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -199,11 +183,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, VideoPasswordList]
     """
-
     return (
         await asyncio_detailed(
             id=id,

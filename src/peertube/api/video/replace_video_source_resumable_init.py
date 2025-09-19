@@ -23,19 +23,16 @@ def _get_kwargs(
     headers["X-Upload-Content-Length"] = str(x_upload_content_length)
 
     headers["X-Upload-Content-Type"] = x_upload_content_type
-
     _kwargs: dict[str, Any] = {
         "method": "post",
         "url": f"/api/v1/videos/{id}/source/replace-resumable",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -51,12 +48,10 @@ def _parse_response(
 
     if response.status_code == 415:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -78,7 +73,6 @@ def sync_detailed(
     x_upload_content_type: str,
 ) -> Response[Any]:
     """Initialize the resumable replacement of a video
-
      **PeerTube >= 6.0** Uses [a resumable protocol](https://github.com/kukhariev/node-
     uploadx/blob/master/proto.md) to initialize the replacement of a video
 
@@ -95,7 +89,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -110,14 +103,12 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     *,
     client: AuthenticatedClient,
     body: VideoReplaceSourceRequestResumable,
     x_upload_content_length: float,
     x_upload_content_type: str,
-
 ) -> Any | None:
     """Initialize the resumable replacement of a video
 
@@ -128,7 +119,6 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
@@ -136,9 +126,6 @@ def sync(
         x_upload_content_length=x_upload_content_length,
         x_upload_content_type=x_upload_content_type,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -149,7 +136,6 @@ async def asyncio_detailed(
     x_upload_content_type: str,
 ) -> Response[Any]:
     """Initialize the resumable replacement of a video
-
      **PeerTube >= 6.0** Uses [a resumable protocol](https://github.com/kukhariev/node-
     uploadx/blob/master/proto.md) to initialize the replacement of a video
 
@@ -166,7 +152,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,

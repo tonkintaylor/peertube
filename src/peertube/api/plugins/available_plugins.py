@@ -31,7 +31,6 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -42,7 +41,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | PluginResponse | None:
@@ -50,16 +48,13 @@ def _parse_response(
         response_200 = PluginResponse.from_dict(response.json())
 
         return response_200
-
     if response.status_code == 503:
         response_503 = cast("Any", None)
         return response_503
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -83,7 +78,6 @@ def sync_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[Any | PluginResponse]:
     """List available plugins
-
     Args:
         search (Union[Unset, str]): Search query filter.
         plugin_type (Union[Unset, int]): Parameter for plugin type.
@@ -95,11 +89,9 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, PluginResponse]]
     """
-
     kwargs = _get_kwargs(
         search=search,
         plugin_type=plugin_type,
@@ -127,7 +119,6 @@ def sync(
     sort: Unset | str = UNSET,
 ) -> Any | PluginResponse | None:
     """List available plugins
-
     Args:
         search (Union[Unset, str]): Search query filter.
         plugin_type (Union[Unset, int]): Parameter for plugin type.
@@ -139,11 +130,9 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, PluginResponse]
     """
-
     return sync_detailed(
         client=client,
         search=search,
@@ -153,7 +142,6 @@ def sync(
         count=count,
         sort=sort,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -166,7 +154,6 @@ async def asyncio_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[Any | PluginResponse]:
     """List available plugins
-
     Args:
         search (Union[Unset, str]): Search query filter.
         plugin_type (Union[Unset, int]): Parameter for plugin type.
@@ -178,11 +165,9 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, PluginResponse]]
     """
-
     kwargs = _get_kwargs(
         search=search,
         plugin_type=plugin_type,
@@ -208,7 +193,6 @@ async def asyncio(
     sort: Unset | str = UNSET,
 ) -> Any | PluginResponse | None:
     """List available plugins
-
     Args:
         search (Union[Unset, str]): Search query filter.
         plugin_type (Union[Unset, int]): Parameter for plugin type.
@@ -220,11 +204,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, PluginResponse]
     """
-
     return (
         await asyncio_detailed(
             client=client,

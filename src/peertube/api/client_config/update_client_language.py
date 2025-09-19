@@ -19,7 +19,6 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/client-config/update-language",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -27,18 +26,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -57,10 +53,8 @@ def sync_detailed(
     body: UpdateClientLanguageBody,
 ) -> Response[Any]:
     """Update client language
-
      Set a cookie so that, the next time the client refreshes the HTML of the web interface, PeerTube
     will use the next language
-
     Args:
         body (UpdateClientLanguageBody): Request body data.
 
@@ -71,7 +65,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )
@@ -83,11 +76,9 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient | Client,
     body: UpdateClientLanguageBody,
-
 ) -> Any | None:
     """Update client language
 
@@ -98,14 +89,10 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -113,10 +100,8 @@ async def asyncio_detailed(
     body: UpdateClientLanguageBody,
 ) -> Response[Any]:
     """Update client language
-
      Set a cookie so that, the next time the client refreshes the HTML of the web interface, PeerTube
     will use the next language
-
     Args:
         body (UpdateClientLanguageBody): Request body data.
 
@@ -127,7 +112,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         body=body,
     )

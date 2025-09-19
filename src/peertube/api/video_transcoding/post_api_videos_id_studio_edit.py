@@ -28,7 +28,6 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -40,12 +39,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -65,7 +62,6 @@ def sync_detailed(
     body: list[Union["AddIntro", "AddOutro", "AddWatermark", "Cut"]],
 ) -> Response[Any]:
     """Create a studio task
-
      Create a task to edit a video  (cut, add intro/outro etc)
 
     Args:
@@ -79,7 +75,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,
@@ -92,12 +87,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     *,
     client: AuthenticatedClient,
     body: list[Union["AddIntro", "AddOutro", "AddWatermark", "Cut"]],
-
 ) -> Any | None:
     """Create a studio task
 
@@ -108,15 +101,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -125,7 +114,6 @@ async def asyncio_detailed(
     body: list[Union["AddIntro", "AddOutro", "AddWatermark", "Cut"]],
 ) -> Response[Any]:
     """Create a studio task
-
      Create a task to edit a video  (cut, add intro/outro etc)
 
     Args:
@@ -139,7 +127,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         body=body,

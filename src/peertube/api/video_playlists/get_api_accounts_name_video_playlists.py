@@ -30,13 +30,11 @@ def _get_kwargs(
     params["sort"] = sort
 
     params["search"] = search
-
     json_playlist_type: Unset | int = UNSET
     if not isinstance(playlist_type, Unset):
         json_playlist_type = playlist_type.value
 
     params["playlistType"] = json_playlist_type
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -47,7 +45,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetApiV1AccountsNameVideoPlaylistsResponse200 | None:
@@ -57,12 +54,10 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -86,7 +81,6 @@ def sync_detailed(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> Response[GetApiV1AccountsNameVideoPlaylistsResponse200]:
     """List playlists of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -103,7 +97,6 @@ def sync_detailed(
     Returns:
         Response[GetApiV1AccountsNameVideoPlaylistsResponse200]
     """
-
     kwargs = _get_kwargs(
         name=name,
         start=start,
@@ -131,7 +124,6 @@ def sync(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> GetApiV1AccountsNameVideoPlaylistsResponse200 | None:
     """List playlists of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -148,7 +140,6 @@ def sync(
     Returns:
         GetApiV1AccountsNameVideoPlaylistsResponse200
     """
-
     return sync_detailed(
         name=name,
         client=client,
@@ -158,7 +149,6 @@ def sync(
         search=search,
         playlist_type=playlist_type,
     ).parsed
-
 
 async def asyncio_detailed(
     name: str,
@@ -171,7 +161,6 @@ async def asyncio_detailed(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> Response[GetApiV1AccountsNameVideoPlaylistsResponse200]:
     """List playlists of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -188,7 +177,6 @@ async def asyncio_detailed(
     Returns:
         Response[GetApiV1AccountsNameVideoPlaylistsResponse200]
     """
-
     kwargs = _get_kwargs(
         name=name,
         start=start,
@@ -214,7 +202,6 @@ async def asyncio(
     playlist_type: Unset | VideoPlaylistTypeSet = UNSET,
 ) -> GetApiV1AccountsNameVideoPlaylistsResponse200 | None:
     """List playlists of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -231,7 +218,6 @@ async def asyncio(
     Returns:
         GetApiV1AccountsNameVideoPlaylistsResponse200
     """
-
     return (
         await asyncio_detailed(
             name=name,

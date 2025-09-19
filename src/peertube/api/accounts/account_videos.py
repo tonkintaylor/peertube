@@ -47,31 +47,26 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_skip_count: Unset | str = UNSET
     if not isinstance(skip_count, Unset):
         json_skip_count = skip_count.value
 
     params["skipCount"] = json_skip_count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     json_nsfw: Unset | str = UNSET
     if not isinstance(nsfw, Unset):
         json_nsfw = nsfw.value
 
     params["nsfw"] = json_nsfw
-
     json_nsfw_flags_included: Unset | int = UNSET
     if not isinstance(nsfw_flags_included, Unset):
         json_nsfw_flags_included = nsfw_flags_included.value
 
     params["nsfwFlagsIncluded"] = json_nsfw_flags_included
-
     json_nsfw_flags_excluded: Unset | int = UNSET
     if not isinstance(nsfw_flags_excluded, Unset):
         json_nsfw_flags_excluded = nsfw_flags_excluded.value
@@ -81,7 +76,6 @@ def _get_kwargs(
     params["isLive"] = is_live
 
     params["includeScheduledLive"] = include_scheduled_live
-
     json_category_one_of: Unset | int | list[int]
     if isinstance(category_one_of, Unset):
         json_category_one_of = UNSET
@@ -91,7 +85,6 @@ def _get_kwargs(
     else:
         json_category_one_of = category_one_of
     params["categoryOneOf"] = json_category_one_of
-
     json_licence_one_of: Unset | int | list[int]
     if isinstance(licence_one_of, Unset):
         json_licence_one_of = UNSET
@@ -101,7 +94,6 @@ def _get_kwargs(
     else:
         json_licence_one_of = licence_one_of
     params["licenceOneOf"] = json_licence_one_of
-
     json_language_one_of: Unset | list[str] | str
     if isinstance(language_one_of, Unset):
         json_language_one_of = UNSET
@@ -111,7 +103,6 @@ def _get_kwargs(
     else:
         json_language_one_of = language_one_of
     params["languageOneOf"] = json_language_one_of
-
     json_tags_one_of: Unset | list[str] | str
     if isinstance(tags_one_of, Unset):
         json_tags_one_of = UNSET
@@ -121,7 +112,6 @@ def _get_kwargs(
     else:
         json_tags_one_of = tags_one_of
     params["tagsOneOf"] = json_tags_one_of
-
     json_tags_all_of: Unset | list[str] | str
     if isinstance(tags_all_of, Unset):
         json_tags_all_of = UNSET
@@ -133,7 +123,6 @@ def _get_kwargs(
     params["tagsAllOf"] = json_tags_all_of
 
     params["isLocal"] = is_local
-
     json_include: Unset | int = UNSET
     if not isinstance(include, Unset):
         json_include = include.value
@@ -145,7 +134,6 @@ def _get_kwargs(
     params["hasWebVideoFiles"] = has_web_video_files
 
     params["host"] = host
-
     json_auto_tag_one_of: Unset | list[str] | str
     if isinstance(auto_tag_one_of, Unset):
         json_auto_tag_one_of = UNSET
@@ -155,7 +143,6 @@ def _get_kwargs(
     else:
         json_auto_tag_one_of = auto_tag_one_of
     params["autoTagOneOf"] = json_auto_tag_one_of
-
     json_privacy_one_of: Unset | int = UNSET
     if not isinstance(privacy_one_of, Unset):
         json_privacy_one_of = privacy_one_of.value
@@ -165,7 +152,6 @@ def _get_kwargs(
     params["excludeAlreadyWatched"] = exclude_already_watched
 
     params["search"] = search
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -176,7 +162,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> VideoListResponse | None:
@@ -184,12 +169,10 @@ def _parse_response(
         response_200 = VideoListResponse.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -231,7 +214,6 @@ def sync_detailed(
     search: Unset | str = UNSET,
 ) -> Response[VideoListResponse]:
     """List videos of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -282,7 +264,6 @@ def sync_detailed(
     Returns:
         Response[VideoListResponse]
     """
-
     kwargs = _get_kwargs(
         name=name,
         start=start,
@@ -346,7 +327,6 @@ def sync(
     search: Unset | str = UNSET,
 ) -> VideoListResponse | None:
     """List videos of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -397,7 +377,6 @@ def sync(
     Returns:
         VideoListResponse
     """
-
     return sync_detailed(
         name=name,
         client=client,
@@ -425,7 +404,6 @@ def sync(
         exclude_already_watched=exclude_already_watched,
         search=search,
     ).parsed
-
 
 async def asyncio_detailed(
     name: str,
@@ -456,7 +434,6 @@ async def asyncio_detailed(
     search: Unset | str = UNSET,
 ) -> Response[VideoListResponse]:
     """List videos of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -507,7 +484,6 @@ async def asyncio_detailed(
     Returns:
         Response[VideoListResponse]
     """
-
     kwargs = _get_kwargs(
         name=name,
         start=start,
@@ -569,7 +545,6 @@ async def asyncio(
     search: Unset | str = UNSET,
 ) -> VideoListResponse | None:
     """List videos of an account
-
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -620,7 +595,6 @@ async def asyncio(
     Returns:
         VideoListResponse
     """
-
     return (
         await asyncio_detailed(
             name=name,

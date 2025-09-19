@@ -20,7 +20,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -29,12 +28,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -54,7 +51,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Delete a video caption
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
@@ -67,7 +63,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         caption_language=caption_language,
@@ -80,12 +75,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     caption_language: str,
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """Delete a video caption
 
@@ -96,15 +89,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         caption_language=caption_language,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -113,7 +102,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """Delete a video caption
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         caption_language (str): language id of the video (see
@@ -126,7 +114,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         caption_language=caption_language,

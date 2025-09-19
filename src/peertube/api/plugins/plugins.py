@@ -28,7 +28,6 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -39,7 +38,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> PluginResponse | None:
@@ -47,12 +45,10 @@ def _parse_response(
         response_200 = PluginResponse.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -75,7 +71,6 @@ def sync_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[PluginResponse]:
     """List plugins
-
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.
         uninstalled (Union[Unset, bool]): Parameter for uninstalled.
@@ -90,7 +85,6 @@ def sync_detailed(
     Returns:
         Response[PluginResponse]
     """
-
     kwargs = _get_kwargs(
         plugin_type=plugin_type,
         uninstalled=uninstalled,
@@ -116,7 +110,6 @@ def sync(
     sort: Unset | str = UNSET,
 ) -> PluginResponse | None:
     """List plugins
-
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.
         uninstalled (Union[Unset, bool]): Parameter for uninstalled.
@@ -131,7 +124,6 @@ def sync(
     Returns:
         PluginResponse
     """
-
     return sync_detailed(
         client=client,
         plugin_type=plugin_type,
@@ -140,7 +132,6 @@ def sync(
         count=count,
         sort=sort,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -152,7 +143,6 @@ async def asyncio_detailed(
     sort: Unset | str = UNSET,
 ) -> Response[PluginResponse]:
     """List plugins
-
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.
         uninstalled (Union[Unset, bool]): Parameter for uninstalled.
@@ -167,7 +157,6 @@ async def asyncio_detailed(
     Returns:
         Response[PluginResponse]
     """
-
     kwargs = _get_kwargs(
         plugin_type=plugin_type,
         uninstalled=uninstalled,
@@ -191,7 +180,6 @@ async def asyncio(
     sort: Unset | str = UNSET,
 ) -> PluginResponse | None:
     """List plugins
-
     Args:
         plugin_type (Union[Unset, int]): Parameter for plugin type.
         uninstalled (Union[Unset, bool]): Parameter for uninstalled.
@@ -206,7 +194,6 @@ async def asyncio(
     Returns:
         PluginResponse
     """
-
     return (
         await asyncio_detailed(
             client=client,

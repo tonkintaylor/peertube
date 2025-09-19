@@ -16,7 +16,6 @@ def _get_kwargs() -> dict[str, Any]:
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -24,7 +23,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -50,7 +48,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs()
 
     response = client.get_httpx_client().request(
@@ -60,10 +57,8 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """Get my user information
 
@@ -74,13 +69,9 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     *,
@@ -95,7 +86,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs()
 
     response = await client.get_async_httpx_client().request(**kwargs)

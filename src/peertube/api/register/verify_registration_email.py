@@ -20,14 +20,12 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/users/registrations/{registration_id}/verify-email",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -40,12 +38,10 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -65,10 +61,8 @@ def sync_detailed(
     body: VerifyRegistrationEmailBody,
 ) -> Response[Any]:
     """Verify a registration email
-
      Following a user registration request, the user will receive an email asking to click a link
     containing a secret.
-
     Args:
         registration_id (int):  Example: 42.
         client: Authenticated HTTP client for API requests.
@@ -81,7 +75,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         registration_id=registration_id,
         body=body,
@@ -94,12 +87,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     registration_id: int,
     *,
     client: AuthenticatedClient | Client,
     body: VerifyRegistrationEmailBody,
-
 ) -> Any | None:
     """Verify a registration email
 
@@ -110,15 +101,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         registration_id=registration_id,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     registration_id: int,
@@ -127,10 +114,8 @@ async def asyncio_detailed(
     body: VerifyRegistrationEmailBody,
 ) -> Response[Any]:
     """Verify a registration email
-
      Following a user registration request, the user will receive an email asking to click a link
     containing a secret.
-
     Args:
         registration_id (int):  Example: 42.
         client: Authenticated HTTP client for API requests.
@@ -143,7 +128,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         registration_id=registration_id,
         body=body,

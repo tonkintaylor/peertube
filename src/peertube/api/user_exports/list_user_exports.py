@@ -19,7 +19,6 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> ListUserExportsResponse200 | None:
@@ -27,12 +26,10 @@ def _parse_response(
         response_200 = ListUserExportsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -53,7 +50,6 @@ def sync_detailed(
     """List user exports
 
      **PeerTube >= 6.1**
-
     Args:
         user_id (int):  Example: 42.
 
@@ -64,7 +60,6 @@ def sync_detailed(
     Returns:
         Response[ListUserExportsResponse200]
     """
-
     kwargs = _get_kwargs(
         user_id=user_id,
     )
@@ -84,7 +79,6 @@ def sync(
     """List user exports
 
      **PeerTube >= 6.1**
-
     Args:
         user_id (int):  Example: 42.
 
@@ -95,12 +89,10 @@ def sync(
     Returns:
         ListUserExportsResponse200
     """
-
     return sync_detailed(
         user_id=user_id,
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     user_id: int,
@@ -110,7 +102,6 @@ async def asyncio_detailed(
     """List user exports
 
      **PeerTube >= 6.1**
-
     Args:
         user_id (int):  Example: 42.
 
@@ -121,7 +112,6 @@ async def asyncio_detailed(
     Returns:
         Response[ListUserExportsResponse200]
     """
-
     kwargs = _get_kwargs(
         user_id=user_id,
     )
@@ -139,7 +129,6 @@ async def asyncio(
     """List user exports
 
      **PeerTube >= 6.1**
-
     Args:
         user_id (int):  Example: 42.
 
@@ -150,7 +139,6 @@ async def asyncio(
     Returns:
         ListUserExportsResponse200
     """
-
     return (
         await asyncio_detailed(
             user_id=user_id,

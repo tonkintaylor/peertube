@@ -17,7 +17,6 @@ def _get_kwargs() -> dict[str, Any]:
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | CustomHomepage | None:
@@ -25,16 +24,13 @@ def _parse_response(
         response_200 = CustomHomepage.from_dict(response.json())
 
         return response_200
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -56,11 +52,9 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, CustomHomepage]]
     """
-
     kwargs = _get_kwargs()
 
     response = client.get_httpx_client().request(
@@ -79,15 +73,12 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, CustomHomepage]
     """
-
     return sync_detailed(
         client=client,
     ).parsed
-
 
 async def asyncio_detailed(
     *,
@@ -98,11 +89,9 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, CustomHomepage]]
     """
-
     kwargs = _get_kwargs()
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -119,11 +108,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, CustomHomepage]
     """
-
     return (
         await asyncio_detailed(
             client=client,

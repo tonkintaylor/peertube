@@ -23,19 +23,16 @@ def _get_kwargs(
     headers: dict[str, Any] = {}
     if not isinstance(x_peertube_video_password, Unset):
         headers["x-peertube-video-password"] = x_peertube_video_password
-
     params: dict[str, Any] = {}
 
     params["start"] = start
 
     params["count"] = count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -47,7 +44,6 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
@@ -55,7 +51,6 @@ def _parse_response(
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -78,7 +73,6 @@ def sync_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any]:
     """List threads of a video
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -93,7 +87,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         start=start,
@@ -109,7 +102,6 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: UUID | int | str,
     *,
     client: AuthenticatedClient | Client,
@@ -117,7 +109,6 @@ def sync(
     count: Unset | int = 15,
     sort: Unset | GetApiV1VideosIdCommentThreadsSort = UNSET,
     x_peertube_video_password: Unset | str = UNSET,
-
 ) -> Any | None:
     """List threads of a video
 
@@ -128,7 +119,6 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         client=client,
@@ -137,9 +127,6 @@ def sync(
         sort=sort,
         x_peertube_video_password=x_peertube_video_password,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: UUID | int | str,
@@ -151,7 +138,6 @@ async def asyncio_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any]:
     """List threads of a video
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -166,7 +152,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         start=start,

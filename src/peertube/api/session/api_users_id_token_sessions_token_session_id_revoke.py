@@ -19,18 +19,15 @@ def _get_kwargs(
 
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 200:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -50,7 +47,6 @@ def sync_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """List token sessions
-
     Args:
         id (int):  Example: 42.
         client: Authenticated HTTP client for API requests.
@@ -63,7 +59,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         token_session_id=token_session_id,
@@ -76,12 +71,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     id: int,
     token_session_id: int,
     *,
     client: AuthenticatedClient,
-
 ) -> Any | None:
     """List token sessions
 
@@ -92,15 +85,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         id=id,
         token_session_id=token_session_id,
         client=client,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     id: int,
@@ -109,7 +98,6 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
 ) -> Response[Any]:
     """List token sessions
-
     Args:
         id (int):  Example: 42.
         client: Authenticated HTTP client for API requests.
@@ -122,7 +110,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         id=id,
         token_session_id=token_session_id,

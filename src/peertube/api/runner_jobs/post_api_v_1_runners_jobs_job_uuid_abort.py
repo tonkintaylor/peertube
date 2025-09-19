@@ -23,7 +23,6 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/runners/jobs/{job_uuid}/abort",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -31,18 +30,15 @@ def _get_kwargs(
     _kwargs["headers"] = headers
     return _kwargs
 
-
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
-
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -64,7 +60,6 @@ def sync_detailed(
     """Abort job
 
      API used by PeerTube runners
-
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
         body (PostApiV1RunnersJobsJobUUIDAbortBody): Request body data.
@@ -76,7 +71,6 @@ def sync_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         job_uuid=job_uuid,
         body=body,
@@ -89,12 +83,10 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 def sync(
-
     job_uuid: UUID,
     *,
     client: AuthenticatedClient | Client,
     body: PostApiV1RunnersJobsJobUUIDAbortBody,
-
 ) -> Any | None:
     """Abort job
 
@@ -105,15 +97,11 @@ def sync(
     Returns:
         Any
     """
-
     return sync_detailed(
         job_uuid=job_uuid,
         client=client,
         body=body,
     ).parsed
-
-
-
 
 async def asyncio_detailed(
     job_uuid: UUID,
@@ -124,7 +112,6 @@ async def asyncio_detailed(
     """Abort job
 
      API used by PeerTube runners
-
     Args:
         job_uuid (UUID):  Example: 9c9de5e8-0a1e-484a-b099-e80766180a6d.
         body (PostApiV1RunnersJobsJobUUIDAbortBody): Request body data.
@@ -136,7 +123,6 @@ async def asyncio_detailed(
     Returns:
         Response[Any]
     """
-
     kwargs = _get_kwargs(
         job_uuid=job_uuid,
         body=body,
