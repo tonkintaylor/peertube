@@ -13,7 +13,7 @@ def show_fixed_issue():
     print("\n1. Testing imports for originally reported issue:")
     
     try:
-        from peertube.api.video_channels.get_video_channels import sync, sync_detailed
+        from peertube.api.video_channels.get_video_channels import sync, sync_detailed  # noqa: F401
         print("   ✅ video_channels.get_video_channels.sync - Import successful")
         print("   ✅ video_channels.get_video_channels.sync_detailed - Import successful")
     except ImportError as e:
@@ -32,7 +32,7 @@ def show_fixed_issue():
     
     for endpoint_name, module_path in endpoints_to_test:
         try:
-            exec(f"from {module_path} import sync, sync_detailed")
+            exec(f"from {module_path} import sync, sync_detailed")  # noqa: S102
             print(f"   ✅ {endpoint_name} - Both sync() and sync_detailed() available")
         except ImportError as e:
             print(f"   ❌ {endpoint_name} - Import failed: {e}")
