@@ -182,6 +182,54 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    *,
+    client: AuthenticatedClient,
+    id: Unset | int = UNSET,
+    predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET,
+    search: Unset | str = UNSET,
+    state: Unset | AbuseStateSet = UNSET,
+    search_reporter: Unset | str = UNSET,
+    search_reportee: Unset | str = UNSET,
+    search_video: Unset | str = UNSET,
+    search_video_channel: Unset | str = UNSET,
+    video_is: Unset | GetAbusesVideoIs = UNSET,
+    filter_: Unset | GetAbusesFilter = UNSET,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetAbusesSort = UNSET,
+
+) -> Any | None:
+    """List abuses
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        client=client,
+        id=id,
+        predefined_reason=predefined_reason,
+        search=search,
+        state=state,
+        search_reporter=search_reporter,
+        search_reportee=search_reportee,
+        search_video=search_video,
+        search_video_channel=search_video_channel,
+        video_is=video_is,
+        filter_=filter_,
+        start=start,
+        count=count,
+        sort=sort,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     *,

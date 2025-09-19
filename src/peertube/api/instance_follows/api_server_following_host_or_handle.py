@@ -73,6 +73,30 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    host_or_handle: str,
+    *,
+    client: AuthenticatedClient,
+
+) -> Any | None:
+    """Unfollow an actor (PeerTube instance, channel or account)
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        host_or_handle=host_or_handle,
+        client=client,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     host_or_handle: str,

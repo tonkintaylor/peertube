@@ -129,6 +129,38 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    id: UUID | int | str,
+    *,
+    client: AuthenticatedClient,
+    body: File,
+    upload_id: str,
+    content_range: str,
+    content_length: float,
+
+) -> Any | None:
+    """Send chunk for the resumable replacement of a video
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        id=id,
+        client=client,
+        body=body,
+        upload_id=upload_id,
+        content_range=content_range,
+        content_length=content_length,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     id: UUID | int | str,

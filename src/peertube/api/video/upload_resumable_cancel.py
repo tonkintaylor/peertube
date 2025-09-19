@@ -92,6 +92,32 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    *,
+    client: AuthenticatedClient,
+    upload_id: str,
+    content_length: float,
+
+) -> Any | None:
+    """Cancel the resumable upload of a video, deleting any data uploaded so far
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        client=client,
+        upload_id=upload_id,
+        content_length=content_length,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     *,

@@ -85,6 +85,32 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    channel_handle: str,
+    *,
+    client: AuthenticatedClient,
+    body: ReorderVideoPlaylistsOfChannelBody,
+
+) -> Any | None:
+    """Reorder channel playlists
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        channel_handle=channel_handle,
+        client=client,
+        body=body,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     channel_handle: str,

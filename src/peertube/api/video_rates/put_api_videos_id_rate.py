@@ -93,6 +93,34 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    id: UUID | int | str,
+    *,
+    client: AuthenticatedClient,
+    body: PutApiV1VideosIdRateBody,
+    x_peertube_video_password: Unset | str = UNSET,
+
+) -> Any | None:
+    """Like/dislike a video
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        id=id,
+        client=client,
+        body=body,
+        x_peertube_video_password=x_peertube_video_password,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     id: UUID | int | str,

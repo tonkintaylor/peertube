@@ -121,6 +121,42 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    *,
+    client: AuthenticatedClient,
+    search: Unset | str = UNSET,
+    search_account: Unset | str = UNSET,
+    search_video: Unset | str = UNSET,
+    video_id: Unset | int = UNSET,
+    video_channel_id: Unset | int = UNSET,
+    auto_tag_one_of: Unset | list[str] | str = UNSET,
+    is_held_for_review: Unset | bool = UNSET,
+
+) -> Any | None:
+    """List comments on user's videos
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        client=client,
+        search=search,
+        search_account=search_account,
+        search_video=search_video,
+        video_id=video_id,
+        video_channel_id=video_channel_id,
+        auto_tag_one_of=auto_tag_one_of,
+        is_held_for_review=is_held_for_review,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     *,

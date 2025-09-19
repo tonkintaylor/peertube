@@ -119,6 +119,42 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    *,
+    client: AuthenticatedClient | Client,
+    search: str,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    search_target: Unset | SearchChannelsSearchTarget = UNSET,
+    sort: Unset | str = UNSET,
+    host: Unset | str = UNSET,
+    handles: Unset | Any = UNSET,
+
+) -> Any | None:
+    """Search channels
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        client=client,
+        search=search,
+        start=start,
+        count=count,
+        search_target=search_target,
+        sort=sort,
+        host=host,
+        handles=handles,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     *,

@@ -87,6 +87,32 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    account_name: str,
+    *,
+    client: AuthenticatedClient,
+    body: PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody,
+
+) -> Any | None:
+    """Update account auto tag policies on comments
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        account_name=account_name,
+        client=client,
+        body=body,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     account_name: str,

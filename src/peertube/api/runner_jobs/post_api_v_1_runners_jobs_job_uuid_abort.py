@@ -88,6 +88,32 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    job_uuid: UUID,
+    *,
+    client: AuthenticatedClient | Client,
+    body: PostApiV1RunnersJobsJobUUIDAbortBody,
+
+) -> Any | None:
+    """Abort job
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        job_uuid=job_uuid,
+        client=client,
+        body=body,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     job_uuid: UUID,

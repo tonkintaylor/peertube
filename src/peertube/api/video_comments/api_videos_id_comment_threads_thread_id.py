@@ -82,6 +82,34 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    id: UUID | int | str,
+    thread_id: int,
+    *,
+    client: AuthenticatedClient | Client,
+    x_peertube_video_password: Unset | str = UNSET,
+
+) -> Any | None:
+    """Get a thread
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        id=id,
+        thread_id=thread_id,
+        client=client,
+        x_peertube_video_password=x_peertube_video_password,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     id: UUID | int | str,

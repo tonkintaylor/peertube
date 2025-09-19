@@ -97,6 +97,38 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    name: str,
+    *,
+    client: AuthenticatedClient | Client,
+    with_stats: Unset | bool = UNSET,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | str = UNSET,
+
+) -> Any | None:
+    """List video channels of an account
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        name=name,
+        client=client,
+        with_stats=with_stats,
+        start=start,
+        count=count,
+        sort=sort,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     name: str,

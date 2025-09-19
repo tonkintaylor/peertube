@@ -91,6 +91,34 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
+def sync(
+
+    account_name: str,
+    list_id: str,
+    *,
+    client: AuthenticatedClient,
+    body: PutApiV1WatchedWordsAccountsAccountNameListsListIdBody,
+
+) -> Any | None:
+    """Update account watched words
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        account_name=account_name,
+        list_id=list_id,
+        client=client,
+        body=body,
+    ).parsed
+
+
+
 
 async def asyncio_detailed(
     account_name: str,
