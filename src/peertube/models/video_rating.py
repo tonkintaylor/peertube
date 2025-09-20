@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.video import Video
 
 
-T=TypeVar("T", bound="VideoRating")
+T = TypeVar("T", bound="VideoRating")
 
 
 @_attrs_define
@@ -22,7 +21,6 @@ class VideoRating:
     rating (VideoRatingRating): Rating of the video
     """
 
-
     video: "Video"
     rating: VideoRatingRating
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -30,15 +28,17 @@ class VideoRating:
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        video=self.video.to_dict()
+        video = self.video.to_dict()
 
-        rating=self.rating.value
+        rating = self.rating.value
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "video": video, "rating": rating, }
+                "video": video,
+                "rating": rating,
+            }
         )
 
         return field_dict
@@ -50,14 +50,13 @@ class VideoRating:
         from peertube.models.video import Video
 
         d = dict(src_dict)
-        video=Video.from_dict(d.pop("video"))
+        video = Video.from_dict(d.pop("video"))
 
-        rating=VideoRatingRating(d.pop("rating"))
+        rating = VideoRatingRating(d.pop("rating"))
 
-        video_rating=cls(
-            video=video, rating=rating)
+        video_rating = cls(video=video, rating=rating)
 
-        video_rating.additional_properties=d
+        video_rating.additional_properties = d
         return video_rating
 
     @property
@@ -77,4 +76,3 @@ class VideoRating:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.add_user_response_user_account import (
-        AddUserResponseUserAccount)
+        AddUserResponseUserAccount,
+    )
 
 
-T=TypeVar("T", bound="AddUserResponseUser")
+T = TypeVar("T", bound="AddUserResponseUser")
 
 
 @_attrs_define
@@ -23,27 +23,26 @@ class AddUserResponseUser:
     account (Union[Unset, AddUserResponseUserAccount]):
     """
 
-
     id: Unset | int = UNSET
-    account: Union[Unset, "AddUserResponseUserAccount"]=UNSET
+    account: Union[Unset, "AddUserResponseUserAccount"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        id=self.id
+        id = self.id
 
         account: Unset | dict[str, Any] = UNSET
         if not isinstance(self.account, Unset):
-            account=self.account.to_dict()
+            account = self.account.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
-            field_dict["id"]=id
+            field_dict["id"] = id
         if account is not UNSET:
-            field_dict["account"]=account
+            field_dict["account"] = account
 
         return field_dict
 
@@ -52,22 +51,22 @@ class AddUserResponseUser:
         """Create instance from dictionary."""
 
         from peertube.models.add_user_response_user_account import (
-            AddUserResponseUserAccount)
+            AddUserResponseUserAccount,
+        )
 
         d = dict(src_dict)
-        id=d.pop("id", UNSET)
+        id = d.pop("id", UNSET)
 
-        _account=d.pop("account", UNSET)
+        _account = d.pop("account", UNSET)
         account: Unset | AddUserResponseUserAccount
         if isinstance(_account, Unset):
             account = UNSET
         else:
-            account=AddUserResponseUserAccount.from_dict(_account)
+            account = AddUserResponseUserAccount.from_dict(_account)
 
-        add_user_response_user=cls(
-            id=id, account=account)
+        add_user_response_user = cls(id=id, account=account)
 
-        add_user_response_user.additional_properties=d
+        add_user_response_user.additional_properties = d
         return add_user_response_user
 
     @property
@@ -87,4 +86,3 @@ class AddUserResponseUser:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

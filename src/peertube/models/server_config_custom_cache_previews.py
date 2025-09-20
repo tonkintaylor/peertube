@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="ServerConfigCustomCachePreviews")
+T = TypeVar("T", bound="ServerConfigCustomCachePreviews")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class ServerConfigCustomCachePreviews:
     size (Union[Unset, int]):
     """
 
-
     size: Unset | int = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        size=self.size
+        size = self.size
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if size is not UNSET:
-            field_dict["size"]=size
+            field_dict["size"] = size
 
         return field_dict
 
@@ -39,12 +37,11 @@ class ServerConfigCustomCachePreviews:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        size=d.pop("size", UNSET)
+        size = d.pop("size", UNSET)
 
-        server_config_custom_cache_previews=cls(
-            size=size)
+        server_config_custom_cache_previews = cls(size=size)
 
-        server_config_custom_cache_previews.additional_properties=d
+        server_config_custom_cache_previews.additional_properties = d
         return server_config_custom_cache_previews
 
     @property
@@ -64,4 +61,3 @@ class ServerConfigCustomCachePreviews:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

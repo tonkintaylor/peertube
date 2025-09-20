@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="VideoUserHistoryType0")
+T = TypeVar("T", bound="VideoUserHistoryType0")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class VideoUserHistoryType0:
     current_time (Union[Unset, int]):
     """
 
-
     current_time: Unset | int = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        current_time=self.current_time
+        current_time = self.current_time
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if current_time is not UNSET:
-            field_dict["currentTime"]=current_time
+            field_dict["currentTime"] = current_time
 
         return field_dict
 
@@ -39,12 +37,11 @@ class VideoUserHistoryType0:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        current_time=d.pop("currentTime", UNSET)
+        current_time = d.pop("currentTime", UNSET)
 
-        video_user_history_type_0=cls(
-            current_time=current_time)
+        video_user_history_type_0 = cls(current_time=current_time)
 
-        video_user_history_type_0.additional_properties=d
+        video_user_history_type_0.additional_properties = d
         return video_user_history_type_0
 
     @property
@@ -64,4 +61,3 @@ class VideoUserHistoryType0:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

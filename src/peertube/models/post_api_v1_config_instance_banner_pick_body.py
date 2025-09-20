@@ -1,7 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,7 +9,7 @@ from typing_extensions import Self
 from peertube import types
 from peertube.types import UNSET, File, FileTypes, Unset
 
-T=TypeVar("T", bound="PostApiV1ConfigInstanceBannerPickBody")
+T = TypeVar("T", bound="PostApiV1ConfigInstanceBannerPickBody")
 
 
 @_attrs_define
@@ -19,9 +18,8 @@ class PostApiV1ConfigInstanceBannerPickBody:
     bannerfile (Union[Unset, File]): The file to upload.
     """
 
-
     bannerfile: Unset | File = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -54,13 +52,13 @@ class PostApiV1ConfigInstanceBannerPickBody:
 
         bannerfile: Unset | FileTypes = UNSET
         if not isinstance(self.bannerfile, Unset):
-            bannerfile=self.bannerfile.to_tuple()
+            bannerfile = self.bannerfile.to_tuple()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if bannerfile is not UNSET:
-            field_dict["bannerfile"]=bannerfile
+            field_dict["bannerfile"] = bannerfile
 
         return field_dict
 
@@ -108,17 +106,16 @@ class PostApiV1ConfigInstanceBannerPickBody:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        _bannerfile=d.pop("bannerfile", UNSET)
+        _bannerfile = d.pop("bannerfile", UNSET)
         bannerfile: Unset | File
         if isinstance(_bannerfile, Unset):
             bannerfile = UNSET
         else:
-            bannerfile=File(payload=BytesIO(_bannerfile))
+            bannerfile = File(payload=BytesIO(_bannerfile))
 
-        post_api_v1_config_instance_banner_pick_body=cls(
-            bannerfile=bannerfile)
+        post_api_v1_config_instance_banner_pick_body = cls(bannerfile=bannerfile)
 
-        post_api_v1_config_instance_banner_pick_body.additional_properties=d
+        post_api_v1_config_instance_banner_pick_body.additional_properties = d
         return post_api_v1_config_instance_banner_pick_body
 
     @property
@@ -164,4 +161,3 @@ class PostApiV1ConfigInstanceBannerPickBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

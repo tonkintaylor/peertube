@@ -4,7 +4,7 @@ from typing import Any, TypeVar
 from attrs import define as _attrs_define
 from typing_extensions import Self
 
-T=TypeVar("T", bound="UpdatePluginBodyType1")
+T = TypeVar("T", bound="UpdatePluginBodyType1")
 
 
 @_attrs_define
@@ -13,7 +13,6 @@ class UpdatePluginBodyType1:
     path (str):
     """
 
-
     path: str
 
     def to_dict(self) -> dict[str, Any]:
@@ -21,11 +20,12 @@ class UpdatePluginBodyType1:
 
         path = self.path
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
 
         field_dict.update(
             {
-                "path": path, }
+                "path": path,
+            }
         )
 
         return field_dict
@@ -35,10 +35,8 @@ class UpdatePluginBodyType1:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        path=d.pop("path")
+        path = d.pop("path")
 
-        update_plugin_body_type_1=cls(
-            path=path)
+        update_plugin_body_type_1 = cls(path=path)
 
         return update_plugin_body_type_1
-

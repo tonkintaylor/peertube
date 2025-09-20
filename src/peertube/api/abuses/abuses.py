@@ -14,62 +14,80 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, id: Unset | int = UNSET, predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET, search: Unset | str = UNSET, state: Unset | AbuseStateSet = UNSET, search_reporter: Unset | str = UNSET, search_reportee: Unset | str = UNSET, search_video: Unset | str = UNSET, search_video_channel: Unset | str = UNSET, video_is: Unset | GetAbusesVideoIs = UNSET, filter_: Unset | GetAbusesFilter = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAbusesSort = UNSET) -> dict[str, Any]:
+    *,
+    id: Unset | int = UNSET,
+    predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET,
+    search: Unset | str = UNSET,
+    state: Unset | AbuseStateSet = UNSET,
+    search_reporter: Unset | str = UNSET,
+    search_reportee: Unset | str = UNSET,
+    search_video: Unset | str = UNSET,
+    search_video_channel: Unset | str = UNSET,
+    video_is: Unset | GetAbusesVideoIs = UNSET,
+    filter_: Unset | GetAbusesFilter = UNSET,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetAbusesSort = UNSET,
+) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
-    params["id"]=id
-    json_predefined_reason: Unset | list[str]=UNSET
+    params["id"] = id
+    json_predefined_reason: Unset | list[str] = UNSET
     if not isinstance(predefined_reason, Unset):
-        json_predefined_reason=[]
+        json_predefined_reason = []
         for componentsschemas_predefined_abuse_reasons_item_data in predefined_reason:
-            componentsschemas_predefined_abuse_reasons_item=(
+            componentsschemas_predefined_abuse_reasons_item = (
                 componentsschemas_predefined_abuse_reasons_item_data.value
             )
             json_predefined_reason.append(
                 componentsschemas_predefined_abuse_reasons_item
             )
 
-    params["predefinedReason"]=json_predefined_reason
+    params["predefinedReason"] = json_predefined_reason
 
-    params["search"]=search
-    json_state: Unset | int  =  UNSET
+    params["search"] = search
+    json_state: Unset | int = UNSET
     if not isinstance(state, Unset):
         json_state = state.value
 
-    params["state"]=json_state
+    params["state"] = json_state
 
-    params["searchReporter"]=search_reporter
+    params["searchReporter"] = search_reporter
 
-    params["searchReportee"]=search_reportee
+    params["searchReportee"] = search_reportee
 
-    params["searchVideo"]=search_video
+    params["searchVideo"] = search_video
 
-    params["searchVideoChannel"]=search_video_channel
-    json_video_is: Unset | str  =  UNSET
+    params["searchVideoChannel"] = search_video_channel
+    json_video_is: Unset | str = UNSET
     if not isinstance(video_is, Unset):
         json_video_is = video_is.value
 
-    params["videoIs"]=json_video_is
-    json_filter_: Unset | str  =  UNSET
+    params["videoIs"] = json_video_is
+    json_filter_: Unset | str = UNSET
     if not isinstance(filter_, Unset):
         json_filter_ = filter_.value
 
-    params["filter"]=json_filter_
+    params["filter"] = json_filter_
 
-    params["start"]=start
+    params["start"] = start
 
-    params["count"]=count
-    json_sort: Unset | str  =  UNSET
+    params["count"] = count
+    json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
-    params["sort"]=json_sort
-    params={k: v for k, v in params.items() if v is not UNSET and v is not None}
+    params["sort"] = json_sort
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
-        "method": "get", "url": "/api/v1/abuses", "params": params, }
+        "method": "get",
+        "url": "/api/v1/abuses",
+        "params": params,
+    }
 
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
@@ -79,15 +97,35 @@ def _parse_response(
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, id: Unset | int = UNSET, predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET, search: Unset | str = UNSET, state: Unset | AbuseStateSet = UNSET, search_reporter: Unset | str = UNSET, search_reportee: Unset | str = UNSET, search_video: Unset | str = UNSET, search_video_channel: Unset | str = UNSET, video_is: Unset | GetAbusesVideoIs = UNSET, filter_: Unset | GetAbusesFilter = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAbusesSort = UNSET) -> Response[Any]:
+    *,
+    client: AuthenticatedClient,
+    id: Unset | int = UNSET,
+    predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET,
+    search: Unset | str = UNSET,
+    state: Unset | AbuseStateSet = UNSET,
+    search_reporter: Unset | str = UNSET,
+    search_reportee: Unset | str = UNSET,
+    search_video: Unset | str = UNSET,
+    search_video_channel: Unset | str = UNSET,
+    video_is: Unset | GetAbusesVideoIs = UNSET,
+    filter_: Unset | GetAbusesFilter = UNSET,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetAbusesSort = UNSET,
+) -> Response[Any]:
     """List abuses
 
 
@@ -116,17 +154,44 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        id=id, predefined_reason=predefined_reason, search=search, state=state, search_reporter=search_reporter, search_reportee=search_reportee, search_video=search_video, search_video_channel=search_video_channel, video_is=video_is, filter_=filter_, start=start, count=count, sort=sort)
+    kwargs = _get_kwargs(
+        id=id,
+        predefined_reason=predefined_reason,
+        search=search,
+        state=state,
+        search_reporter=search_reporter,
+        search_reportee=search_reportee,
+        search_video=search_video,
+        search_video_channel=search_video_channel,
+        video_is=video_is,
+        filter_=filter_,
+        start=start,
+        count=count,
+        sort=sort,
+    )
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, id: Unset | int = UNSET, predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET, search: Unset | str = UNSET, state: Unset | AbuseStateSet = UNSET, search_reporter: Unset | str = UNSET, search_reportee: Unset | str = UNSET, search_video: Unset | str = UNSET, search_video_channel: Unset | str = UNSET, video_is: Unset | GetAbusesVideoIs = UNSET, filter_: Unset | GetAbusesFilter = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAbusesSort = UNSET) -> Any | None:
+    *,
+    client: AuthenticatedClient,
+    id: Unset | int = UNSET,
+    predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET,
+    search: Unset | str = UNSET,
+    state: Unset | AbuseStateSet = UNSET,
+    search_reporter: Unset | str = UNSET,
+    search_reportee: Unset | str = UNSET,
+    search_video: Unset | str = UNSET,
+    search_video_channel: Unset | str = UNSET,
+    video_is: Unset | GetAbusesVideoIs = UNSET,
+    filter_: Unset | GetAbusesFilter = UNSET,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetAbusesSort = UNSET,
+) -> Any | None:
     """List abuses
 
 
@@ -139,7 +204,7 @@ def sync(
     """
 
     return sync_detailed(
-        client = client,
+        client=client,
         id=id,
         predefined_reason=predefined_reason,
         search=search,
@@ -157,7 +222,22 @@ def sync(
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, id: Unset | int = UNSET, predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET, search: Unset | str = UNSET, state: Unset | AbuseStateSet = UNSET, search_reporter: Unset | str = UNSET, search_reportee: Unset | str = UNSET, search_video: Unset | str = UNSET, search_video_channel: Unset | str = UNSET, video_is: Unset | GetAbusesVideoIs = UNSET, filter_: Unset | GetAbusesFilter = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetAbusesSort = UNSET) -> Response[Any]:
+    *,
+    client: AuthenticatedClient,
+    id: Unset | int = UNSET,
+    predefined_reason: Unset | list[PredefinedAbuseReasonsItem] = UNSET,
+    search: Unset | str = UNSET,
+    state: Unset | AbuseStateSet = UNSET,
+    search_reporter: Unset | str = UNSET,
+    search_reportee: Unset | str = UNSET,
+    search_video: Unset | str = UNSET,
+    search_video_channel: Unset | str = UNSET,
+    video_is: Unset | GetAbusesVideoIs = UNSET,
+    filter_: Unset | GetAbusesFilter = UNSET,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetAbusesSort = UNSET,
+) -> Response[Any]:
     """List abuses
 
 
@@ -186,10 +266,22 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        id=id, predefined_reason=predefined_reason, search=search, state=state, search_reporter=search_reporter, search_reportee=search_reportee, search_video=search_video, search_video_channel=search_video_channel, video_is=video_is, filter_=filter_, start=start, count=count, sort=sort)
+    kwargs = _get_kwargs(
+        id=id,
+        predefined_reason=predefined_reason,
+        search=search,
+        state=state,
+        search_reporter=search_reporter,
+        search_reportee=search_reportee,
+        search_video=search_video,
+        search_video_channel=search_video_channel,
+        video_is=video_is,
+        filter_=filter_,
+        start=start,
+        count=count,
+        sort=sort,
+    )
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
-

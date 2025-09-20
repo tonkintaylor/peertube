@@ -5,13 +5,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="RunnerJobAdminPrivatePayload")
+T = TypeVar("T", bound="RunnerJobAdminPrivatePayload")
 
 
 @_attrs_define
 class RunnerJobAdminPrivatePayload:
     """Data model."""
-
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -28,9 +27,9 @@ class RunnerJobAdminPrivatePayload:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        runner_job_admin_private_payload=cls()
+        runner_job_admin_private_payload = cls()
 
-        runner_job_admin_private_payload.additional_properties=d
+        runner_job_admin_private_payload.additional_properties = d
         return runner_job_admin_private_payload
 
     @property
@@ -50,4 +49,3 @@ class RunnerJobAdminPrivatePayload:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

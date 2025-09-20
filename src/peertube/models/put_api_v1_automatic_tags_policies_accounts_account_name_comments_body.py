@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar, cast)
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody")
+T = TypeVar("T", bound="PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody")
 
 
 @_attrs_define
@@ -17,22 +16,21 @@ class PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody:
     review (Union[Unset, list[str]]): Auto tags that automatically set the comment in review state
     """
 
-
     review: Unset | list[str] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         review: Unset | list[str] = UNSET
         if not isinstance(self.review, Unset):
-            review=self.review
+            review = self.review
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if review is not UNSET:
-            field_dict["review"]=review
+            field_dict["review"] = review
 
         return field_dict
 
@@ -41,12 +39,13 @@ class PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        review=cast("list[str]", d.pop("review", UNSET))
+        review = cast("list[str]", d.pop("review", UNSET))
 
-        put_api_v1_automatic_tags_policies_accounts_account_name_comments_body=cls(
-            review=review)
+        put_api_v1_automatic_tags_policies_accounts_account_name_comments_body = cls(
+            review=review
+        )
 
-        put_api_v1_automatic_tags_policies_accounts_account_name_comments_body.additional_properties=d
+        put_api_v1_automatic_tags_policies_accounts_account_name_comments_body.additional_properties = d
         return put_api_v1_automatic_tags_policies_accounts_account_name_comments_body
 
     @property
@@ -66,4 +65,3 @@ class PutApiV1AutomaticTagsPoliciesAccountsAccountNameCommentsBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

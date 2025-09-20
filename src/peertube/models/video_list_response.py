@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.video import Video
 
 
-T=TypeVar("T", bound="VideoListResponse")
+T = TypeVar("T", bound="VideoListResponse")
 
 
 @_attrs_define
@@ -22,30 +21,29 @@ class VideoListResponse:
     data (Union[Unset, list['Video']]):
     """
 
-
     total: Unset | int = UNSET
-    data: Unset | list["Video"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    data: Unset | list["Video"] = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        total=self.total
+        total = self.total
 
         data: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.data, Unset):
-            data=[]
+            data = []
             for data_item_data in self.data:
-                data_item=data_item_data.to_dict()
+                data_item = data_item_data.to_dict()
                 data.append(data_item)
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if total is not UNSET:
-            field_dict["total"]=total
+            field_dict["total"] = total
         if data is not UNSET:
-            field_dict["data"]=data
+            field_dict["data"] = data
 
         return field_dict
 
@@ -56,19 +54,18 @@ class VideoListResponse:
         from peertube.models.video import Video
 
         d = dict(src_dict)
-        total=d.pop("total", UNSET)
+        total = d.pop("total", UNSET)
 
-        data=[]
-        _data=d.pop("data", UNSET)
+        data = []
+        _data = d.pop("data", UNSET)
         for data_item_data in _data or []:
-            data_item=Video.from_dict(data_item_data)
+            data_item = Video.from_dict(data_item_data)
 
             data.append(data_item)
 
-        video_list_response=cls(
-            total=total, data=data)
+        video_list_response = cls(total=total, data=data)
 
-        video_list_response.additional_properties=d
+        video_list_response.additional_properties = d
         return video_list_response
 
     @property
@@ -88,4 +85,3 @@ class VideoListResponse:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

@@ -6,27 +6,30 @@ import httpx
 from peertube import errors
 from peertube.client import AuthenticatedClient, Client
 from peertube.models.get_api_v1_plugins_npm_name_registered_settings_response_200 import (
-    GetApiV1PluginsNpmNameRegisteredSettingsResponse200)
+    GetApiV1PluginsNpmNameRegisteredSettingsResponse200,
+)
 from peertube.types import Response
 
 
-def _get_kwargs(
-    npm_name: str) -> dict[str, Any]:
+def _get_kwargs(npm_name: str) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
-        "method": "get", "url": f"/api/v1/plugins/{npm_name}/registered-settings", }
+        "method": "get",
+        "url": f"/api/v1/plugins/{npm_name}/registered-settings",
+    }
 
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
-    if response.status_code = = 200:
+    if response.status_code == 200:
         response_200 = GetApiV1PluginsNpmNameRegisteredSettingsResponse200.from_dict(
             response.json()
         )
 
         return response_200
-    if response.status_code== 404:
+    if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
     if client.raise_on_unexpected_status:
@@ -34,15 +37,21 @@ def _parse_response(
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
 def sync_detailed(
-    npm_name: str, *, client: AuthenticatedClient) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
+    npm_name: str, *, client: AuthenticatedClient
+) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
     """Get a plugin's registered settings
 
 
@@ -52,21 +61,21 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
+
     Returns:
         Response[Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]]
     """
 
-    kwargs  =  _get_kwargs(
-        npm_name=npm_name)
+    kwargs = _get_kwargs(npm_name=npm_name)
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    npm_name: str, *, client: AuthenticatedClient) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
+    npm_name: str, *, client: AuthenticatedClient
+) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
     """Get a plugin's registered settings
 
 
@@ -76,16 +85,17 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
+
     Returns:
         Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]
     """
 
-    return sync_detailed(
-        npm_name = npm_name, client=client).parsed
+    return sync_detailed(npm_name=npm_name, client=client).parsed
 
 
 async def asyncio_detailed(
-    npm_name: str, *, client: AuthenticatedClient) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
+    npm_name: str, *, client: AuthenticatedClient
+) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
     """Get a plugin's registered settings
 
 
@@ -95,12 +105,12 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
+
     Returns:
         Response[Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]]
     """
 
-    kwargs  =  _get_kwargs(
-        npm_name=npm_name)
+    kwargs = _get_kwargs(npm_name=npm_name)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -108,7 +118,8 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    npm_name: str, *, client: AuthenticatedClient) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
+    npm_name: str, *, client: AuthenticatedClient
+) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
     """Get a plugin's registered settings
 
 
@@ -118,13 +129,9 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
+
     Returns:
         Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]
     """
 
-    return (
-        await asyncio_detailed(
-            npm_name = npm_name, client=client)
-    ).parsed
-
-
+    return (await asyncio_detailed(npm_name=npm_name, client=client)).parsed

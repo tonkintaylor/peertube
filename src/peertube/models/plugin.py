@@ -1,7 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,7 +14,7 @@ if TYPE_CHECKING:
     from peertube.models.plugin_settings import PluginSettings
 
 
-T=TypeVar("T", bound="Plugin")
+T = TypeVar("T", bound="Plugin")
 
 
 @_attrs_define
@@ -37,83 +36,82 @@ class Plugin:
     updated_at (Union[Unset, datetime.datetime]):
     """
 
-
     name: Unset | str = UNSET
-    type_: Unset | PluginType=UNSET
-    latest_version: Unset | str=UNSET
-    version: Unset | str=UNSET
-    enabled: Unset | bool=UNSET
-    uninstalled: Unset | bool=UNSET
-    peertube_engine: Unset | str=UNSET
-    description: Unset | str=UNSET
-    homepage: Unset | str=UNSET
-    settings: Union[Unset, "PluginSettings"]=UNSET
+    type_: Unset | PluginType = UNSET
+    latest_version: Unset | str = UNSET
+    version: Unset | str = UNSET
+    enabled: Unset | bool = UNSET
+    uninstalled: Unset | bool = UNSET
+    peertube_engine: Unset | str = UNSET
+    description: Unset | str = UNSET
+    homepage: Unset | str = UNSET
+    settings: Union[Unset, "PluginSettings"] = UNSET
     created_at: Unset | datetime.datetime = UNSET
-    updated_at: Unset | datetime.datetime=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    updated_at: Unset | datetime.datetime = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        name=self.name
+        name = self.name
 
         type_: Unset | int = UNSET
         if not isinstance(self.type_, Unset):
-            type_=self.type_.value
+            type_ = self.type_.value
 
-        latest_version=self.latest_version
+        latest_version = self.latest_version
 
-        version=self.version
+        version = self.version
 
-        enabled=self.enabled
+        enabled = self.enabled
 
-        uninstalled=self.uninstalled
+        uninstalled = self.uninstalled
 
-        peertube_engine=self.peertube_engine
+        peertube_engine = self.peertube_engine
 
-        description=self.description
+        description = self.description
 
-        homepage=self.homepage
+        homepage = self.homepage
 
         settings: Unset | dict[str, Any] = UNSET
         if not isinstance(self.settings, Unset):
-            settings=self.settings.to_dict()
+            settings = self.settings.to_dict()
 
         created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
-            created_at=self.created_at.isoformat()
+            created_at = self.created_at.isoformat()
 
         updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
-            updated_at=self.updated_at.isoformat()
+            updated_at = self.updated_at.isoformat()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
-            field_dict["name"]=name
+            field_dict["name"] = name
         if type_ is not UNSET:
-            field_dict["type"]=type_
+            field_dict["type"] = type_
         if latest_version is not UNSET:
-            field_dict["latestVersion"]=latest_version
+            field_dict["latestVersion"] = latest_version
         if version is not UNSET:
-            field_dict["version"]=version
+            field_dict["version"] = version
         if enabled is not UNSET:
-            field_dict["enabled"]=enabled
+            field_dict["enabled"] = enabled
         if uninstalled is not UNSET:
-            field_dict["uninstalled"]=uninstalled
+            field_dict["uninstalled"] = uninstalled
         if peertube_engine is not UNSET:
-            field_dict["peertubeEngine"]=peertube_engine
+            field_dict["peertubeEngine"] = peertube_engine
         if description is not UNSET:
-            field_dict["description"]=description
+            field_dict["description"] = description
         if homepage is not UNSET:
-            field_dict["homepage"]=homepage
+            field_dict["homepage"] = homepage
         if settings is not UNSET:
-            field_dict["settings"]=settings
+            field_dict["settings"] = settings
         if created_at is not UNSET:
-            field_dict["createdAt"]=created_at
+            field_dict["createdAt"] = created_at
         if updated_at is not UNSET:
-            field_dict["updatedAt"]=updated_at
+            field_dict["updatedAt"] = updated_at
 
         return field_dict
 
@@ -124,54 +122,66 @@ class Plugin:
         from peertube.models.plugin_settings import PluginSettings
 
         d = dict(src_dict)
-        name=d.pop("name", UNSET)
+        name = d.pop("name", UNSET)
 
-        _type_=d.pop("type", UNSET)
+        _type_ = d.pop("type", UNSET)
         type_: Unset | PluginType
         if isinstance(_type_, Unset):
             type_ = UNSET
         else:
-            type_=PluginType(_type_)
+            type_ = PluginType(_type_)
 
-        latest_version=d.pop("latestVersion", UNSET)
+        latest_version = d.pop("latestVersion", UNSET)
 
-        version=d.pop("version", UNSET)
+        version = d.pop("version", UNSET)
 
-        enabled=d.pop("enabled", UNSET)
+        enabled = d.pop("enabled", UNSET)
 
-        uninstalled=d.pop("uninstalled", UNSET)
+        uninstalled = d.pop("uninstalled", UNSET)
 
-        peertube_engine=d.pop("peertubeEngine", UNSET)
+        peertube_engine = d.pop("peertubeEngine", UNSET)
 
-        description=d.pop("description", UNSET)
+        description = d.pop("description", UNSET)
 
-        homepage=d.pop("homepage", UNSET)
+        homepage = d.pop("homepage", UNSET)
 
-        _settings=d.pop("settings", UNSET)
+        _settings = d.pop("settings", UNSET)
         settings: Unset | PluginSettings
         if isinstance(_settings, Unset):
             settings = UNSET
         else:
-            settings=PluginSettings.from_dict(_settings)
+            settings = PluginSettings.from_dict(_settings)
 
-        _created_at=d.pop("createdAt", UNSET)
+        _created_at = d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
             created_at = UNSET
         else:
-            created_at=isoparse(_created_at)
+            created_at = isoparse(_created_at)
 
-        _updated_at=d.pop("updatedAt", UNSET)
+        _updated_at = d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
             updated_at = UNSET
         else:
-            updated_at=isoparse(_updated_at)
+            updated_at = isoparse(_updated_at)
 
-        plugin=cls(
-            name=name, type_=type_, latest_version=latest_version, version=version, enabled=enabled, uninstalled=uninstalled, peertube_engine=peertube_engine, description=description, homepage=homepage, settings=settings, created_at=created_at, updated_at=updated_at)
+        plugin = cls(
+            name=name,
+            type_=type_,
+            latest_version=latest_version,
+            version=version,
+            enabled=enabled,
+            uninstalled=uninstalled,
+            peertube_engine=peertube_engine,
+            description=description,
+            homepage=homepage,
+            settings=settings,
+            created_at=created_at,
+            updated_at=updated_at,
+        )
 
-        plugin.additional_properties=d
+        plugin.additional_properties = d
         return plugin
 
     @property
@@ -191,4 +201,3 @@ class Plugin:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

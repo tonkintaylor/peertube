@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="VideoPassword")
+T = TypeVar("T", bound="VideoPassword")
 
 
 @_attrs_define
@@ -19,30 +18,29 @@ class VideoPassword:
     video_id (Union[Unset, int]):  Example: 42.
     """
 
-
     id: Unset | int = UNSET
-    password: Unset | str=UNSET
-    video_id: Unset | int=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    password: Unset | str = UNSET
+    video_id: Unset | int = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
 
-        id=self.id
+        id = self.id
 
-        password=self.password
+        password = self.password
 
-        video_id=self.video_id
+        video_id = self.video_id
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
-            field_dict["id"]=id
+            field_dict["id"] = id
         if password is not UNSET:
-            field_dict["password"]=password
+            field_dict["password"] = password
         if video_id is not UNSET:
-            field_dict["videoId"]=video_id
+            field_dict["videoId"] = video_id
 
         return field_dict
 
@@ -51,16 +49,15 @@ class VideoPassword:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        id=d.pop("id", UNSET)
+        id = d.pop("id", UNSET)
 
-        password=d.pop("password", UNSET)
+        password = d.pop("password", UNSET)
 
-        video_id=d.pop("videoId", UNSET)
+        video_id = d.pop("videoId", UNSET)
 
-        video_password=cls(
-            id=id, password=password, video_id=video_id)
+        video_password = cls(id=id, password=password, video_id=video_id)
 
-        video_password.additional_properties=d
+        video_password.additional_properties = d
         return video_password
 
     @property
@@ -80,4 +77,3 @@ class VideoPassword:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

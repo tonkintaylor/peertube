@@ -7,7 +7,6 @@
 def show_fixed_issue():
     """Demonstrate the fix for the sync() method issue."""
 
-
     print("🔧 PeerTube API sync() Method Fix Demonstration")
     print("=" * 50)
 
@@ -15,9 +14,15 @@ def show_fixed_issue():
     print("\n1. Testing imports for originally reported issue:")
 
     try:
-        from peertube.api.video_channels.get_video_channels import sync, sync_detailed  # noqa: F401
+        from peertube.api.video_channels.get_video_channels import (  # noqa: F401
+            sync,
+            sync_detailed,
+        )
+
         print("   ✅ video_channels.get_video_channels.sync - Import successful")
-        print("   ✅ video_channels.get_video_channels.sync_detailed - Import successful")
+        print(
+            "   ✅ video_channels.get_video_channels.sync_detailed - Import successful"
+        )
     except ImportError as e:
         print(f"   ❌ Import failed: {e}")
         return
@@ -25,7 +30,15 @@ def show_fixed_issue():
     print("\n2. Testing additional endpoints mentioned in the issue:")
 
     endpoints_to_test = [
-        ("video_channels.get_video_channel", "peertube.api.video_channels.get_video_channel"), ("users.get_users", "peertube.api.users.get_users"), ("accounts.get_accounts", "peertube.api.accounts.get_accounts"), ("video.get_video", "peertube.api.video.get_video"), ("abuses.get_abuses", "peertube.api.abuses.get_abuses"), ]
+        (
+            "video_channels.get_video_channel",
+            "peertube.api.video_channels.get_video_channel",
+        ),
+        ("users.get_users", "peertube.api.users.get_users"),
+        ("accounts.get_accounts", "peertube.api.accounts.get_accounts"),
+        ("video.get_video", "peertube.api.video.get_video"),
+        ("abuses.get_abuses", "peertube.api.abuses.get_abuses"),
+    ]
 
     for endpoint_name, module_path in endpoints_to_test:
         try:
@@ -50,9 +63,10 @@ def show_fixed_issue():
     print("   >>> result = sync(client=client, start=0, count=10)")
     print("   >>> # Returns parsed data directly (no .parsed needed)")
 
-    print("\n🎉 Issue resolved! All 357 PeerTube API endpoints now have both sync() and sync_detailed() methods.")
+    print(
+        "\n🎉 Issue resolved! All 357 PeerTube API endpoints now have both sync() and sync_detailed() methods."
+    )
 
-if __name__== "__main__":
+
+if __name__ == "__main__":
     show_fixed_issue()
-
-

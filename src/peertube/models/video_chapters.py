@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.video_chapters_chapters import VideoChaptersChapters
 
 
-T=TypeVar("T", bound="VideoChapters")
+T = TypeVar("T", bound="VideoChapters")
 
 
 @_attrs_define
@@ -21,22 +20,21 @@ class VideoChapters:
     chapters (Union[Unset, VideoChaptersChapters]):
     """
 
-
     chapters: Union[Unset, "VideoChaptersChapters"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         chapters: Unset | dict[str, Any] = UNSET
         if not isinstance(self.chapters, Unset):
-            chapters=self.chapters.to_dict()
+            chapters = self.chapters.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if chapters is not UNSET:
-            field_dict["chapters"]=chapters
+            field_dict["chapters"] = chapters
 
         return field_dict
 
@@ -47,17 +45,16 @@ class VideoChapters:
         from peertube.models.video_chapters_chapters import VideoChaptersChapters
 
         d = dict(src_dict)
-        _chapters=d.pop("chapters", UNSET)
+        _chapters = d.pop("chapters", UNSET)
         chapters: Unset | VideoChaptersChapters
         if isinstance(_chapters, Unset):
             chapters = UNSET
         else:
-            chapters=VideoChaptersChapters.from_dict(_chapters)
+            chapters = VideoChaptersChapters.from_dict(_chapters)
 
-        video_chapters=cls(
-            chapters=chapters)
+        video_chapters = cls(chapters=chapters)
 
-        video_chapters.additional_properties=d
+        video_chapters.additional_properties = d
         return video_chapters
 
     @property
@@ -77,4 +74,3 @@ class VideoChapters:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

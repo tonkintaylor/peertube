@@ -9,44 +9,62 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    filename: str, *, video_file_token: Unset | str = UNSET, reinject_video_file_token: Unset | bool = UNSET) -> dict[str, Any]:
+    filename: str,
+    *,
+    video_file_token: Unset | str = UNSET,
+    reinject_video_file_token: Unset | bool = UNSET,
+) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
-    params["videoFileToken"]=video_file_token
+    params["videoFileToken"] = video_file_token
 
-    params["reinjectVideoFileToken"]=reinject_video_file_token
-    params={k: v for k, v in params.items() if v is not UNSET and v is not None}
+    params["reinjectVideoFileToken"] = reinject_video_file_token
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
-        "method": "get", "url": f"/static/streaming-playlists/hls/private/{filename}", "params": params, }
+        "method": "get",
+        "url": f"/static/streaming-playlists/hls/private/{filename}",
+        "params": params,
+    }
 
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code = = 200:
+    if response.status_code == 200:
         return None
 
-    if response.status_code== 403:
+    if response.status_code == 403:
         return None
 
-    if response.status_code== 404:
+    if response.status_code == 404:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
 def sync_detailed(
-    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str = UNSET, reinject_video_file_token: Unset | bool = UNSET) -> Response[Any]:
+    filename: str,
+    *,
+    client: AuthenticatedClient,
+    video_file_token: Unset | str = UNSET,
+    reinject_video_file_token: Unset | bool = UNSET,
+) -> Response[Any]:
     """Get private HLS video file
 
 
@@ -63,17 +81,24 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        filename=filename, video_file_token=video_file_token, reinject_video_file_token=reinject_video_file_token)
+    kwargs = _get_kwargs(
+        filename=filename,
+        video_file_token=video_file_token,
+        reinject_video_file_token=reinject_video_file_token,
+    )
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str = UNSET, reinject_video_file_token: Unset | bool = UNSET) -> Any | None:
+    filename: str,
+    *,
+    client: AuthenticatedClient,
+    video_file_token: Unset | str = UNSET,
+    reinject_video_file_token: Unset | bool = UNSET,
+) -> Any | None:
     """Get private HLS video file
 
 
@@ -86,14 +111,20 @@ def sync(
     """
 
     return sync_detailed(
-        filename = filename,
+        filename=filename,
         client=client,
         video_file_token=video_file_token,
-        reinject_video_file_token=reinject_video_file_token).parsed
+        reinject_video_file_token=reinject_video_file_token,
+    ).parsed
 
 
 async def asyncio_detailed(
-    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str = UNSET, reinject_video_file_token: Unset | bool = UNSET) -> Response[Any]:
+    filename: str,
+    *,
+    client: AuthenticatedClient,
+    video_file_token: Unset | str = UNSET,
+    reinject_video_file_token: Unset | bool = UNSET,
+) -> Response[Any]:
     """Get private HLS video file
 
 
@@ -110,11 +141,12 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        filename=filename, video_file_token=video_file_token, reinject_video_file_token=reinject_video_file_token)
+    kwargs = _get_kwargs(
+        filename=filename,
+        video_file_token=video_file_token,
+        reinject_video_file_token=reinject_video_file_token,
+    )
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
-
-

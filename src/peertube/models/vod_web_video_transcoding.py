@@ -1,18 +1,16 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="VODWebVideoTranscoding")
+T = TypeVar("T", bound="VODWebVideoTranscoding")
 
 
 @_attrs_define
 class VODWebVideoTranscoding:
     """Attributes:"""
-
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -29,8 +27,8 @@ class VODWebVideoTranscoding:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        vod_web_video_transcoding=cls()
-        vod_web_video_transcoding.additional_properties=d
+        vod_web_video_transcoding = cls()
+        vod_web_video_transcoding.additional_properties = d
         return vod_web_video_transcoding
 
     @property
@@ -50,4 +48,3 @@ class VODWebVideoTranscoding:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

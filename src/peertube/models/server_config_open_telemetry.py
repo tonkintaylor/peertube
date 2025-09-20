@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.server_config_open_telemetry_metrics import (
-        ServerConfigOpenTelemetryMetrics)
+        ServerConfigOpenTelemetryMetrics,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigOpenTelemetry")
+T = TypeVar("T", bound="ServerConfigOpenTelemetry")
 
 
 @_attrs_define
@@ -24,22 +24,21 @@ class ServerConfigOpenTelemetry:
         metrics (Union[Unset, ServerConfigOpenTelemetryMetrics]):
     """
 
-
     metrics: Union[Unset, "ServerConfigOpenTelemetryMetrics"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         metrics: Unset | dict[str, Any] = UNSET
         if not isinstance(self.metrics, Unset):
-            metrics=self.metrics.to_dict()
+            metrics = self.metrics.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if metrics is not UNSET:
-            field_dict["metrics"]=metrics
+            field_dict["metrics"] = metrics
 
         return field_dict
 
@@ -48,20 +47,20 @@ class ServerConfigOpenTelemetry:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_open_telemetry_metrics import (
-            ServerConfigOpenTelemetryMetrics)
+            ServerConfigOpenTelemetryMetrics,
+        )
 
         d = dict(src_dict)
-        _metrics=d.pop("metrics", UNSET)
+        _metrics = d.pop("metrics", UNSET)
         metrics: Unset | ServerConfigOpenTelemetryMetrics
         if isinstance(_metrics, Unset):
             metrics = UNSET
         else:
-            metrics=ServerConfigOpenTelemetryMetrics.from_dict(_metrics)
+            metrics = ServerConfigOpenTelemetryMetrics.from_dict(_metrics)
 
-        server_config_open_telemetry=cls(
-            metrics=metrics)
+        server_config_open_telemetry = cls(metrics=metrics)
 
-        server_config_open_telemetry.additional_properties=d
+        server_config_open_telemetry.additional_properties = d
         return server_config_open_telemetry
 
     @property
@@ -81,4 +80,3 @@ class ServerConfigOpenTelemetry:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

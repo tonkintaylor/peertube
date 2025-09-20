@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="VideoChaptersChapters")
+T = TypeVar("T", bound="VideoChaptersChapters")
 
 
 @_attrs_define
@@ -18,25 +17,24 @@ class VideoChaptersChapters:
     timecode (Union[Unset, int]):
     """
 
-
     title: Unset | str = UNSET
-    timecode: Unset | int=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    timecode: Unset | int = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        title=self.title
+        title = self.title
 
-        timecode=self.timecode
+        timecode = self.timecode
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if title is not UNSET:
-            field_dict["title"]=title
+            field_dict["title"] = title
         if timecode is not UNSET:
-            field_dict["timecode"]=timecode
+            field_dict["timecode"] = timecode
 
         return field_dict
 
@@ -45,14 +43,13 @@ class VideoChaptersChapters:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        title=d.pop("title", UNSET)
+        title = d.pop("title", UNSET)
 
-        timecode=d.pop("timecode", UNSET)
+        timecode = d.pop("timecode", UNSET)
 
-        video_chapters_chapters=cls(
-            title=title, timecode=timecode)
+        video_chapters_chapters = cls(title=title, timecode=timecode)
 
-        video_chapters_chapters.additional_properties=d
+        video_chapters_chapters.additional_properties = d
         return video_chapters_chapters
 
     @property
@@ -72,4 +69,3 @@ class VideoChaptersChapters:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

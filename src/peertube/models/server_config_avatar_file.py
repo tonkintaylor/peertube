@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.server_config_avatar_file_size import (
-        ServerConfigAvatarFileSize)
+        ServerConfigAvatarFileSize,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigAvatarFile")
+T = TypeVar("T", bound="ServerConfigAvatarFile")
 
 
 @_attrs_define
@@ -22,22 +22,21 @@ class ServerConfigAvatarFile:
     size (Union[Unset, ServerConfigAvatarFileSize]):
     """
 
-
     size: Union[Unset, "ServerConfigAvatarFileSize"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         size: Unset | dict[str, Any] = UNSET
         if not isinstance(self.size, Unset):
-            size=self.size.to_dict()
+            size = self.size.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if size is not UNSET:
-            field_dict["size"]=size
+            field_dict["size"] = size
 
         return field_dict
 
@@ -46,20 +45,20 @@ class ServerConfigAvatarFile:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_avatar_file_size import (
-            ServerConfigAvatarFileSize)
+            ServerConfigAvatarFileSize,
+        )
 
         d = dict(src_dict)
-        _size=d.pop("size", UNSET)
+        _size = d.pop("size", UNSET)
         size: Unset | ServerConfigAvatarFileSize
         if isinstance(_size, Unset):
             size = UNSET
         else:
-            size=ServerConfigAvatarFileSize.from_dict(_size)
+            size = ServerConfigAvatarFileSize.from_dict(_size)
 
-        server_config_avatar_file=cls(
-            size=size)
+        server_config_avatar_file = cls(size=size)
 
-        server_config_avatar_file.additional_properties=d
+        server_config_avatar_file.additional_properties = d
         return server_config_avatar_file
 
     @property
@@ -79,4 +78,3 @@ class ServerConfigAvatarFile:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

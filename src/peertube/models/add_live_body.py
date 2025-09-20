@@ -1,8 +1,7 @@
 import json
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union, cast)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -20,7 +19,7 @@ if TYPE_CHECKING:
     from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
 
-T=TypeVar("T", bound="AddLiveBody")
+T = TypeVar("T", bound="AddLiveBody")
 
 
 @_attrs_define
@@ -59,30 +58,29 @@ class AddLiveBody:
     schedules (Union[Unset, list['LiveSchedule']]):
     """
 
-
     channel_id: int
     name: str
     save_replay: Unset | bool = UNSET
-    replay_settings: Union[Unset, "LiveVideoReplaySettings"]=UNSET
+    replay_settings: Union[Unset, "LiveVideoReplaySettings"] = UNSET
     permanent_live: Unset | bool = UNSET
-    latency_mode: Unset | LiveVideoLatencyMode=UNSET
-    thumbnailfile: Unset | File=UNSET
-    previewfile: Unset | File=UNSET
-    privacy: Unset | VideoPrivacySet=UNSET
-    category: Unset | int=UNSET
-    licence: Unset | int=UNSET
-    language: Unset | str=UNSET
-    description: Unset | str=UNSET
-    support: Unset | str=UNSET
-    nsfw: Unset | bool=UNSET
-    nsfw_summary: Unset | Any=UNSET
-    nsfw_flags: Unset | NSFWFlag=UNSET
-    tags: Unset | list[str]=UNSET
-    comments_enabled: Unset | bool=UNSET
-    comments_policy: Unset | VideoCommentsPolicySet=UNSET
-    download_enabled: Unset | bool=UNSET
-    schedules: Unset | list["LiveSchedule"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    latency_mode: Unset | LiveVideoLatencyMode = UNSET
+    thumbnailfile: Unset | File = UNSET
+    previewfile: Unset | File = UNSET
+    privacy: Unset | VideoPrivacySet = UNSET
+    category: Unset | int = UNSET
+    licence: Unset | int = UNSET
+    language: Unset | str = UNSET
+    description: Unset | str = UNSET
+    support: Unset | str = UNSET
+    nsfw: Unset | bool = UNSET
+    nsfw_summary: Unset | Any = UNSET
+    nsfw_flags: Unset | NSFWFlag = UNSET
+    tags: Unset | list[str] = UNSET
+    comments_enabled: Unset | bool = UNSET
+    comments_policy: Unset | VideoCommentsPolicySet = UNSET
+    download_enabled: Unset | bool = UNSET
+    schedules: Unset | list["LiveSchedule"] = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -107,117 +105,119 @@ class AddLiveBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
 
-        channel_id=self.channel_id
+        channel_id = self.channel_id
 
-        name=self.name
+        name = self.name
 
-        save_replay=self.save_replay
+        save_replay = self.save_replay
 
         replay_settings: Unset | dict[str, Any] = UNSET
         if not isinstance(self.replay_settings, Unset):
-            replay_settings=self.replay_settings.to_dict()
+            replay_settings = self.replay_settings.to_dict()
 
-        permanent_live=self.permanent_live
+        permanent_live = self.permanent_live
 
         latency_mode: Unset | int = UNSET
         if not isinstance(self.latency_mode, Unset):
-            latency_mode=self.latency_mode.value
+            latency_mode = self.latency_mode.value
 
         thumbnailfile: Unset | FileTypes = UNSET
         if not isinstance(self.thumbnailfile, Unset):
-            thumbnailfile=self.thumbnailfile.to_tuple()
+            thumbnailfile = self.thumbnailfile.to_tuple()
 
         previewfile: Unset | FileTypes = UNSET
         if not isinstance(self.previewfile, Unset):
-            previewfile=self.previewfile.to_tuple()
+            previewfile = self.previewfile.to_tuple()
 
         privacy: Unset | int = UNSET
         if not isinstance(self.privacy, Unset):
-            privacy=self.privacy.value
+            privacy = self.privacy.value
 
-        category=self.category
+        category = self.category
 
-        licence=self.licence
+        licence = self.licence
 
-        language=self.language
+        language = self.language
 
-        description=self.description
+        description = self.description
 
-        support=self.support
+        support = self.support
 
-        nsfw=self.nsfw
+        nsfw = self.nsfw
 
-        nsfw_summary=self.nsfw_summary
+        nsfw_summary = self.nsfw_summary
 
         nsfw_flags: Unset | int = UNSET
         if not isinstance(self.nsfw_flags, Unset):
-            nsfw_flags=self.nsfw_flags.value
+            nsfw_flags = self.nsfw_flags.value
 
         tags: Unset | list[str] = UNSET
         if not isinstance(self.tags, Unset):
-            tags=self.tags
+            tags = self.tags
 
-        comments_enabled=self.comments_enabled
+        comments_enabled = self.comments_enabled
 
         comments_policy: Unset | int = UNSET
         if not isinstance(self.comments_policy, Unset):
-            comments_policy=self.comments_policy.value
+            comments_policy = self.comments_policy.value
 
-        download_enabled=self.download_enabled
+        download_enabled = self.download_enabled
 
         schedules: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.schedules, Unset):
-            schedules=[]
+            schedules = []
             for schedules_item_data in self.schedules:
-                schedules_item=schedules_item_data.to_dict()
+                schedules_item = schedules_item_data.to_dict()
                 schedules.append(schedules_item)
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "channelId": channel_id, "name": name, }
+                "channelId": channel_id,
+                "name": name,
+            }
         )
         if save_replay is not UNSET:
-            field_dict["saveReplay"]=save_replay
+            field_dict["saveReplay"] = save_replay
         if replay_settings is not UNSET:
-            field_dict["replaySettings"]=replay_settings
+            field_dict["replaySettings"] = replay_settings
         if permanent_live is not UNSET:
-            field_dict["permanentLive"]=permanent_live
+            field_dict["permanentLive"] = permanent_live
         if latency_mode is not UNSET:
-            field_dict["latencyMode"]=latency_mode
+            field_dict["latencyMode"] = latency_mode
         if thumbnailfile is not UNSET:
-            field_dict["thumbnailfile"]=thumbnailfile
+            field_dict["thumbnailfile"] = thumbnailfile
         if previewfile is not UNSET:
-            field_dict["previewfile"]=previewfile
+            field_dict["previewfile"] = previewfile
         if privacy is not UNSET:
-            field_dict["privacy"]=privacy
+            field_dict["privacy"] = privacy
         if category is not UNSET:
-            field_dict["category"]=category
+            field_dict["category"] = category
         if licence is not UNSET:
-            field_dict["licence"]=licence
+            field_dict["licence"] = licence
         if language is not UNSET:
-            field_dict["language"]=language
+            field_dict["language"] = language
         if description is not UNSET:
-            field_dict["description"]=description
+            field_dict["description"] = description
         if support is not UNSET:
-            field_dict["support"]=support
+            field_dict["support"] = support
         if nsfw is not UNSET:
-            field_dict["nsfw"]=nsfw
+            field_dict["nsfw"] = nsfw
         if nsfw_summary is not UNSET:
-            field_dict["nsfwSummary"]=nsfw_summary
+            field_dict["nsfwSummary"] = nsfw_summary
         if nsfw_flags is not UNSET:
-            field_dict["nsfwFlags"]=nsfw_flags
+            field_dict["nsfwFlags"] = nsfw_flags
         if tags is not UNSET:
-            field_dict["tags"]=tags
+            field_dict["tags"] = tags
         if comments_enabled is not UNSET:
-            field_dict["commentsEnabled"]=comments_enabled
+            field_dict["commentsEnabled"] = comments_enabled
         if comments_policy is not UNSET:
-            field_dict["commentsPolicy"]=comments_policy
+            field_dict["commentsPolicy"] = comments_policy
         if download_enabled is not UNSET:
-            field_dict["downloadEnabled"]=download_enabled
+            field_dict["downloadEnabled"] = download_enabled
         if schedules is not UNSET:
-            field_dict["schedules"]=schedules
+            field_dict["schedules"] = schedules
 
         return field_dict
 
@@ -238,20 +238,29 @@ class AddLiveBody:
         if not isinstance(self.replay_settings, Unset):
             files.append(
                 (
-                    "replaySettings", (
-                        None, json.dumps(self.replay_settings.to_dict()).encode(), "application/json"))
+                    "replaySettings",
+                    (
+                        None,
+                        json.dumps(self.replay_settings.to_dict()).encode(),
+                        "application/json",
+                    ),
+                )
             )
 
         if not isinstance(self.permanent_live, Unset):
             files.append(
                 (
-                    "permanentLive", (None, str(self.permanent_live).encode(), "text/plain"))
+                    "permanentLive",
+                    (None, str(self.permanent_live).encode(), "text/plain"),
+                )
             )
 
         if not isinstance(self.latency_mode, Unset):
             files.append(
                 (
-                    "latencyMode", (None, str(self.latency_mode.value).encode(), "text/plain"))
+                    "latencyMode",
+                    (None, str(self.latency_mode.value).encode(), "text/plain"),
+                )
             )
 
         if not isinstance(self.thumbnailfile, Unset):
@@ -308,27 +317,38 @@ class AddLiveBody:
         if not isinstance(self.comments_enabled, Unset):
             files.append(
                 (
-                    "commentsEnabled", (None, str(self.comments_enabled).encode(), "text/plain"))
+                    "commentsEnabled",
+                    (None, str(self.comments_enabled).encode(), "text/plain"),
+                )
             )
 
         if not isinstance(self.comments_policy, Unset):
             files.append(
                 (
-                    "commentsPolicy", (None, str(self.comments_policy.value).encode(), "text/plain"))
+                    "commentsPolicy",
+                    (None, str(self.comments_policy.value).encode(), "text/plain"),
+                )
             )
 
         if not isinstance(self.download_enabled, Unset):
             files.append(
                 (
-                    "downloadEnabled", (None, str(self.download_enabled).encode(), "text/plain"))
+                    "downloadEnabled",
+                    (None, str(self.download_enabled).encode(), "text/plain"),
+                )
             )
 
         if not isinstance(self.schedules, Unset):
             for schedules_item_element in self.schedules:
                 files.append(
                     (
-                        "schedules", (
-                            None, json.dumps(schedules_item_element.to_dict()).encode(), "application/json"))
+                        "schedules",
+                        (
+                            None,
+                            json.dumps(schedules_item_element.to_dict()).encode(),
+                            "application/json",
+                        ),
+                    )
                 )
 
         for prop_name, prop in self.additional_properties.items():
@@ -364,94 +384,116 @@ class AddLiveBody:
         from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
         d = dict(src_dict)
-        channel_id=d.pop("channelId")
+        channel_id = d.pop("channelId")
 
-        name=d.pop("name")
+        name = d.pop("name")
 
-        save_replay=d.pop("saveReplay", UNSET)
+        save_replay = d.pop("saveReplay", UNSET)
 
-        _replay_settings=d.pop("replaySettings", UNSET)
+        _replay_settings = d.pop("replaySettings", UNSET)
         replay_settings: Unset | LiveVideoReplaySettings
         if isinstance(_replay_settings, Unset):
             replay_settings = UNSET
         else:
-            replay_settings=LiveVideoReplaySettings.from_dict(_replay_settings)
+            replay_settings = LiveVideoReplaySettings.from_dict(_replay_settings)
 
-        permanent_live=d.pop("permanentLive", UNSET)
+        permanent_live = d.pop("permanentLive", UNSET)
 
-        _latency_mode=d.pop("latencyMode", UNSET)
+        _latency_mode = d.pop("latencyMode", UNSET)
         latency_mode: Unset | LiveVideoLatencyMode
         if isinstance(_latency_mode, Unset):
             latency_mode = UNSET
         else:
-            latency_mode=LiveVideoLatencyMode(_latency_mode)
+            latency_mode = LiveVideoLatencyMode(_latency_mode)
 
-        _thumbnailfile=d.pop("thumbnailfile", UNSET)
+        _thumbnailfile = d.pop("thumbnailfile", UNSET)
         thumbnailfile: Unset | File
         if isinstance(_thumbnailfile, Unset):
             thumbnailfile = UNSET
         else:
-            thumbnailfile=File(payload=BytesIO(_thumbnailfile))
+            thumbnailfile = File(payload=BytesIO(_thumbnailfile))
 
-        _previewfile=d.pop("previewfile", UNSET)
+        _previewfile = d.pop("previewfile", UNSET)
         previewfile: Unset | File
         if isinstance(_previewfile, Unset):
             previewfile = UNSET
         else:
-            previewfile=File(payload=BytesIO(_previewfile))
+            previewfile = File(payload=BytesIO(_previewfile))
 
-        _privacy=d.pop("privacy", UNSET)
+        _privacy = d.pop("privacy", UNSET)
         privacy: Unset | VideoPrivacySet
         if isinstance(_privacy, Unset):
             privacy = UNSET
         else:
-            privacy=VideoPrivacySet(_privacy)
+            privacy = VideoPrivacySet(_privacy)
 
-        category=d.pop("category", UNSET)
+        category = d.pop("category", UNSET)
 
-        licence=d.pop("licence", UNSET)
+        licence = d.pop("licence", UNSET)
 
-        language=d.pop("language", UNSET)
+        language = d.pop("language", UNSET)
 
-        description=d.pop("description", UNSET)
+        description = d.pop("description", UNSET)
 
-        support=d.pop("support", UNSET)
+        support = d.pop("support", UNSET)
 
-        nsfw=d.pop("nsfw", UNSET)
+        nsfw = d.pop("nsfw", UNSET)
 
-        nsfw_summary=d.pop("nsfwSummary", UNSET)
+        nsfw_summary = d.pop("nsfwSummary", UNSET)
 
-        _nsfw_flags=d.pop("nsfwFlags", UNSET)
+        _nsfw_flags = d.pop("nsfwFlags", UNSET)
         nsfw_flags: Unset | NSFWFlag
         if isinstance(_nsfw_flags, Unset):
             nsfw_flags = UNSET
         else:
-            nsfw_flags=NSFWFlag(_nsfw_flags)
+            nsfw_flags = NSFWFlag(_nsfw_flags)
 
-        tags=cast("list[str]", d.pop("tags", UNSET))
+        tags = cast("list[str]", d.pop("tags", UNSET))
 
-        comments_enabled=d.pop("commentsEnabled", UNSET)
+        comments_enabled = d.pop("commentsEnabled", UNSET)
 
-        _comments_policy=d.pop("commentsPolicy", UNSET)
+        _comments_policy = d.pop("commentsPolicy", UNSET)
         comments_policy: Unset | VideoCommentsPolicySet
         if isinstance(_comments_policy, Unset):
             comments_policy = UNSET
         else:
-            comments_policy=VideoCommentsPolicySet(_comments_policy)
+            comments_policy = VideoCommentsPolicySet(_comments_policy)
 
-        download_enabled=d.pop("downloadEnabled", UNSET)
+        download_enabled = d.pop("downloadEnabled", UNSET)
 
-        schedules=[]
-        _schedules=d.pop("schedules", UNSET)
+        schedules = []
+        _schedules = d.pop("schedules", UNSET)
         for schedules_item_data in _schedules or []:
-            schedules_item=LiveSchedule.from_dict(schedules_item_data)
+            schedules_item = LiveSchedule.from_dict(schedules_item_data)
 
             schedules.append(schedules_item)
 
-        add_live_body=cls(
-            channel_id=channel_id, name=name, save_replay=save_replay, replay_settings=replay_settings, permanent_live=permanent_live, latency_mode=latency_mode, thumbnailfile=thumbnailfile, previewfile=previewfile, privacy=privacy, category=category, licence=licence, language=language, description=description, support=support, nsfw=nsfw, nsfw_summary=nsfw_summary, nsfw_flags=nsfw_flags, tags=tags, comments_enabled=comments_enabled, comments_policy=comments_policy, download_enabled=download_enabled, schedules=schedules)
+        add_live_body = cls(
+            channel_id=channel_id,
+            name=name,
+            save_replay=save_replay,
+            replay_settings=replay_settings,
+            permanent_live=permanent_live,
+            latency_mode=latency_mode,
+            thumbnailfile=thumbnailfile,
+            previewfile=previewfile,
+            privacy=privacy,
+            category=category,
+            licence=licence,
+            language=language,
+            description=description,
+            support=support,
+            nsfw=nsfw,
+            nsfw_summary=nsfw_summary,
+            nsfw_flags=nsfw_flags,
+            tags=tags,
+            comments_enabled=comments_enabled,
+            comments_policy=comments_policy,
+            download_enabled=download_enabled,
+            schedules=schedules,
+        )
 
-        add_live_body.additional_properties=d
+        add_live_body.additional_properties = d
         return add_live_body
 
     @property
@@ -491,4 +533,3 @@ class AddLiveBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

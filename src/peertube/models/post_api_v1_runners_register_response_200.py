@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="PostApiV1RunnersRegisterResponse200")
+T = TypeVar("T", bound="PostApiV1RunnersRegisterResponse200")
 
 
 @_attrs_define
@@ -18,25 +17,24 @@ class PostApiV1RunnersRegisterResponse200:
     runner_token (Union[Unset, str]):
     """
 
-
     id: Unset | int = UNSET
-    runner_token: Unset | str=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    runner_token: Unset | str = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        id=self.id
+        id = self.id
 
-        runner_token=self.runner_token
+        runner_token = self.runner_token
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
-            field_dict["id"]=id
+            field_dict["id"] = id
         if runner_token is not UNSET:
-            field_dict["runnerToken"]=runner_token
+            field_dict["runnerToken"] = runner_token
 
         return field_dict
 
@@ -45,14 +43,15 @@ class PostApiV1RunnersRegisterResponse200:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        id=d.pop("id", UNSET)
+        id = d.pop("id", UNSET)
 
-        runner_token=d.pop("runnerToken", UNSET)
+        runner_token = d.pop("runnerToken", UNSET)
 
-        post_api_v1_runners_register_response_200=cls(
-            id=id, runner_token=runner_token)
+        post_api_v1_runners_register_response_200 = cls(
+            id=id, runner_token=runner_token
+        )
 
-        post_api_v1_runners_register_response_200.additional_properties=d
+        post_api_v1_runners_register_response_200.additional_properties = d
         return post_api_v1_runners_register_response_200
 
     @property
@@ -72,4 +71,3 @@ class PostApiV1RunnersRegisterResponse200:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

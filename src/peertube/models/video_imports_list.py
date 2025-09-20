@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.video_import import VideoImport
 
 
-T=TypeVar("T", bound="VideoImportsList")
+T = TypeVar("T", bound="VideoImportsList")
 
 
 @_attrs_define
@@ -22,30 +21,29 @@ class VideoImportsList:
     data (Union[Unset, list['VideoImport']]):
     """
 
-
     total: Unset | int = UNSET
-    data: Unset | list["VideoImport"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    data: Unset | list["VideoImport"] = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        total=self.total
+        total = self.total
 
         data: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.data, Unset):
-            data=[]
+            data = []
             for data_item_data in self.data:
-                data_item=data_item_data.to_dict()
+                data_item = data_item_data.to_dict()
                 data.append(data_item)
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if total is not UNSET:
-            field_dict["total"]=total
+            field_dict["total"] = total
         if data is not UNSET:
-            field_dict["data"]=data
+            field_dict["data"] = data
 
         return field_dict
 
@@ -56,19 +54,18 @@ class VideoImportsList:
         from peertube.models.video_import import VideoImport
 
         d = dict(src_dict)
-        total=d.pop("total", UNSET)
+        total = d.pop("total", UNSET)
 
-        data=[]
-        _data=d.pop("data", UNSET)
+        data = []
+        _data = d.pop("data", UNSET)
         for data_item_data in _data or []:
-            data_item=VideoImport.from_dict(data_item_data)
+            data_item = VideoImport.from_dict(data_item_data)
 
             data.append(data_item)
 
-        video_imports_list=cls(
-            total=total, data=data)
+        video_imports_list = cls(total=total, data=data)
 
-        video_imports_list.additional_properties=d
+        video_imports_list.additional_properties = d
         return video_imports_list
 
     @property
@@ -88,4 +85,3 @@ class VideoImportsList:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

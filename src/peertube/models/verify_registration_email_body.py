@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="VerifyRegistrationEmailBody")
+T = TypeVar("T", bound="VerifyRegistrationEmailBody")
 
 
 @_attrs_define
@@ -14,20 +14,20 @@ class VerifyRegistrationEmailBody:
     verification_string (str):
     """
 
-
     verification_string: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        verification_string=self.verification_string
+        verification_string = self.verification_string
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "verificationString": verification_string, }
+                "verificationString": verification_string,
+            }
         )
 
         return field_dict
@@ -37,12 +37,11 @@ class VerifyRegistrationEmailBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        verification_string=d.pop("verificationString")
+        verification_string = d.pop("verificationString")
 
-        verify_registration_email_body=cls(
-            verification_string=verification_string)
+        verify_registration_email_body = cls(verification_string=verification_string)
 
-        verify_registration_email_body.additional_properties=d
+        verify_registration_email_body.additional_properties = d
         return verify_registration_email_body
 
     @property
@@ -62,4 +61,3 @@ class VerifyRegistrationEmailBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

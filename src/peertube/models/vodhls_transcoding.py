@@ -1,18 +1,16 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="VODHLSTranscoding")
+T = TypeVar("T", bound="VODHLSTranscoding")
 
 
 @_attrs_define
 class VODHLSTranscoding:
     """Attributes:"""
-
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -29,8 +27,8 @@ class VODHLSTranscoding:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        vodhls_transcoding=cls()
-        vodhls_transcoding.additional_properties=d
+        vodhls_transcoding = cls()
+        vodhls_transcoding.additional_properties = d
         return vodhls_transcoding
 
     @property
@@ -50,4 +48,3 @@ class VODHLSTranscoding:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

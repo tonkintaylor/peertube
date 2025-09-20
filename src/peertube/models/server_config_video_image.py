@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union, cast)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.server_config_video_image_size import (
-        ServerConfigVideoImageSize)
+        ServerConfigVideoImageSize,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigVideoImage")
+T = TypeVar("T", bound="ServerConfigVideoImage")
 
 
 @_attrs_define
@@ -23,9 +23,8 @@ class ServerConfigVideoImage:
     size (Union[Unset, ServerConfigVideoImageSize]):
     """
 
-
     extensions: Unset | list[str] = UNSET
-    size: Union[Unset, "ServerConfigVideoImageSize"]=UNSET
+    size: Union[Unset, "ServerConfigVideoImageSize"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -33,19 +32,19 @@ class ServerConfigVideoImage:
 
         extensions: Unset | list[str] = UNSET
         if not isinstance(self.extensions, Unset):
-            extensions=self.extensions
+            extensions = self.extensions
 
         size: Unset | dict[str, Any] = UNSET
         if not isinstance(self.size, Unset):
-            size=self.size.to_dict()
+            size = self.size.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if extensions is not UNSET:
-            field_dict["extensions"]=extensions
+            field_dict["extensions"] = extensions
         if size is not UNSET:
-            field_dict["size"]=size
+            field_dict["size"] = size
 
         return field_dict
 
@@ -54,22 +53,22 @@ class ServerConfigVideoImage:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_video_image_size import (
-            ServerConfigVideoImageSize)
+            ServerConfigVideoImageSize,
+        )
 
         d = dict(src_dict)
-        extensions=cast("list[str]", d.pop("extensions", UNSET))
+        extensions = cast("list[str]", d.pop("extensions", UNSET))
 
-        _size=d.pop("size", UNSET)
+        _size = d.pop("size", UNSET)
         size: Unset | ServerConfigVideoImageSize
         if isinstance(_size, Unset):
             size = UNSET
         else:
-            size=ServerConfigVideoImageSize.from_dict(_size)
+            size = ServerConfigVideoImageSize.from_dict(_size)
 
-        server_config_video_image=cls(
-            extensions=extensions, size=size)
+        server_config_video_image = cls(extensions=extensions, size=size)
 
-        server_config_video_image.additional_properties=d
+        server_config_video_image.additional_properties = d
         return server_config_video_image
 
     @property
@@ -89,4 +88,3 @@ class ServerConfigVideoImage:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

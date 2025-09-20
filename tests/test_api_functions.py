@@ -80,4 +80,3 @@ class TestGeneratedAPI:
             assert UnexpectedStatus is not None
         except (ImportError, AttributeError) as e:
             pytest.fail(f"Failed to import errors: {e}")
-

@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,7 +9,7 @@ from peertube.models.user_viewing_video_view_event import UserViewingVideoViewEv
 from peertube.models.video_stats_user_agent_device import VideoStatsUserAgentDevice
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="UserViewingVideo")
+T = TypeVar("T", bound="UserViewingVideo")
 
 
 @_attrs_define
@@ -30,47 +29,48 @@ class UserViewingVideo:
 
     current_time: int
     view_event: Unset | UserViewingVideoViewEvent = UNSET
-    session_id: Unset | str=UNSET
-    client: Unset | str=UNSET
-    device: Unset | VideoStatsUserAgentDevice=UNSET
-    operating_system: Unset | str=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    session_id: Unset | str = UNSET
+    client: Unset | str = UNSET
+    device: Unset | VideoStatsUserAgentDevice = UNSET
+    operating_system: Unset | str = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        current_time=self.current_time
+        current_time = self.current_time
 
         view_event: Unset | str = UNSET
         if not isinstance(self.view_event, Unset):
-            view_event=self.view_event.value
+            view_event = self.view_event.value
 
-        session_id=self.session_id
+        session_id = self.session_id
 
-        client=self.client
+        client = self.client
 
         device: Unset | str = UNSET
         if not isinstance(self.device, Unset):
-            device=self.device.value
+            device = self.device.value
 
-        operating_system=self.operating_system
+        operating_system = self.operating_system
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "currentTime": current_time, }
+                "currentTime": current_time,
+            }
         )
         if view_event is not UNSET:
-            field_dict["viewEvent"]=view_event
+            field_dict["viewEvent"] = view_event
         if session_id is not UNSET:
-            field_dict["sessionId"]=session_id
+            field_dict["sessionId"] = session_id
         if client is not UNSET:
-            field_dict["client"]=client
+            field_dict["client"] = client
         if device is not UNSET:
-            field_dict["device"]=device
+            field_dict["device"] = device
         if operating_system is not UNSET:
-            field_dict["operatingSystem"]=operating_system
+            field_dict["operatingSystem"] = operating_system
 
         return field_dict
 
@@ -79,32 +79,38 @@ class UserViewingVideo:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        current_time=d.pop("currentTime")
+        current_time = d.pop("currentTime")
 
-        _view_event=d.pop("viewEvent", UNSET)
+        _view_event = d.pop("viewEvent", UNSET)
         view_event: Unset | UserViewingVideoViewEvent
         if isinstance(_view_event, Unset):
             view_event = UNSET
         else:
-            view_event=UserViewingVideoViewEvent(_view_event)
+            view_event = UserViewingVideoViewEvent(_view_event)
 
-        session_id=d.pop("sessionId", UNSET)
+        session_id = d.pop("sessionId", UNSET)
 
-        client=d.pop("client", UNSET)
+        client = d.pop("client", UNSET)
 
-        _device=d.pop("device", UNSET)
+        _device = d.pop("device", UNSET)
         device: Unset | VideoStatsUserAgentDevice
         if isinstance(_device, Unset):
             device = UNSET
         else:
-            device=VideoStatsUserAgentDevice(_device)
+            device = VideoStatsUserAgentDevice(_device)
 
-        operating_system=d.pop("operatingSystem", UNSET)
+        operating_system = d.pop("operatingSystem", UNSET)
 
-        user_viewing_video=cls(
-            current_time=current_time, view_event=view_event, session_id=session_id, client=client, device=device, operating_system=operating_system)
+        user_viewing_video = cls(
+            current_time=current_time,
+            view_event=view_event,
+            session_id=session_id,
+            client=client,
+            device=device,
+            operating_system=operating_system,
+        )
 
-        user_viewing_video.additional_properties=d
+        user_viewing_video.additional_properties = d
         return user_viewing_video
 
     @property
@@ -124,4 +130,3 @@ class UserViewingVideo:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

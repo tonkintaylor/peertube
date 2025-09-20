@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="ServerConfigCustomTranscodingWebVideos")
+T = TypeVar("T", bound="ServerConfigCustomTranscodingWebVideos")
 
 
 @_attrs_define
@@ -19,20 +18,19 @@ class ServerConfigCustomTranscodingWebVideos:
         enabled (Union[Unset, bool]):
     """
 
-
     enabled: Unset | bool = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        enabled=self.enabled
+        enabled = self.enabled
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if enabled is not UNSET:
-            field_dict["enabled"]=enabled
+            field_dict["enabled"] = enabled
 
         return field_dict
 
@@ -41,12 +39,11 @@ class ServerConfigCustomTranscodingWebVideos:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        enabled=d.pop("enabled", UNSET)
+        enabled = d.pop("enabled", UNSET)
 
-        server_config_custom_transcoding_web_videos=cls(
-            enabled=enabled)
+        server_config_custom_transcoding_web_videos = cls(enabled=enabled)
 
-        server_config_custom_transcoding_web_videos.additional_properties=d
+        server_config_custom_transcoding_web_videos.additional_properties = d
         return server_config_custom_transcoding_web_videos
 
     @property
@@ -66,4 +63,3 @@ class ServerConfigCustomTranscodingWebVideos:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

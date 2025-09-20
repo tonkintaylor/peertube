@@ -4,7 +4,6 @@
 This script demonstrates the basic usage patterns for the generated PeerTube client.
 """
 
-
 from peertube import AuthenticatedClient, Client
 
 
@@ -14,7 +13,7 @@ def basic_client_usage():
     print("===Basic Client Usage===")
 
     # Create an unauthenticated client
-    _client=Client(base_url="https://peertube.example.com")
+    _client = Client(base_url="https://peertube.example.com")
 
     print("Client created successfully")
     print(
@@ -34,7 +33,7 @@ def authenticated_client_usage():
     print("===Authenticated Client Usage===")
 
     # Create an authenticated client
-    auth_client=AuthenticatedClient(
+    auth_client = AuthenticatedClient(
         base_url="https://peertube.example.com", token="your-api-token-here"
     )
 
@@ -65,9 +64,14 @@ def advanced_client_configuration():
     print("===Advanced Client Configuration===")
 
     # Client with custom timeout and SSL settings
-    _client=Client(
-        base_url="https://peertube.example.com", timeout=30.0, verify_ssl=False, # Only for testing!
-        follow_redirects=True, headers={"User-Agent": "MyPeerTubeApp/1.0"}, cookies={"session": "example-session-id"})
+    _client = Client(
+        base_url="https://peertube.example.com",
+        timeout=30.0,
+        verify_ssl=False,  # Only for testing!
+        follow_redirects=True,
+        headers={"User-Agent": "MyPeerTubeApp/1.0"},
+        cookies={"session": "example-session-id"},
+    )
 
     print("Client configured with custom options:")
     print("  - Custom timeout")
@@ -110,8 +114,21 @@ def main():
 
     print("===Available API Modules===")
     print("The following API modules are available:")
-    api_modules=[
-        "accounts", "video", "videos", "users", "session", "config", "search", "video_channels", "video_playlists", "my_user", "my_subscriptions", "my_notifications", "register", ]
+    api_modules = [
+        "accounts",
+        "video",
+        "videos",
+        "users",
+        "session",
+        "config",
+        "search",
+        "video_channels",
+        "video_playlists",
+        "my_user",
+        "my_subscriptions",
+        "my_notifications",
+        "register",
+    ]
 
     for module in api_modules:
         print(f"  - peertube.api.{module}")
@@ -121,6 +138,5 @@ def main():
     print("https://docs.joinpeertube.org/api-rest-reference.html")
 
 
-if __name__== "__main__":
+if __name__ == "__main__":
     main()
-

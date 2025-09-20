@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,7 +8,7 @@ from typing_extensions import Self
 from peertube.models.runner_job_state import RunnerJobState
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="RunnerJobStateConstant")
+T = TypeVar("T", bound="RunnerJobStateConstant")
 
 
 @_attrs_define
@@ -27,27 +26,26 @@ class RunnerJobStateConstant:
     label (Union[Unset, str]):  Example: Processing.
     """
 
-
     id: Unset | RunnerJobState = UNSET
-    label: Unset | str=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    label: Unset | str = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         id: Unset | int = UNSET
         if not isinstance(self.id, Unset):
-            id=self.id.value
+            id = self.id.value
 
-        label=self.label
+        label = self.label
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
-            field_dict["id"]=id
+            field_dict["id"] = id
         if label is not UNSET:
-            field_dict["label"]=label
+            field_dict["label"] = label
 
         return field_dict
 
@@ -56,19 +54,18 @@ class RunnerJobStateConstant:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        _id=d.pop("id", UNSET)
+        _id = d.pop("id", UNSET)
         id: Unset | RunnerJobState
         if isinstance(_id, Unset):
             id = UNSET
         else:
-            id=RunnerJobState(_id)
+            id = RunnerJobState(_id)
 
-        label=d.pop("label", UNSET)
+        label = d.pop("label", UNSET)
 
-        runner_job_state_constant=cls(
-            id=id, label=label)
+        runner_job_state_constant = cls(id=id, label=label)
 
-        runner_job_state_constant.additional_properties=d
+        runner_job_state_constant.additional_properties = d
         return runner_job_state_constant
 
     @property
@@ -88,4 +85,3 @@ class RunnerJobStateConstant:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

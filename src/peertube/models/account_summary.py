@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.actor_image import ActorImage
 
 
-T=TypeVar("T", bound="AccountSummary")
+T = TypeVar("T", bound="AccountSummary")
 
 
 @_attrs_define
@@ -26,50 +25,49 @@ class AccountSummary:
     avatars (Union[Unset, list['ActorImage']]):
     """
 
-
     id: Unset | int = UNSET
-    name: Unset | str=UNSET
-    display_name: Unset | str=UNSET
-    url: Unset | str=UNSET
-    host: Unset | str=UNSET
-    avatars: Unset | list["ActorImage"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    name: Unset | str = UNSET
+    display_name: Unset | str = UNSET
+    url: Unset | str = UNSET
+    host: Unset | str = UNSET
+    avatars: Unset | list["ActorImage"] = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        id=self.id
+        id = self.id
 
-        name=self.name
+        name = self.name
 
-        display_name=self.display_name
+        display_name = self.display_name
 
-        url=self.url
+        url = self.url
 
-        host=self.host
+        host = self.host
 
         avatars: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.avatars, Unset):
-            avatars=[]
+            avatars = []
             for avatars_item_data in self.avatars:
-                avatars_item=avatars_item_data.to_dict()
+                avatars_item = avatars_item_data.to_dict()
                 avatars.append(avatars_item)
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
-            field_dict["id"]=id
+            field_dict["id"] = id
         if name is not UNSET:
-            field_dict["name"]=name
+            field_dict["name"] = name
         if display_name is not UNSET:
-            field_dict["displayName"]=display_name
+            field_dict["displayName"] = display_name
         if url is not UNSET:
-            field_dict["url"]=url
+            field_dict["url"] = url
         if host is not UNSET:
-            field_dict["host"]=host
+            field_dict["host"] = host
         if avatars is not UNSET:
-            field_dict["avatars"]=avatars
+            field_dict["avatars"] = avatars
 
         return field_dict
 
@@ -80,27 +78,33 @@ class AccountSummary:
         from peertube.models.actor_image import ActorImage
 
         d = dict(src_dict)
-        id=d.pop("id", UNSET)
+        id = d.pop("id", UNSET)
 
-        name=d.pop("name", UNSET)
+        name = d.pop("name", UNSET)
 
-        display_name=d.pop("displayName", UNSET)
+        display_name = d.pop("displayName", UNSET)
 
-        url=d.pop("url", UNSET)
+        url = d.pop("url", UNSET)
 
-        host=d.pop("host", UNSET)
+        host = d.pop("host", UNSET)
 
-        avatars=[]
-        _avatars=d.pop("avatars", UNSET)
+        avatars = []
+        _avatars = d.pop("avatars", UNSET)
         for avatars_item_data in _avatars or []:
-            avatars_item=ActorImage.from_dict(avatars_item_data)
+            avatars_item = ActorImage.from_dict(avatars_item_data)
 
             avatars.append(avatars_item)
 
-        account_summary=cls(
-            id=id, name=name, display_name=display_name, url=url, host=host, avatars=avatars)
+        account_summary = cls(
+            id=id,
+            name=name,
+            display_name=display_name,
+            url=url,
+            host=host,
+            avatars=avatars,
+        )
 
-        account_summary.additional_properties=d
+        account_summary.additional_properties = d
         return account_summary
 
     @property
@@ -120,4 +124,3 @@ class AccountSummary:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

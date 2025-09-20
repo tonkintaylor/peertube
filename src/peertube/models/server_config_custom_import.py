@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,12 +9,14 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.server_config_custom_import_video_channel_synchronization import (
-        ServerConfigCustomImportVideoChannelSynchronization)
+        ServerConfigCustomImportVideoChannelSynchronization,
+    )
     from peertube.models.server_config_custom_import_videos import (
-        ServerConfigCustomImportVideos)
+        ServerConfigCustomImportVideos,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigCustomImport")
+T = TypeVar("T", bound="ServerConfigCustomImport")
 
 
 @_attrs_define
@@ -25,11 +26,10 @@ class ServerConfigCustomImport:
     video_channel_synchronization (Union[Unset, ServerConfigCustomImportVideoChannelSynchronization]):
     """
 
-
     videos: Union[Unset, "ServerConfigCustomImportVideos"] = UNSET
     video_channel_synchronization: Union[
         Unset, "ServerConfigCustomImportVideoChannelSynchronization"
-    ]=UNSET
+    ] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -37,19 +37,19 @@ class ServerConfigCustomImport:
 
         videos: Unset | dict[str, Any] = UNSET
         if not isinstance(self.videos, Unset):
-            videos=self.videos.to_dict()
+            videos = self.videos.to_dict()
 
         video_channel_synchronization: Unset | dict[str, Any] = UNSET
         if not isinstance(self.video_channel_synchronization, Unset):
-            video_channel_synchronization=self.video_channel_synchronization.to_dict()
+            video_channel_synchronization = self.video_channel_synchronization.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if videos is not UNSET:
-            field_dict["videos"]=videos
+            field_dict["videos"] = videos
         if video_channel_synchronization is not UNSET:
-            field_dict["video_channel_synchronization"]=video_channel_synchronization
+            field_dict["video_channel_synchronization"] = video_channel_synchronization
 
         return field_dict
 
@@ -58,35 +58,38 @@ class ServerConfigCustomImport:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_custom_import_video_channel_synchronization import (
-            ServerConfigCustomImportVideoChannelSynchronization)
+            ServerConfigCustomImportVideoChannelSynchronization,
+        )
         from peertube.models.server_config_custom_import_videos import (
-            ServerConfigCustomImportVideos)
+            ServerConfigCustomImportVideos,
+        )
 
         d = dict(src_dict)
-        _videos=d.pop("videos", UNSET)
+        _videos = d.pop("videos", UNSET)
         videos: Unset | ServerConfigCustomImportVideos
         if isinstance(_videos, Unset):
             videos = UNSET
         else:
-            videos=ServerConfigCustomImportVideos.from_dict(_videos)
+            videos = ServerConfigCustomImportVideos.from_dict(_videos)
 
-        _video_channel_synchronization=d.pop("video_channel_synchronization", UNSET)
+        _video_channel_synchronization = d.pop("video_channel_synchronization", UNSET)
         video_channel_synchronization: (
             Unset | ServerConfigCustomImportVideoChannelSynchronization
         )
         if isinstance(_video_channel_synchronization, Unset):
             video_channel_synchronization = UNSET
         else:
-            video_channel_synchronization=(
+            video_channel_synchronization = (
                 ServerConfigCustomImportVideoChannelSynchronization.from_dict(
                     _video_channel_synchronization
                 )
             )
 
-        server_config_custom_import=cls(
-            videos=videos, video_channel_synchronization=video_channel_synchronization)
+        server_config_custom_import = cls(
+            videos=videos, video_channel_synchronization=video_channel_synchronization
+        )
 
-        server_config_custom_import.additional_properties=d
+        server_config_custom_import.additional_properties = d
         return server_config_custom_import
 
     @property
@@ -106,4 +109,3 @@ class ServerConfigCustomImport:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

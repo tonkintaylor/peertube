@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.video_constant_string_language import (
-        VideoConstantStringLanguage)
+        VideoConstantStringLanguage,
+    )
 
 
-T=TypeVar("T", bound="VideoCaption")
+T = TypeVar("T", bound="VideoCaption")
 
 
 @_attrs_define
@@ -23,27 +23,26 @@ class VideoCaption:
     caption_path (Union[Unset, str]):
     """
 
-
     language: Union[Unset, "VideoConstantStringLanguage"] = UNSET
-    caption_path: Unset | str=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    caption_path: Unset | str = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         language: Unset | dict[str, Any] = UNSET
         if not isinstance(self.language, Unset):
-            language=self.language.to_dict()
+            language = self.language.to_dict()
 
-        caption_path=self.caption_path
+        caption_path = self.caption_path
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if language is not UNSET:
-            field_dict["language"]=language
+            field_dict["language"] = language
         if caption_path is not UNSET:
-            field_dict["captionPath"]=caption_path
+            field_dict["captionPath"] = caption_path
 
         return field_dict
 
@@ -52,22 +51,22 @@ class VideoCaption:
         """Create instance from dictionary."""
 
         from peertube.models.video_constant_string_language import (
-            VideoConstantStringLanguage)
+            VideoConstantStringLanguage,
+        )
 
         d = dict(src_dict)
-        _language=d.pop("language", UNSET)
+        _language = d.pop("language", UNSET)
         language: Unset | VideoConstantStringLanguage
         if isinstance(_language, Unset):
             language = UNSET
         else:
-            language=VideoConstantStringLanguage.from_dict(_language)
+            language = VideoConstantStringLanguage.from_dict(_language)
 
-        caption_path=d.pop("captionPath", UNSET)
+        caption_path = d.pop("captionPath", UNSET)
 
-        video_caption=cls(
-            language=language, caption_path=caption_path)
+        video_caption = cls(language=language, caption_path=caption_path)
 
-        video_caption.additional_properties=d
+        video_caption.additional_properties = d
         return video_caption
 
     @property
@@ -87,4 +86,3 @@ class VideoCaption:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

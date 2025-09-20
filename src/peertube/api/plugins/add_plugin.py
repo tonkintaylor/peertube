@@ -11,43 +11,55 @@ from peertube.types import Response
 
 
 def _get_kwargs(
-    *, body: Union["AddPluginBodyType0", "AddPluginBodyType1"]) -> dict[str, Any]:
+    *, body: Union["AddPluginBodyType0", "AddPluginBodyType1"]
+) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
-    _kwargs: dict[str, Any]={
-        "method": "post", "url": "/api/v1/plugins/install", }
+    _kwargs: dict[str, Any] = {
+        "method": "post",
+        "url": "/api/v1/plugins/install",
+    }
     if isinstance(body, AddPluginBodyType0):
-        _kwargs["json"]=body.to_dict()
+        _kwargs["json"] = body.to_dict()
     else:
-        _kwargs["json"]=body.to_dict()
+        _kwargs["json"] = body.to_dict()
 
-    headers["Content-Type"]="application/json"
+    headers["Content-Type"] = "application/json"
 
-    _kwargs["headers"]=headers
+    _kwargs["headers"] = headers
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code = = 204:
+    if response.status_code == 204:
         return None
 
-    if response.status_code== 400:
+    if response.status_code == 400:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, body: Union["AddPluginBodyType0", "AddPluginBodyType1"]) -> Response[Any]:
+    *,
+    client: AuthenticatedClient,
+    body: Union["AddPluginBodyType0", "AddPluginBodyType1"],
+) -> Response[Any]:
     """Install a plugin
 
 
@@ -62,17 +74,18 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        body=body)
+    kwargs = _get_kwargs(body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, body: Union["AddPluginBodyType0", "AddPluginBodyType1"]) -> Any | None:
+    *,
+    client: AuthenticatedClient,
+    body: Union["AddPluginBodyType0", "AddPluginBodyType1"],
+) -> Any | None:
     """Install a plugin
 
 
@@ -84,12 +97,14 @@ def sync(
         Any
     """
 
-    return sync_detailed(
-        client = client, body=body).parsed
+    return sync_detailed(client=client, body=body).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, body: Union["AddPluginBodyType0", "AddPluginBodyType1"]) -> Response[Any]:
+    *,
+    client: AuthenticatedClient,
+    body: Union["AddPluginBodyType0", "AddPluginBodyType1"],
+) -> Response[Any]:
     """Install a plugin
 
 
@@ -104,11 +119,8 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        body=body)
+    kwargs = _get_kwargs(body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
-
-

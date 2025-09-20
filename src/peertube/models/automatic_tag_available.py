@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.automatic_tag_available_available_item import (
-        AutomaticTagAvailableAvailableItem)
+        AutomaticTagAvailableAvailableItem,
+    )
 
 
-T=TypeVar("T", bound="AutomaticTagAvailable")
+T = TypeVar("T", bound="AutomaticTagAvailable")
 
 
 @_attrs_define
@@ -23,25 +23,24 @@ class AutomaticTagAvailable:
         filter objects or set a comment in review state
     """
 
-
     available: Unset | list["AutomaticTagAvailableAvailableItem"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
 
         available: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.available, Unset):
-            available=[]
+            available = []
             for available_item_data in self.available:
-                available_item=available_item_data.to_dict()
+                available_item = available_item_data.to_dict()
                 available.append(available_item)
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if available is not UNSET:
-            field_dict["available"]=available
+            field_dict["available"] = available
 
         return field_dict
 
@@ -50,22 +49,22 @@ class AutomaticTagAvailable:
         """Create from dictionary."""
 
         from peertube.models.automatic_tag_available_available_item import (
-            AutomaticTagAvailableAvailableItem)
+            AutomaticTagAvailableAvailableItem,
+        )
 
         d = dict(src_dict)
-        available=[]
-        _available=d.pop("available", UNSET)
+        available = []
+        _available = d.pop("available", UNSET)
         for available_item_data in _available or []:
-            available_item=AutomaticTagAvailableAvailableItem.from_dict(
+            available_item = AutomaticTagAvailableAvailableItem.from_dict(
                 available_item_data
             )
 
             available.append(available_item)
 
-        automatic_tag_available=cls(
-            available=available)
+        automatic_tag_available = cls(available=available)
 
-        automatic_tag_available.additional_properties=d
+        automatic_tag_available.additional_properties = d
         return automatic_tag_available
 
     @property
@@ -85,4 +84,3 @@ class AutomaticTagAvailable:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

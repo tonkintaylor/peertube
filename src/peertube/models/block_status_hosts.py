@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,16 +7,16 @@ from typing_extensions import Self
 
 if TYPE_CHECKING:
     from peertube.models.block_status_hosts_additional_property import (
-        BlockStatusHostsAdditionalProperty)
+        BlockStatusHostsAdditionalProperty,
+    )
 
 
-T=TypeVar("T", bound="BlockStatusHosts")
+T = TypeVar("T", bound="BlockStatusHosts")
 
 
 @_attrs_define
 class BlockStatusHosts:
     """Block status hosts data model."""
-
 
     additional_properties: dict[str, "BlockStatusHostsAdditionalProperty"] = (
         _attrs_field(init=False, factory=dict)
@@ -28,7 +27,7 @@ class BlockStatusHosts:
 
         field_dict: dict[str, Any] = {}
         for prop_name, prop in self.additional_properties.items():
-            field_dict[prop_name]=prop.to_dict()
+            field_dict[prop_name] = prop.to_dict()
 
         return field_dict
 
@@ -37,20 +36,21 @@ class BlockStatusHosts:
         """Create instance from dictionary."""
 
         from peertube.models.block_status_hosts_additional_property import (
-            BlockStatusHostsAdditionalProperty)
+            BlockStatusHostsAdditionalProperty,
+        )
 
         d = dict(src_dict)
-        block_status_hosts=cls()
+        block_status_hosts = cls()
 
-        additional_properties={}
+        additional_properties = {}
         for prop_name, prop_dict in d.items():
-            additional_property=BlockStatusHostsAdditionalProperty.from_dict(
+            additional_property = BlockStatusHostsAdditionalProperty.from_dict(
                 prop_dict
             )
 
-            additional_properties[prop_name]=additional_property
+            additional_properties[prop_name] = additional_property
 
-        block_status_hosts.additional_properties=additional_properties
+        block_status_hosts.additional_properties = additional_properties
         return block_status_hosts
 
     @property
@@ -72,4 +72,3 @@ class BlockStatusHosts:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

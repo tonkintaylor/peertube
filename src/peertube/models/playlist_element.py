@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union, cast)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.video import Video
 
 
-T=TypeVar("T", bound="PlaylistElement")
+T = TypeVar("T", bound="PlaylistElement")
 
 
 @_attrs_define
@@ -24,11 +23,10 @@ class PlaylistElement:
     video (Union['Video', None, Unset]):
     """
 
-
     position: Unset | int = UNSET
-    start_timestamp: Unset | int=UNSET
-    stop_timestamp: Unset | int=UNSET
-    video: Union["Video", None, Unset]=UNSET
+    start_timestamp: Unset | int = UNSET
+    stop_timestamp: Unset | int = UNSET
+    video: Union["Video", None, Unset] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -36,31 +34,31 @@ class PlaylistElement:
 
         from peertube.models.video import Video
 
-        position=self.position
+        position = self.position
 
-        start_timestamp=self.start_timestamp
+        start_timestamp = self.start_timestamp
 
-        stop_timestamp=self.stop_timestamp
+        stop_timestamp = self.stop_timestamp
 
         video: None | Unset | dict[str, Any]
         if isinstance(self.video, Unset):
             video = UNSET
         elif isinstance(self.video, Video):
-            video=self.video.to_dict()
+            video = self.video.to_dict()
         else:
-            video=self.video
+            video = self.video
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if position is not UNSET:
-            field_dict["position"]=position
+            field_dict["position"] = position
         if start_timestamp is not UNSET:
-            field_dict["startTimestamp"]=start_timestamp
+            field_dict["startTimestamp"] = start_timestamp
         if stop_timestamp is not UNSET:
-            field_dict["stopTimestamp"]=stop_timestamp
+            field_dict["stopTimestamp"] = stop_timestamp
         if video is not UNSET:
-            field_dict["video"]=video
+            field_dict["video"] = video
 
         return field_dict
 
@@ -71,11 +69,11 @@ class PlaylistElement:
         from peertube.models.video import Video
 
         d = dict(src_dict)
-        position=d.pop("position", UNSET)
+        position = d.pop("position", UNSET)
 
-        start_timestamp=d.pop("startTimestamp", UNSET)
+        start_timestamp = d.pop("startTimestamp", UNSET)
 
-        stop_timestamp=d.pop("stopTimestamp", UNSET)
+        stop_timestamp = d.pop("stopTimestamp", UNSET)
 
         def _parse_video(data: object) -> Union["Video", None, Unset]:
             if data is None:
@@ -94,10 +92,14 @@ class PlaylistElement:
 
         video = _parse_video(d.pop("video", UNSET))
 
-        playlist_element=cls(
-            position=position, start_timestamp=start_timestamp, stop_timestamp=stop_timestamp, video=video)
+        playlist_element = cls(
+            position=position,
+            start_timestamp=start_timestamp,
+            stop_timestamp=stop_timestamp,
+            video=video,
+        )
 
-        playlist_element.additional_properties=d
+        playlist_element.additional_properties = d
         return playlist_element
 
     @property
@@ -117,4 +119,3 @@ class PlaylistElement:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

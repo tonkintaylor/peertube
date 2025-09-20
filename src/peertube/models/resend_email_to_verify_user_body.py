@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="ResendEmailToVerifyUserBody")
+T = TypeVar("T", bound="ResendEmailToVerifyUserBody")
 
 
 @_attrs_define
@@ -14,20 +14,20 @@ class ResendEmailToVerifyUserBody:
     email (str): User email
     """
 
-
     email: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        email=self.email
+        email = self.email
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "email": email, }
+                "email": email,
+            }
         )
 
         return field_dict
@@ -37,12 +37,11 @@ class ResendEmailToVerifyUserBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        email=d.pop("email")
+        email = d.pop("email")
 
-        resend_email_to_verify_user_body=cls(
-            email=email)
+        resend_email_to_verify_user_body = cls(email=email)
 
-        resend_email_to_verify_user_body.additional_properties=d
+        resend_email_to_verify_user_body.additional_properties = d
         return resend_email_to_verify_user_body
 
     @property
@@ -62,4 +61,3 @@ class ResendEmailToVerifyUserBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

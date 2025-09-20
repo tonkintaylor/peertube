@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PostApiV1VideosIdGiveOwnershipBody")
+T = TypeVar("T", bound="PostApiV1VideosIdGiveOwnershipBody")
 
 
 @_attrs_define
@@ -14,20 +14,20 @@ class PostApiV1VideosIdGiveOwnershipBody:
     username (str):
     """
 
-
     username: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        username=self.username
+        username = self.username
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "username": username, }
+                "username": username,
+            }
         )
 
         return field_dict
@@ -37,12 +37,11 @@ class PostApiV1VideosIdGiveOwnershipBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        username=d.pop("username")
+        username = d.pop("username")
 
-        post_api_v1_videos_id_give_ownership_body=cls(
-            username=username)
+        post_api_v1_videos_id_give_ownership_body = cls(username=username)
 
-        post_api_v1_videos_id_give_ownership_body.additional_properties=d
+        post_api_v1_videos_id_give_ownership_body.additional_properties = d
         return post_api_v1_videos_id_give_ownership_body
 
     @property
@@ -62,4 +61,3 @@ class PostApiV1VideosIdGiveOwnershipBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

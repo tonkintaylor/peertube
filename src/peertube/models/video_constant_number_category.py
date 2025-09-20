@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="VideoConstantNumberCategory")
+T = TypeVar("T", bound="VideoConstantNumberCategory")
 
 
 @_attrs_define
@@ -19,25 +18,24 @@ class VideoConstantNumberCategory:
     label (Union[Unset, str]):  Example: Science & Technology.
     """
 
-
     id: Unset | int = UNSET
-    label: Unset | str=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    label: Unset | str = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        id=self.id
+        id = self.id
 
-        label=self.label
+        label = self.label
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
-            field_dict["id"]=id
+            field_dict["id"] = id
         if label is not UNSET:
-            field_dict["label"]=label
+            field_dict["label"] = label
 
         return field_dict
 
@@ -46,14 +44,13 @@ class VideoConstantNumberCategory:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        id=d.pop("id", UNSET)
+        id = d.pop("id", UNSET)
 
-        label=d.pop("label", UNSET)
+        label = d.pop("label", UNSET)
 
-        video_constant_number_category=cls(
-            id=id, label=label)
+        video_constant_number_category = cls(id=id, label=label)
 
-        video_constant_number_category.additional_properties=d
+        video_constant_number_category.additional_properties = d
         return video_constant_number_category
 
     @property
@@ -73,4 +70,3 @@ class VideoConstantNumberCategory:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

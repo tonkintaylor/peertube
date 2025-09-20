@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.actor_image import ActorImage
 
 
-T=TypeVar("T", bound="PostApiV1VideoChannelsChannelHandleBannerPickResponse200")
+T = TypeVar("T", bound="PostApiV1VideoChannelsChannelHandleBannerPickResponse200")
 
 
 @_attrs_define
@@ -21,25 +20,24 @@ class PostApiV1VideoChannelsChannelHandleBannerPickResponse200:
     banners (Union[Unset, list['ActorImage']]):
     """
 
-
     banners: Unset | list["ActorImage"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         banners: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.banners, Unset):
-            banners=[]
+            banners = []
             for banners_item_data in self.banners:
-                banners_item=banners_item_data.to_dict()
+                banners_item = banners_item_data.to_dict()
                 banners.append(banners_item)
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if banners is not UNSET:
-            field_dict["banners"]=banners
+            field_dict["banners"] = banners
 
         return field_dict
 
@@ -50,17 +48,18 @@ class PostApiV1VideoChannelsChannelHandleBannerPickResponse200:
         from peertube.models.actor_image import ActorImage
 
         d = dict(src_dict)
-        banners=[]
-        _banners=d.pop("banners", UNSET)
+        banners = []
+        _banners = d.pop("banners", UNSET)
         for banners_item_data in _banners or []:
-            banners_item=ActorImage.from_dict(banners_item_data)
+            banners_item = ActorImage.from_dict(banners_item_data)
 
             banners.append(banners_item)
 
-        post_api_v1_video_channels_channel_handle_banner_pick_response_200=cls(
-            banners=banners)
+        post_api_v1_video_channels_channel_handle_banner_pick_response_200 = cls(
+            banners=banners
+        )
 
-        post_api_v1_video_channels_channel_handle_banner_pick_response_200.additional_properties=d
+        post_api_v1_video_channels_channel_handle_banner_pick_response_200.additional_properties = d
         return post_api_v1_video_channels_channel_handle_banner_pick_response_200
 
     @property
@@ -80,4 +79,3 @@ class PostApiV1VideoChannelsChannelHandleBannerPickResponse200:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

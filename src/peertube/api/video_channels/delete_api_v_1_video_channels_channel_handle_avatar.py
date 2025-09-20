@@ -8,32 +8,38 @@ from peertube.client import AuthenticatedClient, Client
 from peertube.types import Response
 
 
-def _get_kwargs(
-    channel_handle: str) -> dict[str, Any]:
+def _get_kwargs(channel_handle: str) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
-        "method": "delete", "url": f"/api/v1/video-channels/{channel_handle}/avatar", }
+        "method": "delete",
+        "url": f"/api/v1/video-channels/{channel_handle}/avatar",
+    }
 
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code = = 204:
+    if response.status_code == 204:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
-def sync_detailed(
-    channel_handle: str, *, client: AuthenticatedClient) -> Response[Any]:
+def sync_detailed(channel_handle: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete channel avatar
 
 
@@ -48,17 +54,14 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        channel_handle=channel_handle)
+    kwargs = _get_kwargs(channel_handle=channel_handle)
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
-def sync(
-    channel_handle: str, *, client: AuthenticatedClient) -> Any | None:
+def sync(channel_handle: str, *, client: AuthenticatedClient) -> Any | None:
     """Delete channel avatar
 
 
@@ -70,12 +73,12 @@ def sync(
         Any
     """
 
-    return sync_detailed(
-        channel_handle = channel_handle, client=client).parsed
+    return sync_detailed(channel_handle=channel_handle, client=client).parsed
 
 
 async def asyncio_detailed(
-    channel_handle: str, *, client: AuthenticatedClient) -> Response[Any]:
+    channel_handle: str, *, client: AuthenticatedClient
+) -> Response[Any]:
     """Delete channel avatar
 
 
@@ -90,11 +93,8 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        channel_handle=channel_handle)
+    kwargs = _get_kwargs(channel_handle=channel_handle)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
-
-

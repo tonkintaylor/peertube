@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.video_token_response_files import VideoTokenResponseFiles
 
 
-T=TypeVar("T", bound="VideoTokenResponse")
+T = TypeVar("T", bound="VideoTokenResponse")
 
 
 @_attrs_define
@@ -21,22 +20,21 @@ class VideoTokenResponse:
     files (Union[Unset, VideoTokenResponseFiles]):
     """
 
-
     files: Union[Unset, "VideoTokenResponseFiles"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         files: Unset | dict[str, Any] = UNSET
         if not isinstance(self.files, Unset):
-            files=self.files.to_dict()
+            files = self.files.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if files is not UNSET:
-            field_dict["files"]=files
+            field_dict["files"] = files
 
         return field_dict
 
@@ -47,17 +45,16 @@ class VideoTokenResponse:
         from peertube.models.video_token_response_files import VideoTokenResponseFiles
 
         d = dict(src_dict)
-        _files=d.pop("files", UNSET)
+        _files = d.pop("files", UNSET)
         files: Unset | VideoTokenResponseFiles
         if isinstance(_files, Unset):
             files = UNSET
         else:
-            files=VideoTokenResponseFiles.from_dict(_files)
+            files = VideoTokenResponseFiles.from_dict(_files)
 
-        video_token_response=cls(
-            files=files)
+        video_token_response = cls(files=files)
 
-        video_token_response.additional_properties=d
+        video_token_response.additional_properties = d
         return video_token_response
 
     @property
@@ -77,4 +74,3 @@ class VideoTokenResponse:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

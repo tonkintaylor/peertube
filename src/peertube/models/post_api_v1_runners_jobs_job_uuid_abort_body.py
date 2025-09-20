@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PostApiV1RunnersJobsJobUUIDAbortBody")
+T = TypeVar("T", bound="PostApiV1RunnersJobsJobUUIDAbortBody")
 
 
 @_attrs_define
@@ -16,7 +16,6 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
     reason (str): Why the runner aborts this job
     """
 
-
     runner_token: str
     job_token: str
     reason: str
@@ -25,17 +24,20 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        runner_token=self.runner_token
+        runner_token = self.runner_token
 
-        job_token=self.job_token
+        job_token = self.job_token
 
-        reason=self.reason
+        reason = self.reason
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "runnerToken": runner_token, "jobToken": job_token, "reason": reason, }
+                "runnerToken": runner_token,
+                "jobToken": job_token,
+                "reason": reason,
+            }
         )
 
         return field_dict
@@ -45,16 +47,17 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        runner_token=d.pop("runnerToken")
+        runner_token = d.pop("runnerToken")
 
-        job_token=d.pop("jobToken")
+        job_token = d.pop("jobToken")
 
-        reason=d.pop("reason")
+        reason = d.pop("reason")
 
-        post_api_v1_runners_jobs_job_uuid_abort_body=cls(
-            runner_token=runner_token, job_token=job_token, reason=reason)
+        post_api_v1_runners_jobs_job_uuid_abort_body = cls(
+            runner_token=runner_token, job_token=job_token, reason=reason
+        )
 
-        post_api_v1_runners_jobs_job_uuid_abort_body.additional_properties=d
+        post_api_v1_runners_jobs_job_uuid_abort_body.additional_properties = d
         return post_api_v1_runners_jobs_job_uuid_abort_body
 
     @property
@@ -74,4 +77,3 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

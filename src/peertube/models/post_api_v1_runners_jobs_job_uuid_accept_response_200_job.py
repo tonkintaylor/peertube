@@ -1,7 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union, cast)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 from uuid import UUID
 
 from attrs import define as _attrs_define
@@ -21,7 +20,7 @@ if TYPE_CHECKING:
     from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
 
-T=TypeVar("T", bound="PostApiV1RunnersJobsJobUUIDAcceptResponse200Job")
+T = TypeVar("T", bound="PostApiV1RunnersJobsJobUUIDAcceptResponse200Job")
 
 
 @_attrs_define
@@ -46,23 +45,23 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
     """
 
     uuid: Unset | UUID = UNSET
-    type_: Unset | RunnerJobType=UNSET
-    state: Union[Unset, "RunnerJobStateConstant"]=UNSET
+    type_: Unset | RunnerJobType = UNSET
+    state: Union[Unset, "RunnerJobStateConstant"] = UNSET
     payload: Union[
         "VODAudioMergeTranscoding", "VODHLSTranscoding", "VODWebVideoTranscoding", Unset
     ] = UNSET
-    failures: Unset | int=UNSET
-    error: None | Unset | str=UNSET
-    progress: Unset | int=UNSET
-    priority: Unset | int=UNSET
-    updated_at: Unset | datetime.datetime=UNSET
-    created_at: Unset | datetime.datetime=UNSET
-    started_at: Unset | datetime.datetime=UNSET
-    finished_at: Unset | datetime.datetime=UNSET
-    parent: Union["RunnerJobParentType0", None, Unset]=UNSET
+    failures: Unset | int = UNSET
+    error: None | Unset | str = UNSET
+    progress: Unset | int = UNSET
+    priority: Unset | int = UNSET
+    updated_at: Unset | datetime.datetime = UNSET
+    created_at: Unset | datetime.datetime = UNSET
+    started_at: Unset | datetime.datetime = UNSET
+    finished_at: Unset | datetime.datetime = UNSET
+    parent: Union["RunnerJobParentType0", None, Unset] = UNSET
     runner: Union[Unset, "RunnerJobRunner"] = UNSET
-    job_token: Unset | str=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    job_token: Unset | str = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -73,99 +72,99 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
 
         uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
-            uuid=str(self.uuid)
+            uuid = str(self.uuid)
 
         type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
-            type_=self.type_.value
+            type_ = self.type_.value
 
         state: Unset | dict[str, Any] = UNSET
         if not isinstance(self.state, Unset):
-            state=self.state.to_dict()
+            state = self.state.to_dict()
 
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
             payload = UNSET
         elif isinstance(self.payload, (VODWebVideoTranscoding, VODHLSTranscoding)):
-            payload=self.payload.to_dict()
+            payload = self.payload.to_dict()
         else:
-            payload=self.payload.to_dict()
+            payload = self.payload.to_dict()
 
-        failures=self.failures
+        failures = self.failures
 
         error: None | Unset | str
         if isinstance(self.error, Unset):
             error = UNSET
         else:
-            error=self.error
+            error = self.error
 
-        progress=self.progress
+        progress = self.progress
 
-        priority=self.priority
+        priority = self.priority
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
-            updated_at=self.updated_at.isoformat()
+            updated_at = self.updated_at.isoformat()
 
         created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
-            created_at=self.created_at.isoformat()
+            created_at = self.created_at.isoformat()
 
         started_at: Unset | str = UNSET
         if not isinstance(self.started_at, Unset):
-            started_at=self.started_at.isoformat()
+            started_at = self.started_at.isoformat()
 
         finished_at: Unset | str = UNSET
         if not isinstance(self.finished_at, Unset):
-            finished_at=self.finished_at.isoformat()
+            finished_at = self.finished_at.isoformat()
 
         parent: None | Unset | dict[str, Any]
         if isinstance(self.parent, Unset):
             parent = UNSET
         elif isinstance(self.parent, RunnerJobParentType0):
-            parent=self.parent.to_dict()
+            parent = self.parent.to_dict()
         else:
-            parent=self.parent
+            parent = self.parent
 
         runner: Unset | dict[str, Any] = UNSET
         if not isinstance(self.runner, Unset):
-            runner=self.runner.to_dict()
+            runner = self.runner.to_dict()
 
-        job_token=self.job_token
+        job_token = self.job_token
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if uuid is not UNSET:
-            field_dict["uuid"]=uuid
+            field_dict["uuid"] = uuid
         if type_ is not UNSET:
-            field_dict["type"]=type_
+            field_dict["type"] = type_
         if state is not UNSET:
-            field_dict["state"]=state
+            field_dict["state"] = state
         if payload is not UNSET:
-            field_dict["payload"]=payload
+            field_dict["payload"] = payload
         if failures is not UNSET:
-            field_dict["failures"]=failures
+            field_dict["failures"] = failures
         if error is not UNSET:
-            field_dict["error"]=error
+            field_dict["error"] = error
         if progress is not UNSET:
-            field_dict["progress"]=progress
+            field_dict["progress"] = progress
         if priority is not UNSET:
-            field_dict["priority"]=priority
+            field_dict["priority"] = priority
         if updated_at is not UNSET:
-            field_dict["updatedAt"]=updated_at
+            field_dict["updatedAt"] = updated_at
         if created_at is not UNSET:
-            field_dict["createdAt"]=created_at
+            field_dict["createdAt"] = created_at
         if started_at is not UNSET:
-            field_dict["startedAt"]=started_at
+            field_dict["startedAt"] = started_at
         if finished_at is not UNSET:
-            field_dict["finishedAt"]=finished_at
+            field_dict["finishedAt"] = finished_at
         if parent is not UNSET:
-            field_dict["parent"]=parent
+            field_dict["parent"] = parent
         if runner is not UNSET:
-            field_dict["runner"]=runner
+            field_dict["runner"] = runner
         if job_token is not UNSET:
-            field_dict["jobToken"]=job_token
+            field_dict["jobToken"] = job_token
 
         return field_dict
 
@@ -181,30 +180,35 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
         from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
         d = dict(src_dict)
-        _uuid=d.pop("uuid", UNSET)
+        _uuid = d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
             uuid = UNSET
         else:
-            uuid=UUID(_uuid)
+            uuid = UUID(_uuid)
 
-        _type_=d.pop("type", UNSET)
+        _type_ = d.pop("type", UNSET)
         type_: Unset | RunnerJobType
         if isinstance(_type_, Unset):
             type_ = UNSET
         else:
-            type_=RunnerJobType(_type_)
+            type_ = RunnerJobType(_type_)
 
-        _state=d.pop("state", UNSET)
+        _state = d.pop("state", UNSET)
         state: Unset | RunnerJobStateConstant
         if isinstance(_state, Unset):
             state = UNSET
         else:
-            state=RunnerJobStateConstant.from_dict(_state)
+            state = RunnerJobStateConstant.from_dict(_state)
 
         def _parse_payload(
-            data: object) -> Union[
-            "VODAudioMergeTranscoding", "VODHLSTranscoding", "VODWebVideoTranscoding", Unset, ]:
+            data: object,
+        ) -> Union[
+            "VODAudioMergeTranscoding",
+            "VODHLSTranscoding",
+            "VODWebVideoTranscoding",
+            Unset,
+        ]:
             if isinstance(data, Unset):
                 return data
             try:
@@ -235,9 +239,9 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
 
             return componentsschemas_runner_job_payload_vod_audio_merge_transcoding
 
-        payload=_parse_payload(d.pop("payload", UNSET))
+        payload = _parse_payload(d.pop("payload", UNSET))
 
-        failures=d.pop("failures", UNSET)
+        failures = d.pop("failures", UNSET)
 
         def _parse_error(data: object) -> None | Unset | str:
             if data is None:
@@ -248,37 +252,37 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
 
         error = _parse_error(d.pop("error", UNSET))
 
-        progress=d.pop("progress", UNSET)
+        progress = d.pop("progress", UNSET)
 
-        priority=d.pop("priority", UNSET)
+        priority = d.pop("priority", UNSET)
 
-        _updated_at=d.pop("updatedAt", UNSET)
+        _updated_at = d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
             updated_at = UNSET
         else:
-            updated_at=isoparse(_updated_at)
+            updated_at = isoparse(_updated_at)
 
-        _created_at=d.pop("createdAt", UNSET)
+        _created_at = d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
             created_at = UNSET
         else:
-            created_at=isoparse(_created_at)
+            created_at = isoparse(_created_at)
 
-        _started_at=d.pop("startedAt", UNSET)
+        _started_at = d.pop("startedAt", UNSET)
         started_at: Unset | datetime.datetime
         if isinstance(_started_at, Unset):
             started_at = UNSET
         else:
-            started_at=isoparse(_started_at)
+            started_at = isoparse(_started_at)
 
-        _finished_at=d.pop("finishedAt", UNSET)
+        _finished_at = d.pop("finishedAt", UNSET)
         finished_at: Unset | datetime.datetime
         if isinstance(_finished_at, Unset):
             finished_at = UNSET
         else:
-            finished_at=isoparse(_finished_at)
+            finished_at = isoparse(_finished_at)
 
         def _parse_parent(data: object) -> Union["RunnerJobParentType0", None, Unset]:
             if data is None:
@@ -297,19 +301,34 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
 
         parent = _parse_parent(d.pop("parent", UNSET))
 
-        _runner=d.pop("runner", UNSET)
+        _runner = d.pop("runner", UNSET)
         runner: Unset | RunnerJobRunner
         if isinstance(_runner, Unset):
             runner = UNSET
         else:
-            runner=RunnerJobRunner.from_dict(_runner)
+            runner = RunnerJobRunner.from_dict(_runner)
 
-        job_token=d.pop("jobToken", UNSET)
+        job_token = d.pop("jobToken", UNSET)
 
-        post_api_v1_runners_jobs_job_uuid_accept_response_200_job=cls(
-            uuid=uuid, type_=type_, state=state, payload=payload, failures=failures, error=error, progress=progress, priority=priority, updated_at=updated_at, created_at=created_at, started_at=started_at, finished_at=finished_at, parent=parent, runner=runner, job_token=job_token)
+        post_api_v1_runners_jobs_job_uuid_accept_response_200_job = cls(
+            uuid=uuid,
+            type_=type_,
+            state=state,
+            payload=payload,
+            failures=failures,
+            error=error,
+            progress=progress,
+            priority=priority,
+            updated_at=updated_at,
+            created_at=created_at,
+            started_at=started_at,
+            finished_at=finished_at,
+            parent=parent,
+            runner=runner,
+            job_token=job_token,
+        )
 
-        post_api_v1_runners_jobs_job_uuid_accept_response_200_job.additional_properties=d
+        post_api_v1_runners_jobs_job_uuid_accept_response_200_job.additional_properties = d
         return post_api_v1_runners_jobs_job_uuid_accept_response_200_job
 
     @property
@@ -329,4 +348,3 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

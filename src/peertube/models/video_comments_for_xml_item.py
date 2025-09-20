@@ -1,7 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,7 +9,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="VideoCommentsForXMLItem")
+T = TypeVar("T", bound="VideoCommentsForXMLItem")
 
 
 @_attrs_define
@@ -23,42 +22,41 @@ class VideoCommentsForXMLItem:
     dccreator (Union[Unset, str]):
     """
 
-
     link: Unset | str = UNSET
-    guid: Unset | str=UNSET
-    pub_date: Unset | datetime.datetime=UNSET
-    contentencoded: Unset | str=UNSET
-    dccreator: Unset | str=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    guid: Unset | str = UNSET
+    pub_date: Unset | datetime.datetime = UNSET
+    contentencoded: Unset | str = UNSET
+    dccreator: Unset | str = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        link=self.link
+        link = self.link
 
-        guid=self.guid
+        guid = self.guid
 
         pub_date: Unset | str = UNSET
         if not isinstance(self.pub_date, Unset):
-            pub_date=self.pub_date.isoformat()
+            pub_date = self.pub_date.isoformat()
 
-        contentencoded=self.contentencoded
+        contentencoded = self.contentencoded
 
-        dccreator=self.dccreator
+        dccreator = self.dccreator
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if link is not UNSET:
-            field_dict["link"]=link
+            field_dict["link"] = link
         if guid is not UNSET:
-            field_dict["guid"]=guid
+            field_dict["guid"] = guid
         if pub_date is not UNSET:
-            field_dict["pubDate"]=pub_date
+            field_dict["pubDate"] = pub_date
         if contentencoded is not UNSET:
-            field_dict["content:encoded"]=contentencoded
+            field_dict["content:encoded"] = contentencoded
         if dccreator is not UNSET:
-            field_dict["dc:creator"]=dccreator
+            field_dict["dc:creator"] = dccreator
 
         return field_dict
 
@@ -67,25 +65,30 @@ class VideoCommentsForXMLItem:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        link=d.pop("link", UNSET)
+        link = d.pop("link", UNSET)
 
-        guid=d.pop("guid", UNSET)
+        guid = d.pop("guid", UNSET)
 
-        _pub_date=d.pop("pubDate", UNSET)
+        _pub_date = d.pop("pubDate", UNSET)
         pub_date: Unset | datetime.datetime
         if isinstance(_pub_date, Unset):
             pub_date = UNSET
         else:
-            pub_date=isoparse(_pub_date)
+            pub_date = isoparse(_pub_date)
 
-        contentencoded=d.pop("content:encoded", UNSET)
+        contentencoded = d.pop("content:encoded", UNSET)
 
-        dccreator=d.pop("dc:creator", UNSET)
+        dccreator = d.pop("dc:creator", UNSET)
 
-        video_comments_for_xml_item=cls(
-            link=link, guid=guid, pub_date=pub_date, contentencoded=contentencoded, dccreator=dccreator)
+        video_comments_for_xml_item = cls(
+            link=link,
+            guid=guid,
+            pub_date=pub_date,
+            contentencoded=contentencoded,
+            dccreator=dccreator,
+        )
 
-        video_comments_for_xml_item.additional_properties=d
+        video_comments_for_xml_item.additional_properties = d
         return video_comments_for_xml_item
 
     @property
@@ -105,4 +108,3 @@ class VideoCommentsForXMLItem:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

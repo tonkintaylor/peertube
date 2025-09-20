@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="CustomHomepage")
+T = TypeVar("T", bound="CustomHomepage")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class CustomHomepage:
     content (Union[Unset, str]):
     """
 
-
     content: Unset | str = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
 
-        content=self.content
+        content = self.content
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if content is not UNSET:
-            field_dict["content"]=content
+            field_dict["content"] = content
 
         return field_dict
 
@@ -39,12 +37,11 @@ class CustomHomepage:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        content=d.pop("content", UNSET)
+        content = d.pop("content", UNSET)
 
-        custom_homepage=cls(
-            content=content)
+        custom_homepage = cls(content=content)
 
-        custom_homepage.additional_properties=d
+        custom_homepage.additional_properties = d
         return custom_homepage
 
     @property
@@ -64,4 +61,3 @@ class CustomHomepage:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

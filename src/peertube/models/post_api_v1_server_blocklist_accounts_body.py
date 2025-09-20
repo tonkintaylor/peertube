@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PostApiV1ServerBlocklistAccountsBody")
+T = TypeVar("T", bound="PostApiV1ServerBlocklistAccountsBody")
 
 
 @_attrs_define
@@ -14,20 +14,20 @@ class PostApiV1ServerBlocklistAccountsBody:
     account_name (str): account to block, in the form `username@domain` Example: chocobozzz@example.org.
     """
 
-
     account_name: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        account_name=self.account_name
+        account_name = self.account_name
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "accountName": account_name, }
+                "accountName": account_name,
+            }
         )
 
         return field_dict
@@ -37,12 +37,11 @@ class PostApiV1ServerBlocklistAccountsBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        account_name=d.pop("accountName")
+        account_name = d.pop("accountName")
 
-        post_api_v1_server_blocklist_accounts_body=cls(
-            account_name=account_name)
+        post_api_v1_server_blocklist_accounts_body = cls(account_name=account_name)
 
-        post_api_v1_server_blocklist_accounts_body.additional_properties=d
+        post_api_v1_server_blocklist_accounts_body.additional_properties = d
         return post_api_v1_server_blocklist_accounts_body
 
     @property
@@ -62,4 +61,3 @@ class PostApiV1ServerBlocklistAccountsBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

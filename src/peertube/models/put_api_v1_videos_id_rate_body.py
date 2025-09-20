@@ -6,9 +6,10 @@ from attrs import field as _attrs_field
 from typing_extensions import Self
 
 from peertube.models.put_api_v1_videos_id_rate_body_rating import (
-    PutApiV1VideosIdRateBodyRating)
+    PutApiV1VideosIdRateBodyRating,
+)
 
-T=TypeVar("T", bound="PutApiV1VideosIdRateBody")
+T = TypeVar("T", bound="PutApiV1VideosIdRateBody")
 
 
 @_attrs_define
@@ -17,20 +18,20 @@ class PutApiV1VideosIdRateBody:
     rating (PutApiV1VideosIdRateBodyRating):
     """
 
-
     rating: PutApiV1VideosIdRateBodyRating
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        rating=self.rating.value
+        rating = self.rating.value
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "rating": rating, }
+                "rating": rating,
+            }
         )
 
         return field_dict
@@ -40,12 +41,11 @@ class PutApiV1VideosIdRateBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        rating=PutApiV1VideosIdRateBodyRating(d.pop("rating"))
+        rating = PutApiV1VideosIdRateBodyRating(d.pop("rating"))
 
-        put_api_v1_videos_id_rate_body=cls(
-            rating=rating)
+        put_api_v1_videos_id_rate_body = cls(rating=rating)
 
-        put_api_v1_videos_id_rate_body.additional_properties=d
+        put_api_v1_videos_id_rate_body.additional_properties = d
         return put_api_v1_videos_id_rate_body
 
     @property
@@ -65,4 +65,3 @@ class PutApiV1VideosIdRateBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

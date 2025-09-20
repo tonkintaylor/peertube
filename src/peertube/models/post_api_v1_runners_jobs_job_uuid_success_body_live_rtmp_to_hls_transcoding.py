@@ -5,13 +5,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding")
+T = TypeVar("T", bound="PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding")
 
 
 @_attrs_define
 class PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding:
     """Data model."""
-
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -28,11 +27,11 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding=(
+        post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding = (
             cls()
         )
 
-        post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding.additional_properties=d
+        post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding.additional_properties = d
         return (
             post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding
         )
@@ -54,4 +53,3 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

@@ -5,13 +5,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PluginSettings")
+T = TypeVar("T", bound="PluginSettings")
 
 
 @_attrs_define
 class PluginSettings:
     """Data model."""
-
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -28,9 +27,9 @@ class PluginSettings:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        plugin_settings=cls()
+        plugin_settings = cls()
 
-        plugin_settings.additional_properties=d
+        plugin_settings.additional_properties = d
         return plugin_settings
 
     @property
@@ -50,4 +49,3 @@ class PluginSettings:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

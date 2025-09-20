@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="VideoStatsTimeserieDataItem")
+T = TypeVar("T", bound="VideoStatsTimeserieDataItem")
 
 
 @_attrs_define
@@ -18,25 +17,24 @@ class VideoStatsTimeserieDataItem:
     value (Union[Unset, float]):
     """
 
-
     date: Unset | str = UNSET
-    value: Unset | float=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    value: Unset | float = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        date=self.date
+        date = self.date
 
-        value=self.value
+        value = self.value
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if date is not UNSET:
-            field_dict["date"]=date
+            field_dict["date"] = date
         if value is not UNSET:
-            field_dict["value"]=value
+            field_dict["value"] = value
 
         return field_dict
 
@@ -45,14 +43,13 @@ class VideoStatsTimeserieDataItem:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        date=d.pop("date", UNSET)
+        date = d.pop("date", UNSET)
 
-        value=d.pop("value", UNSET)
+        value = d.pop("value", UNSET)
 
-        video_stats_timeserie_data_item=cls(
-            date=date, value=value)
+        video_stats_timeserie_data_item = cls(date=date, value=value)
 
-        video_stats_timeserie_data_item.additional_properties=d
+        video_stats_timeserie_data_item.additional_properties = d
         return video_stats_timeserie_data_item
 
     @property
@@ -72,4 +69,3 @@ class VideoStatsTimeserieDataItem:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

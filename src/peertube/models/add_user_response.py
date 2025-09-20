@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,7 +11,7 @@ if TYPE_CHECKING:
     from peertube.models.add_user_response_user import AddUserResponseUser
 
 
-T=TypeVar("T", bound="AddUserResponse")
+T = TypeVar("T", bound="AddUserResponse")
 
 
 @_attrs_define
@@ -21,22 +20,21 @@ class AddUserResponse:
     user (Union[Unset, AddUserResponseUser]):
     """
 
-
     user: Union[Unset, "AddUserResponseUser"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         user: Unset | dict[str, Any] = UNSET
         if not isinstance(self.user, Unset):
-            user=self.user.to_dict()
+            user = self.user.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if user is not UNSET:
-            field_dict["user"]=user
+            field_dict["user"] = user
 
         return field_dict
 
@@ -47,17 +45,16 @@ class AddUserResponse:
         from peertube.models.add_user_response_user import AddUserResponseUser
 
         d = dict(src_dict)
-        _user=d.pop("user", UNSET)
+        _user = d.pop("user", UNSET)
         user: Unset | AddUserResponseUser
         if isinstance(_user, Unset):
             user = UNSET
         else:
-            user=AddUserResponseUser.from_dict(_user)
+            user = AddUserResponseUser.from_dict(_user)
 
-        add_user_response=cls(
-            user=user)
+        add_user_response = cls(user=user)
 
-        add_user_response.additional_properties=d
+        add_user_response.additional_properties = d
         return add_user_response
 
     @property
@@ -77,4 +74,3 @@ class AddUserResponse:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

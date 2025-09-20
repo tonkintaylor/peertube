@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="ServerConfigVideoImageSize")
+T = TypeVar("T", bound="ServerConfigVideoImageSize")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class ServerConfigVideoImageSize:
     max_ (Union[Unset, int]):
     """
 
-
     max_: Unset | int = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        max_=self.max_
+        max_ = self.max_
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if max_ is not UNSET:
-            field_dict["max"]=max_
+            field_dict["max"] = max_
 
         return field_dict
 
@@ -39,12 +37,11 @@ class ServerConfigVideoImageSize:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        max_=d.pop("max", UNSET)
+        max_ = d.pop("max", UNSET)
 
-        server_config_video_image_size=cls(
-            max_=max_)
+        server_config_video_image_size = cls(max_=max_)
 
-        server_config_video_image_size.additional_properties=d
+        server_config_video_image_size.additional_properties = d
         return server_config_video_image_size
 
     @property
@@ -64,4 +61,3 @@ class ServerConfigVideoImageSize:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

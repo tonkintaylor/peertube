@@ -5,13 +5,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PutApiV1PluginsNpmNameSettingsBodySettings")
+T = TypeVar("T", bound="PutApiV1PluginsNpmNameSettingsBodySettings")
 
 
 @_attrs_define
 class PutApiV1PluginsNpmNameSettingsBodySettings:
     """Data model."""
-
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -28,9 +27,9 @@ class PutApiV1PluginsNpmNameSettingsBodySettings:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        put_api_v1_plugins_npm_name_settings_body_settings=cls()
+        put_api_v1_plugins_npm_name_settings_body_settings = cls()
 
-        put_api_v1_plugins_npm_name_settings_body_settings.additional_properties=d
+        put_api_v1_plugins_npm_name_settings_body_settings.additional_properties = d
         return put_api_v1_plugins_npm_name_settings_body_settings
 
     @property
@@ -50,4 +49,3 @@ class PutApiV1PluginsNpmNameSettingsBodySettings:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

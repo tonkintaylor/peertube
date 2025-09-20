@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.server_config_custom_services_twitter import (
-        ServerConfigCustomServicesTwitter)
+        ServerConfigCustomServicesTwitter,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigCustomServices")
+T = TypeVar("T", bound="ServerConfigCustomServices")
 
 
 @_attrs_define
@@ -22,22 +22,21 @@ class ServerConfigCustomServices:
     twitter (Union[Unset, ServerConfigCustomServicesTwitter]):
     """
 
-
     twitter: Union[Unset, "ServerConfigCustomServicesTwitter"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         twitter: Unset | dict[str, Any] = UNSET
         if not isinstance(self.twitter, Unset):
-            twitter=self.twitter.to_dict()
+            twitter = self.twitter.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if twitter is not UNSET:
-            field_dict["twitter"]=twitter
+            field_dict["twitter"] = twitter
 
         return field_dict
 
@@ -46,20 +45,20 @@ class ServerConfigCustomServices:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_custom_services_twitter import (
-            ServerConfigCustomServicesTwitter)
+            ServerConfigCustomServicesTwitter,
+        )
 
         d = dict(src_dict)
-        _twitter=d.pop("twitter", UNSET)
+        _twitter = d.pop("twitter", UNSET)
         twitter: Unset | ServerConfigCustomServicesTwitter
         if isinstance(_twitter, Unset):
             twitter = UNSET
         else:
-            twitter=ServerConfigCustomServicesTwitter.from_dict(_twitter)
+            twitter = ServerConfigCustomServicesTwitter.from_dict(_twitter)
 
-        server_config_custom_services=cls(
-            twitter=twitter)
+        server_config_custom_services = cls(twitter=twitter)
 
-        server_config_custom_services.additional_properties=d
+        server_config_custom_services.additional_properties = d
         return server_config_custom_services
 
     @property
@@ -79,4 +78,3 @@ class ServerConfigCustomServices:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

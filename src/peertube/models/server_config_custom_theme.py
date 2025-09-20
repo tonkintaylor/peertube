@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="ServerConfigCustomTheme")
+T = TypeVar("T", bound="ServerConfigCustomTheme")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class ServerConfigCustomTheme:
     default (Union[Unset, str]):
     """
 
-
     default: Unset | str = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        default=self.default
+        default = self.default
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if default is not UNSET:
-            field_dict["default"]=default
+            field_dict["default"] = default
 
         return field_dict
 
@@ -39,12 +37,11 @@ class ServerConfigCustomTheme:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        default=d.pop("default", UNSET)
+        default = d.pop("default", UNSET)
 
-        server_config_custom_theme=cls(
-            default=default)
+        server_config_custom_theme = cls(default=default)
 
-        server_config_custom_theme.additional_properties=d
+        server_config_custom_theme.additional_properties = d
         return server_config_custom_theme
 
     @property
@@ -64,4 +61,3 @@ class ServerConfigCustomTheme:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

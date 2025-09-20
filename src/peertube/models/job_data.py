@@ -5,13 +5,12 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="JobData")
+T = TypeVar("T", bound="JobData")
 
 
 @_attrs_define
 class JobData:
     """Data model."""
-
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -28,9 +27,9 @@ class JobData:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        job_data=cls()
+        job_data = cls()
 
-        job_data.additional_properties=d
+        job_data.additional_properties = d
         return job_data
 
     @property
@@ -50,4 +49,3 @@ class JobData:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

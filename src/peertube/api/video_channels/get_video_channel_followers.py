@@ -6,37 +6,49 @@ import httpx
 from peertube import errors
 from peertube.client import AuthenticatedClient, Client
 from peertube.models.get_video_channel_followers_response_200 import (
-    GetVideoChannelFollowersResponse200)
+    GetVideoChannelFollowersResponse200,
+)
 from peertube.models.get_video_channel_followers_sort import (
-    GetVideoChannelFollowersSort)
+    GetVideoChannelFollowersSort,
+)
 from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    channel_handle: str, *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> dict[str, Any]:
+    channel_handle: str,
+    *,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetVideoChannelFollowersSort = UNSET,
+    search: Unset | str = UNSET,
+) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
-    params["start"]=start
+    params["start"] = start
 
-    params["count"]=count
+    params["count"] = count
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
-    params["sort"]=json_sort
+    params["sort"] = json_sort
 
-    params["search"]=search
-    params={k: v for k, v in params.items() if v is not UNSET and v is not None}
+    params["search"] = search
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
-        "method": "get", "url": f"/api/v1/video-channels/{channel_handle}/followers", "params": params, }
+        "method": "get",
+        "url": f"/api/v1/video-channels/{channel_handle}/followers",
+        "params": params,
+    }
 
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetVideoChannelFollowersResponse200 | None:
-    if response.status_code = = 200:
+    if response.status_code == 200:
         response_200 = GetVideoChannelFollowersResponse200.from_dict(response.json())
 
         return response_200
@@ -45,15 +57,27 @@ def _parse_response(
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[GetVideoChannelFollowersResponse200]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
 def sync_detailed(
-    channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> Response[GetVideoChannelFollowersResponse200]:
+    channel_handle: str,
+    *,
+    client: AuthenticatedClient,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetVideoChannelFollowersSort = UNSET,
+    search: Unset | str = UNSET,
+) -> Response[GetVideoChannelFollowersResponse200]:
     """List followers of a video channel
 
 
@@ -72,17 +96,28 @@ def sync_detailed(
         Response[GetVideoChannelFollowersResponse200]
     """
 
-    kwargs  =  _get_kwargs(
-        channel_handle=channel_handle, start=start, count=count, sort=sort, search=search)
+    kwargs = _get_kwargs(
+        channel_handle=channel_handle,
+        start=start,
+        count=count,
+        sort=sort,
+        search=search,
+    )
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> GetVideoChannelFollowersResponse200 | None:
+    channel_handle: str,
+    *,
+    client: AuthenticatedClient,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetVideoChannelFollowersSort = UNSET,
+    search: Unset | str = UNSET,
+) -> GetVideoChannelFollowersResponse200 | None:
     """List followers of a video channel
 
 
@@ -102,16 +137,24 @@ def sync(
     """
 
     return sync_detailed(
-        channel_handle = channel_handle,
+        channel_handle=channel_handle,
         client=client,
         start=start,
         count=count,
         sort=sort,
-        search=search).parsed
+        search=search,
+    ).parsed
 
 
 async def asyncio_detailed(
-    channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> Response[GetVideoChannelFollowersResponse200]:
+    channel_handle: str,
+    *,
+    client: AuthenticatedClient,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetVideoChannelFollowersSort = UNSET,
+    search: Unset | str = UNSET,
+) -> Response[GetVideoChannelFollowersResponse200]:
     """List followers of a video channel
 
 
@@ -130,8 +173,13 @@ async def asyncio_detailed(
         Response[GetVideoChannelFollowersResponse200]
     """
 
-    kwargs  =  _get_kwargs(
-        channel_handle=channel_handle, start=start, count=count, sort=sort, search=search)
+    kwargs = _get_kwargs(
+        channel_handle=channel_handle,
+        start=start,
+        count=count,
+        sort=sort,
+        search=search,
+    )
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -139,7 +187,14 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    channel_handle: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoChannelFollowersSort = UNSET, search: Unset | str = UNSET) -> GetVideoChannelFollowersResponse200 | None:
+    channel_handle: str,
+    *,
+    client: AuthenticatedClient,
+    start: Unset | int = UNSET,
+    count: Unset | int = 15,
+    sort: Unset | GetVideoChannelFollowersSort = UNSET,
+    search: Unset | str = UNSET,
+) -> GetVideoChannelFollowersResponse200 | None:
     """List followers of a video channel
 
 
@@ -160,7 +215,11 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            channel_handle = channel_handle, client=client, start=start, count=count, sort=sort, search=search)
+            channel_handle=channel_handle,
+            client=client,
+            start=start,
+            count=count,
+            sort=sort,
+            search=search,
+        )
     ).parsed
-
-

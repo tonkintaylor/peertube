@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 from uuid import UUID
 
 from attrs import define as _attrs_define
@@ -16,7 +15,7 @@ if TYPE_CHECKING:
     from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
 
-T=TypeVar("T", bound="PostApiV1RunnersJobsRequestResponse200AvailableJobsItem")
+T = TypeVar("T", bound="PostApiV1RunnersJobsRequestResponse200AvailableJobsItem")
 
 
 @_attrs_define
@@ -27,12 +26,11 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
     payload (Union['VODAudioMergeTranscoding', 'VODHLSTranscoding', 'VODWebVideoTranscoding', Unset]):
     """
 
-
     uuid: Unset | UUID = UNSET
-    type_: Unset | RunnerJobType=UNSET
+    type_: Unset | RunnerJobType = UNSET
     payload: Union[
         "VODAudioMergeTranscoding", "VODHLSTranscoding", "VODWebVideoTranscoding", Unset
-    ]=UNSET
+    ] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -43,29 +41,29 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
 
         uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
-            uuid=str(self.uuid)
+            uuid = str(self.uuid)
 
         type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
-            type_=self.type_.value
+            type_ = self.type_.value
 
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
             payload = UNSET
         elif isinstance(self.payload, (VODWebVideoTranscoding, VODHLSTranscoding)):
-            payload=self.payload.to_dict()
+            payload = self.payload.to_dict()
         else:
-            payload=self.payload.to_dict()
+            payload = self.payload.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if uuid is not UNSET:
-            field_dict["uuid"]=uuid
+            field_dict["uuid"] = uuid
         if type_ is not UNSET:
-            field_dict["type"]=type_
+            field_dict["type"] = type_
         if payload is not UNSET:
-            field_dict["payload"]=payload
+            field_dict["payload"] = payload
 
         return field_dict
 
@@ -78,23 +76,28 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
         from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
         d = dict(src_dict)
-        _uuid=d.pop("uuid", UNSET)
+        _uuid = d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
             uuid = UNSET
         else:
-            uuid=UUID(_uuid)
+            uuid = UUID(_uuid)
 
-        _type_=d.pop("type", UNSET)
+        _type_ = d.pop("type", UNSET)
         type_: Unset | RunnerJobType
         if isinstance(_type_, Unset):
             type_ = UNSET
         else:
-            type_=RunnerJobType(_type_)
+            type_ = RunnerJobType(_type_)
 
         def _parse_payload(
-            data: object) -> Union[
-            "VODAudioMergeTranscoding", "VODHLSTranscoding", "VODWebVideoTranscoding", Unset, ]:
+            data: object,
+        ) -> Union[
+            "VODAudioMergeTranscoding",
+            "VODHLSTranscoding",
+            "VODWebVideoTranscoding",
+            Unset,
+        ]:
             if isinstance(data, Unset):
                 return data
             try:
@@ -125,12 +128,13 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
 
             return componentsschemas_runner_job_payload_vod_audio_merge_transcoding
 
-        payload=_parse_payload(d.pop("payload", UNSET))
+        payload = _parse_payload(d.pop("payload", UNSET))
 
-        post_api_v1_runners_jobs_request_response_200_available_jobs_item=cls(
-            uuid=uuid, type_=type_, payload=payload)
+        post_api_v1_runners_jobs_request_response_200_available_jobs_item = cls(
+            uuid=uuid, type_=type_, payload=payload
+        )
 
-        post_api_v1_runners_jobs_request_response_200_available_jobs_item.additional_properties=d
+        post_api_v1_runners_jobs_request_response_200_available_jobs_item.additional_properties = d
         return post_api_v1_runners_jobs_request_response_200_available_jobs_item
 
     @property
@@ -150,4 +154,3 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

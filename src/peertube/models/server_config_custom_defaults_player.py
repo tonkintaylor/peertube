@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="ServerConfigCustomDefaultsPlayer")
+T = TypeVar("T", bound="ServerConfigCustomDefaultsPlayer")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class ServerConfigCustomDefaultsPlayer:
     auto_play (Union[Unset, bool]):
     """
 
-
     auto_play: Unset | bool = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        auto_play=self.auto_play
+        auto_play = self.auto_play
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if auto_play is not UNSET:
-            field_dict["autoPlay"]=auto_play
+            field_dict["autoPlay"] = auto_play
 
         return field_dict
 
@@ -39,12 +37,11 @@ class ServerConfigCustomDefaultsPlayer:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        auto_play=d.pop("autoPlay", UNSET)
+        auto_play = d.pop("autoPlay", UNSET)
 
-        server_config_custom_defaults_player=cls(
-            auto_play=auto_play)
+        server_config_custom_defaults_player = cls(auto_play=auto_play)
 
-        server_config_custom_defaults_player.additional_properties=d
+        server_config_custom_defaults_player.additional_properties = d
         return server_config_custom_defaults_player
 
     @property
@@ -64,4 +61,3 @@ class ServerConfigCustomDefaultsPlayer:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

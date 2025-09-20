@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PutApiV1ServerRedundancyHostBody")
+T = TypeVar("T", bound="PutApiV1ServerRedundancyHostBody")
 
 
 @_attrs_define
@@ -14,20 +14,20 @@ class PutApiV1ServerRedundancyHostBody:
     redundancy_allowed (bool): allow mirroring of the host's local videos
     """
 
-
     redundancy_allowed: bool
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        redundancy_allowed=self.redundancy_allowed
+        redundancy_allowed = self.redundancy_allowed
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "redundancyAllowed": redundancy_allowed, }
+                "redundancyAllowed": redundancy_allowed,
+            }
         )
 
         return field_dict
@@ -37,12 +37,13 @@ class PutApiV1ServerRedundancyHostBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        redundancy_allowed=d.pop("redundancyAllowed")
+        redundancy_allowed = d.pop("redundancyAllowed")
 
-        put_api_v1_server_redundancy_host_body=cls(
-            redundancy_allowed=redundancy_allowed)
+        put_api_v1_server_redundancy_host_body = cls(
+            redundancy_allowed=redundancy_allowed
+        )
 
-        put_api_v1_server_redundancy_host_body.additional_properties=d
+        put_api_v1_server_redundancy_host_body.additional_properties = d
         return put_api_v1_server_redundancy_host_body
 
     @property
@@ -62,4 +63,3 @@ class PutApiV1ServerRedundancyHostBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

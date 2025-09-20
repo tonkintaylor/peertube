@@ -1,7 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,7 +9,7 @@ from typing_extensions import Self
 from peertube import types
 from peertube.types import UNSET, File, FileTypes, Unset
 
-T=TypeVar("T", bound="AddVideoCaptionBody")
+T = TypeVar("T", bound="AddVideoCaptionBody")
 
 
 @_attrs_define
@@ -19,9 +18,8 @@ class AddVideoCaptionBody:
     captionfile (Union[Unset, File]): The file to upload.
     """
 
-
     captionfile: Unset | File = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -47,13 +45,13 @@ class AddVideoCaptionBody:
 
         captionfile: Unset | FileTypes = UNSET
         if not isinstance(self.captionfile, Unset):
-            captionfile=self.captionfile.to_tuple()
+            captionfile = self.captionfile.to_tuple()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if captionfile is not UNSET:
-            field_dict["captionfile"]=captionfile
+            field_dict["captionfile"] = captionfile
 
         return field_dict
 
@@ -94,17 +92,16 @@ class AddVideoCaptionBody:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        _captionfile=d.pop("captionfile", UNSET)
+        _captionfile = d.pop("captionfile", UNSET)
         captionfile: Unset | File
         if isinstance(_captionfile, Unset):
             captionfile = UNSET
         else:
-            captionfile=File(payload=BytesIO(_captionfile))
+            captionfile = File(payload=BytesIO(_captionfile))
 
-        add_video_caption_body=cls(
-            captionfile=captionfile)
+        add_video_caption_body = cls(captionfile=captionfile)
 
-        add_video_caption_body.additional_properties=d
+        add_video_caption_body.additional_properties = d
         return add_video_caption_body
 
     @property
@@ -143,4 +140,3 @@ class AddVideoCaptionBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

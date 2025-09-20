@@ -34,13 +34,16 @@ class Client:
             argument to the constructor.
     """
 
-
     raise_on_unexpected_status: bool = field(default=False, kw_only=True)
     _base_url: str = field(alias="base_url")
     _cookies: dict[str, str] = field(factory=dict, kw_only=True, alias="cookies")
     _headers: dict[str, str] = field(factory=dict, kw_only=True, alias="headers")
     _timeout: httpx.Timeout | None = field(
-        default=None, kw_only=True, alias="timeout", converter=lambda x: None if x is None else httpx.Timeout(x))
+        default=None,
+        kw_only=True,
+        alias="timeout",
+        converter=lambda x: None if x is None else httpx.Timeout(x),
+    )
     _verify_ssl: str | bool | ssl.SSLContext = field(
         default=True, kw_only=True, alias="verify_ssl"
     )
@@ -58,7 +61,7 @@ class Client:
             self._client.headers.update(headers)
         if self._async_client is not None:
             self._async_client.headers.update(headers)
-        return evolve(self, headers = {**self._headers, **headers})
+        return evolve(self, headers={**self._headers, **headers})
 
     def with_cookies(self, cookies: dict[str, str]) -> "Client":
         """Get a new client matching this one with additional cookies"""
@@ -67,7 +70,7 @@ class Client:
             self._client.cookies.update(cookies)
         if self._async_client is not None:
             self._async_client.cookies.update(cookies)
-        return evolve(self, cookies = {**self._cookies, **cookies})
+        return evolve(self, cookies={**self._cookies, **cookies})
 
     def with_timeout(self, timeout: httpx.Timeout) -> "Client":
         """Get a new client matching this one with a new timeout (in seconds)"""
@@ -75,7 +78,7 @@ class Client:
         if self._client is not None:
             self._client.timeout = timeout
         if self._async_client is not None:
-            self._async_client.timeout=timeout
+            self._async_client.timeout = timeout
         return evolve(self, timeout=timeout)
 
     def set_httpx_client(self, client: httpx.Client) -> "Client":
@@ -91,8 +94,15 @@ class Client:
         """Get the underlying httpx.Client, constructing a new one if not previously set"""
 
         if self._client is None:
-            self._client=httpx.Client(
-                base_url=self._base_url, cookies=self._cookies, headers=self._headers, timeout=self._timeout, verify=self._verify_ssl, follow_redirects=self._follow_redirects, **self._httpx_args)
+            self._client = httpx.Client(
+                base_url=self._base_url,
+                cookies=self._cookies,
+                headers=self._headers,
+                timeout=self._timeout,
+                verify=self._verify_ssl,
+                follow_redirects=self._follow_redirects,
+                **self._httpx_args,
+            )
         return self._client
 
     def __enter__(self) -> "Client":
@@ -102,7 +112,11 @@ class Client:
         return self
 
     def __exit__(
-        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for internal httpx.Client (see httpx docs)"""
 
         self.get_httpx_client().__exit__(exc_type, exc_value, traceback)
@@ -120,8 +134,15 @@ class Client:
         """Get the underlying httpx.AsyncClient, constructing a new one if not previously set"""
 
         if self._async_client is None:
-            self._async_client=httpx.AsyncClient(
-                base_url=self._base_url, cookies=self._cookies, headers=self._headers, timeout=self._timeout, verify=self._verify_ssl, follow_redirects=self._follow_redirects, **self._httpx_args)
+            self._async_client = httpx.AsyncClient(
+                base_url=self._base_url,
+                cookies=self._cookies,
+                headers=self._headers,
+                timeout=self._timeout,
+                verify=self._verify_ssl,
+                follow_redirects=self._follow_redirects,
+                **self._httpx_args,
+            )
         return self._async_client
 
     async def __aenter__(self) -> "Client":
@@ -131,7 +152,11 @@ class Client:
         return self
 
     async def __aexit__(
-        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for underlying httpx.AsyncClient (see httpx docs)"""
 
         await self.get_async_httpx_client().__aexit__(exc_type, exc_value, traceback)
@@ -168,13 +193,16 @@ class AuthenticatedClient:
         auth_header_name: The name of the Authorization header
     """
 
-
     raise_on_unexpected_status: bool = field(default=False, kw_only=True)
     _base_url: str = field(alias="base_url")
     _cookies: dict[str, str] = field(factory=dict, kw_only=True, alias="cookies")
     _headers: dict[str, str] = field(factory=dict, kw_only=True, alias="headers")
     _timeout: httpx.Timeout | None = field(
-        default=None, kw_only=True, alias="timeout", converter=lambda x: None if x is None else httpx.Timeout(x))
+        default=None,
+        kw_only=True,
+        alias="timeout",
+        converter=lambda x: None if x is None else httpx.Timeout(x),
+    )
     _verify_ssl: str | bool | ssl.SSLContext = field(
         default=True, kw_only=True, alias="verify_ssl"
     )
@@ -187,7 +215,7 @@ class AuthenticatedClient:
 
     token: str
     prefix: str = "Bearer"
-    auth_header_name: str="Authorization"
+    auth_header_name: str = "Authorization"
 
     def with_headers(self, headers: dict[str, str]) -> "AuthenticatedClient":
         """Get a new client matching this one with additional headers"""
@@ -196,7 +224,7 @@ class AuthenticatedClient:
             self._client.headers.update(headers)
         if self._async_client is not None:
             self._async_client.headers.update(headers)
-        return evolve(self, headers = {**self._headers, **headers})
+        return evolve(self, headers={**self._headers, **headers})
 
     def with_cookies(self, cookies: dict[str, str]) -> "AuthenticatedClient":
         """Get a new client matching this one with additional cookies"""
@@ -205,7 +233,7 @@ class AuthenticatedClient:
             self._client.cookies.update(cookies)
         if self._async_client is not None:
             self._async_client.cookies.update(cookies)
-        return evolve(self, cookies = {**self._cookies, **cookies})
+        return evolve(self, cookies={**self._cookies, **cookies})
 
     def with_timeout(self, timeout: httpx.Timeout) -> "AuthenticatedClient":
         """Get a new client matching this one with a new timeout (in seconds)"""
@@ -213,7 +241,7 @@ class AuthenticatedClient:
         if self._client is not None:
             self._client.timeout = timeout
         if self._async_client is not None:
-            self._async_client.timeout=timeout
+            self._async_client.timeout = timeout
         return evolve(self, timeout=timeout)
 
     def set_httpx_client(self, client: httpx.Client) -> "AuthenticatedClient":
@@ -229,11 +257,18 @@ class AuthenticatedClient:
         """Get the underlying httpx.Client, constructing a new one if not previously set"""
 
         if self._client is None:
-            self._headers[self.auth_header_name]=(
+            self._headers[self.auth_header_name] = (
                 f"{self.prefix} {self.token}" if self.prefix else self.token
             )
-            self._client=httpx.Client(
-                base_url=self._base_url, cookies=self._cookies, headers=self._headers, timeout=self._timeout, verify=self._verify_ssl, follow_redirects=self._follow_redirects, **self._httpx_args)
+            self._client = httpx.Client(
+                base_url=self._base_url,
+                cookies=self._cookies,
+                headers=self._headers,
+                timeout=self._timeout,
+                verify=self._verify_ssl,
+                follow_redirects=self._follow_redirects,
+                **self._httpx_args,
+            )
         return self._client
 
     def __enter__(self) -> "AuthenticatedClient":
@@ -243,7 +278,11 @@ class AuthenticatedClient:
         return self
 
     def __exit__(
-        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for internal httpx.Client (see httpx docs)"""
 
         self.get_httpx_client().__exit__(exc_type, exc_value, traceback)
@@ -263,11 +302,18 @@ class AuthenticatedClient:
         """Get the underlying httpx.AsyncClient, constructing a new one if not previously set"""
 
         if self._async_client is None:
-            self._headers[self.auth_header_name]=(
+            self._headers[self.auth_header_name] = (
                 f"{self.prefix} {self.token}" if self.prefix else self.token
             )
-            self._async_client=httpx.AsyncClient(
-                base_url=self._base_url, cookies=self._cookies, headers=self._headers, timeout=self._timeout, verify=self._verify_ssl, follow_redirects=self._follow_redirects, **self._httpx_args)
+            self._async_client = httpx.AsyncClient(
+                base_url=self._base_url,
+                cookies=self._cookies,
+                headers=self._headers,
+                timeout=self._timeout,
+                verify=self._verify_ssl,
+                follow_redirects=self._follow_redirects,
+                **self._httpx_args,
+            )
         return self._async_client
 
     async def __aenter__(self) -> "AuthenticatedClient":
@@ -277,8 +323,11 @@ class AuthenticatedClient:
         return self
 
     async def __aexit__(
-        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Exit a context manager for underlying httpx.AsyncClient (see httpx docs)"""
 
         await self.get_async_httpx_client().__aexit__(exc_type, exc_value, traceback)
-

@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,10 +9,11 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.replace_video_chapters_body_chapters_item import (
-        ReplaceVideoChaptersBodyChaptersItem)
+        ReplaceVideoChaptersBodyChaptersItem,
+    )
 
 
-T=TypeVar("T", bound="ReplaceVideoChaptersBody")
+T = TypeVar("T", bound="ReplaceVideoChaptersBody")
 
 
 @_attrs_define
@@ -22,25 +22,24 @@ class ReplaceVideoChaptersBody:
     chapters (Union[Unset, list['ReplaceVideoChaptersBodyChaptersItem']]):
     """
 
-
     chapters: Unset | list["ReplaceVideoChaptersBodyChaptersItem"] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         chapters: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.chapters, Unset):
-            chapters=[]
+            chapters = []
             for chapters_item_data in self.chapters:
-                chapters_item=chapters_item_data.to_dict()
+                chapters_item = chapters_item_data.to_dict()
                 chapters.append(chapters_item)
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if chapters is not UNSET:
-            field_dict["chapters"]=chapters
+            field_dict["chapters"] = chapters
 
         return field_dict
 
@@ -49,22 +48,22 @@ class ReplaceVideoChaptersBody:
         """Create instance from dictionary."""
 
         from peertube.models.replace_video_chapters_body_chapters_item import (
-            ReplaceVideoChaptersBodyChaptersItem)
+            ReplaceVideoChaptersBodyChaptersItem,
+        )
 
         d = dict(src_dict)
-        chapters=[]
-        _chapters=d.pop("chapters", UNSET)
+        chapters = []
+        _chapters = d.pop("chapters", UNSET)
         for chapters_item_data in _chapters or []:
-            chapters_item=ReplaceVideoChaptersBodyChaptersItem.from_dict(
+            chapters_item = ReplaceVideoChaptersBodyChaptersItem.from_dict(
                 chapters_item_data
             )
 
             chapters.append(chapters_item)
 
-        replace_video_chapters_body=cls(
-            chapters=chapters)
+        replace_video_chapters_body = cls(chapters=chapters)
 
-        replace_video_chapters_body.additional_properties=d
+        replace_video_chapters_body.additional_properties = d
         return replace_video_chapters_body
 
     @property
@@ -84,4 +83,3 @@ class ReplaceVideoChaptersBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="VideosForXMLItemMediaplayer")
+T = TypeVar("T", bound="VideosForXMLItemMediaplayer")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class VideosForXMLItemMediaplayer:
     url (Union[Unset, str]): video watch path, relative to the canonical URL domain (MRSS)
     """
 
-
     url: Unset | str = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
 
-        url=self.url
+        url = self.url
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if url is not UNSET:
-            field_dict["url"]=url
+            field_dict["url"] = url
 
         return field_dict
 
@@ -39,12 +37,11 @@ class VideosForXMLItemMediaplayer:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        url=d.pop("url", UNSET)
+        url = d.pop("url", UNSET)
 
-        videos_for_xml_item_mediaplayer=cls(
-            url=url)
+        videos_for_xml_item_mediaplayer = cls(url=url)
 
-        videos_for_xml_item_mediaplayer.additional_properties=d
+        videos_for_xml_item_mediaplayer.additional_properties = d
         return videos_for_xml_item_mediaplayer
 
     @property
@@ -64,4 +61,3 @@ class VideosForXMLItemMediaplayer:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

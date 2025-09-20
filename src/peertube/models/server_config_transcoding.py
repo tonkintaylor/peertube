@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union, cast)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -11,10 +10,11 @@ from peertube.types import UNSET, Unset
 if TYPE_CHECKING:
     from peertube.models.server_config_transcoding_hls import ServerConfigTranscodingHls
     from peertube.models.server_config_transcoding_web_videos import (
-        ServerConfigTranscodingWebVideos)
+        ServerConfigTranscodingWebVideos,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigTranscoding")
+T = TypeVar("T", bound="ServerConfigTranscoding")
 
 
 @_attrs_define
@@ -25,36 +25,35 @@ class ServerConfigTranscoding:
     enabled_resolutions (Union[Unset, list[int]]):
     """
 
-
     hls: Union[Unset, "ServerConfigTranscodingHls"] = UNSET
-    web_videos: Union[Unset, "ServerConfigTranscodingWebVideos"]=UNSET
+    web_videos: Union[Unset, "ServerConfigTranscodingWebVideos"] = UNSET
     enabled_resolutions: Unset | list[int] = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         hls: Unset | dict[str, Any] = UNSET
         if not isinstance(self.hls, Unset):
-            hls=self.hls.to_dict()
+            hls = self.hls.to_dict()
 
         web_videos: Unset | dict[str, Any] = UNSET
         if not isinstance(self.web_videos, Unset):
-            web_videos=self.web_videos.to_dict()
+            web_videos = self.web_videos.to_dict()
 
         enabled_resolutions: Unset | list[int] = UNSET
         if not isinstance(self.enabled_resolutions, Unset):
-            enabled_resolutions=self.enabled_resolutions
+            enabled_resolutions = self.enabled_resolutions
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if hls is not UNSET:
-            field_dict["hls"]=hls
+            field_dict["hls"] = hls
         if web_videos is not UNSET:
-            field_dict["web_videos"]=web_videos
+            field_dict["web_videos"] = web_videos
         if enabled_resolutions is not UNSET:
-            field_dict["enabledResolutions"]=enabled_resolutions
+            field_dict["enabledResolutions"] = enabled_resolutions
 
         return field_dict
 
@@ -63,31 +62,34 @@ class ServerConfigTranscoding:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_transcoding_hls import (
-            ServerConfigTranscodingHls)
+            ServerConfigTranscodingHls,
+        )
         from peertube.models.server_config_transcoding_web_videos import (
-            ServerConfigTranscodingWebVideos)
+            ServerConfigTranscodingWebVideos,
+        )
 
         d = dict(src_dict)
-        _hls=d.pop("hls", UNSET)
+        _hls = d.pop("hls", UNSET)
         hls: Unset | ServerConfigTranscodingHls
         if isinstance(_hls, Unset):
             hls = UNSET
         else:
-            hls=ServerConfigTranscodingHls.from_dict(_hls)
+            hls = ServerConfigTranscodingHls.from_dict(_hls)
 
-        _web_videos=d.pop("web_videos", UNSET)
+        _web_videos = d.pop("web_videos", UNSET)
         web_videos: Unset | ServerConfigTranscodingWebVideos
         if isinstance(_web_videos, Unset):
             web_videos = UNSET
         else:
-            web_videos=ServerConfigTranscodingWebVideos.from_dict(_web_videos)
+            web_videos = ServerConfigTranscodingWebVideos.from_dict(_web_videos)
 
-        enabled_resolutions=cast("list[int]", d.pop("enabledResolutions", UNSET))
+        enabled_resolutions = cast("list[int]", d.pop("enabledResolutions", UNSET))
 
-        server_config_transcoding=cls(
-            hls=hls, web_videos=web_videos, enabled_resolutions=enabled_resolutions)
+        server_config_transcoding = cls(
+            hls=hls, web_videos=web_videos, enabled_resolutions=enabled_resolutions
+        )
 
-        server_config_transcoding.additional_properties=d
+        server_config_transcoding.additional_properties = d
         return server_config_transcoding
 
     @property
@@ -107,4 +109,3 @@ class ServerConfigTranscoding:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

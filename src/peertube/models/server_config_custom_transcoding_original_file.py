@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any, TypeVar)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,7 +7,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T=TypeVar("T", bound="ServerConfigCustomTranscodingOriginalFile")
+T = TypeVar("T", bound="ServerConfigCustomTranscodingOriginalFile")
 
 
 @_attrs_define
@@ -17,20 +16,19 @@ class ServerConfigCustomTranscodingOriginalFile:
     keep (Union[Unset, bool]):
     """
 
-
     keep: Unset | bool = UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
 
-        keep=self.keep
+        keep = self.keep
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if keep is not UNSET:
-            field_dict["keep"]=keep
+            field_dict["keep"] = keep
 
         return field_dict
 
@@ -39,12 +37,11 @@ class ServerConfigCustomTranscodingOriginalFile:
         """Create from dictionary."""
 
         d = dict(src_dict)
-        keep=d.pop("keep", UNSET)
+        keep = d.pop("keep", UNSET)
 
-        server_config_custom_transcoding_original_file=cls(
-            keep=keep)
+        server_config_custom_transcoding_original_file = cls(keep=keep)
 
-        server_config_custom_transcoding_original_file.additional_properties=d
+        server_config_custom_transcoding_original_file.additional_properties = d
         return server_config_custom_transcoding_original_file
 
     @property
@@ -64,4 +61,3 @@ class ServerConfigCustomTranscodingOriginalFile:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from typing_extensions import Self
 
-T=TypeVar("T", bound="PostApiV1ServerBlocklistServersBody")
+T = TypeVar("T", bound="PostApiV1ServerBlocklistServersBody")
 
 
 @_attrs_define
@@ -14,20 +14,20 @@ class PostApiV1ServerBlocklistServersBody:
     host (str): server domain to block
     """
 
-
     host: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        host=self.host
+        host = self.host
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "host": host, }
+                "host": host,
+            }
         )
 
         return field_dict
@@ -37,12 +37,11 @@ class PostApiV1ServerBlocklistServersBody:
         """Create instance from dictionary."""
 
         d = dict(src_dict)
-        host=d.pop("host")
+        host = d.pop("host")
 
-        post_api_v1_server_blocklist_servers_body=cls(
-            host=host)
+        post_api_v1_server_blocklist_servers_body = cls(host=host)
 
-        post_api_v1_server_blocklist_servers_body.additional_properties=d
+        post_api_v1_server_blocklist_servers_body.additional_properties = d
         return post_api_v1_server_blocklist_servers_body
 
     @property
@@ -62,4 +61,3 @@ class PostApiV1ServerBlocklistServersBody:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

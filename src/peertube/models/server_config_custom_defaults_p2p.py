@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,12 +9,14 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.server_config_custom_defaults_p2p_embed import (
-        ServerConfigCustomDefaultsP2PEmbed)
+        ServerConfigCustomDefaultsP2PEmbed,
+    )
     from peertube.models.server_config_custom_defaults_p2p_webapp import (
-        ServerConfigCustomDefaultsP2PWebapp)
+        ServerConfigCustomDefaultsP2PWebapp,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigCustomDefaultsP2P")
+T = TypeVar("T", bound="ServerConfigCustomDefaultsP2P")
 
 
 @_attrs_define
@@ -25,9 +26,8 @@ class ServerConfigCustomDefaultsP2P:
     embed (Union[Unset, ServerConfigCustomDefaultsP2PEmbed]):
     """
 
-
     webapp: Union[Unset, "ServerConfigCustomDefaultsP2PWebapp"] = UNSET
-    embed: Union[Unset, "ServerConfigCustomDefaultsP2PEmbed"]=UNSET
+    embed: Union[Unset, "ServerConfigCustomDefaultsP2PEmbed"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -35,19 +35,19 @@ class ServerConfigCustomDefaultsP2P:
 
         webapp: Unset | dict[str, Any] = UNSET
         if not isinstance(self.webapp, Unset):
-            webapp=self.webapp.to_dict()
+            webapp = self.webapp.to_dict()
 
         embed: Unset | dict[str, Any] = UNSET
         if not isinstance(self.embed, Unset):
-            embed=self.embed.to_dict()
+            embed = self.embed.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if webapp is not UNSET:
-            field_dict["webapp"]=webapp
+            field_dict["webapp"] = webapp
         if embed is not UNSET:
-            field_dict["embed"]=embed
+            field_dict["embed"] = embed
 
         return field_dict
 
@@ -56,29 +56,30 @@ class ServerConfigCustomDefaultsP2P:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_custom_defaults_p2p_embed import (
-            ServerConfigCustomDefaultsP2PEmbed)
+            ServerConfigCustomDefaultsP2PEmbed,
+        )
         from peertube.models.server_config_custom_defaults_p2p_webapp import (
-            ServerConfigCustomDefaultsP2PWebapp)
+            ServerConfigCustomDefaultsP2PWebapp,
+        )
 
         d = dict(src_dict)
-        _webapp=d.pop("webapp", UNSET)
+        _webapp = d.pop("webapp", UNSET)
         webapp: Unset | ServerConfigCustomDefaultsP2PWebapp
         if isinstance(_webapp, Unset):
             webapp = UNSET
         else:
-            webapp=ServerConfigCustomDefaultsP2PWebapp.from_dict(_webapp)
+            webapp = ServerConfigCustomDefaultsP2PWebapp.from_dict(_webapp)
 
-        _embed=d.pop("embed", UNSET)
+        _embed = d.pop("embed", UNSET)
         embed: Unset | ServerConfigCustomDefaultsP2PEmbed
         if isinstance(_embed, Unset):
             embed = UNSET
         else:
-            embed=ServerConfigCustomDefaultsP2PEmbed.from_dict(_embed)
+            embed = ServerConfigCustomDefaultsP2PEmbed.from_dict(_embed)
 
-        server_config_custom_defaults_p2p=cls(
-            webapp=webapp, embed=embed)
+        server_config_custom_defaults_p2p = cls(webapp=webapp, embed=embed)
 
-        server_config_custom_defaults_p2p.additional_properties=d
+        server_config_custom_defaults_p2p.additional_properties = d
         return server_config_custom_defaults_p2p
 
     @property
@@ -98,4 +99,3 @@ class ServerConfigCustomDefaultsP2P:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

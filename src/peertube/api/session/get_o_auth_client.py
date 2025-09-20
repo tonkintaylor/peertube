@@ -11,14 +11,17 @@ from peertube.types import Response
 
 def _get_kwargs() -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
-        "method": "get", "url": "/api/v1/oauth-clients/local", }
+        "method": "get",
+        "url": "/api/v1/oauth-clients/local",
+    }
 
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> OAuthClient | None:
-    if response.status_code = = 200:
+    if response.status_code == 200:
         response_200 = OAuthClient.from_dict(response.json())
 
         return response_200
@@ -27,15 +30,19 @@ def _parse_response(
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[OAuthClient]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
-def sync_detailed(
-    *, client: AuthenticatedClient | Client) -> Response[OAuthClient]:
+def sync_detailed(*, client: AuthenticatedClient | Client) -> Response[OAuthClient]:
     """Login prerequisite
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
@@ -47,16 +54,14 @@ def sync_detailed(
         Response[OAuthClient]
     """
 
-    kwargs  =  _get_kwargs()
+    kwargs = _get_kwargs()
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
-def sync(
-    *, client: AuthenticatedClient | Client) -> OAuthClient | None:
+def sync(*, client: AuthenticatedClient | Client) -> OAuthClient | None:
     """Login prerequisite
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
@@ -68,12 +73,12 @@ def sync(
         OAuthClient
     """
 
-    return sync_detailed(
-        client = client).parsed
+    return sync_detailed(client=client).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient | Client) -> Response[OAuthClient]:
+    *, client: AuthenticatedClient | Client
+) -> Response[OAuthClient]:
     """Login prerequisite
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
@@ -85,15 +90,14 @@ async def asyncio_detailed(
         Response[OAuthClient]
     """
 
-    kwargs  =  _get_kwargs()
+    kwargs = _get_kwargs()
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
-async def asyncio(
-    *, client: AuthenticatedClient | Client) -> OAuthClient | None:
+async def asyncio(*, client: AuthenticatedClient | Client) -> OAuthClient | None:
     """Login prerequisite
      You need to retrieve a client id and secret before [logging in](#operation/getOAuthToken).
 
@@ -105,9 +109,4 @@ async def asyncio(
         OAuthClient
     """
 
-    return (
-        await asyncio_detailed(
-            client = client)
-    ).parsed
-
-
+    return (await asyncio_detailed(client=client)).parsed

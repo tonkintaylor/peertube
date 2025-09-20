@@ -1,6 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING, Any, TypeVar, Union)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,12 +9,14 @@ from peertube.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from peertube.models.server_config_import_videos_http import (
-        ServerConfigImportVideosHttp)
+        ServerConfigImportVideosHttp,
+    )
     from peertube.models.server_config_import_videos_torrent import (
-        ServerConfigImportVideosTorrent)
+        ServerConfigImportVideosTorrent,
+    )
 
 
-T=TypeVar("T", bound="ServerConfigImportVideos")
+T = TypeVar("T", bound="ServerConfigImportVideos")
 
 
 @_attrs_define
@@ -25,9 +26,8 @@ class ServerConfigImportVideos:
     torrent (Union[Unset, ServerConfigImportVideosTorrent]):
     """
 
-
     http: Union[Unset, "ServerConfigImportVideosHttp"] = UNSET
-    torrent: Union[Unset, "ServerConfigImportVideosTorrent"]=UNSET
+    torrent: Union[Unset, "ServerConfigImportVideosTorrent"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -35,19 +35,19 @@ class ServerConfigImportVideos:
 
         http: Unset | dict[str, Any] = UNSET
         if not isinstance(self.http, Unset):
-            http=self.http.to_dict()
+            http = self.http.to_dict()
 
         torrent: Unset | dict[str, Any] = UNSET
         if not isinstance(self.torrent, Unset):
-            torrent=self.torrent.to_dict()
+            torrent = self.torrent.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if http is not UNSET:
-            field_dict["http"]=http
+            field_dict["http"] = http
         if torrent is not UNSET:
-            field_dict["torrent"]=torrent
+            field_dict["torrent"] = torrent
 
         return field_dict
 
@@ -56,29 +56,30 @@ class ServerConfigImportVideos:
         """Create instance from dictionary."""
 
         from peertube.models.server_config_import_videos_http import (
-            ServerConfigImportVideosHttp)
+            ServerConfigImportVideosHttp,
+        )
         from peertube.models.server_config_import_videos_torrent import (
-            ServerConfigImportVideosTorrent)
+            ServerConfigImportVideosTorrent,
+        )
 
         d = dict(src_dict)
-        _http=d.pop("http", UNSET)
+        _http = d.pop("http", UNSET)
         http: Unset | ServerConfigImportVideosHttp
         if isinstance(_http, Unset):
             http = UNSET
         else:
-            http=ServerConfigImportVideosHttp.from_dict(_http)
+            http = ServerConfigImportVideosHttp.from_dict(_http)
 
-        _torrent=d.pop("torrent", UNSET)
+        _torrent = d.pop("torrent", UNSET)
         torrent: Unset | ServerConfigImportVideosTorrent
         if isinstance(_torrent, Unset):
             torrent = UNSET
         else:
-            torrent=ServerConfigImportVideosTorrent.from_dict(_torrent)
+            torrent = ServerConfigImportVideosTorrent.from_dict(_torrent)
 
-        server_config_import_videos=cls(
-            http=http, torrent=torrent)
+        server_config_import_videos = cls(http=http, torrent=torrent)
 
-        server_config_import_videos.additional_properties=d
+        server_config_import_videos.additional_properties = d
         return server_config_import_videos
 
     @property
@@ -98,4 +99,3 @@ class ServerConfigImportVideos:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
-

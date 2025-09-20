@@ -9,38 +9,46 @@ from peertube.models.send_client_log import SendClientLog
 from peertube.types import Response
 
 
-def _get_kwargs(
-    *, body: SendClientLog) -> dict[str, Any]:
+def _get_kwargs(*, body: SendClientLog) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
-    _kwargs: dict[str, Any]={
-        "method": "post", "url": "/api/v1/server/logs/client", }
-    _kwargs["json"]=body.to_dict()
+    _kwargs: dict[str, Any] = {
+        "method": "post",
+        "url": "/api/v1/server/logs/client",
+    }
+    _kwargs["json"] = body.to_dict()
 
-    headers["Content-Type"]="application/json"
+    headers["Content-Type"] = "application/json"
 
-    _kwargs["headers"]=headers
+    _kwargs["headers"] = headers
     return _kwargs
+
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code = = 204:
+    if response.status_code == 204:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
 
+
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient | Client, body: SendClientLog) -> Response[Any]:
+    *, client: AuthenticatedClient | Client, body: SendClientLog
+) -> Response[Any]:
     """Send client log
 
 
@@ -55,17 +63,14 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        body=body)
+    kwargs = _get_kwargs(body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs)
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
-def sync(
-    *, client: AuthenticatedClient | Client, body: SendClientLog) -> Any | None:
+def sync(*, client: AuthenticatedClient | Client, body: SendClientLog) -> Any | None:
     """Send client log
 
 
@@ -77,12 +82,12 @@ def sync(
         Any
     """
 
-    return sync_detailed(
-        client = client, body=body).parsed
+    return sync_detailed(client=client, body=body).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient | Client, body: SendClientLog) -> Response[Any]:
+    *, client: AuthenticatedClient | Client, body: SendClientLog
+) -> Response[Any]:
     """Send client log
 
 
@@ -97,11 +102,8 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs  =  _get_kwargs(
-        body=body)
+    kwargs = _get_kwargs(body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
-
-
