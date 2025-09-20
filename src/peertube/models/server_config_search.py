@@ -23,17 +23,17 @@ class ServerConfigSearch:
     """
 
 
-    remote_uri: Union[Unset, "ServerConfigSearchRemoteUri"]=UNSET
+    remote_uri: Union[Unset, "ServerConfigSearchRemoteUri"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        remote_uri: Unset | dict[str, Any]=UNSET
+        remote_uri: Unset | dict[str, Any] = UNSET
         if not isinstance(self.remote_uri, Unset):
             remote_uri=self.remote_uri.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if remote_uri is not UNSET:
@@ -48,11 +48,11 @@ class ServerConfigSearch:
         from peertube.models.server_config_search_remote_uri import (
             ServerConfigSearchRemoteUri)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _remote_uri=d.pop("remoteUri", UNSET)
         remote_uri: Unset | ServerConfigSearchRemoteUri
         if isinstance(_remote_uri, Unset):
-            remote_uri=UNSET
+            remote_uri = UNSET
         else:
             remote_uri=ServerConfigSearchRemoteUri.from_dict(_remote_uri)
 
@@ -72,10 +72,11 @@ class ServerConfigSearch:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -53,82 +53,82 @@ class ServerConfigCustom:
     """
 
 
-    instance: Union[Unset, "ServerConfigCustomInstance"]=UNSET
+    instance: Union[Unset, "ServerConfigCustomInstance"] = UNSET
     theme: Union[Unset, "ServerConfigCustomTheme"]=UNSET
-    services: Union[Unset, "ServerConfigCustomServices"]=UNSET
+    services: Union[Unset, "ServerConfigCustomServices"] = UNSET
     cache: Union[Unset, "ServerConfigCustomCache"]=UNSET
-    signup: Union[Unset, "ServerConfigCustomSignup"]=UNSET
+    signup: Union[Unset, "ServerConfigCustomSignup"] = UNSET
     admin: Union[Unset, "ServerConfigCustomAdmin"]=UNSET
-    contact_form: Union[Unset, "ServerConfigCustomContactForm"]=UNSET
+    contact_form: Union[Unset, "ServerConfigCustomContactForm"] = UNSET
     user: Union[Unset, "ServerConfigCustomUser"]=UNSET
-    transcoding: Union[Unset, "ServerConfigCustomTranscoding"]=UNSET
+    transcoding: Union[Unset, "ServerConfigCustomTranscoding"] = UNSET
     import_: Union[Unset, "ServerConfigCustomImport"]=UNSET
-    auto_blacklist: Union[Unset, "ServerConfigCustomAutoBlacklist"]=UNSET
+    auto_blacklist: Union[Unset, "ServerConfigCustomAutoBlacklist"] = UNSET
     followers: Union[Unset, "ServerConfigCustomFollowers"]=UNSET
-    storyboard: Union[Unset, "ServerConfigCustomStoryboard"]=UNSET
+    storyboard: Union[Unset, "ServerConfigCustomStoryboard"] = UNSET
     defaults: Union[Unset, "ServerConfigCustomDefaults"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        instance: Unset | dict[str, Any]=UNSET
+        instance: Unset | dict[str, Any] = UNSET
         if not isinstance(self.instance, Unset):
             instance=self.instance.to_dict()
 
-        theme: Unset | dict[str, Any]=UNSET
+        theme: Unset | dict[str, Any] = UNSET
         if not isinstance(self.theme, Unset):
             theme=self.theme.to_dict()
 
-        services: Unset | dict[str, Any]=UNSET
+        services: Unset | dict[str, Any] = UNSET
         if not isinstance(self.services, Unset):
             services=self.services.to_dict()
 
-        cache: Unset | dict[str, Any]=UNSET
+        cache: Unset | dict[str, Any] = UNSET
         if not isinstance(self.cache, Unset):
             cache=self.cache.to_dict()
 
-        signup: Unset | dict[str, Any]=UNSET
+        signup: Unset | dict[str, Any] = UNSET
         if not isinstance(self.signup, Unset):
             signup=self.signup.to_dict()
 
-        admin: Unset | dict[str, Any]=UNSET
+        admin: Unset | dict[str, Any] = UNSET
         if not isinstance(self.admin, Unset):
             admin=self.admin.to_dict()
 
-        contact_form: Unset | dict[str, Any]=UNSET
+        contact_form: Unset | dict[str, Any] = UNSET
         if not isinstance(self.contact_form, Unset):
             contact_form=self.contact_form.to_dict()
 
-        user: Unset | dict[str, Any]=UNSET
+        user: Unset | dict[str, Any] = UNSET
         if not isinstance(self.user, Unset):
             user=self.user.to_dict()
 
-        transcoding: Unset | dict[str, Any]=UNSET
+        transcoding: Unset | dict[str, Any] = UNSET
         if not isinstance(self.transcoding, Unset):
             transcoding=self.transcoding.to_dict()
 
-        import_: Unset | dict[str, Any]=UNSET
+        import_: Unset | dict[str, Any] = UNSET
         if not isinstance(self.import_, Unset):
             import_=self.import_.to_dict()
 
-        auto_blacklist: Unset | dict[str, Any]=UNSET
+        auto_blacklist: Unset | dict[str, Any] = UNSET
         if not isinstance(self.auto_blacklist, Unset):
             auto_blacklist=self.auto_blacklist.to_dict()
 
-        followers: Unset | dict[str, Any]=UNSET
+        followers: Unset | dict[str, Any] = UNSET
         if not isinstance(self.followers, Unset):
             followers=self.followers.to_dict()
 
-        storyboard: Unset | dict[str, Any]=UNSET
+        storyboard: Unset | dict[str, Any] = UNSET
         if not isinstance(self.storyboard, Unset):
             storyboard=self.storyboard.to_dict()
 
-        defaults: Unset | dict[str, Any]=UNSET
+        defaults: Unset | dict[str, Any] = UNSET
         if not isinstance(self.defaults, Unset):
             defaults=self.defaults.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if instance is not UNSET:
@@ -189,102 +189,102 @@ class ServerConfigCustom:
             ServerConfigCustomTranscoding)
         from peertube.models.server_config_custom_user import ServerConfigCustomUser
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _instance=d.pop("instance", UNSET)
         instance: Unset | ServerConfigCustomInstance
         if isinstance(_instance, Unset):
-            instance=UNSET
+            instance = UNSET
         else:
             instance=ServerConfigCustomInstance.from_dict(_instance)
 
         _theme=d.pop("theme", UNSET)
         theme: Unset | ServerConfigCustomTheme
         if isinstance(_theme, Unset):
-            theme=UNSET
+            theme = UNSET
         else:
             theme=ServerConfigCustomTheme.from_dict(_theme)
 
         _services=d.pop("services", UNSET)
         services: Unset | ServerConfigCustomServices
         if isinstance(_services, Unset):
-            services=UNSET
+            services = UNSET
         else:
             services=ServerConfigCustomServices.from_dict(_services)
 
         _cache=d.pop("cache", UNSET)
         cache: Unset | ServerConfigCustomCache
         if isinstance(_cache, Unset):
-            cache=UNSET
+            cache = UNSET
         else:
             cache=ServerConfigCustomCache.from_dict(_cache)
 
         _signup=d.pop("signup", UNSET)
         signup: Unset | ServerConfigCustomSignup
         if isinstance(_signup, Unset):
-            signup=UNSET
+            signup = UNSET
         else:
             signup=ServerConfigCustomSignup.from_dict(_signup)
 
         _admin=d.pop("admin", UNSET)
         admin: Unset | ServerConfigCustomAdmin
         if isinstance(_admin, Unset):
-            admin=UNSET
+            admin = UNSET
         else:
             admin=ServerConfigCustomAdmin.from_dict(_admin)
 
         _contact_form=d.pop("contactForm", UNSET)
         contact_form: Unset | ServerConfigCustomContactForm
         if isinstance(_contact_form, Unset):
-            contact_form=UNSET
+            contact_form = UNSET
         else:
             contact_form=ServerConfigCustomContactForm.from_dict(_contact_form)
 
         _user=d.pop("user", UNSET)
         user: Unset | ServerConfigCustomUser
         if isinstance(_user, Unset):
-            user=UNSET
+            user = UNSET
         else:
             user=ServerConfigCustomUser.from_dict(_user)
 
         _transcoding=d.pop("transcoding", UNSET)
         transcoding: Unset | ServerConfigCustomTranscoding
         if isinstance(_transcoding, Unset):
-            transcoding=UNSET
+            transcoding = UNSET
         else:
             transcoding=ServerConfigCustomTranscoding.from_dict(_transcoding)
 
         _import_=d.pop("import", UNSET)
         import_: Unset | ServerConfigCustomImport
         if isinstance(_import_, Unset):
-            import_=UNSET
+            import_ = UNSET
         else:
             import_=ServerConfigCustomImport.from_dict(_import_)
 
         _auto_blacklist=d.pop("autoBlacklist", UNSET)
         auto_blacklist: Unset | ServerConfigCustomAutoBlacklist
         if isinstance(_auto_blacklist, Unset):
-            auto_blacklist=UNSET
+            auto_blacklist = UNSET
         else:
             auto_blacklist=ServerConfigCustomAutoBlacklist.from_dict(_auto_blacklist)
 
         _followers=d.pop("followers", UNSET)
         followers: Unset | ServerConfigCustomFollowers
         if isinstance(_followers, Unset):
-            followers=UNSET
+            followers = UNSET
         else:
             followers=ServerConfigCustomFollowers.from_dict(_followers)
 
         _storyboard=d.pop("storyboard", UNSET)
         storyboard: Unset | ServerConfigCustomStoryboard
         if isinstance(_storyboard, Unset):
-            storyboard=UNSET
+            storyboard = UNSET
         else:
             storyboard=ServerConfigCustomStoryboard.from_dict(_storyboard)
 
         _defaults=d.pop("defaults", UNSET)
         defaults: Unset | ServerConfigCustomDefaults
         if isinstance(_defaults, Unset):
-            defaults=UNSET
+            defaults = UNSET
         else:
             defaults=ServerConfigCustomDefaults.from_dict(_defaults)
 
@@ -304,7 +304,7 @@ class ServerConfigCustom:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]

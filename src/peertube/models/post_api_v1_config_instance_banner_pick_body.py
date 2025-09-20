@@ -20,7 +20,7 @@ class PostApiV1ConfigInstanceBannerPickBody:
     """
 
 
-    bannerfile: Unset | File=UNSET
+    bannerfile: Unset | File = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -52,11 +52,11 @@ class PostApiV1ConfigInstanceBannerPickBody:
         """Convert instance to dictionary."""
         """Convert to dictionary."""
 
-        bannerfile: Unset | FileTypes=UNSET
+        bannerfile: Unset | FileTypes = UNSET
         if not isinstance(self.bannerfile, Unset):
             bannerfile=self.bannerfile.to_tuple()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if bannerfile is not UNSET:
@@ -67,7 +67,7 @@ class PostApiV1ConfigInstanceBannerPickBody:
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
 
-        files: types.RequestFiles=[]
+        files: types.RequestFiles = []
 
         if not isinstance(self.bannerfile, Unset):
             files.append(("bannerfile", self.bannerfile.to_tuple()))
@@ -107,11 +107,11 @@ class PostApiV1ConfigInstanceBannerPickBody:
         """Create instance from dictionary."""
         """Create from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _bannerfile=d.pop("bannerfile", UNSET)
         bannerfile: Unset | File
         if isinstance(_bannerfile, Unset):
-            bannerfile=UNSET
+            bannerfile = UNSET
         else:
             bannerfile=File(payload=BytesIO(_bannerfile))
 
@@ -157,10 +157,11 @@ class PostApiV1ConfigInstanceBannerPickBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

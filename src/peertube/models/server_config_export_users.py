@@ -20,7 +20,7 @@ class ServerConfigExportUsers:
     """
 
 
-    enabled: Unset | bool=UNSET
+    enabled: Unset | bool = UNSET
     export_expiration: Unset | float=UNSET
     max_user_video_quota: Unset | float=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
@@ -34,7 +34,7 @@ class ServerConfigExportUsers:
 
         max_user_video_quota=self.max_user_video_quota
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if enabled is not UNSET:
@@ -50,7 +50,7 @@ class ServerConfigExportUsers:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         enabled=d.pop("enabled", UNSET)
 
         export_expiration=d.pop("exportExpiration", UNSET)
@@ -73,10 +73,11 @@ class ServerConfigExportUsers:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

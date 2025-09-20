@@ -22,7 +22,7 @@ class ServerStatsVideosRedundancyItem:
     """
 
 
-    strategy: Unset | str=UNSET
+    strategy: Unset | str = UNSET
     total_size: Unset | float=UNSET
     total_used: Unset | float=UNSET
     total_video_files: Unset | float=UNSET
@@ -42,7 +42,7 @@ class ServerStatsVideosRedundancyItem:
 
         total_videos=self.total_videos
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if strategy is not UNSET:
@@ -62,7 +62,7 @@ class ServerStatsVideosRedundancyItem:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         strategy=d.pop("strategy", UNSET)
 
         total_size=d.pop("totalSize", UNSET)
@@ -89,10 +89,11 @@ class ServerStatsVideosRedundancyItem:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

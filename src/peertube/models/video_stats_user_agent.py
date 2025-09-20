@@ -29,7 +29,7 @@ class VideoStatsUserAgent:
     """
 
 
-    clients: Unset | list["VideoStatsUserAgentClientsItem"]=UNSET
+    clients: Unset | list["VideoStatsUserAgentClientsItem"] = UNSET
     devices: Unset | list["VideoStatsUserAgentDevicesItem"]=UNSET
     operating_system: Unset | list["VideoStatsUserAgentOperatingSystemItem"]=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
@@ -37,28 +37,28 @@ class VideoStatsUserAgent:
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        clients: Unset | list[dict[str, Any]]=UNSET
+        clients: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.clients, Unset):
             clients=[]
             for clients_item_data in self.clients:
                 clients_item=clients_item_data.to_dict()
                 clients.append(clients_item)
 
-        devices: Unset | list[dict[str, Any]]=UNSET
+        devices: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.devices, Unset):
             devices=[]
             for devices_item_data in self.devices:
                 devices_item=devices_item_data.to_dict()
                 devices.append(devices_item)
 
-        operating_system: Unset | list[dict[str, Any]]=UNSET
+        operating_system: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.operating_system, Unset):
             operating_system=[]
             for operating_system_item_data in self.operating_system:
                 operating_system_item=operating_system_item_data.to_dict()
                 operating_system.append(operating_system_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if clients is not UNSET:
@@ -81,7 +81,7 @@ class VideoStatsUserAgent:
         from peertube.models.video_stats_user_agent_operating_system_item import (
             VideoStatsUserAgentOperatingSystemItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         clients=[]
         _clients=d.pop("clients", UNSET)
         for clients_item_data in _clients or []:
@@ -121,10 +121,11 @@ class VideoStatsUserAgent:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

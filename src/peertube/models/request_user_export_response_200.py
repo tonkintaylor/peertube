@@ -23,17 +23,17 @@ class RequestUserExportResponse200:
     """
 
 
-    export: Union[Unset, "RequestUserExportResponse200Export"]=UNSET
+    export: Union[Unset, "RequestUserExportResponse200Export"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        export: Unset | dict[str, Any]=UNSET
+        export: Unset | dict[str, Any] = UNSET
         if not isinstance(self.export, Unset):
             export=self.export.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if export is not UNSET:
@@ -48,11 +48,11 @@ class RequestUserExportResponse200:
         from peertube.models.request_user_export_response_200_export import (
             RequestUserExportResponse200Export)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _export=d.pop("export", UNSET)
         export: Unset | RequestUserExportResponse200Export
         if isinstance(_export, Unset):
-            export=UNSET
+            export = UNSET
         else:
             export=RequestUserExportResponse200Export.from_dict(_export)
 
@@ -72,10 +72,11 @@ class RequestUserExportResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

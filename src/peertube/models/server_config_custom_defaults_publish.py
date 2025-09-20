@@ -25,7 +25,7 @@ class ServerConfigCustomDefaultsPublish:
     """
 
 
-    download_enabled: Unset | bool=UNSET
+    download_enabled: Unset | bool = UNSET
     comments_policy: Unset | VideoCommentsPolicySet=UNSET
     privacy: Unset | VideoPrivacySet=UNSET
     licence: Unset | int=UNSET
@@ -36,17 +36,17 @@ class ServerConfigCustomDefaultsPublish:
 
         download_enabled=self.download_enabled
 
-        comments_policy: Unset | int=UNSET
+        comments_policy: Unset | int = UNSET
         if not isinstance(self.comments_policy, Unset):
             comments_policy=self.comments_policy.value
 
-        privacy: Unset | int=UNSET
+        privacy: Unset | int = UNSET
         if not isinstance(self.privacy, Unset):
             privacy=self.privacy.value
 
         licence=self.licence
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if download_enabled is not UNSET:
@@ -64,20 +64,20 @@ class ServerConfigCustomDefaultsPublish:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         download_enabled=d.pop("downloadEnabled", UNSET)
 
         _comments_policy=d.pop("commentsPolicy", UNSET)
         comments_policy: Unset | VideoCommentsPolicySet
         if isinstance(_comments_policy, Unset):
-            comments_policy=UNSET
+            comments_policy = UNSET
         else:
             comments_policy=VideoCommentsPolicySet(_comments_policy)
 
         _privacy=d.pop("privacy", UNSET)
         privacy: Unset | VideoPrivacySet
         if isinstance(_privacy, Unset):
-            privacy=UNSET
+            privacy = UNSET
         else:
             privacy=VideoPrivacySet(_privacy)
 
@@ -99,10 +99,11 @@ class ServerConfigCustomDefaultsPublish:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

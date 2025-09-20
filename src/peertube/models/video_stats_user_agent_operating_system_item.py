@@ -19,7 +19,7 @@ class VideoStatsUserAgentOperatingSystemItem:
     """
 
 
-    name: Unset | str=UNSET
+    name: Unset | str = UNSET
     viewers: Unset | float=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -30,7 +30,7 @@ class VideoStatsUserAgentOperatingSystemItem:
 
         viewers=self.viewers
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
@@ -44,7 +44,7 @@ class VideoStatsUserAgentOperatingSystemItem:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         name=d.pop("name", UNSET)
 
         viewers=d.pop("viewers", UNSET)
@@ -65,10 +65,11 @@ class VideoStatsUserAgentOperatingSystemItem:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

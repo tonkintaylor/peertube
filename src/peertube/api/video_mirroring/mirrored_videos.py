@@ -12,8 +12,8 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> dict[str, Any]:
-    params: dict[str, Any]={}
+    *, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> dict[str, Any]:
+    params: dict[str, Any] = {}
 
     json_target = target.value
     params["target"]=json_target
@@ -28,7 +28,7 @@ def _get_kwargs(
     params["sort"]=json_sort
     params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": "/api/v1/server/redundancy/videos", "params": params, }
 
     return _kwargs
@@ -36,7 +36,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> list["VideoRedundancy"] | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         response_200=[]
         _response_200 = response.json()
         for response_200_item_data in _response_200:
@@ -54,11 +54,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[list["VideoRedundancy"]]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> Response[list["VideoRedundancy"]]:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
 
 
@@ -76,7 +76,7 @@ def sync_detailed(
         Response[list['VideoRedundancy']]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         target=target, start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
@@ -86,7 +86,7 @@ def sync_detailed(
 
 
 def sync(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> list["VideoRedundancy"] | None:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
 
 
@@ -105,16 +105,15 @@ def sync(
     """
 
     return sync_detailed(
-        client=client,
+        client = client,
         target=target,
         start=start,
         count=count,
-        sort=sort,
-    ).parsed
+        sort=sort).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> Response[list["VideoRedundancy"]]:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
 
 
@@ -132,7 +131,7 @@ async def asyncio_detailed(
         Response[list['VideoRedundancy']]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         target=target, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -141,7 +140,7 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> list["VideoRedundancy"] | None:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
 
 
@@ -161,6 +160,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client=client, target=target, start=start, count=count, sort=sort)
+            client = client, target=target, start=start, count=count, sort=sort)
     ).parsed
+
 

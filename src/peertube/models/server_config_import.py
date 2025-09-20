@@ -27,29 +27,29 @@ class ServerConfigImport:
     """
 
 
-    videos: Union[Unset, "ServerConfigImportVideos"]=UNSET
+    videos: Union[Unset, "ServerConfigImportVideos"] = UNSET
     video_channel_synchronization: Union[
         Unset, "ServerConfigImportVideoChannelSynchronization"
     ]=UNSET
-    users: Union[Unset, "ServerConfigImportUsers"]=UNSET
+    users: Union[Unset, "ServerConfigImportUsers"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        videos: Unset | dict[str, Any]=UNSET
+        videos: Unset | dict[str, Any] = UNSET
         if not isinstance(self.videos, Unset):
             videos=self.videos.to_dict()
 
-        video_channel_synchronization: Unset | dict[str, Any]=UNSET
+        video_channel_synchronization: Unset | dict[str, Any] = UNSET
         if not isinstance(self.video_channel_synchronization, Unset):
             video_channel_synchronization=self.video_channel_synchronization.to_dict()
 
-        users: Unset | dict[str, Any]=UNSET
+        users: Unset | dict[str, Any] = UNSET
         if not isinstance(self.users, Unset):
             users=self.users.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if videos is not UNSET:
@@ -70,11 +70,11 @@ class ServerConfigImport:
             ServerConfigImportVideoChannelSynchronization)
         from peertube.models.server_config_import_videos import ServerConfigImportVideos
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _videos=d.pop("videos", UNSET)
         videos: Unset | ServerConfigImportVideos
         if isinstance(_videos, Unset):
-            videos=UNSET
+            videos = UNSET
         else:
             videos=ServerConfigImportVideos.from_dict(_videos)
 
@@ -83,7 +83,7 @@ class ServerConfigImport:
             Unset | ServerConfigImportVideoChannelSynchronization
         )
         if isinstance(_video_channel_synchronization, Unset):
-            video_channel_synchronization=UNSET
+            video_channel_synchronization = UNSET
         else:
             video_channel_synchronization=(
                 ServerConfigImportVideoChannelSynchronization.from_dict(
@@ -94,7 +94,7 @@ class ServerConfigImport:
         _users=d.pop("users", UNSET)
         users: Unset | ServerConfigImportUsers
         if isinstance(_users, Unset):
-            users=UNSET
+            users = UNSET
         else:
             users=ServerConfigImportUsers.from_dict(_users)
 
@@ -114,10 +114,11 @@ class ServerConfigImport:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

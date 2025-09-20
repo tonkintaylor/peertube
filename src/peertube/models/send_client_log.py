@@ -27,7 +27,7 @@ class SendClientLog:
     message: str
     url: str
     level: SendClientLogLevel
-    stack_trace: Unset | str=UNSET
+    stack_trace: Unset | str = UNSET
     user_agent: Unset | str=UNSET
     meta: Unset | str=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
@@ -47,7 +47,7 @@ class SendClientLog:
 
         meta=self.meta
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -66,7 +66,7 @@ class SendClientLog:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         message=d.pop("message")
 
         url=d.pop("url")
@@ -95,10 +95,11 @@ class SendClientLog:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

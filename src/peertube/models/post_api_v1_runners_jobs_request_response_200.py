@@ -25,20 +25,20 @@ class PostApiV1RunnersJobsRequestResponse200:
 
     available_jobs: (
         Unset | list["PostApiV1RunnersJobsRequestResponse200AvailableJobsItem"]
-    )=UNSET
+    ) = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        available_jobs: Unset | list[dict[str, Any]]=UNSET
+        available_jobs: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.available_jobs, Unset):
             available_jobs=[]
             for available_jobs_item_data in self.available_jobs:
                 available_jobs_item=available_jobs_item_data.to_dict()
                 available_jobs.append(available_jobs_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if available_jobs is not UNSET:
@@ -53,7 +53,7 @@ class PostApiV1RunnersJobsRequestResponse200:
         from peertube.models.post_api_v1_runners_jobs_request_response_200_available_jobs_item import (
             PostApiV1RunnersJobsRequestResponse200AvailableJobsItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         available_jobs=[]
         _available_jobs=d.pop("availableJobs", UNSET)
         for available_jobs_item_data in _available_jobs or []:
@@ -81,10 +81,11 @@ class PostApiV1RunnersJobsRequestResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -22,17 +22,17 @@ class ServerConfigExport:
     """
 
 
-    users: Union[Unset, "ServerConfigExportUsers"]=UNSET
+    users: Union[Unset, "ServerConfigExportUsers"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        users: Unset | dict[str, Any]=UNSET
+        users: Unset | dict[str, Any] = UNSET
         if not isinstance(self.users, Unset):
             users=self.users.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if users is not UNSET:
@@ -46,11 +46,11 @@ class ServerConfigExport:
 
         from peertube.models.server_config_export_users import ServerConfigExportUsers
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _users=d.pop("users", UNSET)
         users: Unset | ServerConfigExportUsers
         if isinstance(_users, Unset):
-            users=UNSET
+            users = UNSET
         else:
             users=ServerConfigExportUsers.from_dict(_users)
 
@@ -70,10 +70,11 @@ class ServerConfigExport:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -23,17 +23,17 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200:
     """
 
 
-    job: Union[Unset, "PostApiV1RunnersJobsJobUUIDAcceptResponse200Job"]=UNSET
+    job: Union[Unset, "PostApiV1RunnersJobsJobUUIDAcceptResponse200Job"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        job: Unset | dict[str, Any]=UNSET
+        job: Unset | dict[str, Any] = UNSET
         if not isinstance(self.job, Unset):
             job=self.job.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if job is not UNSET:
@@ -48,11 +48,11 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200:
         from peertube.models.post_api_v1_runners_jobs_job_uuid_accept_response_200_job import (
             PostApiV1RunnersJobsJobUUIDAcceptResponse200Job)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _job=d.pop("job", UNSET)
         job: Unset | PostApiV1RunnersJobsJobUUIDAcceptResponse200Job
         if isinstance(_job, Unset):
-            job=UNSET
+            job = UNSET
         else:
             job=PostApiV1RunnersJobsJobUUIDAcceptResponse200Job.from_dict(_job)
 
@@ -72,10 +72,11 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

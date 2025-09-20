@@ -10,7 +10,7 @@ from peertube.types import Response
 
 
 def _get_kwargs() -> dict[str, Any]:
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": "/api/v1/automatic-tags/server/available", }
 
     return _kwargs
@@ -18,7 +18,7 @@ def _get_kwargs() -> dict[str, Any]:
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> AutomaticTagAvailable | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         response_200 = AutomaticTagAvailable.from_dict(response.json())
 
         return response_200
@@ -31,14 +31,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[AutomaticTagAvailable]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
     *, client: AuthenticatedClient) -> Response[AutomaticTagAvailable]:
     """Get server available auto tags
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -60,7 +60,7 @@ def sync(
     *, client: AuthenticatedClient) -> AutomaticTagAvailable | None:
     """Get server available auto tags
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -78,7 +78,7 @@ async def asyncio_detailed(
     *, client: AuthenticatedClient) -> Response[AutomaticTagAvailable]:
     """Get server available auto tags
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -99,7 +99,7 @@ async def asyncio(
     *, client: AuthenticatedClient) -> AutomaticTagAvailable | None:
     """Get server available auto tags
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,4 +113,5 @@ async def asyncio(
         await asyncio_detailed(
             client=client)
     ).parsed
+
 

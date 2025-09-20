@@ -38,7 +38,7 @@ class ServerConfigInstance:
     """
 
 
-    name: Unset | str=UNSET
+    name: Unset | str = UNSET
     short_description: Unset | str=UNSET
     default_client_route: Unset | str=UNSET
     is_nsfw: Unset | bool=UNSET
@@ -46,9 +46,9 @@ class ServerConfigInstance:
     server_country: Unset | str=UNSET
     default_language: Unset | str=UNSET
     support: Union[Unset, "ServerConfigInstanceSupport"]=UNSET
-    social: Union[Unset, "ServerConfigInstanceSocial"]=UNSET
+    social: Union[Unset, "ServerConfigInstanceSocial"] = UNSET
     customizations: Union[Unset, "ServerConfigInstanceCustomizations"]=UNSET
-    avatars: Unset | list["ActorImage"]=UNSET
+    avatars: Unset | list["ActorImage"] = UNSET
     banners: Unset | list["ActorImage"]=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -69,33 +69,33 @@ class ServerConfigInstance:
 
         default_language=self.default_language
 
-        support: Unset | dict[str, Any]=UNSET
+        support: Unset | dict[str, Any] = UNSET
         if not isinstance(self.support, Unset):
             support=self.support.to_dict()
 
-        social: Unset | dict[str, Any]=UNSET
+        social: Unset | dict[str, Any] = UNSET
         if not isinstance(self.social, Unset):
             social=self.social.to_dict()
 
-        customizations: Unset | dict[str, Any]=UNSET
+        customizations: Unset | dict[str, Any] = UNSET
         if not isinstance(self.customizations, Unset):
             customizations=self.customizations.to_dict()
 
-        avatars: Unset | list[dict[str, Any]]=UNSET
+        avatars: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.avatars, Unset):
             avatars=[]
             for avatars_item_data in self.avatars:
                 avatars_item=avatars_item_data.to_dict()
                 avatars.append(avatars_item)
 
-        banners: Unset | list[dict[str, Any]]=UNSET
+        banners: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.banners, Unset):
             banners=[]
             for banners_item_data in self.banners:
                 banners_item=banners_item_data.to_dict()
                 banners.append(banners_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
@@ -137,7 +137,7 @@ class ServerConfigInstance:
         from peertube.models.server_config_instance_support import (
             ServerConfigInstanceSupport)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         name=d.pop("name", UNSET)
 
         short_description=d.pop("shortDescription", UNSET)
@@ -155,21 +155,21 @@ class ServerConfigInstance:
         _support=d.pop("support", UNSET)
         support: Unset | ServerConfigInstanceSupport
         if isinstance(_support, Unset):
-            support=UNSET
+            support = UNSET
         else:
             support=ServerConfigInstanceSupport.from_dict(_support)
 
         _social=d.pop("social", UNSET)
         social: Unset | ServerConfigInstanceSocial
         if isinstance(_social, Unset):
-            social=UNSET
+            social = UNSET
         else:
             social=ServerConfigInstanceSocial.from_dict(_social)
 
         _customizations=d.pop("customizations", UNSET)
         customizations: Unset | ServerConfigInstanceCustomizations
         if isinstance(_customizations, Unset):
-            customizations=UNSET
+            customizations = UNSET
         else:
             customizations=ServerConfigInstanceCustomizations.from_dict(
                 _customizations
@@ -205,7 +205,7 @@ class ServerConfigInstance:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]

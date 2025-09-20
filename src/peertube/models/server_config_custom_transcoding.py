@@ -44,24 +44,24 @@ class ServerConfigCustomTranscoding:
     """
 
 
-    enabled: Unset | bool=UNSET
+    enabled: Unset | bool = UNSET
     original_file: Union[Unset, "ServerConfigCustomTranscodingOriginalFile"]=UNSET
-    allow_additional_extensions: Unset | bool=UNSET
+    allow_additional_extensions: Unset | bool = UNSET
     allow_audio_files: Unset | bool=UNSET
     threads: Unset | int=UNSET
     concurrency: Unset | float=UNSET
     profile: Unset | ServerConfigCustomTranscodingProfile=UNSET
     resolutions: Union[Unset, "ServerConfigCustomTranscodingResolutions"]=UNSET
-    web_videos: Union[Unset, "ServerConfigCustomTranscodingWebVideos"]=UNSET
+    web_videos: Union[Unset, "ServerConfigCustomTranscodingWebVideos"] = UNSET
     hls: Union[Unset, "ServerConfigCustomTranscodingHls"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         enabled=self.enabled
 
-        original_file: Unset | dict[str, Any]=UNSET
+        original_file: Unset | dict[str, Any] = UNSET
         if not isinstance(self.original_file, Unset):
             original_file=self.original_file.to_dict()
 
@@ -73,23 +73,23 @@ class ServerConfigCustomTranscoding:
 
         concurrency=self.concurrency
 
-        profile: Unset | str=UNSET
+        profile: Unset | str = UNSET
         if not isinstance(self.profile, Unset):
             profile=self.profile.value
 
-        resolutions: Unset | dict[str, Any]=UNSET
+        resolutions: Unset | dict[str, Any] = UNSET
         if not isinstance(self.resolutions, Unset):
             resolutions=self.resolutions.to_dict()
 
-        web_videos: Unset | dict[str, Any]=UNSET
+        web_videos: Unset | dict[str, Any] = UNSET
         if not isinstance(self.web_videos, Unset):
             web_videos=self.web_videos.to_dict()
 
-        hls: Unset | dict[str, Any]=UNSET
+        hls: Unset | dict[str, Any] = UNSET
         if not isinstance(self.hls, Unset):
             hls=self.hls.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if enabled is not UNSET:
@@ -128,13 +128,13 @@ class ServerConfigCustomTranscoding:
         from peertube.models.server_config_custom_transcoding_web_videos import (
             ServerConfigCustomTranscodingWebVideos)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         enabled=d.pop("enabled", UNSET)
 
         _original_file=d.pop("originalFile", UNSET)
         original_file: Unset | ServerConfigCustomTranscodingOriginalFile
         if isinstance(_original_file, Unset):
-            original_file=UNSET
+            original_file = UNSET
         else:
             original_file=ServerConfigCustomTranscodingOriginalFile.from_dict(
                 _original_file
@@ -151,14 +151,14 @@ class ServerConfigCustomTranscoding:
         _profile=d.pop("profile", UNSET)
         profile: Unset | ServerConfigCustomTranscodingProfile
         if isinstance(_profile, Unset):
-            profile=UNSET
+            profile = UNSET
         else:
             profile=ServerConfigCustomTranscodingProfile(_profile)
 
         _resolutions=d.pop("resolutions", UNSET)
         resolutions: Unset | ServerConfigCustomTranscodingResolutions
         if isinstance(_resolutions, Unset):
-            resolutions=UNSET
+            resolutions = UNSET
         else:
             resolutions=ServerConfigCustomTranscodingResolutions.from_dict(
                 _resolutions
@@ -167,14 +167,14 @@ class ServerConfigCustomTranscoding:
         _web_videos=d.pop("web_videos", UNSET)
         web_videos: Unset | ServerConfigCustomTranscodingWebVideos
         if isinstance(_web_videos, Unset):
-            web_videos=UNSET
+            web_videos = UNSET
         else:
             web_videos=ServerConfigCustomTranscodingWebVideos.from_dict(_web_videos)
 
         _hls=d.pop("hls", UNSET)
         hls: Unset | ServerConfigCustomTranscodingHls
         if isinstance(_hls, Unset):
-            hls=UNSET
+            hls = UNSET
         else:
             hls=ServerConfigCustomTranscodingHls.from_dict(_hls)
 
@@ -194,10 +194,11 @@ class ServerConfigCustomTranscoding:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

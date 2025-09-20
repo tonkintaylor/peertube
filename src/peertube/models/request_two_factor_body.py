@@ -18,7 +18,7 @@ class RequestTwoFactorBody:
     """
 
 
-    current_password: Unset | str=UNSET
+    current_password: Unset | str = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -26,7 +26,7 @@ class RequestTwoFactorBody:
 
         current_password=self.current_password
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if current_password is not UNSET:
@@ -38,7 +38,7 @@ class RequestTwoFactorBody:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         current_password=d.pop("currentPassword", UNSET)
 
         request_two_factor_body=cls(
@@ -57,10 +57,11 @@ class RequestTwoFactorBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

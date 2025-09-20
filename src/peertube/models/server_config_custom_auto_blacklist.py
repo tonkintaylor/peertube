@@ -23,17 +23,17 @@ class ServerConfigCustomAutoBlacklist:
     """
 
 
-    videos: Union[Unset, "ServerConfigCustomAutoBlacklistVideos"]=UNSET
+    videos: Union[Unset, "ServerConfigCustomAutoBlacklistVideos"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        videos: Unset | dict[str, Any]=UNSET
+        videos: Unset | dict[str, Any] = UNSET
         if not isinstance(self.videos, Unset):
             videos=self.videos.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if videos is not UNSET:
@@ -48,11 +48,11 @@ class ServerConfigCustomAutoBlacklist:
         from peertube.models.server_config_custom_auto_blacklist_videos import (
             ServerConfigCustomAutoBlacklistVideos)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _videos=d.pop("videos", UNSET)
         videos: Unset | ServerConfigCustomAutoBlacklistVideos
         if isinstance(_videos, Unset):
-            videos=UNSET
+            videos = UNSET
         else:
             videos=ServerConfigCustomAutoBlacklistVideos.from_dict(_videos)
 
@@ -72,10 +72,11 @@ class ServerConfigCustomAutoBlacklist:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

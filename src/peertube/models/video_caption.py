@@ -24,20 +24,20 @@ class VideoCaption:
     """
 
 
-    language: Union[Unset, "VideoConstantStringLanguage"]=UNSET
+    language: Union[Unset, "VideoConstantStringLanguage"] = UNSET
     caption_path: Unset | str=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        language: Unset | dict[str, Any]=UNSET
+        language: Unset | dict[str, Any] = UNSET
         if not isinstance(self.language, Unset):
             language=self.language.to_dict()
 
         caption_path=self.caption_path
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if language is not UNSET:
@@ -54,11 +54,11 @@ class VideoCaption:
         from peertube.models.video_constant_string_language import (
             VideoConstantStringLanguage)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _language=d.pop("language", UNSET)
         language: Unset | VideoConstantStringLanguage
         if isinstance(_language, Unset):
-            language=UNSET
+            language = UNSET
         else:
             language=VideoConstantStringLanguage.from_dict(_language)
 
@@ -80,10 +80,11 @@ class VideoCaption:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

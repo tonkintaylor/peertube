@@ -12,20 +12,20 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: UUID | int | str, *, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> dict[str, Any]:
-    params: dict[str, Any]={}
+    id: UUID | int | str, *, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> dict[str, Any]:
+    params: dict[str, Any] = {}
 
     json_start_date: Unset | str = UNSET
     if not isinstance(start_date, Unset):
         json_start_date = start_date.isoformat()
     params["startDate"]=json_start_date
-    json_end_date: Unset | str = UNSET
+    json_end_date: Unset | str  =  UNSET
     if not isinstance(end_date, Unset):
         json_end_date = end_date.isoformat()
     params["endDate"]=json_end_date
     params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": f"/api/v1/videos/{id}/stats/overall", "params": params, }
 
     return _kwargs
@@ -33,7 +33,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> VideoStatsOverall | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         response_200 = VideoStatsOverall.from_dict(response.json())
 
         return response_200
@@ -46,11 +46,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[VideoStatsOverall]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> Response[VideoStatsOverall]:
+    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> Response[VideoStatsOverall]:
     """Get overall stats of a video
 
 
@@ -67,7 +67,7 @@ def sync_detailed(
         Response[VideoStatsOverall]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         id=id, start_date=start_date, end_date=end_date)
 
     response = client.get_httpx_client().request(
@@ -77,7 +77,7 @@ def sync_detailed(
 
 
 def sync(
-    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> VideoStatsOverall | None:
+    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> VideoStatsOverall | None:
     """Get overall stats of a video
 
 
@@ -95,15 +95,14 @@ def sync(
     """
 
     return sync_detailed(
-        id=id,
+        id = id,
         client=client,
         start_date=start_date,
-        end_date=end_date,
-    ).parsed
+        end_date=end_date).parsed
 
 
 async def asyncio_detailed(
-    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> Response[VideoStatsOverall]:
+    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> Response[VideoStatsOverall]:
     """Get overall stats of a video
 
 
@@ -120,7 +119,7 @@ async def asyncio_detailed(
         Response[VideoStatsOverall]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         id=id, start_date=start_date, end_date=end_date)
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -129,7 +128,7 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> VideoStatsOverall | None:
+    id: UUID | int | str, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> VideoStatsOverall | None:
     """Get overall stats of a video
 
 
@@ -148,6 +147,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id=id, client=client, start_date=start_date, end_date=end_date)
+            id = id, client=client, start_date=start_date, end_date=end_date)
     ).parsed
+
 

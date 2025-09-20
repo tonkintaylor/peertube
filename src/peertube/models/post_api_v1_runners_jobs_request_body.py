@@ -20,7 +20,7 @@ class PostApiV1RunnersJobsRequestBody:
 
 
     runner_token: str
-    job_types: Unset | list[str]=UNSET
+    job_types: Unset | list[str] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -28,11 +28,11 @@ class PostApiV1RunnersJobsRequestBody:
 
         runner_token=self.runner_token
 
-        job_types: Unset | list[str]=UNSET
+        job_types: Unset | list[str] = UNSET
         if not isinstance(self.job_types, Unset):
             job_types=self.job_types
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -47,7 +47,7 @@ class PostApiV1RunnersJobsRequestBody:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         runner_token=d.pop("runnerToken")
 
         job_types=cast("list[str]", d.pop("jobTypes", UNSET))
@@ -68,10 +68,11 @@ class PostApiV1RunnersJobsRequestBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

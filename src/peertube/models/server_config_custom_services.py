@@ -23,17 +23,17 @@ class ServerConfigCustomServices:
     """
 
 
-    twitter: Union[Unset, "ServerConfigCustomServicesTwitter"]=UNSET
+    twitter: Union[Unset, "ServerConfigCustomServicesTwitter"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        twitter: Unset | dict[str, Any]=UNSET
+        twitter: Unset | dict[str, Any] = UNSET
         if not isinstance(self.twitter, Unset):
             twitter=self.twitter.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if twitter is not UNSET:
@@ -48,11 +48,11 @@ class ServerConfigCustomServices:
         from peertube.models.server_config_custom_services_twitter import (
             ServerConfigCustomServicesTwitter)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _twitter=d.pop("twitter", UNSET)
         twitter: Unset | ServerConfigCustomServicesTwitter
         if isinstance(_twitter, Unset):
-            twitter=UNSET
+            twitter = UNSET
         else:
             twitter=ServerConfigCustomServicesTwitter.from_dict(_twitter)
 
@@ -72,10 +72,11 @@ class ServerConfigCustomServices:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

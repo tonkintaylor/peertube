@@ -26,7 +26,7 @@ class ActorInfo:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     name: Unset | str=UNSET
     display_name: Unset | str=UNSET
     host: Unset | str=UNSET
@@ -44,14 +44,14 @@ class ActorInfo:
 
         host=self.host
 
-        avatars: Unset | list[dict[str, Any]]=UNSET
+        avatars: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.avatars, Unset):
             avatars=[]
             for avatars_item_data in self.avatars:
                 avatars_item=avatars_item_data.to_dict()
                 avatars.append(avatars_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -73,7 +73,7 @@ class ActorInfo:
 
         from peertube.models.actor_image import ActorImage
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         name=d.pop("name", UNSET)
@@ -105,10 +105,11 @@ class ActorInfo:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

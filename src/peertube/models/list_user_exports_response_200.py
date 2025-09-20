@@ -31,9 +31,9 @@ class ListUserExportsResponse200:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     state: Union[Unset, "ListUserExportsResponse200State"]=UNSET
-    size: Unset | int=UNSET
+    size: Unset | int = UNSET
     private_download_url: Unset | str=UNSET
     created_at: Unset | datetime.datetime=UNSET
     expires_on: Unset | datetime.datetime=UNSET
@@ -44,7 +44,7 @@ class ListUserExportsResponse200:
 
         id=self.id
 
-        state: Unset | dict[str, Any]=UNSET
+        state: Unset | dict[str, Any] = UNSET
         if not isinstance(self.state, Unset):
             state=self.state.to_dict()
 
@@ -52,15 +52,15 @@ class ListUserExportsResponse200:
 
         private_download_url=self.private_download_url
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        expires_on: Unset | str=UNSET
+        expires_on: Unset | str = UNSET
         if not isinstance(self.expires_on, Unset):
             expires_on=self.expires_on.isoformat()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -85,13 +85,13 @@ class ListUserExportsResponse200:
         from peertube.models.list_user_exports_response_200_state import (
             ListUserExportsResponse200State)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         _state=d.pop("state", UNSET)
         state: Unset | ListUserExportsResponse200State
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=ListUserExportsResponse200State.from_dict(_state)
 
@@ -102,14 +102,14 @@ class ListUserExportsResponse200:
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _expires_on=d.pop("expiresOn", UNSET)
         expires_on: Unset | datetime.datetime
         if isinstance(_expires_on, Unset):
-            expires_on=UNSET
+            expires_on = UNSET
         else:
             expires_on=isoparse(_expires_on)
 
@@ -129,10 +129,11 @@ class ListUserExportsResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -28,27 +28,27 @@ class RunnerJobParentType0:
     """
 
 
-    type_: Unset | RunnerJobType=UNSET
+    type_: Unset | RunnerJobType = UNSET
     state: Union[Unset, "RunnerJobStateConstant"]=UNSET
-    uuid: Unset | UUID=UNSET
+    uuid: Unset | UUID = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        type_: Unset | str=UNSET
+        type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.value
 
-        state: Unset | dict[str, Any]=UNSET
+        state: Unset | dict[str, Any] = UNSET
         if not isinstance(self.state, Unset):
             state=self.state.to_dict()
 
-        uuid: Unset | str=UNSET
+        uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
             uuid=str(self.uuid)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if type_ is not UNSET:
@@ -66,25 +66,25 @@ class RunnerJobParentType0:
 
         from peertube.models.runner_job_state_constant import RunnerJobStateConstant
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _type_=d.pop("type", UNSET)
         type_: Unset | RunnerJobType
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=RunnerJobType(_type_)
 
         _state=d.pop("state", UNSET)
         state: Unset | RunnerJobStateConstant
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=RunnerJobStateConstant.from_dict(_state)
 
         _uuid=d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
-            uuid=UNSET
+            uuid = UNSET
         else:
             uuid=UUID(_uuid)
 
@@ -104,10 +104,11 @@ class RunnerJobParentType0:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

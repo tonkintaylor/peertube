@@ -28,12 +28,12 @@ class AbuseMessage:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     message: Unset | str=UNSET
     by_moderator: Unset | bool=UNSET
     created_at: Unset | datetime.datetime=UNSET
     account: Union[Unset, "AccountSummary"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -44,15 +44,15 @@ class AbuseMessage:
 
         by_moderator=self.by_moderator
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        account: Unset | dict[str, Any]=UNSET
+        account: Unset | dict[str, Any] = UNSET
         if not isinstance(self.account, Unset):
             account=self.account.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -74,7 +74,7 @@ class AbuseMessage:
 
         from peertube.models.account_summary import AccountSummary
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         message=d.pop("message", UNSET)
@@ -84,14 +84,14 @@ class AbuseMessage:
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _account=d.pop("account", UNSET)
         account: Unset | AccountSummary
         if isinstance(_account, Unset):
-            account=UNSET
+            account = UNSET
         else:
             account=AccountSummary.from_dict(_account)
 
@@ -111,10 +111,11 @@ class AbuseMessage:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

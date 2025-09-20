@@ -20,7 +20,7 @@ class MRSSPeerLink:
     """
 
 
-    href: Unset | str=UNSET
+    href: Unset | str = UNSET
     type_: Unset | MRSSPeerLinkType=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -29,11 +29,11 @@ class MRSSPeerLink:
 
         href=self.href
 
-        type_: Unset | str=UNSET
+        type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.value
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if href is not UNSET:
@@ -47,13 +47,13 @@ class MRSSPeerLink:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         href=d.pop("href", UNSET)
 
         _type_=d.pop("type", UNSET)
         type_: Unset | MRSSPeerLinkType
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=MRSSPeerLinkType(_type_)
 
@@ -73,10 +73,11 @@ class MRSSPeerLink:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

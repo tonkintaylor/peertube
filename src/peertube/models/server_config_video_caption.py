@@ -23,17 +23,17 @@ class ServerConfigVideoCaption:
     """
 
 
-    file: Union[Unset, "ServerConfigVideoCaptionFile"]=UNSET
+    file: Union[Unset, "ServerConfigVideoCaptionFile"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        file: Unset | dict[str, Any]=UNSET
+        file: Unset | dict[str, Any] = UNSET
         if not isinstance(self.file, Unset):
             file=self.file.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if file is not UNSET:
@@ -48,11 +48,11 @@ class ServerConfigVideoCaption:
         from peertube.models.server_config_video_caption_file import (
             ServerConfigVideoCaptionFile)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _file=d.pop("file", UNSET)
         file: Unset | ServerConfigVideoCaptionFile
         if isinstance(_file, Unset):
-            file=UNSET
+            file = UNSET
         else:
             file=ServerConfigVideoCaptionFile.from_dict(_file)
 
@@ -72,10 +72,11 @@ class ServerConfigVideoCaption:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -23,7 +23,7 @@ class Storyboard:
     """
 
 
-    storyboard_path: Unset | str=UNSET
+    storyboard_path: Unset | str = UNSET
     total_height: Unset | int=UNSET
     total_width: Unset | int=UNSET
     sprite_height: Unset | int=UNSET
@@ -46,7 +46,7 @@ class Storyboard:
 
         sprite_duration=self.sprite_duration
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if storyboard_path is not UNSET:
@@ -68,7 +68,7 @@ class Storyboard:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         storyboard_path=d.pop("storyboardPath", UNSET)
 
         total_height=d.pop("totalHeight", UNSET)
@@ -97,10 +97,11 @@ class Storyboard:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

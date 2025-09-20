@@ -19,7 +19,7 @@ class VideoConstantStringLanguage:
     """
 
 
-    id: Unset | str=UNSET
+    id: Unset | str = UNSET
     label: Unset | str=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -30,7 +30,7 @@ class VideoConstantStringLanguage:
 
         label=self.label
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -44,7 +44,7 @@ class VideoConstantStringLanguage:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         label=d.pop("label", UNSET)
@@ -65,10 +65,11 @@ class VideoConstantStringLanguage:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

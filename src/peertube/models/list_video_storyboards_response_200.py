@@ -22,20 +22,20 @@ class ListVideoStoryboardsResponse200:
     """
 
 
-    storyboards: Unset | list["Storyboard"]=UNSET
+    storyboards: Unset | list["Storyboard"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        storyboards: Unset | list[dict[str, Any]]=UNSET
+        storyboards: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.storyboards, Unset):
             storyboards=[]
             for storyboards_item_data in self.storyboards:
                 storyboards_item=storyboards_item_data.to_dict()
                 storyboards.append(storyboards_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if storyboards is not UNSET:
@@ -49,7 +49,7 @@ class ListVideoStoryboardsResponse200:
 
         from peertube.models.storyboard import Storyboard
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         storyboards=[]
         _storyboards=d.pop("storyboards", UNSET)
         for storyboards_item_data in _storyboards or []:
@@ -73,10 +73,11 @@ class ListVideoStoryboardsResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

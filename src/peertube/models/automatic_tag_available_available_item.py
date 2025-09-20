@@ -21,7 +21,7 @@ class AutomaticTagAvailableAvailableItem:
     """
 
 
-    name: Unset | str=UNSET
+    name: Unset | str = UNSET
     type_: Unset | AutomaticTagAvailableAvailableItemType=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -30,11 +30,11 @@ class AutomaticTagAvailableAvailableItem:
 
         name=self.name
 
-        type_: Unset | str=UNSET
+        type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.value
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
@@ -48,13 +48,13 @@ class AutomaticTagAvailableAvailableItem:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         name=d.pop("name", UNSET)
 
         _type_=d.pop("type", UNSET)
         type_: Unset | AutomaticTagAvailableAvailableItemType
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=AutomaticTagAvailableAvailableItemType(_type_)
 
@@ -74,10 +74,11 @@ class AutomaticTagAvailableAvailableItem:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

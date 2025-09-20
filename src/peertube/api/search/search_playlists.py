@@ -11,8 +11,8 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, search: str, start: Unset | int=UNSET, count: Unset | int=15, search_target: Unset | SearchPlaylistsSearchTarget=UNSET, sort: Unset | str=UNSET, host: Unset | str=UNSET, uuids: Unset | Any=UNSET) -> dict[str, Any]:
-    params: dict[str, Any]={}
+    *, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> dict[str, Any]:
+    params: dict[str, Any] = {}
 
     params["search"]=search
 
@@ -32,7 +32,7 @@ def _get_kwargs(
     params["uuids"]=uuids
     params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": "/api/v1/search/video-playlists", "params": params, }
 
     return _kwargs
@@ -40,7 +40,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | SearchPlaylistsResponse200 | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         response_200 = SearchPlaylistsResponse200.from_dict(response.json())
 
         return response_200
@@ -56,11 +56,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | SearchPlaylistsResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient | Client, search: str, start: Unset | int=UNSET, count: Unset | int=15, search_target: Unset | SearchPlaylistsSearchTarget=UNSET, sort: Unset | str=UNSET, host: Unset | str=UNSET, uuids: Unset | Any=UNSET) -> Response[Any | SearchPlaylistsResponse200]:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Response[Any | SearchPlaylistsResponse200]:
     """Search playlists
 
 
@@ -80,7 +80,7 @@ def sync_detailed(
         Response[Union[Any, SearchPlaylistsResponse200]]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         search=search, start=start, count=count, search_target=search_target, sort=sort, host=host, uuids=uuids)
 
     response = client.get_httpx_client().request(
@@ -90,7 +90,7 @@ def sync_detailed(
 
 
 def sync(
-    *, client: AuthenticatedClient | Client, search: str, start: Unset | int=UNSET, count: Unset | int=15, search_target: Unset | SearchPlaylistsSearchTarget=UNSET, sort: Unset | str=UNSET, host: Unset | str=UNSET, uuids: Unset | Any=UNSET) -> Any | SearchPlaylistsResponse200 | None:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Any | SearchPlaylistsResponse200 | None:
     """Search playlists
 
 
@@ -111,19 +111,18 @@ def sync(
     """
 
     return sync_detailed(
-        client=client,
+        client = client,
         search=search,
         start=start,
         count=count,
         search_target=search_target,
         sort=sort,
         host=host,
-        uuids=uuids,
-    ).parsed
+        uuids=uuids).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient | Client, search: str, start: Unset | int=UNSET, count: Unset | int=15, search_target: Unset | SearchPlaylistsSearchTarget=UNSET, sort: Unset | str=UNSET, host: Unset | str=UNSET, uuids: Unset | Any=UNSET) -> Response[Any | SearchPlaylistsResponse200]:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Response[Any | SearchPlaylistsResponse200]:
     """Search playlists
 
 
@@ -143,7 +142,7 @@ async def asyncio_detailed(
         Response[Union[Any, SearchPlaylistsResponse200]]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         search=search, start=start, count=count, search_target=search_target, sort=sort, host=host, uuids=uuids)
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -152,7 +151,7 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *, client: AuthenticatedClient | Client, search: str, start: Unset | int=UNSET, count: Unset | int=15, search_target: Unset | SearchPlaylistsSearchTarget=UNSET, sort: Unset | str=UNSET, host: Unset | str=UNSET, uuids: Unset | Any=UNSET) -> Any | SearchPlaylistsResponse200 | None:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Any | SearchPlaylistsResponse200 | None:
     """Search playlists
 
 
@@ -174,6 +173,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client=client, search=search, start=start, count=count, search_target=search_target, sort=sort, host=host, uuids=uuids)
+            client = client, search=search, start=start, count=count, search_target=search_target, sort=sort, host=host, uuids=uuids)
     ).parsed
+
 

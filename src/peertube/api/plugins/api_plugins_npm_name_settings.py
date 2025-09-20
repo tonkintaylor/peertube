@@ -12,7 +12,7 @@ from peertube.types import Response
 
 def _get_kwargs(
     npm_name: str, *, body: PutApiV1PluginsNpmNameSettingsBody) -> dict[str, Any]:
-    headers: dict[str, Any]={}
+    headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any]={
         "method": "put", "url": f"/api/v1/plugins/{npm_name}/settings", }
@@ -26,7 +26,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code== 204:
+    if response.status_code = = 204:
         return None
 
     if response.status_code== 404:
@@ -40,7 +40,7 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
@@ -60,7 +60,7 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         npm_name=npm_name, body=body)
 
     response = client.get_httpx_client().request(
@@ -83,7 +83,7 @@ def sync(
     """
 
     return sync_detailed(
-        npm_name=npm_name, client=client, body=body).parsed
+        npm_name = npm_name, client=client, body=body).parsed
 
 
 async def asyncio_detailed(
@@ -103,10 +103,11 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         npm_name=npm_name, body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
 

@@ -27,7 +27,7 @@ class AddPlaylistBody:
 
 
     display_name: str
-    thumbnailfile: Unset | File=UNSET
+    thumbnailfile: Unset | File = UNSET
     privacy: Unset | VideoPlaylistPrivacySet=UNSET
     description: Unset | str=UNSET
     video_channel_id: Unset | int=UNSET
@@ -56,11 +56,11 @@ class AddPlaylistBody:
 
         display_name=self.display_name
 
-        thumbnailfile: Unset | FileTypes=UNSET
+        thumbnailfile: Unset | FileTypes = UNSET
         if not isinstance(self.thumbnailfile, Unset):
             thumbnailfile=self.thumbnailfile.to_tuple()
 
-        privacy: Unset | int=UNSET
+        privacy: Unset | int = UNSET
         if not isinstance(self.privacy, Unset):
             privacy=self.privacy.value
 
@@ -68,7 +68,7 @@ class AddPlaylistBody:
 
         video_channel_id=self.video_channel_id
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -88,7 +88,7 @@ class AddPlaylistBody:
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
 
-        files: types.RequestFiles=[]
+        files: types.RequestFiles = []
 
         files.append(
             ("displayName", (None, str(self.display_name).encode(), "text/plain"))
@@ -140,20 +140,20 @@ class AddPlaylistBody:
         """Create instance from dictionary."""
         """Create from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         display_name=d.pop("displayName")
 
         _thumbnailfile=d.pop("thumbnailfile", UNSET)
         thumbnailfile: Unset | File
         if isinstance(_thumbnailfile, Unset):
-            thumbnailfile=UNSET
+            thumbnailfile = UNSET
         else:
             thumbnailfile=File(payload=BytesIO(_thumbnailfile))
 
         _privacy=d.pop("privacy", UNSET)
         privacy: Unset | VideoPlaylistPrivacySet
         if isinstance(_privacy, Unset):
-            privacy=UNSET
+            privacy = UNSET
         else:
             privacy=VideoPlaylistPrivacySet(_privacy)
 
@@ -195,10 +195,11 @@ class AddPlaylistBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

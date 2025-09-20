@@ -13,3 +13,4 @@ class GetApiV1RunnersJobsSort(str, Enum):
 
     def __str__(self) -> str:
         return str(self.value)
+

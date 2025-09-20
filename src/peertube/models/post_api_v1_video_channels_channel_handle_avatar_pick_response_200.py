@@ -22,20 +22,20 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickResponse200:
     """
 
 
-    avatars: Unset | list["ActorImage"]=UNSET
+    avatars: Unset | list["ActorImage"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        avatars: Unset | list[dict[str, Any]]=UNSET
+        avatars: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.avatars, Unset):
             avatars=[]
             for avatars_item_data in self.avatars:
                 avatars_item=avatars_item_data.to_dict()
                 avatars.append(avatars_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if avatars is not UNSET:
@@ -49,7 +49,7 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickResponse200:
 
         from peertube.models.actor_image import ActorImage
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         avatars=[]
         _avatars=d.pop("avatars", UNSET)
         for avatars_item_data in _avatars or []:
@@ -73,10 +73,11 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -26,22 +26,22 @@ class ServerConfigCustomDefaultsP2P:
     """
 
 
-    webapp: Union[Unset, "ServerConfigCustomDefaultsP2PWebapp"]=UNSET
+    webapp: Union[Unset, "ServerConfigCustomDefaultsP2PWebapp"] = UNSET
     embed: Union[Unset, "ServerConfigCustomDefaultsP2PEmbed"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        webapp: Unset | dict[str, Any]=UNSET
+        webapp: Unset | dict[str, Any] = UNSET
         if not isinstance(self.webapp, Unset):
             webapp=self.webapp.to_dict()
 
-        embed: Unset | dict[str, Any]=UNSET
+        embed: Unset | dict[str, Any] = UNSET
         if not isinstance(self.embed, Unset):
             embed=self.embed.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if webapp is not UNSET:
@@ -60,18 +60,18 @@ class ServerConfigCustomDefaultsP2P:
         from peertube.models.server_config_custom_defaults_p2p_webapp import (
             ServerConfigCustomDefaultsP2PWebapp)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _webapp=d.pop("webapp", UNSET)
         webapp: Unset | ServerConfigCustomDefaultsP2PWebapp
         if isinstance(_webapp, Unset):
-            webapp=UNSET
+            webapp = UNSET
         else:
             webapp=ServerConfigCustomDefaultsP2PWebapp.from_dict(_webapp)
 
         _embed=d.pop("embed", UNSET)
         embed: Unset | ServerConfigCustomDefaultsP2PEmbed
         if isinstance(_embed, Unset):
-            embed=UNSET
+            embed = UNSET
         else:
             embed=ServerConfigCustomDefaultsP2PEmbed.from_dict(_embed)
 
@@ -91,10 +91,11 @@ class ServerConfigCustomDefaultsP2P:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

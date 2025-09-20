@@ -16,7 +16,7 @@ class Unset:
         return False
 
 
-UNSET: Unset=Unset()
+UNSET: Unset  =  Unset()
 
 # The types that `httpx.Client(files=)` can accept, copied from that library.
 FileContent=Union[IO[bytes], bytes, str]
@@ -34,7 +34,7 @@ class File:
 
 
     payload: BinaryIO
-    file_name: str | None=None
+    file_name: str | None = None
     mime_type: str | None=None
 
     def to_tuple(self) -> FileTypes:
@@ -57,5 +57,6 @@ class Response(Generic[T]):
     parsed: T | None
 
 
-__all__=["UNSET", "File", "FileTypes", "RequestFiles", "Response", "Unset"]
+__all__ = ["UNSET", "File", "FileTypes", "RequestFiles", "Response", "Unset"]
+
 

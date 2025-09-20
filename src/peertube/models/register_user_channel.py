@@ -22,7 +22,7 @@ class RegisterUserChannel:
     """
 
 
-    name: Unset | str=UNSET
+    name: Unset | str = UNSET
     display_name: Unset | str=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -33,7 +33,7 @@ class RegisterUserChannel:
 
         display_name=self.display_name
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
@@ -47,7 +47,7 @@ class RegisterUserChannel:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         name=d.pop("name", UNSET)
 
         display_name=d.pop("displayName", UNSET)
@@ -68,10 +68,11 @@ class RegisterUserChannel:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

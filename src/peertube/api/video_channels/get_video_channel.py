@@ -10,7 +10,7 @@ from peertube.types import Response
 
 def _get_kwargs(
     channel_handle: str) -> dict[str, Any]:
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": f"/api/v1/video-channels/{channel_handle}", }
 
     return _kwargs
@@ -27,7 +27,7 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
@@ -46,7 +46,7 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         channel_handle=channel_handle)
 
     response = client.get_httpx_client().request(
@@ -69,7 +69,7 @@ def sync(
     """
 
     return sync_detailed(
-        channel_handle=channel_handle, client=client).parsed
+        channel_handle = channel_handle, client=client).parsed
 
 
 async def asyncio_detailed(
@@ -88,10 +88,11 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         channel_handle=channel_handle)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
 

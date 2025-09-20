@@ -21,7 +21,7 @@ class VideoChannelUpdate:
     """
 
 
-    display_name: Unset | Any=UNSET
+    display_name: Unset | Any = UNSET
     description: Unset | Any=UNSET
     support: Unset | Any=UNSET
     bulk_videos_support_update: Unset | bool=UNSET
@@ -38,7 +38,7 @@ class VideoChannelUpdate:
 
         bulk_videos_support_update=self.bulk_videos_support_update
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if display_name is not UNSET:
@@ -56,7 +56,7 @@ class VideoChannelUpdate:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         display_name=d.pop("displayName", UNSET)
 
         description=d.pop("description", UNSET)
@@ -81,10 +81,11 @@ class VideoChannelUpdate:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

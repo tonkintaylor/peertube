@@ -34,7 +34,7 @@ class VideoStreamingPlaylists:
     """
 
 
-    playlist_url: Unset | str=UNSET
+    playlist_url: Unset | str = UNSET
     segments_sha_256_url: Unset | str=UNSET
     files: Unset | list["VideoFile"]=UNSET
     redundancies: Unset | list["VideoStreamingPlaylistsHLSRedundanciesItem"]=UNSET
@@ -49,14 +49,14 @@ class VideoStreamingPlaylists:
 
         segments_sha_256_url=self.segments_sha_256_url
 
-        files: Unset | list[dict[str, Any]]=UNSET
+        files: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.files, Unset):
             files=[]
             for files_item_data in self.files:
                 files_item=files_item_data.to_dict()
                 files.append(files_item)
 
-        redundancies: Unset | list[dict[str, Any]]=UNSET
+        redundancies: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.redundancies, Unset):
             redundancies=[]
             for redundancies_item_data in self.redundancies:
@@ -65,11 +65,11 @@ class VideoStreamingPlaylists:
 
         id=self.id
 
-        type_: Unset | int=UNSET
+        type_: Unset | int = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.value
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if playlist_url is not UNSET:
@@ -95,7 +95,7 @@ class VideoStreamingPlaylists:
         from peertube.models.video_streaming_playlists_hls_redundancies_item import (
             VideoStreamingPlaylistsHLSRedundanciesItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         playlist_url=d.pop("playlistUrl", UNSET)
 
         segments_sha_256_url=d.pop("segmentsSha256Url", UNSET)
@@ -121,7 +121,7 @@ class VideoStreamingPlaylists:
         _type_=d.pop("type", UNSET)
         type_: Unset | VideoStreamingPlaylistsType
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=VideoStreamingPlaylistsType(_type_)
 
@@ -141,10 +141,11 @@ class VideoStreamingPlaylists:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

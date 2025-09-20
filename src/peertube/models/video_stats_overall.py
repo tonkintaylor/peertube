@@ -33,7 +33,7 @@ class VideoStatsOverall:
     """
 
 
-    average_watch_time: Unset | float=UNSET
+    average_watch_time: Unset | float = UNSET
     total_watch_time: Unset | float=UNSET
     viewers_peak: Unset | float=UNSET
     total_viewers: Unset | float=UNSET
@@ -53,25 +53,25 @@ class VideoStatsOverall:
 
         total_viewers=self.total_viewers
 
-        viewers_peak_date: Unset | str=UNSET
+        viewers_peak_date: Unset | str = UNSET
         if not isinstance(self.viewers_peak_date, Unset):
             viewers_peak_date=self.viewers_peak_date.isoformat()
 
-        countries: Unset | list[dict[str, Any]]=UNSET
+        countries: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.countries, Unset):
             countries=[]
             for countries_item_data in self.countries:
                 countries_item=countries_item_data.to_dict()
                 countries.append(countries_item)
 
-        subdivisions: Unset | list[dict[str, Any]]=UNSET
+        subdivisions: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.subdivisions, Unset):
             subdivisions=[]
             for subdivisions_item_data in self.subdivisions:
                 subdivisions_item=subdivisions_item_data.to_dict()
                 subdivisions.append(subdivisions_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if average_watch_time is not UNSET:
@@ -100,7 +100,7 @@ class VideoStatsOverall:
         from peertube.models.video_stats_overall_subdivisions_item import (
             VideoStatsOverallSubdivisionsItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         average_watch_time=d.pop("averageWatchTime", UNSET)
 
         total_watch_time=d.pop("totalWatchTime", UNSET)
@@ -112,7 +112,7 @@ class VideoStatsOverall:
         _viewers_peak_date=d.pop("viewersPeakDate", UNSET)
         viewers_peak_date: Unset | datetime.datetime
         if isinstance(_viewers_peak_date, Unset):
-            viewers_peak_date=UNSET
+            viewers_peak_date = UNSET
         else:
             viewers_peak_date=isoparse(_viewers_peak_date)
 
@@ -150,10 +150,11 @@ class VideoStatsOverall:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

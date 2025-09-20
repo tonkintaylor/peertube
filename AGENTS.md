@@ -46,6 +46,25 @@ You MUST plan extensively before each function call, and reflect extensively on 
 4) Commit
 - `git commit -m "…"`
 
+### Special Case: When uv/ruff tools are unavailable in environment
+
+**Root Cause Prevention**: If you cannot run `uv run ruff format` or `uv run pre-commit`, you MUST simulate the formatting requirements manually to avoid CI failures.
+
+**Critical formatting rules to apply manually:**
+1. **Function parameter defaults**: Use spaces around `=` → `param: Type = default` (NOT `param: Type=default`)
+2. **Function call keyword args**: No spaces around `=` → `func(param=value)` (NOT `func(param = value)`)
+3. **Line length**: Max 88 characters - break long function signatures across multiple lines
+4. **Trailing whitespace**: Remove all trailing spaces from lines
+5. **File endings**: Ensure files end with exactly one newline
+
+**Before committing without ruff access:**
+- Manually verify all generated/modified code follows above rules
+- Pay special attention to function signatures and parameter formatting
+- Check line lengths stay under 88 characters
+- Test import statements and basic syntax with `python -m py_compile`
+
+**Process improvement**: Always analyze `pyproject.toml` ruff configuration before making changes to understand exact formatting requirements.
+
 ---
 
 ## Before implementing a function: fetch fresh context with MCP tool `context7`

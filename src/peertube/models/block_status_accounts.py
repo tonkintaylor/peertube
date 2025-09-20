@@ -19,14 +19,14 @@ class BlockStatusAccounts:
     """Block status accounts data model."""
 
 
-    additional_properties: dict[str, "BlockStatusAccountsAdditionalProperty"]=(
+    additional_properties: dict[str, "BlockStatusAccountsAdditionalProperty"] = (
         _attrs_field(init=False, factory=dict)
     )
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         for prop_name, prop in self.additional_properties.items():
             field_dict[prop_name]=prop.to_dict()
 
@@ -39,7 +39,7 @@ class BlockStatusAccounts:
         from peertube.models.block_status_accounts_additional_property import (
             BlockStatusAccountsAdditionalProperty)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         block_status_accounts=cls()
 
         additional_properties={}
@@ -65,10 +65,11 @@ class BlockStatusAccounts:
     def __setitem__(
         self, key: str, value: "BlockStatusAccountsAdditionalProperty"
     ) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

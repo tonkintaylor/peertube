@@ -24,20 +24,20 @@ class AutomaticTagAvailable:
     """
 
 
-    available: Unset | list["AutomaticTagAvailableAvailableItem"]=UNSET
+    available: Unset | list["AutomaticTagAvailableAvailableItem"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
 
-        available: Unset | list[dict[str, Any]]=UNSET
+        available: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.available, Unset):
             available=[]
             for available_item_data in self.available:
                 available_item=available_item_data.to_dict()
                 available.append(available_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if available is not UNSET:
@@ -52,7 +52,7 @@ class AutomaticTagAvailable:
         from peertube.models.automatic_tag_available_available_item import (
             AutomaticTagAvailableAvailableItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         available=[]
         _available=d.pop("available", UNSET)
         for available_item_data in _available or []:
@@ -78,10 +78,11 @@ class AutomaticTagAvailable:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

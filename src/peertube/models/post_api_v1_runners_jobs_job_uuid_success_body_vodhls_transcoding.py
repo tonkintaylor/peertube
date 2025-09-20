@@ -20,22 +20,22 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding:
     """
 
 
-    video_file: Unset | File=UNSET
+    video_file: Unset | File = UNSET
     resolution_playlist_file: Unset | File=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        video_file: Unset | FileTypes=UNSET
+        video_file: Unset | FileTypes = UNSET
         if not isinstance(self.video_file, Unset):
             video_file=self.video_file.to_tuple()
 
-        resolution_playlist_file: Unset | FileTypes=UNSET
+        resolution_playlist_file: Unset | FileTypes = UNSET
         if not isinstance(self.resolution_playlist_file, Unset):
             resolution_playlist_file=self.resolution_playlist_file.to_tuple()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if video_file is not UNSET:
@@ -49,18 +49,18 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _video_file=d.pop("videoFile", UNSET)
         video_file: Unset | File
         if isinstance(_video_file, Unset):
-            video_file=UNSET
+            video_file = UNSET
         else:
             video_file=File(payload=BytesIO(_video_file))
 
         _resolution_playlist_file=d.pop("resolutionPlaylistFile", UNSET)
         resolution_playlist_file: Unset | File
         if isinstance(_resolution_playlist_file, Unset):
-            resolution_playlist_file=UNSET
+            resolution_playlist_file = UNSET
         else:
             resolution_playlist_file=File(payload=BytesIO(_resolution_playlist_file))
 
@@ -80,10 +80,11 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -28,9 +28,9 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
 
     runner_token: str
     job_token: str
-    progress: Unset | int=UNSET
+    progress: Unset | int = UNSET
     payload: Union["PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0", Unset]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -43,11 +43,11 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
 
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
-            payload=UNSET
+            payload = UNSET
         else:
             payload=self.payload.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -67,7 +67,7 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
         from peertube.models.post_api_v1_runners_jobs_job_uuid_update_body_payload_type_0 import (
             PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         runner_token=d.pop("runnerToken")
 
         job_token=d.pop("jobToken")
@@ -80,7 +80,7 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
                 return data
             if not isinstance(data, dict):
                 raise TypeError
-            payload_type_0=(
+            payload_type_0 = (
                 PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0.from_dict(data)
             )
 
@@ -104,10 +104,11 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -10,3 +10,4 @@ class GetApiV1UsersMeSubscriptionsVideosNsfw(str, Enum):
 
     def __str__(self) -> str:
         return str(self.value)
+

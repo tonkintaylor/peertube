@@ -12,3 +12,4 @@ class PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0Type(str, Enum):
         """Return string representation."""
 
         return str(self.value)
+

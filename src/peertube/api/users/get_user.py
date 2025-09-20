@@ -9,13 +9,13 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: int, *, with_stats: Unset | bool=UNSET) -> dict[str, Any]:
-    params: dict[str, Any]={}
+    id: int, *, with_stats: Unset | bool = UNSET) -> dict[str, Any]:
+    params: dict[str, Any] = {}
 
     params["withStats"]=with_stats
     params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": f"/api/v1/users/{id}", "params": params, }
 
     return _kwargs
@@ -32,11 +32,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    id: int, *, client: AuthenticatedClient, with_stats: Unset | bool=UNSET) -> Response[Any]:
+    id: int, *, client: AuthenticatedClient, with_stats: Unset | bool = UNSET) -> Response[Any]:
     """Get a user
 
 
@@ -52,7 +52,7 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         id=id, with_stats=with_stats)
 
     response = client.get_httpx_client().request(
@@ -62,7 +62,7 @@ def sync_detailed(
 
 
 def sync(
-    id: int, *, client: AuthenticatedClient, with_stats: Unset | bool=UNSET) -> Any | None:
+    id: int, *, client: AuthenticatedClient, with_stats: Unset | bool = UNSET) -> Any | None:
     """Get a user
 
 
@@ -75,11 +75,11 @@ def sync(
     """
 
     return sync_detailed(
-        id=id, client=client, with_stats=with_stats).parsed
+        id = id, client=client, with_stats=with_stats).parsed
 
 
 async def asyncio_detailed(
-    id: int, *, client: AuthenticatedClient, with_stats: Unset | bool=UNSET) -> Response[Any]:
+    id: int, *, client: AuthenticatedClient, with_stats: Unset | bool = UNSET) -> Response[Any]:
     """Get a user
 
 
@@ -95,10 +95,11 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         id=id, with_stats=with_stats)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
 

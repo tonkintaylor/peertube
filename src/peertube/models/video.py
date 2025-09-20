@@ -57,7 +57,7 @@ class Video:
         hosting network, based on fr...
         .
     duration (Union[Unset, int]): duration of the video in seconds Example: 1419.
-    aspect_ratio (Union[None, Unset, float]): **PeerTube >=6.1** Aspect ratio of the video stream Example: 1.778.
+    aspect_ratio (Union[None, Unset, float]): **PeerTube > = 6.1** Aspect ratio of the video stream Example: 1.778.
     is_local (Union[Unset, bool]):
     name (Union[Unset, str]): title of the video Example: What is PeerTube?.
     thumbnail_path (Union[Unset, str]):  Example: /lazy-static/thumbnails/a65bc12f-9383-462e-81ae-8207e8b434ee.jpg.
@@ -66,7 +66,7 @@ class Video:
     views (Union[Unset, int]):  Example: 1337.
     likes (Union[Unset, int]):  Example: 42.
     dislikes (Union[Unset, int]):  Example: 7.
-    comments (Union[Unset, int]): **PeerTube >=7.2** Number of comments on the video
+    comments (Union[Unset, int]): **PeerTube > = 7.2** Number of comments on the video
     nsfw (Union[Unset, bool]):
     nsfw_flags (Union[Unset, NSFWFlag]):
         NSFW flags (can be combined using bitwise or operator)
@@ -85,7 +85,7 @@ class Video:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     uuid: Unset | UUID=UNSET
     short_uuid: Unset | str=UNSET
     is_live: Unset | bool=UNSET
@@ -95,9 +95,9 @@ class Video:
     updated_at: Unset | datetime.datetime=UNSET
     originally_published_at: None | Unset | datetime.datetime=UNSET
     category: Union[Unset, "VideoConstantNumberCategory"]=UNSET
-    licence: Union[Unset, "VideoConstantNumberLicence"]=UNSET
+    licence: Union[Unset, "VideoConstantNumberLicence"] = UNSET
     language: Union[Unset, "VideoConstantStringLanguage"]=UNSET
-    privacy: Union[Unset, "VideoPrivacyConstant"]=UNSET
+    privacy: Union[Unset, "VideoPrivacyConstant"] = UNSET
     truncated_description: None | Unset | str=UNSET
     duration: Unset | int=UNSET
     aspect_ratio: None | Unset | float=UNSET
@@ -115,13 +115,13 @@ class Video:
     nsfw_summary: Unset | str=UNSET
     wait_transcoding: None | Unset | bool=UNSET
     state: Union[Unset, "VideoStateConstant"]=UNSET
-    scheduled_update: Union["VideoScheduledUpdate", None, Unset]=UNSET
+    scheduled_update: Union["VideoScheduledUpdate", None, Unset] = UNSET
     blacklisted: None | Unset | bool=UNSET
     blacklisted_reason: None | Unset | str=UNSET
     account: Union[Unset, "AccountSummary"]=UNSET
-    channel: Union[Unset, "VideoChannelSummary"]=UNSET
+    channel: Union[Unset, "VideoChannelSummary"] = UNSET
     user_history: Union["VideoUserHistoryType0", None, Unset]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -131,7 +131,7 @@ class Video:
 
         id=self.id
 
-        uuid: Unset | str=UNSET
+        uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
             uuid=str(self.uuid)
 
@@ -139,52 +139,52 @@ class Video:
 
         is_live=self.is_live
 
-        live_schedules: Unset | list[dict[str, Any]]=UNSET
+        live_schedules: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.live_schedules, Unset):
             live_schedules=[]
             for live_schedules_item_data in self.live_schedules:
                 live_schedules_item=live_schedules_item_data.to_dict()
                 live_schedules.append(live_schedules_item)
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        published_at: Unset | str=UNSET
+        published_at: Unset | str = UNSET
         if not isinstance(self.published_at, Unset):
             published_at=self.published_at.isoformat()
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
         originally_published_at: None | Unset | str
         if isinstance(self.originally_published_at, Unset):
-            originally_published_at=UNSET
+            originally_published_at = UNSET
         elif isinstance(self.originally_published_at, datetime.datetime):
             originally_published_at=self.originally_published_at.isoformat()
         else:
             originally_published_at=self.originally_published_at
 
-        category: Unset | dict[str, Any]=UNSET
+        category: Unset | dict[str, Any] = UNSET
         if not isinstance(self.category, Unset):
             category=self.category.to_dict()
 
-        licence: Unset | dict[str, Any]=UNSET
+        licence: Unset | dict[str, Any] = UNSET
         if not isinstance(self.licence, Unset):
             licence=self.licence.to_dict()
 
-        language: Unset | dict[str, Any]=UNSET
+        language: Unset | dict[str, Any] = UNSET
         if not isinstance(self.language, Unset):
             language=self.language.to_dict()
 
-        privacy: Unset | dict[str, Any]=UNSET
+        privacy: Unset | dict[str, Any] = UNSET
         if not isinstance(self.privacy, Unset):
             privacy=self.privacy.to_dict()
 
         truncated_description: None | Unset | str
         if isinstance(self.truncated_description, Unset):
-            truncated_description=UNSET
+            truncated_description = UNSET
         else:
             truncated_description=self.truncated_description
 
@@ -216,7 +216,7 @@ class Video:
 
         nsfw=self.nsfw
 
-        nsfw_flags: Unset | int=UNSET
+        nsfw_flags: Unset | int = UNSET
         if not isinstance(self.nsfw_flags, Unset):
             nsfw_flags=self.nsfw_flags.value
 
@@ -224,7 +224,7 @@ class Video:
 
         wait_transcoding: None | Unset | bool
         if isinstance(self.wait_transcoding, Unset):
-            wait_transcoding=UNSET
+            wait_transcoding = UNSET
         else:
             wait_transcoding=self.wait_transcoding
 
@@ -234,7 +234,7 @@ class Video:
 
         scheduled_update: None | Unset | dict[str, Any]
         if isinstance(self.scheduled_update, Unset):
-            scheduled_update=UNSET
+            scheduled_update = UNSET
         elif isinstance(self.scheduled_update, VideoScheduledUpdate):
             scheduled_update=self.scheduled_update.to_dict()
         else:
@@ -242,7 +242,7 @@ class Video:
 
         blacklisted: None | Unset | bool
         if isinstance(self.blacklisted, Unset):
-            blacklisted=UNSET
+            blacklisted = UNSET
         else:
             blacklisted=self.blacklisted
 
@@ -252,23 +252,23 @@ class Video:
         else:
             blacklisted_reason=self.blacklisted_reason
 
-        account: Unset | dict[str, Any]=UNSET
+        account: Unset | dict[str, Any] = UNSET
         if not isinstance(self.account, Unset):
             account=self.account.to_dict()
 
-        channel: Unset | dict[str, Any]=UNSET
+        channel: Unset | dict[str, Any] = UNSET
         if not isinstance(self.channel, Unset):
             channel=self.channel.to_dict()
 
         user_history: None | Unset | dict[str, Any]
         if isinstance(self.user_history, Unset):
-            user_history=UNSET
+            user_history = UNSET
         elif isinstance(self.user_history, VideoUserHistoryType0):
             user_history=self.user_history.to_dict()
         else:
             user_history=self.user_history
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -364,13 +364,13 @@ class Video:
         from peertube.models.video_state_constant import VideoStateConstant
         from peertube.models.video_user_history_type_0 import VideoUserHistoryType0
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         _uuid=d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
-            uuid=UNSET
+            uuid = UNSET
         else:
             uuid=UUID(_uuid)
 
@@ -388,21 +388,21 @@ class Video:
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _published_at=d.pop("publishedAt", UNSET)
         published_at: Unset | datetime.datetime
         if isinstance(_published_at, Unset):
-            published_at=UNSET
+            published_at = UNSET
         else:
             published_at=isoparse(_published_at)
 
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
@@ -415,42 +415,42 @@ class Video:
             try:
                 if not isinstance(data, str):
                     raise TypeError
-                originally_published_at_type_0=isoparse(data)
+                originally_published_at_type_0 = isoparse(data)
 
                 return originally_published_at_type_0
             except:  # noqa: E722
                 pass
             return cast("None | Unset | datetime.datetime", data)
 
-        originally_published_at=_parse_originally_published_at(
+        originally_published_at = _parse_originally_published_at(
             d.pop("originallyPublishedAt", UNSET)
         )
 
         _category=d.pop("category", UNSET)
         category: Unset | VideoConstantNumberCategory
         if isinstance(_category, Unset):
-            category=UNSET
+            category = UNSET
         else:
             category=VideoConstantNumberCategory.from_dict(_category)
 
         _licence=d.pop("licence", UNSET)
         licence: Unset | VideoConstantNumberLicence
         if isinstance(_licence, Unset):
-            licence=UNSET
+            licence = UNSET
         else:
             licence=VideoConstantNumberLicence.from_dict(_licence)
 
         _language=d.pop("language", UNSET)
         language: Unset | VideoConstantStringLanguage
         if isinstance(_language, Unset):
-            language=UNSET
+            language = UNSET
         else:
             language=VideoConstantStringLanguage.from_dict(_language)
 
         _privacy=d.pop("privacy", UNSET)
         privacy: Unset | VideoPrivacyConstant
         if isinstance(_privacy, Unset):
-            privacy=UNSET
+            privacy = UNSET
         else:
             privacy=VideoPrivacyConstant.from_dict(_privacy)
 
@@ -461,7 +461,7 @@ class Video:
                 return data
             return cast("None | Unset | str", data)
 
-        truncated_description=_parse_truncated_description(
+        truncated_description = _parse_truncated_description(
             d.pop("truncatedDescription", UNSET)
         )
 
@@ -474,7 +474,7 @@ class Video:
                 return data
             return cast("None | Unset | float", data)
 
-        aspect_ratio=_parse_aspect_ratio(d.pop("aspectRatio", UNSET))
+        aspect_ratio = _parse_aspect_ratio(d.pop("aspectRatio", UNSET))
 
         is_local=d.pop("isLocal", UNSET)
 
@@ -499,7 +499,7 @@ class Video:
         _nsfw_flags=d.pop("nsfwFlags", UNSET)
         nsfw_flags: Unset | NSFWFlag
         if isinstance(_nsfw_flags, Unset):
-            nsfw_flags=UNSET
+            nsfw_flags = UNSET
         else:
             nsfw_flags=NSFWFlag(_nsfw_flags)
 
@@ -512,12 +512,12 @@ class Video:
                 return data
             return cast("None | Unset | bool", data)
 
-        wait_transcoding=_parse_wait_transcoding(d.pop("waitTranscoding", UNSET))
+        wait_transcoding = _parse_wait_transcoding(d.pop("waitTranscoding", UNSET))
 
         _state=d.pop("state", UNSET)
         state: Unset | VideoStateConstant
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=VideoStateConstant.from_dict(_state)
 
@@ -530,14 +530,14 @@ class Video:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                scheduled_update_type_1=VideoScheduledUpdate.from_dict(data)
+                scheduled_update_type_1 = VideoScheduledUpdate.from_dict(data)
 
                 return scheduled_update_type_1
             except:  # noqa: E722
                 pass
             return cast("VideoScheduledUpdate | None | Unset", data)
 
-        scheduled_update=_parse_scheduled_update(d.pop("scheduledUpdate", UNSET))
+        scheduled_update = _parse_scheduled_update(d.pop("scheduledUpdate", UNSET))
 
         def _parse_blacklisted(data: object) -> None | Unset | bool:
             if data is None:
@@ -546,7 +546,7 @@ class Video:
                 return data
             return cast("None | Unset | bool", data)
 
-        blacklisted=_parse_blacklisted(d.pop("blacklisted", UNSET))
+        blacklisted = _parse_blacklisted(d.pop("blacklisted", UNSET))
 
         def _parse_blacklisted_reason(data: object) -> None | Unset | str:
             if data is None:
@@ -555,21 +555,21 @@ class Video:
                 return data
             return cast("None | Unset | str", data)
 
-        blacklisted_reason=_parse_blacklisted_reason(
+        blacklisted_reason = _parse_blacklisted_reason(
             d.pop("blacklistedReason", UNSET)
         )
 
         _account=d.pop("account", UNSET)
         account: Unset | AccountSummary
         if isinstance(_account, Unset):
-            account=UNSET
+            account = UNSET
         else:
             account=AccountSummary.from_dict(_account)
 
         _channel=d.pop("channel", UNSET)
         channel: Unset | VideoChannelSummary
         if isinstance(_channel, Unset):
-            channel=UNSET
+            channel = UNSET
         else:
             channel=VideoChannelSummary.from_dict(_channel)
 
@@ -582,14 +582,14 @@ class Video:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                user_history_type_0=VideoUserHistoryType0.from_dict(data)
+                user_history_type_0 = VideoUserHistoryType0.from_dict(data)
 
                 return user_history_type_0
             except:  # noqa: E722
                 pass
             return cast("VideoUserHistoryType0 | None | Unset", data)
 
-        user_history=_parse_user_history(d.pop("userHistory", UNSET))
+        user_history = _parse_user_history(d.pop("userHistory", UNSET))
 
         video=cls(
             id=id, uuid=uuid, short_uuid=short_uuid, is_live=is_live, live_schedules=live_schedules, created_at=created_at, published_at=published_at, updated_at=updated_at, originally_published_at=originally_published_at, category=category, licence=licence, language=language, privacy=privacy, truncated_description=truncated_description, duration=duration, aspect_ratio=aspect_ratio, is_local=is_local, name=name, thumbnail_path=thumbnail_path, preview_path=preview_path, embed_path=embed_path, views=views, likes=likes, dislikes=dislikes, comments=comments, nsfw=nsfw, nsfw_flags=nsfw_flags, nsfw_summary=nsfw_summary, wait_transcoding=wait_transcoding, state=state, scheduled_update=scheduled_update, blacklisted=blacklisted, blacklisted_reason=blacklisted_reason, account=account, channel=channel, user_history=user_history)
@@ -607,10 +607,11 @@ class Video:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

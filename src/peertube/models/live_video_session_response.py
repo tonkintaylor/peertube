@@ -36,39 +36,39 @@ class LiveVideoSessionResponse:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     start_date: Unset | datetime.datetime=UNSET
     end_date: None | Unset | datetime.datetime=UNSET
     error: Unset | LiveVideoSessionResponseError=UNSET
     replay_video: Union[Unset, "LiveVideoSessionResponseReplayVideo"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
         id=self.id
 
-        start_date: Unset | str=UNSET
+        start_date: Unset | str = UNSET
         if not isinstance(self.start_date, Unset):
             start_date=self.start_date.isoformat()
 
         end_date: None | Unset | str
         if isinstance(self.end_date, Unset):
-            end_date=UNSET
+            end_date = UNSET
         elif isinstance(self.end_date, datetime.datetime):
             end_date=self.end_date.isoformat()
         else:
             end_date=self.end_date
 
-        error: Unset | int=UNSET
+        error: Unset | int = UNSET
         if not isinstance(self.error, Unset):
             error=self.error.value
 
-        replay_video: Unset | dict[str, Any]=UNSET
+        replay_video: Unset | dict[str, Any] = UNSET
         if not isinstance(self.replay_video, Unset):
             replay_video=self.replay_video.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -91,13 +91,13 @@ class LiveVideoSessionResponse:
         from peertube.models.live_video_session_response_replay_video import (
             LiveVideoSessionResponseReplayVideo)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         _start_date=d.pop("startDate", UNSET)
         start_date: Unset | datetime.datetime
         if isinstance(_start_date, Unset):
-            start_date=UNSET
+            start_date = UNSET
         else:
             start_date=isoparse(_start_date)
 
@@ -109,26 +109,26 @@ class LiveVideoSessionResponse:
             try:
                 if not isinstance(data, str):
                     raise TypeError
-                end_date_type_0=isoparse(data)
+                end_date_type_0 = isoparse(data)
 
                 return end_date_type_0
             except:  # noqa: E722
                 pass
             return cast("None | Unset | datetime.datetime", data)
 
-        end_date=_parse_end_date(d.pop("endDate", UNSET))
+        end_date = _parse_end_date(d.pop("endDate", UNSET))
 
         _error=d.pop("error", UNSET)
         error: Unset | LiveVideoSessionResponseError
         if isinstance(_error, Unset):
-            error=UNSET
+            error = UNSET
         else:
             error=LiveVideoSessionResponseError(_error)
 
         _replay_video=d.pop("replayVideo", UNSET)
         replay_video: Unset | LiveVideoSessionResponseReplayVideo
         if isinstance(_replay_video, Unset):
-            replay_video=UNSET
+            replay_video = UNSET
         else:
             replay_video=LiveVideoSessionResponseReplayVideo.from_dict(_replay_video)
 
@@ -148,10 +148,11 @@ class LiveVideoSessionResponse:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

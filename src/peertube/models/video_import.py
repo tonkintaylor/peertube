@@ -36,17 +36,17 @@ class VideoImport:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     target_url: Unset | str=UNSET
     magnet_uri: Unset | str=UNSET
     torrentfile: Unset | File=UNSET
     torrent_name: Unset | str=UNSET
     state: Union[Unset, "VideoImportStateConstant"]=UNSET
-    error: Unset | str=UNSET
+    error: Unset | str = UNSET
     created_at: Unset | datetime.datetime=UNSET
     updated_at: Unset | datetime.datetime=UNSET
     video: Union["Video", None, Unset]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -59,35 +59,35 @@ class VideoImport:
 
         magnet_uri=self.magnet_uri
 
-        torrentfile: Unset | FileTypes=UNSET
+        torrentfile: Unset | FileTypes = UNSET
         if not isinstance(self.torrentfile, Unset):
             torrentfile=self.torrentfile.to_tuple()
 
         torrent_name=self.torrent_name
 
-        state: Unset | dict[str, Any]=UNSET
+        state: Unset | dict[str, Any] = UNSET
         if not isinstance(self.state, Unset):
             state=self.state.to_dict()
 
         error=self.error
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
         video: None | Unset | dict[str, Any]
         if isinstance(self.video, Unset):
-            video=UNSET
+            video = UNSET
         elif isinstance(self.video, Video):
             video=self.video.to_dict()
         else:
             video=self.video
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -120,7 +120,7 @@ class VideoImport:
         from peertube.models.video import Video
         from peertube.models.video_import_state_constant import VideoImportStateConstant
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         target_url=d.pop("targetUrl", UNSET)
@@ -130,7 +130,7 @@ class VideoImport:
         _torrentfile=d.pop("torrentfile", UNSET)
         torrentfile: Unset | File
         if isinstance(_torrentfile, Unset):
-            torrentfile=UNSET
+            torrentfile = UNSET
         else:
             torrentfile=File(payload=BytesIO(_torrentfile))
 
@@ -139,7 +139,7 @@ class VideoImport:
         _state=d.pop("state", UNSET)
         state: Unset | VideoImportStateConstant
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=VideoImportStateConstant.from_dict(_state)
 
@@ -148,14 +148,14 @@ class VideoImport:
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
@@ -167,14 +167,14 @@ class VideoImport:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                video_type_1=Video.from_dict(data)
+                video_type_1 = Video.from_dict(data)
 
                 return video_type_1
             except:  # noqa: E722
                 pass
             return cast("Video | None | Unset", data)
 
-        video=_parse_video(d.pop("video", UNSET))
+        video = _parse_video(d.pop("video", UNSET))
 
         video_import=cls(
             id=id, target_url=target_url, magnet_uri=magnet_uri, torrentfile=torrentfile, torrent_name=torrent_name, state=state, error=error, created_at=created_at, updated_at=updated_at, video=video)
@@ -192,10 +192,11 @@ class VideoImport:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

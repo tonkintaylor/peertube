@@ -20,7 +20,7 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
     runner_token: str
     job_token: str
     message: str
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
@@ -31,7 +31,7 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
 
         message=self.message
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -44,7 +44,7 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         runner_token=d.pop("runnerToken")
 
         job_token=d.pop("jobToken")
@@ -67,10 +67,11 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

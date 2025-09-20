@@ -23,7 +23,7 @@ def basic_client_usage():
 
     # Note: We're not making actual API calls since this is just a demo
     print("Example usage (not executed):")
-    print("  categories=get_categories.sync(client=client)")
+    print("  categories = get_categories.sync(client=client)")
     print("  languages=get_languages.sync(client=client)")
     print()
 
@@ -48,7 +48,7 @@ def authenticated_client_usage():
 def async_client_usage():
     """Demonstrate async client usage patterns."""
 
-    print("===Async Client Usage===")
+    print(" = ==Async Client Usage===")
     print("For asynchronous operations, use the asyncio methods:")
     print()
     print("async def get_video_data(client):")
@@ -99,7 +99,7 @@ def main():
     """Run all examples."""
 
     print("PeerTube API Client Usage Examples")
-    print("=" * 50)
+    print(" = " * 50)
     print()
 
     basic_client_usage()
@@ -123,3 +123,4 @@ def main():
 
 if __name__== "__main__":
     main()
+

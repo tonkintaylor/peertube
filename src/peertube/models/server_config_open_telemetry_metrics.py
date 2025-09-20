@@ -19,7 +19,7 @@ class ServerConfigOpenTelemetryMetrics:
     """
 
 
-    enabled: Unset | bool=UNSET
+    enabled: Unset | bool = UNSET
     playback_stats_interval: Unset | float=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -30,7 +30,7 @@ class ServerConfigOpenTelemetryMetrics:
 
         playback_stats_interval=self.playback_stats_interval
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if enabled is not UNSET:
@@ -44,7 +44,7 @@ class ServerConfigOpenTelemetryMetrics:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         enabled=d.pop("enabled", UNSET)
 
         playback_stats_interval=d.pop("playbackStatsInterval", UNSET)
@@ -65,10 +65,11 @@ class ServerConfigOpenTelemetryMetrics:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

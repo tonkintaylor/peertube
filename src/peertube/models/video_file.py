@@ -31,7 +31,7 @@ class VideoFile:
     file_download_url (Union[Unset, str]): URL endpoint that transfers the video file as an attachment (so that the
         browser opens a download dialog)
     fps (Union[Unset, float]): Frames per second of the video file
-    width (Union[Unset, float]): **PeerTube >=6.1** Video stream width
+    width (Union[Unset, float]): **PeerTube > = 6.1** Video stream width
     height (Union[Unset, float]): **PeerTube >=6.1** Video stream height
     metadata_url (Union[Unset, str]): URL dereferencing the output of ffprobe on the file
     has_audio (Union[Unset, bool]): **PeerTube >=6.2** The file container has an audio stream
@@ -42,10 +42,10 @@ class VideoFile:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     magnet_uri: Unset | str=UNSET
     resolution: Union[Unset, "VideoResolutionConstant"]=UNSET
-    size: Unset | int=UNSET
+    size: Unset | int = UNSET
     torrent_url: Unset | str=UNSET
     torrent_download_url: Unset | str=UNSET
     file_url: Unset | str=UNSET
@@ -67,7 +67,7 @@ class VideoFile:
 
         magnet_uri=self.magnet_uri
 
-        resolution: Unset | dict[str, Any]=UNSET
+        resolution: Unset | dict[str, Any] = UNSET
         if not isinstance(self.resolution, Unset):
             resolution=self.resolution.to_dict()
 
@@ -95,11 +95,11 @@ class VideoFile:
 
         has_video=self.has_video
 
-        storage: Unset | int=UNSET
+        storage: Unset | int = UNSET
         if not isinstance(self.storage, Unset):
             storage=self.storage.value
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -143,7 +143,7 @@ class VideoFile:
 
         from peertube.models.video_resolution_constant import VideoResolutionConstant
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         magnet_uri=d.pop("magnetUri", UNSET)
@@ -151,7 +151,7 @@ class VideoFile:
         _resolution=d.pop("resolution", UNSET)
         resolution: Unset | VideoResolutionConstant
         if isinstance(_resolution, Unset):
-            resolution=UNSET
+            resolution = UNSET
         else:
             resolution=VideoResolutionConstant.from_dict(_resolution)
 
@@ -182,7 +182,7 @@ class VideoFile:
         _storage=d.pop("storage", UNSET)
         storage: Unset | FileStorage
         if isinstance(_storage, Unset):
-            storage=UNSET
+            storage = UNSET
         else:
             storage=FileStorage(_storage)
 
@@ -202,10 +202,11 @@ class VideoFile:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

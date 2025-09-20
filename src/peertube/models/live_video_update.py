@@ -28,9 +28,9 @@ class LiveVideoUpdate:
     """
 
 
-    save_replay: Unset | bool=UNSET
+    save_replay: Unset | bool = UNSET
     replay_settings: Union[Unset, "LiveVideoReplaySettings"]=UNSET
-    permanent_live: Unset | bool=UNSET
+    permanent_live: Unset | bool = UNSET
     latency_mode: Unset | LiveVideoLatencyMode=UNSET
     schedules: Unset | list["LiveSchedule"]=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
@@ -40,24 +40,24 @@ class LiveVideoUpdate:
 
         save_replay=self.save_replay
 
-        replay_settings: Unset | dict[str, Any]=UNSET
+        replay_settings: Unset | dict[str, Any] = UNSET
         if not isinstance(self.replay_settings, Unset):
             replay_settings=self.replay_settings.to_dict()
 
         permanent_live=self.permanent_live
 
-        latency_mode: Unset | int=UNSET
+        latency_mode: Unset | int = UNSET
         if not isinstance(self.latency_mode, Unset):
             latency_mode=self.latency_mode.value
 
-        schedules: Unset | list[dict[str, Any]]=UNSET
+        schedules: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.schedules, Unset):
             schedules=[]
             for schedules_item_data in self.schedules:
                 schedules_item=schedules_item_data.to_dict()
                 schedules.append(schedules_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if save_replay is not UNSET:
@@ -80,13 +80,13 @@ class LiveVideoUpdate:
         from peertube.models.live_schedule import LiveSchedule
         from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         save_replay=d.pop("saveReplay", UNSET)
 
         _replay_settings=d.pop("replaySettings", UNSET)
         replay_settings: Unset | LiveVideoReplaySettings
         if isinstance(_replay_settings, Unset):
-            replay_settings=UNSET
+            replay_settings = UNSET
         else:
             replay_settings=LiveVideoReplaySettings.from_dict(_replay_settings)
 
@@ -95,7 +95,7 @@ class LiveVideoUpdate:
         _latency_mode=d.pop("latencyMode", UNSET)
         latency_mode: Unset | LiveVideoLatencyMode
         if isinstance(_latency_mode, Unset):
-            latency_mode=UNSET
+            latency_mode = UNSET
         else:
             latency_mode=LiveVideoLatencyMode(_latency_mode)
 
@@ -122,10 +122,11 @@ class LiveVideoUpdate:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -9,8 +9,8 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    name: str, *, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> dict[str, Any]:
-    params: dict[str, Any]={}
+    name: str, *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> dict[str, Any]:
+    params: dict[str, Any] = {}
 
     params["start"]=start
 
@@ -19,7 +19,7 @@ def _get_kwargs(
     params["sort"]=sort
     params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": f"/api/v1/accounts/{name}/video-channel-syncs", "params": params, }
 
     return _kwargs
@@ -36,11 +36,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    name: str, *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[Any]:
+    name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
     """List the synchronizations of video channels of an account
 
 
@@ -58,7 +58,7 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         name=name, start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
@@ -68,7 +68,7 @@ def sync_detailed(
 
 
 def sync(
-    name: str, *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Any | None:
+    name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Any | None:
     """List the synchronizations of video channels of an account
 
 
@@ -81,16 +81,15 @@ def sync(
     """
 
     return sync_detailed(
-        name=name,
+        name = name,
         client=client,
         start=start,
         count=count,
-        sort=sort,
-    ).parsed
+        sort=sort).parsed
 
 
 async def asyncio_detailed(
-    name: str, *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[Any]:
+    name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
     """List the synchronizations of video channels of an account
 
 
@@ -108,10 +107,11 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         name=name, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
 

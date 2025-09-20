@@ -35,21 +35,21 @@ class Client:
     """
 
 
-    raise_on_unexpected_status: bool=field(default=False, kw_only=True)
-    _base_url: str=field(alias="base_url")
-    _cookies: dict[str, str]=field(factory=dict, kw_only=True, alias="cookies")
-    _headers: dict[str, str]=field(factory=dict, kw_only=True, alias="headers")
-    _timeout: httpx.Timeout | None=field(
+    raise_on_unexpected_status: bool = field(default=False, kw_only=True)
+    _base_url: str = field(alias="base_url")
+    _cookies: dict[str, str] = field(factory=dict, kw_only=True, alias="cookies")
+    _headers: dict[str, str] = field(factory=dict, kw_only=True, alias="headers")
+    _timeout: httpx.Timeout | None = field(
         default=None, kw_only=True, alias="timeout", converter=lambda x: None if x is None else httpx.Timeout(x))
-    _verify_ssl: str | bool | ssl.SSLContext=field(
+    _verify_ssl: str | bool | ssl.SSLContext = field(
         default=True, kw_only=True, alias="verify_ssl"
     )
-    _follow_redirects: bool=field(
+    _follow_redirects: bool = field(
         default=False, kw_only=True, alias="follow_redirects"
     )
-    _httpx_args: dict[str, Any]=field(factory=dict, kw_only=True, alias="httpx_args")
-    _client: httpx.Client | None=field(default=None, init=False)
-    _async_client: httpx.AsyncClient | None=field(default=None, init=False)
+    _httpx_args: dict[str, Any] = field(factory=dict, kw_only=True, alias="httpx_args")
+    _client: httpx.Client | None = field(default=None, init=False)
+    _async_client: httpx.AsyncClient | None = field(default=None, init=False)
 
     def with_headers(self, headers: dict[str, str]) -> "Client":
         """Get a new client matching this one with additional headers"""
@@ -58,7 +58,7 @@ class Client:
             self._client.headers.update(headers)
         if self._async_client is not None:
             self._async_client.headers.update(headers)
-        return evolve(self, headers={**self._headers, **headers})
+        return evolve(self, headers = {**self._headers, **headers})
 
     def with_cookies(self, cookies: dict[str, str]) -> "Client":
         """Get a new client matching this one with additional cookies"""
@@ -67,13 +67,13 @@ class Client:
             self._client.cookies.update(cookies)
         if self._async_client is not None:
             self._async_client.cookies.update(cookies)
-        return evolve(self, cookies={**self._cookies, **cookies})
+        return evolve(self, cookies = {**self._cookies, **cookies})
 
     def with_timeout(self, timeout: httpx.Timeout) -> "Client":
         """Get a new client matching this one with a new timeout (in seconds)"""
 
         if self._client is not None:
-            self._client.timeout=timeout
+            self._client.timeout = timeout
         if self._async_client is not None:
             self._async_client.timeout=timeout
         return evolve(self, timeout=timeout)
@@ -84,7 +84,7 @@ class Client:
         **NOTE**: This will override any other settings on the client, including cookies, headers, and timeout.
         """
 
-        self._client=client
+        self._client = client
         return self
 
     def get_httpx_client(self) -> httpx.Client:
@@ -113,7 +113,7 @@ class Client:
         **NOTE**: This will override any other settings on the client, including cookies, headers, and timeout.
         """
 
-        self._async_client=async_client
+        self._async_client = async_client
         return self
 
     def get_async_httpx_client(self) -> httpx.AsyncClient:
@@ -169,24 +169,24 @@ class AuthenticatedClient:
     """
 
 
-    raise_on_unexpected_status: bool=field(default=False, kw_only=True)
-    _base_url: str=field(alias="base_url")
-    _cookies: dict[str, str]=field(factory=dict, kw_only=True, alias="cookies")
-    _headers: dict[str, str]=field(factory=dict, kw_only=True, alias="headers")
-    _timeout: httpx.Timeout | None=field(
+    raise_on_unexpected_status: bool = field(default=False, kw_only=True)
+    _base_url: str = field(alias="base_url")
+    _cookies: dict[str, str] = field(factory=dict, kw_only=True, alias="cookies")
+    _headers: dict[str, str] = field(factory=dict, kw_only=True, alias="headers")
+    _timeout: httpx.Timeout | None = field(
         default=None, kw_only=True, alias="timeout", converter=lambda x: None if x is None else httpx.Timeout(x))
-    _verify_ssl: str | bool | ssl.SSLContext=field(
+    _verify_ssl: str | bool | ssl.SSLContext = field(
         default=True, kw_only=True, alias="verify_ssl"
     )
-    _follow_redirects: bool=field(
+    _follow_redirects: bool = field(
         default=False, kw_only=True, alias="follow_redirects"
     )
-    _httpx_args: dict[str, Any]=field(factory=dict, kw_only=True, alias="httpx_args")
-    _client: httpx.Client | None=field(default=None, init=False)
-    _async_client: httpx.AsyncClient | None=field(default=None, init=False)
+    _httpx_args: dict[str, Any] = field(factory=dict, kw_only=True, alias="httpx_args")
+    _client: httpx.Client | None = field(default=None, init=False)
+    _async_client: httpx.AsyncClient | None = field(default=None, init=False)
 
     token: str
-    prefix: str="Bearer"
+    prefix: str = "Bearer"
     auth_header_name: str="Authorization"
 
     def with_headers(self, headers: dict[str, str]) -> "AuthenticatedClient":
@@ -196,7 +196,7 @@ class AuthenticatedClient:
             self._client.headers.update(headers)
         if self._async_client is not None:
             self._async_client.headers.update(headers)
-        return evolve(self, headers={**self._headers, **headers})
+        return evolve(self, headers = {**self._headers, **headers})
 
     def with_cookies(self, cookies: dict[str, str]) -> "AuthenticatedClient":
         """Get a new client matching this one with additional cookies"""
@@ -205,13 +205,13 @@ class AuthenticatedClient:
             self._client.cookies.update(cookies)
         if self._async_client is not None:
             self._async_client.cookies.update(cookies)
-        return evolve(self, cookies={**self._cookies, **cookies})
+        return evolve(self, cookies = {**self._cookies, **cookies})
 
     def with_timeout(self, timeout: httpx.Timeout) -> "AuthenticatedClient":
         """Get a new client matching this one with a new timeout (in seconds)"""
 
         if self._client is not None:
-            self._client.timeout=timeout
+            self._client.timeout = timeout
         if self._async_client is not None:
             self._async_client.timeout=timeout
         return evolve(self, timeout=timeout)
@@ -222,7 +222,7 @@ class AuthenticatedClient:
         **NOTE**: This will override any other settings on the client, including cookies, headers, and timeout.
         """
 
-        self._client=client
+        self._client = client
         return self
 
     def get_httpx_client(self) -> httpx.Client:
@@ -256,7 +256,7 @@ class AuthenticatedClient:
         **NOTE**: This will override any other settings on the client, including cookies, headers, and timeout.
         """
 
-        self._async_client=async_client
+        self._async_client = async_client
         return self
 
     def get_async_httpx_client(self) -> httpx.AsyncClient:

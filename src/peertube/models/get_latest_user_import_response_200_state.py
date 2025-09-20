@@ -24,20 +24,20 @@ class GetLatestUserImportResponse200State:
     """
 
 
-    id: Unset | UserImportState=UNSET
+    id: Unset | UserImportState = UNSET
     label: Unset | str=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        id: Unset | int=UNSET
+        id: Unset | int = UNSET
         if not isinstance(self.id, Unset):
             id=self.id.value
 
         label=self.label
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -51,11 +51,11 @@ class GetLatestUserImportResponse200State:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _id=d.pop("id", UNSET)
         id: Unset | UserImportState
         if isinstance(_id, Unset):
-            id=UNSET
+            id = UNSET
         else:
             id=UserImportState(_id)
 
@@ -77,10 +77,11 @@ class GetLatestUserImportResponse200State:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

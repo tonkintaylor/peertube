@@ -25,7 +25,7 @@ class VideoRating:
 
     video: "Video"
     rating: VideoRatingRating
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -34,7 +34,7 @@ class VideoRating:
 
         rating=self.rating.value
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -49,7 +49,7 @@ class VideoRating:
 
         from peertube.models.video import Video
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         video=Video.from_dict(d.pop("video"))
 
         rating=VideoRatingRating(d.pop("rating"))
@@ -70,10 +70,11 @@ class VideoRating:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

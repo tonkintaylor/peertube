@@ -20,3 +20,4 @@ class GetVideoChannelVideosSort(str, Enum):
         """Return string representation."""
 
         return str(self.value)
+

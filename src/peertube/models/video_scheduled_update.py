@@ -24,7 +24,7 @@ class VideoScheduledUpdate:
 
 
     update_at: datetime.datetime
-    privacy: Unset | VideoPrivacySet=UNSET
+    privacy: Unset | VideoPrivacySet = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -32,11 +32,11 @@ class VideoScheduledUpdate:
 
         update_at=self.update_at.isoformat()
 
-        privacy: Unset | int=UNSET
+        privacy: Unset | int = UNSET
         if not isinstance(self.privacy, Unset):
             privacy=self.privacy.value
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -51,13 +51,13 @@ class VideoScheduledUpdate:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         update_at=isoparse(d.pop("updateAt"))
 
         _privacy=d.pop("privacy", UNSET)
         privacy: Unset | VideoPrivacySet
         if isinstance(_privacy, Unset):
-            privacy=UNSET
+            privacy = UNSET
         else:
             privacy=VideoPrivacySet(_privacy)
 
@@ -77,10 +77,11 @@ class VideoScheduledUpdate:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

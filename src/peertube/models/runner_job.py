@@ -44,12 +44,12 @@ class RunnerJob:
     runner (Union[Unset, RunnerJobRunner]): If job is associated to a runner
     """
 
-    uuid: Unset | UUID=UNSET
+    uuid: Unset | UUID = UNSET
     type_: Unset | RunnerJobType=UNSET
     state: Union[Unset, "RunnerJobStateConstant"]=UNSET
     payload: Union[
         "VODAudioMergeTranscoding", "VODHLSTranscoding", "VODWebVideoTranscoding", Unset
-    ]=UNSET
+    ] = UNSET
     failures: Unset | int=UNSET
     error: None | Unset | str=UNSET
     progress: Unset | int=UNSET
@@ -59,7 +59,7 @@ class RunnerJob:
     started_at: Unset | datetime.datetime=UNSET
     finished_at: Unset | datetime.datetime=UNSET
     parent: Union["RunnerJobParentType0", None, Unset]=UNSET
-    runner: Union[Unset, "RunnerJobRunner"]=UNSET
+    runner: Union[Unset, "RunnerJobRunner"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -69,21 +69,21 @@ class RunnerJob:
         from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
         from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
-        uuid: Unset | str=UNSET
+        uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
             uuid=str(self.uuid)
 
-        type_: Unset | str=UNSET
+        type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.value
 
-        state: Unset | dict[str, Any]=UNSET
+        state: Unset | dict[str, Any] = UNSET
         if not isinstance(self.state, Unset):
             state=self.state.to_dict()
 
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
-            payload=UNSET
+            payload = UNSET
         elif isinstance(self.payload, (VODWebVideoTranscoding, VODHLSTranscoding)):
             payload=self.payload.to_dict()
         else:
@@ -93,7 +93,7 @@ class RunnerJob:
 
         error: None | Unset | str
         if isinstance(self.error, Unset):
-            error=UNSET
+            error = UNSET
         else:
             error=self.error
 
@@ -105,31 +105,31 @@ class RunnerJob:
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        started_at: Unset | str=UNSET
+        started_at: Unset | str = UNSET
         if not isinstance(self.started_at, Unset):
             started_at=self.started_at.isoformat()
 
-        finished_at: Unset | str=UNSET
+        finished_at: Unset | str = UNSET
         if not isinstance(self.finished_at, Unset):
             finished_at=self.finished_at.isoformat()
 
         parent: None | Unset | dict[str, Any]
         if isinstance(self.parent, Unset):
-            parent=UNSET
+            parent = UNSET
         elif isinstance(self.parent, RunnerJobParentType0):
             parent=self.parent.to_dict()
         else:
             parent=self.parent
 
-        runner: Unset | dict[str, Any]=UNSET
+        runner: Unset | dict[str, Any] = UNSET
         if not isinstance(self.runner, Unset):
             runner=self.runner.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if uuid is not UNSET:
@@ -174,25 +174,25 @@ class RunnerJob:
         from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
         from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _uuid=d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
-            uuid=UNSET
+            uuid = UNSET
         else:
             uuid=UUID(_uuid)
 
         _type_=d.pop("type", UNSET)
         type_: Unset | RunnerJobType
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=RunnerJobType(_type_)
 
         _state=d.pop("state", UNSET)
         state: Unset | RunnerJobStateConstant
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=RunnerJobStateConstant.from_dict(_state)
 
@@ -204,7 +204,7 @@ class RunnerJob:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                componentsschemas_runner_job_payload_vod_web_video_transcoding=(
+                componentsschemas_runner_job_payload_vod_web_video_transcoding = (
                     VODWebVideoTranscoding.from_dict(data)
                 )
 
@@ -214,7 +214,7 @@ class RunnerJob:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                componentsschemas_runner_job_payload_vod_hls_transcoding=(
+                componentsschemas_runner_job_payload_vod_hls_transcoding = (
                     VODHLSTranscoding.from_dict(data)
                 )
 
@@ -223,7 +223,7 @@ class RunnerJob:
                 pass
             if not isinstance(data, dict):
                 raise TypeError
-            componentsschemas_runner_job_payload_vod_audio_merge_transcoding=(
+            componentsschemas_runner_job_payload_vod_audio_merge_transcoding = (
                 VODAudioMergeTranscoding.from_dict(data)
             )
 
@@ -240,7 +240,7 @@ class RunnerJob:
                 return data
             return cast("None | Unset | str", data)
 
-        error=_parse_error(d.pop("error", UNSET))
+        error = _parse_error(d.pop("error", UNSET))
 
         progress=d.pop("progress", UNSET)
 
@@ -249,28 +249,28 @@ class RunnerJob:
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _started_at=d.pop("startedAt", UNSET)
         started_at: Unset | datetime.datetime
         if isinstance(_started_at, Unset):
-            started_at=UNSET
+            started_at = UNSET
         else:
             started_at=isoparse(_started_at)
 
         _finished_at=d.pop("finishedAt", UNSET)
         finished_at: Unset | datetime.datetime
         if isinstance(_finished_at, Unset):
-            finished_at=UNSET
+            finished_at = UNSET
         else:
             finished_at=isoparse(_finished_at)
 
@@ -282,19 +282,19 @@ class RunnerJob:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                parent_type_0=RunnerJobParentType0.from_dict(data)
+                parent_type_0 = RunnerJobParentType0.from_dict(data)
 
                 return parent_type_0
             except:  # noqa: E722
                 pass
             return cast("RunnerJobParentType0 | None | Unset", data)
 
-        parent=_parse_parent(d.pop("parent", UNSET))
+        parent = _parse_parent(d.pop("parent", UNSET))
 
         _runner=d.pop("runner", UNSET)
         runner: Unset | RunnerJobRunner
         if isinstance(_runner, Unset):
-            runner=UNSET
+            runner = UNSET
         else:
             runner=RunnerJobRunner.from_dict(_runner)
 
@@ -314,10 +314,11 @@ class RunnerJob:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

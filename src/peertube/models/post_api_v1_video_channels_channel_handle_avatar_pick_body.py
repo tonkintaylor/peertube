@@ -20,7 +20,7 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickBody:
     """
 
 
-    avatarfile: Unset | File=UNSET
+    avatarfile: Unset | File = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -38,11 +38,11 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
 
-        avatarfile: Unset | FileTypes=UNSET
+        avatarfile: Unset | FileTypes = UNSET
         if not isinstance(self.avatarfile, Unset):
             avatarfile=self.avatarfile.to_tuple()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if avatarfile is not UNSET:
@@ -53,7 +53,7 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickBody:
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
 
-        files: types.RequestFiles=[]
+        files: types.RequestFiles = []
 
         if not isinstance(self.avatarfile, Unset):
             files.append(("avatarfile", self.avatarfile.to_tuple()))
@@ -79,11 +79,11 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _avatarfile=d.pop("avatarfile", UNSET)
         avatarfile: Unset | File
         if isinstance(_avatarfile, Unset):
-            avatarfile=UNSET
+            avatarfile = UNSET
         else:
             avatarfile=File(payload=BytesIO(_avatarfile))
 
@@ -115,10 +115,11 @@ class PostApiV1VideoChannelsChannelHandleAvatarPickBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -65,3 +65,4 @@ class TestClientGeneration:
         client=Client(base_url=base_url, verify_ssl=False)
 
         assert client is not None
+

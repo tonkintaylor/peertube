@@ -20,7 +20,7 @@ class ServerConfigCustomTranscodingWebVideos:
     """
 
 
-    enabled: Unset | bool=UNSET
+    enabled: Unset | bool = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -28,7 +28,7 @@ class ServerConfigCustomTranscodingWebVideos:
 
         enabled=self.enabled
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if enabled is not UNSET:
@@ -40,7 +40,7 @@ class ServerConfigCustomTranscodingWebVideos:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         enabled=d.pop("enabled", UNSET)
 
         server_config_custom_transcoding_web_videos=cls(
@@ -59,10 +59,11 @@ class ServerConfigCustomTranscodingWebVideos:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

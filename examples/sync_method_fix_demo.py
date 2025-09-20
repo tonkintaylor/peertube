@@ -24,7 +24,7 @@ def show_fixed_issue():
 
     print("\n2. Testing additional endpoints mentioned in the issue:")
 
-    endpoints_to_test=[
+    endpoints_to_test = [
         ("video_channels.get_video_channel", "peertube.api.video_channels.get_video_channel"), ("users.get_users", "peertube.api.users.get_users"), ("accounts.get_accounts", "peertube.api.accounts.get_accounts"), ("video.get_video", "peertube.api.video.get_video"), ("abuses.get_abuses", "peertube.api.abuses.get_abuses"), ]
 
     for endpoint_name, module_path in endpoints_to_test:
@@ -47,11 +47,12 @@ def show_fixed_issue():
     print()
     print("   AFTER (works):")
     print("   >>> from peertube.api.video_channels.get_video_channels import sync")
-    print("   >>> result=sync(client=client, start=0, count=10)")
+    print("   >>> result = sync(client=client, start=0, count=10)")
     print("   >>> # Returns parsed data directly (no .parsed needed)")
 
     print("\n🎉 Issue resolved! All 357 PeerTube API endpoints now have both sync() and sync_detailed() methods.")
 
 if __name__== "__main__":
     show_fixed_issue()
+
 

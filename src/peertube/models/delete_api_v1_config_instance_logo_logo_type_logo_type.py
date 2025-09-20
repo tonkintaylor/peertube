@@ -12,3 +12,4 @@ class DeleteApiV1ConfigInstanceLogoLogoTypeLogoType(str, Enum):
 
     def __str__(self) -> str:
         return str(self.value)
+

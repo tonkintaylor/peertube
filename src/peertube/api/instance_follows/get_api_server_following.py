@@ -15,15 +15,15 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, state: Unset | GetApiV1ServerFollowingState=UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> dict[str, Any]:
-    params: dict[str, Any]={}
+    *, state: Unset | GetApiV1ServerFollowingState = UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> dict[str, Any]:
+    params: dict[str, Any] = {}
 
     json_state: Unset | str = UNSET
     if not isinstance(state, Unset):
         json_state = state.value
 
     params["state"]=json_state
-    json_actor_type: Unset | str = UNSET
+    json_actor_type: Unset | str  =  UNSET
     if not isinstance(actor_type, Unset):
         json_actor_type = actor_type.value
 
@@ -36,7 +36,7 @@ def _get_kwargs(
     params["sort"]=sort
     params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": "/api/v1/server/following", "params": params, }
 
     return _kwargs
@@ -44,7 +44,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetApiV1ServerFollowingResponse200 | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         response_200 = GetApiV1ServerFollowingResponse200.from_dict(response.json())
 
         return response_200
@@ -57,11 +57,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[GetApiV1ServerFollowingResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState=UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[GetApiV1ServerFollowingResponse200]:
+    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState = UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetApiV1ServerFollowingResponse200]:
     """List instances followed by the server
 
 
@@ -80,7 +80,7 @@ def sync_detailed(
         Response[GetApiV1ServerFollowingResponse200]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         state=state, actor_type=actor_type, start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
@@ -90,7 +90,7 @@ def sync_detailed(
 
 
 def sync(
-    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState=UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> GetApiV1ServerFollowingResponse200 | None:
+    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState = UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetApiV1ServerFollowingResponse200 | None:
     """List instances followed by the server
 
 
@@ -110,17 +110,16 @@ def sync(
     """
 
     return sync_detailed(
-        client=client,
+        client = client,
         state=state,
         actor_type=actor_type,
         start=start,
         count=count,
-        sort=sort,
-    ).parsed
+        sort=sort).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState=UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[GetApiV1ServerFollowingResponse200]:
+    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState = UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[GetApiV1ServerFollowingResponse200]:
     """List instances followed by the server
 
 
@@ -139,7 +138,7 @@ async def asyncio_detailed(
         Response[GetApiV1ServerFollowingResponse200]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         state=state, actor_type=actor_type, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -148,7 +147,7 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState=UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> GetApiV1ServerFollowingResponse200 | None:
+    *, client: AuthenticatedClient | Client, state: Unset | GetApiV1ServerFollowingState = UNSET, actor_type: Unset | GetApiV1ServerFollowingActorType = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> GetApiV1ServerFollowingResponse200 | None:
     """List instances followed by the server
 
 
@@ -169,6 +168,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client=client, state=state, actor_type=actor_type, start=start, count=count, sort=sort)
+            client = client, state=state, actor_type=actor_type, start=start, count=count, sort=sort)
     ).parsed
+
 

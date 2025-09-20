@@ -36,7 +36,7 @@ class ServerConfigAboutInstance:
     """
 
 
-    name: Unset | str=UNSET
+    name: Unset | str = UNSET
     short_description: Unset | str=UNSET
     description: Unset | str=UNSET
     terms: Unset | str=UNSET
@@ -78,29 +78,29 @@ class ServerConfigAboutInstance:
 
         business_model=self.business_model
 
-        languages: Unset | list[str]=UNSET
+        languages: Unset | list[str] = UNSET
         if not isinstance(self.languages, Unset):
             languages=self.languages
 
-        categories: Unset | list[int]=UNSET
+        categories: Unset | list[int] = UNSET
         if not isinstance(self.categories, Unset):
             categories=self.categories
 
-        avatars: Unset | list[dict[str, Any]]=UNSET
+        avatars: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.avatars, Unset):
             avatars=[]
             for avatars_item_data in self.avatars:
                 avatars_item=avatars_item_data.to_dict()
                 avatars.append(avatars_item)
 
-        banners: Unset | list[dict[str, Any]]=UNSET
+        banners: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.banners, Unset):
             banners=[]
             for banners_item_data in self.banners:
                 banners_item=banners_item_data.to_dict()
                 banners.append(banners_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
@@ -142,7 +142,7 @@ class ServerConfigAboutInstance:
 
         from peertube.models.actor_image import ActorImage
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         name=d.pop("name", UNSET)
 
         short_description=d.pop("shortDescription", UNSET)
@@ -199,10 +199,11 @@ class ServerConfigAboutInstance:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -23,17 +23,17 @@ class ServerConfigAvatarFile:
     """
 
 
-    size: Union[Unset, "ServerConfigAvatarFileSize"]=UNSET
+    size: Union[Unset, "ServerConfigAvatarFileSize"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        size: Unset | dict[str, Any]=UNSET
+        size: Unset | dict[str, Any] = UNSET
         if not isinstance(self.size, Unset):
             size=self.size.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if size is not UNSET:
@@ -48,11 +48,11 @@ class ServerConfigAvatarFile:
         from peertube.models.server_config_avatar_file_size import (
             ServerConfigAvatarFileSize)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _size=d.pop("size", UNSET)
         size: Unset | ServerConfigAvatarFileSize
         if isinstance(_size, Unset):
-            size=UNSET
+            size = UNSET
         else:
             size=ServerConfigAvatarFileSize.from_dict(_size)
 
@@ -72,10 +72,11 @@ class ServerConfigAvatarFile:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

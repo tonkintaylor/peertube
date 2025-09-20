@@ -23,20 +23,20 @@ class ReplaceVideoChaptersBody:
     """
 
 
-    chapters: Unset | list["ReplaceVideoChaptersBodyChaptersItem"]=UNSET
+    chapters: Unset | list["ReplaceVideoChaptersBodyChaptersItem"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        chapters: Unset | list[dict[str, Any]]=UNSET
+        chapters: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.chapters, Unset):
             chapters=[]
             for chapters_item_data in self.chapters:
                 chapters_item=chapters_item_data.to_dict()
                 chapters.append(chapters_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if chapters is not UNSET:
@@ -51,7 +51,7 @@ class ReplaceVideoChaptersBody:
         from peertube.models.replace_video_chapters_body_chapters_item import (
             ReplaceVideoChaptersBodyChaptersItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         chapters=[]
         _chapters=d.pop("chapters", UNSET)
         for chapters_item_data in _chapters or []:
@@ -77,10 +77,11 @@ class ReplaceVideoChaptersBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

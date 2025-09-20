@@ -106,7 +106,7 @@ class PutApiV1UsersMeNotificationSettingsBody:
     """
 
 
-    abuse_as_moderator: Unset | int=UNSET
+    abuse_as_moderator: Unset | int = UNSET
     video_auto_blacklist_as_moderator: Unset | int=UNSET
     new_user_registration: Unset | int=UNSET
     new_video_from_subscription: Unset | int=UNSET
@@ -165,7 +165,7 @@ class PutApiV1UsersMeNotificationSettingsBody:
 
         my_video_transcription_generated=self.my_video_transcription_generated
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if abuse_as_moderator is not UNSET:
@@ -217,7 +217,7 @@ class PutApiV1UsersMeNotificationSettingsBody:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         abuse_as_moderator=d.pop("abuseAsModerator", UNSET)
 
         video_auto_blacklist_as_moderator=d.pop(
@@ -272,10 +272,11 @@ class PutApiV1UsersMeNotificationSettingsBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

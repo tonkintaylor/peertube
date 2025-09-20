@@ -43,3 +43,4 @@ def generate_client() -> bool:
 if __name__== "__main__":
     success=generate_client()
     sys.exit(0 if success else 1)
+

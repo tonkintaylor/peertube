@@ -59,7 +59,7 @@ class ServerStats:
     """
 
 
-    total_users: Unset | float=UNSET
+    total_users: Unset | float = UNSET
     total_daily_active_users: Unset | float=UNSET
     total_weekly_active_users: Unset | float=UNSET
     total_monthly_active_users: Unset | float=UNSET
@@ -139,7 +139,7 @@ class ServerStats:
 
         total_instance_following=self.total_instance_following
 
-        videos_redundancy: Unset | list[dict[str, Any]]=UNSET
+        videos_redundancy: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.videos_redundancy, Unset):
             videos_redundancy=[]
             for videos_redundancy_item_data in self.videos_redundancy:
@@ -178,7 +178,7 @@ class ServerStats:
 
         total_abuses=self.total_abuses
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if total_users is not UNSET:
@@ -273,7 +273,7 @@ class ServerStats:
         from peertube.models.server_stats_videos_redundancy_item import (
             ServerStatsVideosRedundancyItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         total_users=d.pop("totalUsers", UNSET)
 
         total_daily_active_users=d.pop("totalDailyActiveUsers", UNSET)
@@ -379,10 +379,11 @@ class ServerStats:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

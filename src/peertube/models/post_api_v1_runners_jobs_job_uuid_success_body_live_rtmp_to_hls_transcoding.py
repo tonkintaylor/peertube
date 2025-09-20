@@ -13,12 +13,12 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding:
     """Data model."""
 
 
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
 
         return field_dict
@@ -27,7 +27,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         post_api_v1_runners_jobs_job_uuid_success_body_live_rtmp_to_hls_transcoding=(
             cls()
         )
@@ -47,10 +47,11 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

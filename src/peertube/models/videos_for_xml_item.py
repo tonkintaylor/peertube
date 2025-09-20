@@ -55,7 +55,7 @@ class VideosForXMLItem:
     """
 
 
-    link: Unset | str=UNSET
+    link: Unset | str = UNSET
     guid: Unset | str=UNSET
     pub_date: Unset | datetime.datetime=UNSET
     description: Unset | str=UNSET
@@ -63,14 +63,14 @@ class VideosForXMLItem:
     dccreator: Unset | str=UNSET
     mediacategory: Unset | int=UNSET
     mediacommunity: Union[Unset, "VideosForXMLItemMediacommunity"]=UNSET
-    mediaembed: Union[Unset, "VideosForXMLItemMediaembed"]=UNSET
+    mediaembed: Union[Unset, "VideosForXMLItemMediaembed"] = UNSET
     mediaplayer: Union[Unset, "VideosForXMLItemMediaplayer"]=UNSET
-    mediathumbnail: Union[Unset, "VideosForXMLItemMediathumbnail"]=UNSET
+    mediathumbnail: Union[Unset, "VideosForXMLItemMediathumbnail"] = UNSET
     mediatitle: Unset | str=UNSET
     mediadescription: Unset | str=UNSET
     mediarating: Unset | VideosForXMLItemMediarating=UNSET
     enclosure: Union[Unset, "VideosForXMLItemEnclosure"]=UNSET
-    mediagroup: Unset | list[Union["MRSSGroupContent", "MRSSPeerLink"]]=UNSET
+    mediagroup: Unset | list[Union["MRSSGroupContent", "MRSSPeerLink"]] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -82,7 +82,7 @@ class VideosForXMLItem:
 
         guid=self.guid
 
-        pub_date: Unset | str=UNSET
+        pub_date: Unset | str = UNSET
         if not isinstance(self.pub_date, Unset):
             pub_date=self.pub_date.isoformat()
 
@@ -94,19 +94,19 @@ class VideosForXMLItem:
 
         mediacategory=self.mediacategory
 
-        mediacommunity: Unset | dict[str, Any]=UNSET
+        mediacommunity: Unset | dict[str, Any] = UNSET
         if not isinstance(self.mediacommunity, Unset):
             mediacommunity=self.mediacommunity.to_dict()
 
-        mediaembed: Unset | dict[str, Any]=UNSET
+        mediaembed: Unset | dict[str, Any] = UNSET
         if not isinstance(self.mediaembed, Unset):
             mediaembed=self.mediaembed.to_dict()
 
-        mediaplayer: Unset | dict[str, Any]=UNSET
+        mediaplayer: Unset | dict[str, Any] = UNSET
         if not isinstance(self.mediaplayer, Unset):
             mediaplayer=self.mediaplayer.to_dict()
 
-        mediathumbnail: Unset | dict[str, Any]=UNSET
+        mediathumbnail: Unset | dict[str, Any] = UNSET
         if not isinstance(self.mediathumbnail, Unset):
             mediathumbnail=self.mediathumbnail.to_dict()
 
@@ -114,27 +114,27 @@ class VideosForXMLItem:
 
         mediadescription=self.mediadescription
 
-        mediarating: Unset | str=UNSET
+        mediarating: Unset | str = UNSET
         if not isinstance(self.mediarating, Unset):
             mediarating=self.mediarating.value
 
-        enclosure: Unset | dict[str, Any]=UNSET
+        enclosure: Unset | dict[str, Any] = UNSET
         if not isinstance(self.enclosure, Unset):
             enclosure=self.enclosure.to_dict()
 
-        mediagroup: Unset | list[dict[str, Any]]=UNSET
+        mediagroup: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.mediagroup, Unset):
             mediagroup=[]
             for mediagroup_item_data in self.mediagroup:
                 mediagroup_item: dict[str, Any]
                 if isinstance(mediagroup_item_data, MRSSPeerLink):
-                    mediagroup_item=mediagroup_item_data.to_dict()
+                    mediagroup_item = mediagroup_item_data.to_dict()
                 else:
                     mediagroup_item=mediagroup_item_data.to_dict()
 
                 mediagroup.append(mediagroup_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if link is not UNSET:
@@ -189,7 +189,7 @@ class VideosForXMLItem:
         from peertube.models.videos_for_xml_item_mediathumbnail import (
             VideosForXMLItemMediathumbnail)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         link=d.pop("link", UNSET)
 
         guid=d.pop("guid", UNSET)
@@ -197,7 +197,7 @@ class VideosForXMLItem:
         _pub_date=d.pop("pubDate", UNSET)
         pub_date: Unset | datetime.datetime
         if isinstance(_pub_date, Unset):
-            pub_date=UNSET
+            pub_date = UNSET
         else:
             pub_date=isoparse(_pub_date)
 
@@ -212,28 +212,28 @@ class VideosForXMLItem:
         _mediacommunity=d.pop("media:community", UNSET)
         mediacommunity: Unset | VideosForXMLItemMediacommunity
         if isinstance(_mediacommunity, Unset):
-            mediacommunity=UNSET
+            mediacommunity = UNSET
         else:
             mediacommunity=VideosForXMLItemMediacommunity.from_dict(_mediacommunity)
 
         _mediaembed=d.pop("media:embed", UNSET)
         mediaembed: Unset | VideosForXMLItemMediaembed
         if isinstance(_mediaembed, Unset):
-            mediaembed=UNSET
+            mediaembed = UNSET
         else:
             mediaembed=VideosForXMLItemMediaembed.from_dict(_mediaembed)
 
         _mediaplayer=d.pop("media:player", UNSET)
         mediaplayer: Unset | VideosForXMLItemMediaplayer
         if isinstance(_mediaplayer, Unset):
-            mediaplayer=UNSET
+            mediaplayer = UNSET
         else:
             mediaplayer=VideosForXMLItemMediaplayer.from_dict(_mediaplayer)
 
         _mediathumbnail=d.pop("media:thumbnail", UNSET)
         mediathumbnail: Unset | VideosForXMLItemMediathumbnail
         if isinstance(_mediathumbnail, Unset):
-            mediathumbnail=UNSET
+            mediathumbnail = UNSET
         else:
             mediathumbnail=VideosForXMLItemMediathumbnail.from_dict(_mediathumbnail)
 
@@ -244,14 +244,14 @@ class VideosForXMLItem:
         _mediarating=d.pop("media:rating", UNSET)
         mediarating: Unset | VideosForXMLItemMediarating
         if isinstance(_mediarating, Unset):
-            mediarating=UNSET
+            mediarating = UNSET
         else:
             mediarating=VideosForXMLItemMediarating(_mediarating)
 
         _enclosure=d.pop("enclosure", UNSET)
         enclosure: Unset | VideosForXMLItemEnclosure
         if isinstance(_enclosure, Unset):
-            enclosure=UNSET
+            enclosure = UNSET
         else:
             enclosure=VideosForXMLItemEnclosure.from_dict(_enclosure)
 
@@ -264,14 +264,14 @@ class VideosForXMLItem:
                 try:
                     if not isinstance(data, dict):
                         raise TypeError
-                    mediagroup_item_type_0=MRSSPeerLink.from_dict(data)
+                    mediagroup_item_type_0 = MRSSPeerLink.from_dict(data)
 
                     return mediagroup_item_type_0
                 except:  # noqa: E722
                     pass
                 if not isinstance(data, dict):
                     raise TypeError
-                mediagroup_item_type_1=MRSSGroupContent.from_dict(data)
+                mediagroup_item_type_1 = MRSSGroupContent.from_dict(data)
 
                 return mediagroup_item_type_1
 
@@ -295,10 +295,11 @@ class VideosForXMLItem:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

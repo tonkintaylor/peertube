@@ -24,7 +24,7 @@ class RunnerRegistrationToken:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     registration_token: Unset | str=UNSET
     created_at: Unset | datetime.datetime=UNSET
     updated_at: Unset | datetime.datetime=UNSET
@@ -38,17 +38,17 @@ class RunnerRegistrationToken:
 
         registration_token=self.registration_token
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
         registered_runners_count=self.registered_runners_count
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -68,7 +68,7 @@ class RunnerRegistrationToken:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         registration_token=d.pop("registrationToken", UNSET)
@@ -76,14 +76,14 @@ class RunnerRegistrationToken:
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
@@ -105,10 +105,11 @@ class RunnerRegistrationToken:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

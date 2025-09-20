@@ -33,7 +33,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
     job_token: str
     payload: Union[
         "PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding", "PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding", "PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding", "PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding", ]
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -53,11 +53,11 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
         if isinstance(
             self.payload, (
                 PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding, PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding, PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding)):
-            payload=self.payload.to_dict()
+            payload = self.payload.to_dict()
         else:
             payload=self.payload.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -79,7 +79,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
         from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
             PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         runner_token=d.pop("runnerToken")
 
         job_token=d.pop("jobToken")
@@ -90,7 +90,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                payload_vod_web_video_transcoding=PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding.from_dict(
+                payload_vod_web_video_transcoding = PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding.from_dict(
                     data
                 )
 
@@ -100,7 +100,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                payload_vod_hls_transcoding=(
+                payload_vod_hls_transcoding = (
                     PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding.from_dict(
                         data
                     )
@@ -112,7 +112,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                payload_vod_audio_merge_transcoding=PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding.from_dict(
+                payload_vod_audio_merge_transcoding = PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding.from_dict(
                     data
                 )
 
@@ -121,7 +121,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
                 pass
             if not isinstance(data, dict):
                 raise TypeError
-            payload_live_rtmp_to_hls_transcoding=PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding.from_dict(
+            payload_live_rtmp_to_hls_transcoding = PostApiV1RunnersJobsJobUUIDSuccessBodyLiveRTMPToHLSTranscoding.from_dict(
                 data
             )
 
@@ -145,10 +145,11 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -32,9 +32,9 @@ class Follow:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     follower: Union[Unset, "Actor"]=UNSET
-    following: Union[Unset, "Actor"]=UNSET
+    following: Union[Unset, "Actor"] = UNSET
     score: Unset | float=UNSET
     state: Unset | FollowState=UNSET
     created_at: Unset | datetime.datetime=UNSET
@@ -46,29 +46,29 @@ class Follow:
 
         id=self.id
 
-        follower: Unset | dict[str, Any]=UNSET
+        follower: Unset | dict[str, Any] = UNSET
         if not isinstance(self.follower, Unset):
             follower=self.follower.to_dict()
 
-        following: Unset | dict[str, Any]=UNSET
+        following: Unset | dict[str, Any] = UNSET
         if not isinstance(self.following, Unset):
             following=self.following.to_dict()
 
         score=self.score
 
-        state: Unset | str=UNSET
+        state: Unset | str = UNSET
         if not isinstance(self.state, Unset):
             state=self.state.value
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -94,20 +94,20 @@ class Follow:
 
         from peertube.models.actor import Actor
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         _follower=d.pop("follower", UNSET)
         follower: Unset | Actor
         if isinstance(_follower, Unset):
-            follower=UNSET
+            follower = UNSET
         else:
             follower=Actor.from_dict(_follower)
 
         _following=d.pop("following", UNSET)
         following: Unset | Actor
         if isinstance(_following, Unset):
-            following=UNSET
+            following = UNSET
         else:
             following=Actor.from_dict(_following)
 
@@ -116,21 +116,21 @@ class Follow:
         _state=d.pop("state", UNSET)
         state: Unset | FollowState
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=FollowState(_state)
 
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
@@ -150,10 +150,11 @@ class Follow:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

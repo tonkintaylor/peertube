@@ -21,7 +21,7 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
     """
 
 
-    before_date: Unset | datetime.datetime=UNSET
+    before_date: Unset | datetime.datetime = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -51,11 +51,11 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
 
-        before_date: Unset | str=UNSET
+        before_date: Unset | str = UNSET
         if not isinstance(self.before_date, Unset):
             before_date=self.before_date.isoformat()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if before_date is not UNSET:
@@ -66,7 +66,7 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
 
-        files: types.RequestFiles=[]
+        files: types.RequestFiles = []
 
         if not isinstance(self.before_date, Unset):
             files.append(
@@ -107,11 +107,11 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _before_date=d.pop("beforeDate", UNSET)
         before_date: Unset | datetime.datetime
         if isinstance(_before_date, Unset):
-            before_date=UNSET
+            before_date = UNSET
         else:
             before_date=isoparse(_before_date)
 
@@ -155,10 +155,11 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -9,7 +9,7 @@ from peertube.types import Response
 
 
 def _get_kwargs() -> dict[str, Any]:
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "delete", "url": "/api/v1/config/custom", }
 
     return _kwargs
@@ -17,7 +17,7 @@ def _get_kwargs() -> dict[str, Any]:
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
@@ -28,7 +28,7 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
@@ -44,7 +44,7 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs()
+    kwargs  =  _get_kwargs()
 
     response = client.get_httpx_client().request(
         **kwargs)
@@ -66,7 +66,7 @@ def sync(
     """
 
     return sync_detailed(
-        client=client).parsed
+        client = client).parsed
 
 
 async def asyncio_detailed(
@@ -82,9 +82,10 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs()
+    kwargs  =  _get_kwargs()
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
 

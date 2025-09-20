@@ -38,9 +38,9 @@ class UserRegistration:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     state: Union[Unset, "UserRegistrationState"]=UNSET
-    registration_reason: Unset | str=UNSET
+    registration_reason: Unset | str = UNSET
     moderation_response: None | Unset | str=UNSET
     username: Unset | str=UNSET
     email: Unset | str=UNSET
@@ -51,7 +51,7 @@ class UserRegistration:
     created_at: Unset | datetime.datetime=UNSET
     updated_at: Unset | datetime.datetime=UNSET
     user: Union["UserRegistrationUserType0", None, Unset]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -61,7 +61,7 @@ class UserRegistration:
 
         id=self.id
 
-        state: Unset | dict[str, Any]=UNSET
+        state: Unset | dict[str, Any] = UNSET
         if not isinstance(self.state, Unset):
             state=self.state.to_dict()
 
@@ -69,7 +69,7 @@ class UserRegistration:
 
         moderation_response: None | Unset | str
         if isinstance(self.moderation_response, Unset):
-            moderation_response=UNSET
+            moderation_response = UNSET
         else:
             moderation_response=self.moderation_response
 
@@ -89,19 +89,19 @@ class UserRegistration:
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
         user: None | Unset | dict[str, Any]
         if isinstance(self.user, Unset):
-            user=UNSET
+            user = UNSET
         elif isinstance(self.user, UserRegistrationUserType0):
             user=self.user.to_dict()
         else:
             user=self.user
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -141,13 +141,13 @@ class UserRegistration:
         from peertube.models.user_registration_user_type_0 import (
             UserRegistrationUserType0)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         _state=d.pop("state", UNSET)
         state: Unset | UserRegistrationState
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=UserRegistrationState.from_dict(_state)
 
@@ -160,7 +160,7 @@ class UserRegistration:
                 return data
             return cast("None | Unset | str", data)
 
-        moderation_response=_parse_moderation_response(
+        moderation_response = _parse_moderation_response(
             d.pop("moderationResponse", UNSET)
         )
 
@@ -179,14 +179,14 @@ class UserRegistration:
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
@@ -199,14 +199,14 @@ class UserRegistration:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                user_type_0=UserRegistrationUserType0.from_dict(data)
+                user_type_0 = UserRegistrationUserType0.from_dict(data)
 
                 return user_type_0
             except:  # noqa: E722
                 pass
             return cast("UserRegistrationUserType0 | None | Unset", data)
 
-        user=_parse_user(d.pop("user", UNSET))
+        user = _parse_user(d.pop("user", UNSET))
 
         user_registration=cls(
             id=id, state=state, registration_reason=registration_reason, moderation_response=moderation_response, username=username, email=email, email_verified=email_verified, account_display_name=account_display_name, channel_handle=channel_handle, channel_display_name=channel_display_name, created_at=created_at, updated_at=updated_at, user=user)
@@ -224,10 +224,11 @@ class UserRegistration:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

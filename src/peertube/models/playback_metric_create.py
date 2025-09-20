@@ -40,7 +40,7 @@ class PlaybackMetricCreate:
     downloaded_bytes_http: float
     uploaded_bytes_p2p: float
     video_id: UUID | int | str
-    resolution: Unset | float=UNSET
+    resolution: Unset | float = UNSET
     fps: Unset | float=UNSET
     p_2_p_peers: Unset | float=UNSET
     buffer_stalled: Unset | float=UNSET
@@ -65,7 +65,7 @@ class PlaybackMetricCreate:
 
         video_id: int | str
         if isinstance(self.video_id, UUID):
-            video_id=str(self.video_id)
+            video_id = str(self.video_id)
         else:
             video_id=self.video_id
 
@@ -77,7 +77,7 @@ class PlaybackMetricCreate:
 
         buffer_stalled=self.buffer_stalled
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -98,7 +98,7 @@ class PlaybackMetricCreate:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         player_mode=PlaybackMetricCreatePlayerMode(d.pop("playerMode"))
 
         p_2_p_enabled=d.pop("p2pEnabled")
@@ -117,14 +117,14 @@ class PlaybackMetricCreate:
             try:
                 if not isinstance(data, str):
                     raise TypeError
-                video_id_type_1=UUID(data)
+                video_id_type_1 = UUID(data)
 
                 return video_id_type_1
             except:  # noqa: E722
                 pass
             return cast("UUID | int | str", data)
 
-        video_id=_parse_video_id(d.pop("videoId"))
+        video_id = _parse_video_id(d.pop("videoId"))
 
         resolution=d.pop("resolution", UNSET)
 
@@ -150,10 +150,11 @@ class PlaybackMetricCreate:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

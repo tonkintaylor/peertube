@@ -23,17 +23,17 @@ class PutApiV1PluginsNpmNameSettingsBody:
     """
 
 
-    settings: Union[Unset, "PutApiV1PluginsNpmNameSettingsBodySettings"]=UNSET
+    settings: Union[Unset, "PutApiV1PluginsNpmNameSettingsBodySettings"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        settings: Unset | dict[str, Any]=UNSET
+        settings: Unset | dict[str, Any] = UNSET
         if not isinstance(self.settings, Unset):
             settings=self.settings.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if settings is not UNSET:
@@ -48,11 +48,11 @@ class PutApiV1PluginsNpmNameSettingsBody:
         from peertube.models.put_api_v1_plugins_npm_name_settings_body_settings import (
             PutApiV1PluginsNpmNameSettingsBodySettings)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _settings=d.pop("settings", UNSET)
         settings: Unset | PutApiV1PluginsNpmNameSettingsBodySettings
         if isinstance(_settings, Unset):
-            settings=UNSET
+            settings = UNSET
         else:
             settings=PutApiV1PluginsNpmNameSettingsBodySettings.from_dict(_settings)
 
@@ -72,10 +72,11 @@ class PutApiV1PluginsNpmNameSettingsBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

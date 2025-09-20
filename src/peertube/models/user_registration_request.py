@@ -32,9 +32,9 @@ class UserRegistrationRequest:
     password: str
     email: str
     registration_reason: str
-    display_name: Unset | str=UNSET
+    display_name: Unset | str = UNSET
     channel: Union[Unset, "RegisterUserChannel"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -49,11 +49,11 @@ class UserRegistrationRequest:
 
         display_name=self.display_name
 
-        channel: Unset | dict[str, Any]=UNSET
+        channel: Unset | dict[str, Any] = UNSET
         if not isinstance(self.channel, Unset):
             channel=self.channel.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -72,7 +72,7 @@ class UserRegistrationRequest:
 
         from peertube.models.register_user_channel import RegisterUserChannel
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         username=d.pop("username")
 
         password=d.pop("password")
@@ -86,7 +86,7 @@ class UserRegistrationRequest:
         _channel=d.pop("channel", UNSET)
         channel: Unset | RegisterUserChannel
         if isinstance(_channel, Unset):
-            channel=UNSET
+            channel = UNSET
         else:
             channel=RegisterUserChannel.from_dict(_channel)
 
@@ -106,10 +106,11 @@ class UserRegistrationRequest:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

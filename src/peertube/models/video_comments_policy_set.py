@@ -13,3 +13,4 @@ class VideoCommentsPolicySet(IntEnum):
         """Return string representation."""
 
         return str(self.value)
+

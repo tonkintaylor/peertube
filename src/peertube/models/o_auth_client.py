@@ -19,7 +19,7 @@ class OAuthClient:
     """
 
 
-    client_id: Unset | str=UNSET
+    client_id: Unset | str = UNSET
     client_secret: Unset | str=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -30,7 +30,7 @@ class OAuthClient:
 
         client_secret=self.client_secret
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if client_id is not UNSET:
@@ -44,7 +44,7 @@ class OAuthClient:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         client_id=d.pop("client_id", UNSET)
 
         client_secret=d.pop("client_secret", UNSET)
@@ -65,10 +65,11 @@ class OAuthClient:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

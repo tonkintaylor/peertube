@@ -29,7 +29,7 @@ class UserViewingVideo:
     """
 
     current_time: int
-    view_event: Unset | UserViewingVideoViewEvent=UNSET
+    view_event: Unset | UserViewingVideoViewEvent = UNSET
     session_id: Unset | str=UNSET
     client: Unset | str=UNSET
     device: Unset | VideoStatsUserAgentDevice=UNSET
@@ -41,7 +41,7 @@ class UserViewingVideo:
 
         current_time=self.current_time
 
-        view_event: Unset | str=UNSET
+        view_event: Unset | str = UNSET
         if not isinstance(self.view_event, Unset):
             view_event=self.view_event.value
 
@@ -49,13 +49,13 @@ class UserViewingVideo:
 
         client=self.client
 
-        device: Unset | str=UNSET
+        device: Unset | str = UNSET
         if not isinstance(self.device, Unset):
             device=self.device.value
 
         operating_system=self.operating_system
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -78,13 +78,13 @@ class UserViewingVideo:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         current_time=d.pop("currentTime")
 
         _view_event=d.pop("viewEvent", UNSET)
         view_event: Unset | UserViewingVideoViewEvent
         if isinstance(_view_event, Unset):
-            view_event=UNSET
+            view_event = UNSET
         else:
             view_event=UserViewingVideoViewEvent(_view_event)
 
@@ -95,7 +95,7 @@ class UserViewingVideo:
         _device=d.pop("device", UNSET)
         device: Unset | VideoStatsUserAgentDevice
         if isinstance(_device, Unset):
-            device=UNSET
+            device = UNSET
         else:
             device=VideoStatsUserAgentDevice(_device)
 
@@ -117,10 +117,11 @@ class UserViewingVideo:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

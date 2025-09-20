@@ -23,17 +23,17 @@ class PostApiV1AbusesResponse200:
     """
 
 
-    abuse: Union[Unset, "PostApiV1AbusesResponse200Abuse"]=UNSET
+    abuse: Union[Unset, "PostApiV1AbusesResponse200Abuse"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        abuse: Unset | dict[str, Any]=UNSET
+        abuse: Unset | dict[str, Any] = UNSET
         if not isinstance(self.abuse, Unset):
             abuse=self.abuse.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if abuse is not UNSET:
@@ -48,11 +48,11 @@ class PostApiV1AbusesResponse200:
         from peertube.models.post_api_v1_abuses_response_200_abuse import (
             PostApiV1AbusesResponse200Abuse)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _abuse=d.pop("abuse", UNSET)
         abuse: Unset | PostApiV1AbusesResponse200Abuse
         if isinstance(_abuse, Unset):
-            abuse=UNSET
+            abuse = UNSET
         else:
             abuse=PostApiV1AbusesResponse200Abuse.from_dict(_abuse)
 
@@ -72,10 +72,11 @@ class PostApiV1AbusesResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

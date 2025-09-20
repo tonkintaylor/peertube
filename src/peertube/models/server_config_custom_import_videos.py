@@ -26,22 +26,22 @@ class ServerConfigCustomImportVideos:
     """
 
 
-    http: Union[Unset, "ServerConfigCustomImportVideosHttp"]=UNSET
+    http: Union[Unset, "ServerConfigCustomImportVideosHttp"] = UNSET
     torrent: Union[Unset, "ServerConfigCustomImportVideosTorrent"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        http: Unset | dict[str, Any]=UNSET
+        http: Unset | dict[str, Any] = UNSET
         if not isinstance(self.http, Unset):
             http=self.http.to_dict()
 
-        torrent: Unset | dict[str, Any]=UNSET
+        torrent: Unset | dict[str, Any] = UNSET
         if not isinstance(self.torrent, Unset):
             torrent=self.torrent.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if http is not UNSET:
@@ -60,18 +60,18 @@ class ServerConfigCustomImportVideos:
         from peertube.models.server_config_custom_import_videos_torrent import (
             ServerConfigCustomImportVideosTorrent)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _http=d.pop("http", UNSET)
         http: Unset | ServerConfigCustomImportVideosHttp
         if isinstance(_http, Unset):
-            http=UNSET
+            http = UNSET
         else:
             http=ServerConfigCustomImportVideosHttp.from_dict(_http)
 
         _torrent=d.pop("torrent", UNSET)
         torrent: Unset | ServerConfigCustomImportVideosTorrent
         if isinstance(_torrent, Unset):
-            torrent=UNSET
+            torrent = UNSET
         else:
             torrent=ServerConfigCustomImportVideosTorrent.from_dict(_torrent)
 
@@ -91,10 +91,11 @@ class ServerConfigCustomImportVideos:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

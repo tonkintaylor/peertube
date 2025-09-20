@@ -18,7 +18,7 @@ class VideoUserHistoryType0:
     """
 
 
-    current_time: Unset | int=UNSET
+    current_time: Unset | int = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -26,7 +26,7 @@ class VideoUserHistoryType0:
 
         current_time=self.current_time
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if current_time is not UNSET:
@@ -38,7 +38,7 @@ class VideoUserHistoryType0:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         current_time=d.pop("currentTime", UNSET)
 
         video_user_history_type_0=cls(
@@ -57,10 +57,11 @@ class VideoUserHistoryType0:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

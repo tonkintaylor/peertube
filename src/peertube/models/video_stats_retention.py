@@ -23,20 +23,20 @@ class VideoStatsRetention:
     """
 
 
-    data: Unset | list["VideoStatsRetentionDataItem"]=UNSET
+    data: Unset | list["VideoStatsRetentionDataItem"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        data: Unset | list[dict[str, Any]]=UNSET
+        data: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.data, Unset):
             data=[]
             for data_item_data in self.data:
                 data_item=data_item_data.to_dict()
                 data.append(data_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if data is not UNSET:
@@ -51,7 +51,7 @@ class VideoStatsRetention:
         from peertube.models.video_stats_retention_data_item import (
             VideoStatsRetentionDataItem)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         data=[]
         _data=d.pop("data", UNSET)
         for data_item_data in _data or []:
@@ -75,10 +75,11 @@ class VideoStatsRetention:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

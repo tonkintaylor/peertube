@@ -19,12 +19,12 @@ class AddUser:
     username (str): immutable name of the user, used to find or mention its actor Example: chocobozzz.
     password (str):
     email (str): The user email
-    role (UserRole): The user role (Admin=`0`, Moderator=`1`, User=`2`) Example: 2.
+    role (UserRole): The user role (Admin = `0`, Moderator=`1`, User=`2`) Example: 2.
     video_quota (Union[Unset, int]): The user video quota in bytes Example: -1.
     video_quota_daily (Union[Unset, int]): The user daily video quota in bytes Example: -1.
     channel_name (Union[Unset, str]): immutable name of the channel, used to interact with its actor Example:
         framasoft_videos.
-    admin_flags (Union[Unset, UserAdminFlags]): Admin flags for the user (None=`0`, Bypass video blocklist=`1`)
+    admin_flags (Union[Unset, UserAdminFlags]): Admin flags for the user (None = `0`, Bypass video blocklist=`1`)
         Example: 1.
     """
 
@@ -33,7 +33,7 @@ class AddUser:
     password: str
     email: str
     role: UserRole
-    video_quota: Unset | int=UNSET
+    video_quota: Unset | int = UNSET
     video_quota_daily: Unset | int=UNSET
     channel_name: Unset | str=UNSET
     admin_flags: Unset | UserAdminFlags=UNSET
@@ -56,11 +56,11 @@ class AddUser:
 
         channel_name=self.channel_name
 
-        admin_flags: Unset | int=UNSET
+        admin_flags: Unset | int = UNSET
         if not isinstance(self.admin_flags, Unset):
             admin_flags=self.admin_flags.value
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -81,7 +81,7 @@ class AddUser:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         username=d.pop("username")
 
         password=d.pop("password")
@@ -99,7 +99,7 @@ class AddUser:
         _admin_flags=d.pop("adminFlags", UNSET)
         admin_flags: Unset | UserAdminFlags
         if isinstance(_admin_flags, Unset):
-            admin_flags=UNSET
+            admin_flags = UNSET
         else:
             admin_flags=UserAdminFlags(_admin_flags)
 
@@ -119,10 +119,11 @@ class AddUser:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -12,7 +12,7 @@ from peertube.types import Response
 
 def _get_kwargs(
     list_id: str, *, body: PutApiV1WatchedWordsServerListsListIdBody) -> dict[str, Any]:
-    headers: dict[str, Any]={}
+    headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any]={
         "method": "put", "url": f"/api/v1/watched-words/server/lists/{list_id}", }
@@ -26,7 +26,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code== 204:
+    if response.status_code = = 204:
         return None
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
@@ -37,14 +37,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
     list_id: str, *, client: AuthenticatedClient, body: PutApiV1WatchedWordsServerListsListIdBody) -> Response[Any]:
     """Update server watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         list_id (str): Parameter for list id.
         body (PutApiV1WatchedWordsServerListsListIdBody): Request body data.
@@ -57,7 +57,7 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         list_id=list_id, body=body)
 
     response = client.get_httpx_client().request(
@@ -80,14 +80,14 @@ def sync(
     """
 
     return sync_detailed(
-        list_id=list_id, client=client, body=body).parsed
+        list_id = list_id, client=client, body=body).parsed
 
 
 async def asyncio_detailed(
     list_id: str, *, client: AuthenticatedClient, body: PutApiV1WatchedWordsServerListsListIdBody) -> Response[Any]:
     """Update server watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         list_id (str): Parameter for list id.
         body (PutApiV1WatchedWordsServerListsListIdBody): Request body data.
@@ -100,10 +100,11 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         list_id=list_id, body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
 

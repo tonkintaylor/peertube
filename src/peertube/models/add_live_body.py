@@ -54,7 +54,7 @@ class AddLiveBody:
         - `2` EXPLICIT_SEX
     tags (Union[Unset, list[str]]): Live video/replay tags (maximum 5 tags each between 2 and 30 characters)
     comments_enabled (Union[Unset, bool]): Deprecated in 6.2, use commentsPolicy instead
-    comments_policy (Union[Unset, VideoCommentsPolicySet]): Comments policy of the video (Enabled=`1`, Disabled=`2`, Requires Approval=`3`)
+    comments_policy (Union[Unset, VideoCommentsPolicySet]): Comments policy of the video (Enabled = `1`, Disabled=`2`, Requires Approval=`3`)
     download_enabled (Union[Unset, bool]): Enable or disable downloading for the replay of this live video
     schedules (Union[Unset, list['LiveSchedule']]):
     """
@@ -62,9 +62,9 @@ class AddLiveBody:
 
     channel_id: int
     name: str
-    save_replay: Unset | bool=UNSET
+    save_replay: Unset | bool = UNSET
     replay_settings: Union[Unset, "LiveVideoReplaySettings"]=UNSET
-    permanent_live: Unset | bool=UNSET
+    permanent_live: Unset | bool = UNSET
     latency_mode: Unset | LiveVideoLatencyMode=UNSET
     thumbnailfile: Unset | File=UNSET
     previewfile: Unset | File=UNSET
@@ -113,25 +113,25 @@ class AddLiveBody:
 
         save_replay=self.save_replay
 
-        replay_settings: Unset | dict[str, Any]=UNSET
+        replay_settings: Unset | dict[str, Any] = UNSET
         if not isinstance(self.replay_settings, Unset):
             replay_settings=self.replay_settings.to_dict()
 
         permanent_live=self.permanent_live
 
-        latency_mode: Unset | int=UNSET
+        latency_mode: Unset | int = UNSET
         if not isinstance(self.latency_mode, Unset):
             latency_mode=self.latency_mode.value
 
-        thumbnailfile: Unset | FileTypes=UNSET
+        thumbnailfile: Unset | FileTypes = UNSET
         if not isinstance(self.thumbnailfile, Unset):
             thumbnailfile=self.thumbnailfile.to_tuple()
 
-        previewfile: Unset | FileTypes=UNSET
+        previewfile: Unset | FileTypes = UNSET
         if not isinstance(self.previewfile, Unset):
             previewfile=self.previewfile.to_tuple()
 
-        privacy: Unset | int=UNSET
+        privacy: Unset | int = UNSET
         if not isinstance(self.privacy, Unset):
             privacy=self.privacy.value
 
@@ -149,30 +149,30 @@ class AddLiveBody:
 
         nsfw_summary=self.nsfw_summary
 
-        nsfw_flags: Unset | int=UNSET
+        nsfw_flags: Unset | int = UNSET
         if not isinstance(self.nsfw_flags, Unset):
             nsfw_flags=self.nsfw_flags.value
 
-        tags: Unset | list[str]=UNSET
+        tags: Unset | list[str] = UNSET
         if not isinstance(self.tags, Unset):
             tags=self.tags
 
         comments_enabled=self.comments_enabled
 
-        comments_policy: Unset | int=UNSET
+        comments_policy: Unset | int = UNSET
         if not isinstance(self.comments_policy, Unset):
             comments_policy=self.comments_policy.value
 
         download_enabled=self.download_enabled
 
-        schedules: Unset | list[dict[str, Any]]=UNSET
+        schedules: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.schedules, Unset):
             schedules=[]
             for schedules_item_data in self.schedules:
                 schedules_item=schedules_item_data.to_dict()
                 schedules.append(schedules_item)
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
@@ -224,7 +224,7 @@ class AddLiveBody:
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
 
-        files: types.RequestFiles=[]
+        files: types.RequestFiles = []
 
         files.append(("channelId", (None, str(self.channel_id).encode(), "text/plain")))
 
@@ -363,7 +363,7 @@ class AddLiveBody:
         from peertube.models.live_schedule import LiveSchedule
         from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         channel_id=d.pop("channelId")
 
         name=d.pop("name")
@@ -373,7 +373,7 @@ class AddLiveBody:
         _replay_settings=d.pop("replaySettings", UNSET)
         replay_settings: Unset | LiveVideoReplaySettings
         if isinstance(_replay_settings, Unset):
-            replay_settings=UNSET
+            replay_settings = UNSET
         else:
             replay_settings=LiveVideoReplaySettings.from_dict(_replay_settings)
 
@@ -382,28 +382,28 @@ class AddLiveBody:
         _latency_mode=d.pop("latencyMode", UNSET)
         latency_mode: Unset | LiveVideoLatencyMode
         if isinstance(_latency_mode, Unset):
-            latency_mode=UNSET
+            latency_mode = UNSET
         else:
             latency_mode=LiveVideoLatencyMode(_latency_mode)
 
         _thumbnailfile=d.pop("thumbnailfile", UNSET)
         thumbnailfile: Unset | File
         if isinstance(_thumbnailfile, Unset):
-            thumbnailfile=UNSET
+            thumbnailfile = UNSET
         else:
             thumbnailfile=File(payload=BytesIO(_thumbnailfile))
 
         _previewfile=d.pop("previewfile", UNSET)
         previewfile: Unset | File
         if isinstance(_previewfile, Unset):
-            previewfile=UNSET
+            previewfile = UNSET
         else:
             previewfile=File(payload=BytesIO(_previewfile))
 
         _privacy=d.pop("privacy", UNSET)
         privacy: Unset | VideoPrivacySet
         if isinstance(_privacy, Unset):
-            privacy=UNSET
+            privacy = UNSET
         else:
             privacy=VideoPrivacySet(_privacy)
 
@@ -424,7 +424,7 @@ class AddLiveBody:
         _nsfw_flags=d.pop("nsfwFlags", UNSET)
         nsfw_flags: Unset | NSFWFlag
         if isinstance(_nsfw_flags, Unset):
-            nsfw_flags=UNSET
+            nsfw_flags = UNSET
         else:
             nsfw_flags=NSFWFlag(_nsfw_flags)
 
@@ -435,7 +435,7 @@ class AddLiveBody:
         _comments_policy=d.pop("commentsPolicy", UNSET)
         comments_policy: Unset | VideoCommentsPolicySet
         if isinstance(_comments_policy, Unset):
-            comments_policy=UNSET
+            comments_policy = UNSET
         else:
             comments_policy=VideoCommentsPolicySet(_comments_policy)
 
@@ -484,10 +484,11 @@ class AddLiveBody:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

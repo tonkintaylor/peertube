@@ -12,7 +12,7 @@ from peertube.types import Response
 
 def _get_kwargs(
     account_name: str) -> dict[str, Any]:
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "get", "url": f"/api/v1/watched-words/accounts/{account_name}/lists", }
 
     return _kwargs
@@ -20,7 +20,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetApiV1WatchedWordsAccountsAccountNameListsResponse200 | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         response_200=(
             GetApiV1WatchedWordsAccountsAccountNameListsResponse200.from_dict(
                 response.json()
@@ -37,14 +37,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[GetApiV1WatchedWordsAccountsAccountNameListsResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
     account_name: str, *, client: AuthenticatedClient) -> Response[GetApiV1WatchedWordsAccountsAccountNameListsResponse200]:
     """List account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -56,7 +56,7 @@ def sync_detailed(
         Response[GetApiV1WatchedWordsAccountsAccountNameListsResponse200]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         account_name=account_name)
 
     response = client.get_httpx_client().request(
@@ -69,7 +69,7 @@ def sync(
     account_name: str, *, client: AuthenticatedClient) -> GetApiV1WatchedWordsAccountsAccountNameListsResponse200 | None:
     """List account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -82,14 +82,14 @@ def sync(
     """
 
     return sync_detailed(
-        account_name=account_name, client=client).parsed
+        account_name = account_name, client=client).parsed
 
 
 async def asyncio_detailed(
     account_name: str, *, client: AuthenticatedClient) -> Response[GetApiV1WatchedWordsAccountsAccountNameListsResponse200]:
     """List account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -101,7 +101,7 @@ async def asyncio_detailed(
         Response[GetApiV1WatchedWordsAccountsAccountNameListsResponse200]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         account_name=account_name)
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -113,7 +113,7 @@ async def asyncio(
     account_name: str, *, client: AuthenticatedClient) -> GetApiV1WatchedWordsAccountsAccountNameListsResponse200 | None:
     """List account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -127,6 +127,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            account_name=account_name, client=client)
+            account_name = account_name, client=client)
     ).parsed
+
 

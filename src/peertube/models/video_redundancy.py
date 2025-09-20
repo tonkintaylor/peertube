@@ -28,12 +28,12 @@ class VideoRedundancy:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     name: Unset | str=UNSET
     url: Unset | str=UNSET
     uuid: Unset | UUID=UNSET
     redundancies: Union[Unset, "VideoRedundancyRedundancies"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -44,15 +44,15 @@ class VideoRedundancy:
 
         url=self.url
 
-        uuid: Unset | str=UNSET
+        uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
             uuid=str(self.uuid)
 
-        redundancies: Unset | dict[str, Any]=UNSET
+        redundancies: Unset | dict[str, Any] = UNSET
         if not isinstance(self.redundancies, Unset):
             redundancies=self.redundancies.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -75,7 +75,7 @@ class VideoRedundancy:
         from peertube.models.video_redundancy_redundancies import (
             VideoRedundancyRedundancies)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         name=d.pop("name", UNSET)
@@ -85,14 +85,14 @@ class VideoRedundancy:
         _uuid=d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
-            uuid=UNSET
+            uuid = UNSET
         else:
             uuid=UUID(_uuid)
 
         _redundancies=d.pop("redundancies", UNSET)
         redundancies: Unset | VideoRedundancyRedundancies
         if isinstance(_redundancies, Unset):
-            redundancies=UNSET
+            redundancies = UNSET
         else:
             redundancies=VideoRedundancyRedundancies.from_dict(_redundancies)
 
@@ -112,10 +112,11 @@ class VideoRedundancy:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

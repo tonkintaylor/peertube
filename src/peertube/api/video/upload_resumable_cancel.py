@@ -10,15 +10,15 @@ from peertube.types import UNSET, Response
 
 def _get_kwargs(
     *, upload_id: str, content_length: float) -> dict[str, Any]:
-    headers: dict[str, Any]={}
+    headers: dict[str, Any] = {}
     headers["Content-Length"]=str(content_length)
 
-    params: dict[str, Any]={}
+    params: dict[str, Any] = {}
 
     params["upload_id"]=upload_id
     params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    _kwargs: dict[str, Any]={
+    _kwargs: dict[str, Any] = {
         "method": "delete", "url": "/api/v1/videos/upload-resumable", "params": params, }
 
     _kwargs["headers"]=headers
@@ -27,7 +27,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if response.status_code== 204:
+    if response.status_code = = 204:
         return None
 
     if response.status_code== 404:
@@ -41,7 +41,7 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
@@ -62,7 +62,7 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         upload_id=upload_id, content_length=content_length)
 
     response = client.get_httpx_client().request(
@@ -85,8 +85,7 @@ def sync(
     """
 
     return sync_detailed(
-        client=client, upload_id=upload_id, content_length=content_length,
-    ).parsed
+        client = client, upload_id=upload_id, content_length=content_length).parsed
 
 
 async def asyncio_detailed(
@@ -107,10 +106,11 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         upload_id=upload_id, content_length=content_length)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
 

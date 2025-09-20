@@ -22,17 +22,17 @@ class VideoTokenResponse:
     """
 
 
-    files: Union[Unset, "VideoTokenResponseFiles"]=UNSET
+    files: Union[Unset, "VideoTokenResponseFiles"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        files: Unset | dict[str, Any]=UNSET
+        files: Unset | dict[str, Any] = UNSET
         if not isinstance(self.files, Unset):
             files=self.files.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if files is not UNSET:
@@ -46,11 +46,11 @@ class VideoTokenResponse:
 
         from peertube.models.video_token_response_files import VideoTokenResponseFiles
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _files=d.pop("files", UNSET)
         files: Unset | VideoTokenResponseFiles
         if isinstance(_files, Unset):
-            files=UNSET
+            files = UNSET
         else:
             files=VideoTokenResponseFiles.from_dict(_files)
 
@@ -70,10 +70,11 @@ class VideoTokenResponse:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

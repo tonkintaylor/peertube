@@ -26,7 +26,7 @@ class Runner:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     name: Unset | str=UNSET
     description: Unset | str=UNSET
     ip: Unset | str=UNSET
@@ -46,19 +46,19 @@ class Runner:
 
         ip=self.ip
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        last_contact: Unset | str=UNSET
+        last_contact: Unset | str = UNSET
         if not isinstance(self.last_contact, Unset):
             last_contact=self.last_contact.isoformat()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -82,7 +82,7 @@ class Runner:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         name=d.pop("name", UNSET)
@@ -94,21 +94,21 @@ class Runner:
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _last_contact=d.pop("lastContact", UNSET)
         last_contact: Unset | datetime.datetime
         if isinstance(_last_contact, Unset):
-            last_contact=UNSET
+            last_contact = UNSET
         else:
             last_contact=isoparse(_last_contact)
 
@@ -128,10 +128,11 @@ class Runner:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

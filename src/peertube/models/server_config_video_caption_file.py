@@ -24,22 +24,22 @@ class ServerConfigVideoCaptionFile:
     """
 
 
-    size: Union[Unset, "ServerConfigVideoCaptionFileSize"]=UNSET
+    size: Union[Unset, "ServerConfigVideoCaptionFileSize"] = UNSET
     extensions: Unset | list[str]=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        size: Unset | dict[str, Any]=UNSET
+        size: Unset | dict[str, Any] = UNSET
         if not isinstance(self.size, Unset):
             size=self.size.to_dict()
 
-        extensions: Unset | list[str]=UNSET
+        extensions: Unset | list[str] = UNSET
         if not isinstance(self.extensions, Unset):
             extensions=self.extensions
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if size is not UNSET:
@@ -56,11 +56,11 @@ class ServerConfigVideoCaptionFile:
         from peertube.models.server_config_video_caption_file_size import (
             ServerConfigVideoCaptionFileSize)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _size=d.pop("size", UNSET)
         size: Unset | ServerConfigVideoCaptionFileSize
         if isinstance(_size, Unset):
-            size=UNSET
+            size = UNSET
         else:
             size=ServerConfigVideoCaptionFileSize.from_dict(_size)
 
@@ -82,10 +82,11 @@ class ServerConfigVideoCaptionFile:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

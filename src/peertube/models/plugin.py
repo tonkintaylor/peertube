@@ -38,7 +38,7 @@ class Plugin:
     """
 
 
-    name: Unset | str=UNSET
+    name: Unset | str = UNSET
     type_: Unset | PluginType=UNSET
     latest_version: Unset | str=UNSET
     version: Unset | str=UNSET
@@ -48,7 +48,7 @@ class Plugin:
     description: Unset | str=UNSET
     homepage: Unset | str=UNSET
     settings: Union[Unset, "PluginSettings"]=UNSET
-    created_at: Unset | datetime.datetime=UNSET
+    created_at: Unset | datetime.datetime = UNSET
     updated_at: Unset | datetime.datetime=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -57,7 +57,7 @@ class Plugin:
 
         name=self.name
 
-        type_: Unset | int=UNSET
+        type_: Unset | int = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.value
 
@@ -75,19 +75,19 @@ class Plugin:
 
         homepage=self.homepage
 
-        settings: Unset | dict[str, Any]=UNSET
+        settings: Unset | dict[str, Any] = UNSET
         if not isinstance(self.settings, Unset):
             settings=self.settings.to_dict()
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
@@ -123,13 +123,13 @@ class Plugin:
 
         from peertube.models.plugin_settings import PluginSettings
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         name=d.pop("name", UNSET)
 
         _type_=d.pop("type", UNSET)
         type_: Unset | PluginType
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=PluginType(_type_)
 
@@ -150,21 +150,21 @@ class Plugin:
         _settings=d.pop("settings", UNSET)
         settings: Unset | PluginSettings
         if isinstance(_settings, Unset):
-            settings=UNSET
+            settings = UNSET
         else:
             settings=PluginSettings.from_dict(_settings)
 
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
@@ -184,10 +184,11 @@ class Plugin:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

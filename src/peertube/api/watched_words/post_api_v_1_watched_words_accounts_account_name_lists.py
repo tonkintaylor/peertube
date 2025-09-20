@@ -14,7 +14,7 @@ from peertube.types import Response
 
 def _get_kwargs(
     account_name: str, *, body: PostApiV1WatchedWordsAccountsAccountNameListsBody) -> dict[str, Any]:
-    headers: dict[str, Any]={}
+    headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any]={
         "method": "post", "url": f"/api/v1/watched-words/accounts/{account_name}/lists", }
@@ -28,7 +28,7 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> PostApiV1WatchedWordsAccountsAccountNameListsResponse200 | None:
-    if response.status_code== 200:
+    if response.status_code = = 200:
         response_200=(
             PostApiV1WatchedWordsAccountsAccountNameListsResponse200.from_dict(
                 response.json()
@@ -45,14 +45,14 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[PostApiV1WatchedWordsAccountsAccountNameListsResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
     account_name: str, *, client: AuthenticatedClient, body: PostApiV1WatchedWordsAccountsAccountNameListsBody) -> Response[PostApiV1WatchedWordsAccountsAccountNameListsResponse200]:
     """Add account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -65,7 +65,7 @@ def sync_detailed(
         Response[PostApiV1WatchedWordsAccountsAccountNameListsResponse200]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         account_name=account_name, body=body)
 
     response = client.get_httpx_client().request(
@@ -78,7 +78,7 @@ def sync(
     account_name: str, *, client: AuthenticatedClient, body: PostApiV1WatchedWordsAccountsAccountNameListsBody) -> PostApiV1WatchedWordsAccountsAccountNameListsResponse200 | None:
     """Add account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -92,14 +92,14 @@ def sync(
     """
 
     return sync_detailed(
-        account_name=account_name, client=client, body=body).parsed
+        account_name = account_name, client=client, body=body).parsed
 
 
 async def asyncio_detailed(
     account_name: str, *, client: AuthenticatedClient, body: PostApiV1WatchedWordsAccountsAccountNameListsBody) -> Response[PostApiV1WatchedWordsAccountsAccountNameListsResponse200]:
     """Add account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -112,7 +112,7 @@ async def asyncio_detailed(
         Response[PostApiV1WatchedWordsAccountsAccountNameListsResponse200]
     """
 
-    kwargs = _get_kwargs(
+    kwargs  =  _get_kwargs(
         account_name=account_name, body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -124,7 +124,7 @@ async def asyncio(
     account_name: str, *, client: AuthenticatedClient, body: PostApiV1WatchedWordsAccountsAccountNameListsBody) -> PostApiV1WatchedWordsAccountsAccountNameListsResponse200 | None:
     """Add account watched words
 
-     **PeerTube >=6.2**
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
         body (PostApiV1WatchedWordsAccountsAccountNameListsBody): Request body data.
@@ -139,6 +139,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            account_name=account_name, client=client, body=body)
+            account_name = account_name, client=client, body=body)
     ).parsed
+
 

@@ -26,22 +26,22 @@ class ServerConfigCustomCache:
     """
 
 
-    previews: Union[Unset, "ServerConfigCustomCachePreviews"]=UNSET
+    previews: Union[Unset, "ServerConfigCustomCachePreviews"] = UNSET
     captions: Union[Unset, "ServerConfigCustomCacheCaptions"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        previews: Unset | dict[str, Any]=UNSET
+        previews: Unset | dict[str, Any] = UNSET
         if not isinstance(self.previews, Unset):
             previews=self.previews.to_dict()
 
-        captions: Unset | dict[str, Any]=UNSET
+        captions: Unset | dict[str, Any] = UNSET
         if not isinstance(self.captions, Unset):
             captions=self.captions.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if previews is not UNSET:
@@ -60,18 +60,18 @@ class ServerConfigCustomCache:
         from peertube.models.server_config_custom_cache_previews import (
             ServerConfigCustomCachePreviews)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _previews=d.pop("previews", UNSET)
         previews: Unset | ServerConfigCustomCachePreviews
         if isinstance(_previews, Unset):
-            previews=UNSET
+            previews = UNSET
         else:
             previews=ServerConfigCustomCachePreviews.from_dict(_previews)
 
         _captions=d.pop("captions", UNSET)
         captions: Unset | ServerConfigCustomCacheCaptions
         if isinstance(_captions, Unset):
-            captions=UNSET
+            captions = UNSET
         else:
             captions=ServerConfigCustomCacheCaptions.from_dict(_captions)
 
@@ -91,10 +91,11 @@ class ServerConfigCustomCache:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

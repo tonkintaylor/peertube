@@ -66,56 +66,56 @@ class ServerConfig:
     """
 
 
-    instance: Union[Unset, "ServerConfigInstance"]=UNSET
+    instance: Union[Unset, "ServerConfigInstance"] = UNSET
     search: Union[Unset, "ServerConfigSearch"]=UNSET
-    plugin: Union[Unset, "ServerConfigPlugin"]=UNSET
+    plugin: Union[Unset, "ServerConfigPlugin"] = UNSET
     theme: Union[Unset, "ServerConfigTheme"]=UNSET
-    email: Union[Unset, "ServerConfigEmail"]=UNSET
+    email: Union[Unset, "ServerConfigEmail"] = UNSET
     contact_form: Union[Unset, "ServerConfigContactForm"]=UNSET
-    server_version: Unset | str=UNSET
+    server_version: Unset | str = UNSET
     server_commit: Unset | str=UNSET
     signup: Union[Unset, "ServerConfigSignup"]=UNSET
-    transcoding: Union[Unset, "ServerConfigTranscoding"]=UNSET
+    transcoding: Union[Unset, "ServerConfigTranscoding"] = UNSET
     import_: Union[Unset, "ServerConfigImport"]=UNSET
-    export: Union[Unset, "ServerConfigExport"]=UNSET
+    export: Union[Unset, "ServerConfigExport"] = UNSET
     auto_blacklist: Union[Unset, "ServerConfigAutoBlacklist"]=UNSET
-    avatar: Union[Unset, "ServerConfigAvatar"]=UNSET
+    avatar: Union[Unset, "ServerConfigAvatar"] = UNSET
     video: Union[Unset, "ServerConfigVideo"]=UNSET
-    video_caption: Union[Unset, "ServerConfigVideoCaption"]=UNSET
+    video_caption: Union[Unset, "ServerConfigVideoCaption"] = UNSET
     user: Union[Unset, "ServerConfigUser"]=UNSET
-    trending: Union[Unset, "ServerConfigTrending"]=UNSET
+    trending: Union[Unset, "ServerConfigTrending"] = UNSET
     tracker: Union[Unset, "ServerConfigTracker"]=UNSET
-    followings: Union[Unset, "ServerConfigFollowings"]=UNSET
+    followings: Union[Unset, "ServerConfigFollowings"] = UNSET
     federation: Union[Unset, "ServerConfigFederation"]=UNSET
-    homepage: Union[Unset, "ServerConfigHomepage"]=UNSET
+    homepage: Union[Unset, "ServerConfigHomepage"] = UNSET
     open_telemetry: Union[Unset, "ServerConfigOpenTelemetry"]=UNSET
-    views: Union[Unset, "ServerConfigViews"]=UNSET
+    views: Union[Unset, "ServerConfigViews"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        instance: Unset | dict[str, Any]=UNSET
+        instance: Unset | dict[str, Any] = UNSET
         if not isinstance(self.instance, Unset):
             instance=self.instance.to_dict()
 
-        search: Unset | dict[str, Any]=UNSET
+        search: Unset | dict[str, Any] = UNSET
         if not isinstance(self.search, Unset):
             search=self.search.to_dict()
 
-        plugin: Unset | dict[str, Any]=UNSET
+        plugin: Unset | dict[str, Any] = UNSET
         if not isinstance(self.plugin, Unset):
             plugin=self.plugin.to_dict()
 
-        theme: Unset | dict[str, Any]=UNSET
+        theme: Unset | dict[str, Any] = UNSET
         if not isinstance(self.theme, Unset):
             theme=self.theme.to_dict()
 
-        email: Unset | dict[str, Any]=UNSET
+        email: Unset | dict[str, Any] = UNSET
         if not isinstance(self.email, Unset):
             email=self.email.to_dict()
 
-        contact_form: Unset | dict[str, Any]=UNSET
+        contact_form: Unset | dict[str, Any] = UNSET
         if not isinstance(self.contact_form, Unset):
             contact_form=self.contact_form.to_dict()
 
@@ -123,71 +123,71 @@ class ServerConfig:
 
         server_commit=self.server_commit
 
-        signup: Unset | dict[str, Any]=UNSET
+        signup: Unset | dict[str, Any] = UNSET
         if not isinstance(self.signup, Unset):
             signup=self.signup.to_dict()
 
-        transcoding: Unset | dict[str, Any]=UNSET
+        transcoding: Unset | dict[str, Any] = UNSET
         if not isinstance(self.transcoding, Unset):
             transcoding=self.transcoding.to_dict()
 
-        import_: Unset | dict[str, Any]=UNSET
+        import_: Unset | dict[str, Any] = UNSET
         if not isinstance(self.import_, Unset):
             import_=self.import_.to_dict()
 
-        export: Unset | dict[str, Any]=UNSET
+        export: Unset | dict[str, Any] = UNSET
         if not isinstance(self.export, Unset):
             export=self.export.to_dict()
 
-        auto_blacklist: Unset | dict[str, Any]=UNSET
+        auto_blacklist: Unset | dict[str, Any] = UNSET
         if not isinstance(self.auto_blacklist, Unset):
             auto_blacklist=self.auto_blacklist.to_dict()
 
-        avatar: Unset | dict[str, Any]=UNSET
+        avatar: Unset | dict[str, Any] = UNSET
         if not isinstance(self.avatar, Unset):
             avatar=self.avatar.to_dict()
 
-        video: Unset | dict[str, Any]=UNSET
+        video: Unset | dict[str, Any] = UNSET
         if not isinstance(self.video, Unset):
             video=self.video.to_dict()
 
-        video_caption: Unset | dict[str, Any]=UNSET
+        video_caption: Unset | dict[str, Any] = UNSET
         if not isinstance(self.video_caption, Unset):
             video_caption=self.video_caption.to_dict()
 
-        user: Unset | dict[str, Any]=UNSET
+        user: Unset | dict[str, Any] = UNSET
         if not isinstance(self.user, Unset):
             user=self.user.to_dict()
 
-        trending: Unset | dict[str, Any]=UNSET
+        trending: Unset | dict[str, Any] = UNSET
         if not isinstance(self.trending, Unset):
             trending=self.trending.to_dict()
 
-        tracker: Unset | dict[str, Any]=UNSET
+        tracker: Unset | dict[str, Any] = UNSET
         if not isinstance(self.tracker, Unset):
             tracker=self.tracker.to_dict()
 
-        followings: Unset | dict[str, Any]=UNSET
+        followings: Unset | dict[str, Any] = UNSET
         if not isinstance(self.followings, Unset):
             followings=self.followings.to_dict()
 
-        federation: Unset | dict[str, Any]=UNSET
+        federation: Unset | dict[str, Any] = UNSET
         if not isinstance(self.federation, Unset):
             federation=self.federation.to_dict()
 
-        homepage: Unset | dict[str, Any]=UNSET
+        homepage: Unset | dict[str, Any] = UNSET
         if not isinstance(self.homepage, Unset):
             homepage=self.homepage.to_dict()
 
-        open_telemetry: Unset | dict[str, Any]=UNSET
+        open_telemetry: Unset | dict[str, Any] = UNSET
         if not isinstance(self.open_telemetry, Unset):
             open_telemetry=self.open_telemetry.to_dict()
 
-        views: Unset | dict[str, Any]=UNSET
+        views: Unset | dict[str, Any] = UNSET
         if not isinstance(self.views, Unset):
             views=self.views.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if instance is not UNSET:
@@ -270,46 +270,46 @@ class ServerConfig:
         from peertube.models.server_config_video_caption import ServerConfigVideoCaption
         from peertube.models.server_config_views import ServerConfigViews
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _instance=d.pop("instance", UNSET)
         instance: Unset | ServerConfigInstance
         if isinstance(_instance, Unset):
-            instance=UNSET
+            instance = UNSET
         else:
             instance=ServerConfigInstance.from_dict(_instance)
 
         _search=d.pop("search", UNSET)
         search: Unset | ServerConfigSearch
         if isinstance(_search, Unset):
-            search=UNSET
+            search = UNSET
         else:
             search=ServerConfigSearch.from_dict(_search)
 
         _plugin=d.pop("plugin", UNSET)
         plugin: Unset | ServerConfigPlugin
         if isinstance(_plugin, Unset):
-            plugin=UNSET
+            plugin = UNSET
         else:
             plugin=ServerConfigPlugin.from_dict(_plugin)
 
         _theme=d.pop("theme", UNSET)
         theme: Unset | ServerConfigTheme
         if isinstance(_theme, Unset):
-            theme=UNSET
+            theme = UNSET
         else:
             theme=ServerConfigTheme.from_dict(_theme)
 
         _email=d.pop("email", UNSET)
         email: Unset | ServerConfigEmail
         if isinstance(_email, Unset):
-            email=UNSET
+            email = UNSET
         else:
             email=ServerConfigEmail.from_dict(_email)
 
         _contact_form=d.pop("contactForm", UNSET)
         contact_form: Unset | ServerConfigContactForm
         if isinstance(_contact_form, Unset):
-            contact_form=UNSET
+            contact_form = UNSET
         else:
             contact_form=ServerConfigContactForm.from_dict(_contact_form)
 
@@ -320,112 +320,112 @@ class ServerConfig:
         _signup=d.pop("signup", UNSET)
         signup: Unset | ServerConfigSignup
         if isinstance(_signup, Unset):
-            signup=UNSET
+            signup = UNSET
         else:
             signup=ServerConfigSignup.from_dict(_signup)
 
         _transcoding=d.pop("transcoding", UNSET)
         transcoding: Unset | ServerConfigTranscoding
         if isinstance(_transcoding, Unset):
-            transcoding=UNSET
+            transcoding = UNSET
         else:
             transcoding=ServerConfigTranscoding.from_dict(_transcoding)
 
         _import_=d.pop("import", UNSET)
         import_: Unset | ServerConfigImport
         if isinstance(_import_, Unset):
-            import_=UNSET
+            import_ = UNSET
         else:
             import_=ServerConfigImport.from_dict(_import_)
 
         _export=d.pop("export", UNSET)
         export: Unset | ServerConfigExport
         if isinstance(_export, Unset):
-            export=UNSET
+            export = UNSET
         else:
             export=ServerConfigExport.from_dict(_export)
 
         _auto_blacklist=d.pop("autoBlacklist", UNSET)
         auto_blacklist: Unset | ServerConfigAutoBlacklist
         if isinstance(_auto_blacklist, Unset):
-            auto_blacklist=UNSET
+            auto_blacklist = UNSET
         else:
             auto_blacklist=ServerConfigAutoBlacklist.from_dict(_auto_blacklist)
 
         _avatar=d.pop("avatar", UNSET)
         avatar: Unset | ServerConfigAvatar
         if isinstance(_avatar, Unset):
-            avatar=UNSET
+            avatar = UNSET
         else:
             avatar=ServerConfigAvatar.from_dict(_avatar)
 
         _video=d.pop("video", UNSET)
         video: Unset | ServerConfigVideo
         if isinstance(_video, Unset):
-            video=UNSET
+            video = UNSET
         else:
             video=ServerConfigVideo.from_dict(_video)
 
         _video_caption=d.pop("videoCaption", UNSET)
         video_caption: Unset | ServerConfigVideoCaption
         if isinstance(_video_caption, Unset):
-            video_caption=UNSET
+            video_caption = UNSET
         else:
             video_caption=ServerConfigVideoCaption.from_dict(_video_caption)
 
         _user=d.pop("user", UNSET)
         user: Unset | ServerConfigUser
         if isinstance(_user, Unset):
-            user=UNSET
+            user = UNSET
         else:
             user=ServerConfigUser.from_dict(_user)
 
         _trending=d.pop("trending", UNSET)
         trending: Unset | ServerConfigTrending
         if isinstance(_trending, Unset):
-            trending=UNSET
+            trending = UNSET
         else:
             trending=ServerConfigTrending.from_dict(_trending)
 
         _tracker=d.pop("tracker", UNSET)
         tracker: Unset | ServerConfigTracker
         if isinstance(_tracker, Unset):
-            tracker=UNSET
+            tracker = UNSET
         else:
             tracker=ServerConfigTracker.from_dict(_tracker)
 
         _followings=d.pop("followings", UNSET)
         followings: Unset | ServerConfigFollowings
         if isinstance(_followings, Unset):
-            followings=UNSET
+            followings = UNSET
         else:
             followings=ServerConfigFollowings.from_dict(_followings)
 
         _federation=d.pop("federation", UNSET)
         federation: Unset | ServerConfigFederation
         if isinstance(_federation, Unset):
-            federation=UNSET
+            federation = UNSET
         else:
             federation=ServerConfigFederation.from_dict(_federation)
 
         _homepage=d.pop("homepage", UNSET)
         homepage: Unset | ServerConfigHomepage
         if isinstance(_homepage, Unset):
-            homepage=UNSET
+            homepage = UNSET
         else:
             homepage=ServerConfigHomepage.from_dict(_homepage)
 
         _open_telemetry=d.pop("openTelemetry", UNSET)
         open_telemetry: Unset | ServerConfigOpenTelemetry
         if isinstance(_open_telemetry, Unset):
-            open_telemetry=UNSET
+            open_telemetry = UNSET
         else:
             open_telemetry=ServerConfigOpenTelemetry.from_dict(_open_telemetry)
 
         _views=d.pop("views", UNSET)
         views: Unset | ServerConfigViews
         if isinstance(_views, Unset):
-            views=UNSET
+            views = UNSET
         else:
             views=ServerConfigViews.from_dict(_views)
 
@@ -445,10 +445,11 @@ class ServerConfig:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -25,11 +25,11 @@ class PlaylistElement:
     """
 
 
-    position: Unset | int=UNSET
+    position: Unset | int = UNSET
     start_timestamp: Unset | int=UNSET
     stop_timestamp: Unset | int=UNSET
     video: Union["Video", None, Unset]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -44,13 +44,13 @@ class PlaylistElement:
 
         video: None | Unset | dict[str, Any]
         if isinstance(self.video, Unset):
-            video=UNSET
+            video = UNSET
         elif isinstance(self.video, Video):
             video=self.video.to_dict()
         else:
             video=self.video
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if position is not UNSET:
@@ -70,7 +70,7 @@ class PlaylistElement:
 
         from peertube.models.video import Video
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         position=d.pop("position", UNSET)
 
         start_timestamp=d.pop("startTimestamp", UNSET)
@@ -85,14 +85,14 @@ class PlaylistElement:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                video_type_1=Video.from_dict(data)
+                video_type_1 = Video.from_dict(data)
 
                 return video_type_1
             except:  # noqa: E722
                 pass
             return cast("Video | None | Unset", data)
 
-        video=_parse_video(d.pop("video", UNSET))
+        video = _parse_video(d.pop("video", UNSET))
 
         playlist_element=cls(
             position=position, start_timestamp=start_timestamp, stop_timestamp=stop_timestamp, video=video)
@@ -110,10 +110,11 @@ class PlaylistElement:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

@@ -27,9 +27,9 @@ class GetLatestUserImportResponse200:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     state: Union[Unset, "GetLatestUserImportResponse200State"]=UNSET
-    created_at: Unset | datetime.datetime=UNSET
+    created_at: Unset | datetime.datetime = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -37,15 +37,15 @@ class GetLatestUserImportResponse200:
 
         id=self.id
 
-        state: Unset | dict[str, Any]=UNSET
+        state: Unset | dict[str, Any] = UNSET
         if not isinstance(self.state, Unset):
             state=self.state.to_dict()
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -64,20 +64,20 @@ class GetLatestUserImportResponse200:
         from peertube.models.get_latest_user_import_response_200_state import (
             GetLatestUserImportResponse200State)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         _state=d.pop("state", UNSET)
         state: Unset | GetLatestUserImportResponse200State
         if isinstance(_state, Unset):
-            state=UNSET
+            state = UNSET
         else:
             state=GetLatestUserImportResponse200State.from_dict(_state)
 
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
@@ -97,10 +97,11 @@ class GetLatestUserImportResponse200:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

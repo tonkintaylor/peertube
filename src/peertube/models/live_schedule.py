@@ -20,17 +20,17 @@ class LiveSchedule:
     """
 
 
-    start_at: Unset | datetime.datetime=UNSET
+    start_at: Unset | datetime.datetime = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        start_at: Unset | str=UNSET
+        start_at: Unset | str = UNSET
         if not isinstance(self.start_at, Unset):
             start_at=self.start_at.isoformat()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if start_at is not UNSET:
@@ -42,11 +42,11 @@ class LiveSchedule:
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _start_at=d.pop("startAt", UNSET)
         start_at: Unset | datetime.datetime
         if isinstance(_start_at, Unset):
-            start_at=UNSET
+            start_at = UNSET
         else:
             start_at=isoparse(_start_at)
 
@@ -66,10 +66,11 @@ class LiveSchedule:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

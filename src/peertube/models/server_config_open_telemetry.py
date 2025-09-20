@@ -25,17 +25,17 @@ class ServerConfigOpenTelemetry:
     """
 
 
-    metrics: Union[Unset, "ServerConfigOpenTelemetryMetrics"]=UNSET
+    metrics: Union[Unset, "ServerConfigOpenTelemetryMetrics"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        metrics: Unset | dict[str, Any]=UNSET
+        metrics: Unset | dict[str, Any] = UNSET
         if not isinstance(self.metrics, Unset):
             metrics=self.metrics.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if metrics is not UNSET:
@@ -50,11 +50,11 @@ class ServerConfigOpenTelemetry:
         from peertube.models.server_config_open_telemetry_metrics import (
             ServerConfigOpenTelemetryMetrics)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _metrics=d.pop("metrics", UNSET)
         metrics: Unset | ServerConfigOpenTelemetryMetrics
         if isinstance(_metrics, Unset):
-            metrics=UNSET
+            metrics = UNSET
         else:
             metrics=ServerConfigOpenTelemetryMetrics.from_dict(_metrics)
 
@@ -74,10 +74,11 @@ class ServerConfigOpenTelemetry:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

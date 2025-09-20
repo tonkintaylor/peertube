@@ -44,7 +44,7 @@ class VideoPlaylist:
     """
 
 
-    id: Unset | int=UNSET
+    id: Unset | int = UNSET
     uuid: Unset | UUID=UNSET
     short_uuid: Unset | str=UNSET
     created_at: Unset | datetime.datetime=UNSET
@@ -55,9 +55,9 @@ class VideoPlaylist:
     video_length: Unset | int=UNSET
     thumbnail_path: Unset | str=UNSET
     privacy: Union[Unset, "VideoPlaylistPrivacyConstant"]=UNSET
-    type_: Union[Unset, "VideoPlaylistTypeConstant"]=UNSET
+    type_: Union[Unset, "VideoPlaylistTypeConstant"] = UNSET
     owner_account: Union[Unset, "AccountSummary"]=UNSET
-    video_channel: Union[Unset, "VideoChannelSummary"]=UNSET
+    video_channel: Union[Unset, "VideoChannelSummary"] = UNSET
     video_channel_position: Unset | int=UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
@@ -66,17 +66,17 @@ class VideoPlaylist:
 
         id=self.id
 
-        uuid: Unset | str=UNSET
+        uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
             uuid=str(self.uuid)
 
         short_uuid=self.short_uuid
 
-        created_at: Unset | str=UNSET
+        created_at: Unset | str = UNSET
         if not isinstance(self.created_at, Unset):
             created_at=self.created_at.isoformat()
 
-        updated_at: Unset | str=UNSET
+        updated_at: Unset | str = UNSET
         if not isinstance(self.updated_at, Unset):
             updated_at=self.updated_at.isoformat()
 
@@ -90,25 +90,25 @@ class VideoPlaylist:
 
         thumbnail_path=self.thumbnail_path
 
-        privacy: Unset | dict[str, Any]=UNSET
+        privacy: Unset | dict[str, Any] = UNSET
         if not isinstance(self.privacy, Unset):
             privacy=self.privacy.to_dict()
 
-        type_: Unset | dict[str, Any]=UNSET
+        type_: Unset | dict[str, Any] = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.to_dict()
 
-        owner_account: Unset | dict[str, Any]=UNSET
+        owner_account: Unset | dict[str, Any] = UNSET
         if not isinstance(self.owner_account, Unset):
             owner_account=self.owner_account.to_dict()
 
-        video_channel: Unset | dict[str, Any]=UNSET
+        video_channel: Unset | dict[str, Any] = UNSET
         if not isinstance(self.video_channel, Unset):
             video_channel=self.video_channel.to_dict()
 
         video_channel_position=self.video_channel_position
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if id is not UNSET:
@@ -155,13 +155,13 @@ class VideoPlaylist:
         from peertube.models.video_playlist_type_constant import (
             VideoPlaylistTypeConstant)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         id=d.pop("id", UNSET)
 
         _uuid=d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
-            uuid=UNSET
+            uuid = UNSET
         else:
             uuid=UUID(_uuid)
 
@@ -170,14 +170,14 @@ class VideoPlaylist:
         _created_at=d.pop("createdAt", UNSET)
         created_at: Unset | datetime.datetime
         if isinstance(_created_at, Unset):
-            created_at=UNSET
+            created_at = UNSET
         else:
             created_at=isoparse(_created_at)
 
         _updated_at=d.pop("updatedAt", UNSET)
         updated_at: Unset | datetime.datetime
         if isinstance(_updated_at, Unset):
-            updated_at=UNSET
+            updated_at = UNSET
         else:
             updated_at=isoparse(_updated_at)
 
@@ -194,28 +194,28 @@ class VideoPlaylist:
         _privacy=d.pop("privacy", UNSET)
         privacy: Unset | VideoPlaylistPrivacyConstant
         if isinstance(_privacy, Unset):
-            privacy=UNSET
+            privacy = UNSET
         else:
             privacy=VideoPlaylistPrivacyConstant.from_dict(_privacy)
 
         _type_=d.pop("type", UNSET)
         type_: Unset | VideoPlaylistTypeConstant
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=VideoPlaylistTypeConstant.from_dict(_type_)
 
         _owner_account=d.pop("ownerAccount", UNSET)
         owner_account: Unset | AccountSummary
         if isinstance(_owner_account, Unset):
-            owner_account=UNSET
+            owner_account = UNSET
         else:
             owner_account=AccountSummary.from_dict(_owner_account)
 
         _video_channel=d.pop("videoChannel", UNSET)
         video_channel: Unset | VideoChannelSummary
         if isinstance(_video_channel, Unset):
-            video_channel=UNSET
+            video_channel = UNSET
         else:
             video_channel=VideoChannelSummary.from_dict(_video_channel)
 
@@ -237,10 +237,11 @@ class VideoPlaylist:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

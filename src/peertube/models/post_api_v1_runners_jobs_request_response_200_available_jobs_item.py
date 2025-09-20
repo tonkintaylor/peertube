@@ -28,12 +28,12 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
     """
 
 
-    uuid: Unset | UUID=UNSET
+    uuid: Unset | UUID = UNSET
     type_: Unset | RunnerJobType=UNSET
     payload: Union[
         "VODAudioMergeTranscoding", "VODHLSTranscoding", "VODWebVideoTranscoding", Unset
     ]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -41,23 +41,23 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
         from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
         from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
-        uuid: Unset | str=UNSET
+        uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
             uuid=str(self.uuid)
 
-        type_: Unset | str=UNSET
+        type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
             type_=self.type_.value
 
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
-            payload=UNSET
+            payload = UNSET
         elif isinstance(self.payload, (VODWebVideoTranscoding, VODHLSTranscoding)):
             payload=self.payload.to_dict()
         else:
             payload=self.payload.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if uuid is not UNSET:
@@ -77,18 +77,18 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
         from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
         from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _uuid=d.pop("uuid", UNSET)
         uuid: Unset | UUID
         if isinstance(_uuid, Unset):
-            uuid=UNSET
+            uuid = UNSET
         else:
             uuid=UUID(_uuid)
 
         _type_=d.pop("type", UNSET)
         type_: Unset | RunnerJobType
         if isinstance(_type_, Unset):
-            type_=UNSET
+            type_ = UNSET
         else:
             type_=RunnerJobType(_type_)
 
@@ -100,7 +100,7 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                componentsschemas_runner_job_payload_vod_web_video_transcoding=(
+                componentsschemas_runner_job_payload_vod_web_video_transcoding = (
                     VODWebVideoTranscoding.from_dict(data)
                 )
 
@@ -110,7 +110,7 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
             try:
                 if not isinstance(data, dict):
                     raise TypeError
-                componentsschemas_runner_job_payload_vod_hls_transcoding=(
+                componentsschemas_runner_job_payload_vod_hls_transcoding = (
                     VODHLSTranscoding.from_dict(data)
                 )
 
@@ -119,7 +119,7 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
                 pass
             if not isinstance(data, dict):
                 raise TypeError
-            componentsschemas_runner_job_payload_vod_audio_merge_transcoding=(
+            componentsschemas_runner_job_payload_vod_audio_merge_transcoding = (
                 VODAudioMergeTranscoding.from_dict(data)
             )
 
@@ -143,10 +143,11 @@ class PostApiV1RunnersJobsRequestResponse200AvailableJobsItem:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

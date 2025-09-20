@@ -53,7 +53,7 @@ class TestGeneratedAPI:
     def test_api_function_call_structure(self, mock_get_categories):
         """Test that API functions can be called with client parameter."""
         # Mock response
-        mock_get_categories.return_value={"1": "Music", "2": "Films"}
+        mock_get_categories.return_value = {"1": "Music", "2": "Films"}
 
         # Create client
         client=Client(base_url="https://example.peertube.com")
@@ -87,3 +87,4 @@ class TestGeneratedAPI:
             assert UnexpectedStatus is not None
         except (ImportError, AttributeError) as e:
             pytest.fail(f"Failed to import errors: {e}")
+

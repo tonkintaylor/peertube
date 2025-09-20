@@ -22,17 +22,17 @@ class VideoChapters:
     """
 
 
-    chapters: Union[Unset, "VideoChaptersChapters"]=UNSET
+    chapters: Union[Unset, "VideoChaptersChapters"] = UNSET
     additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        chapters: Unset | dict[str, Any]=UNSET
+        chapters: Unset | dict[str, Any] = UNSET
         if not isinstance(self.chapters, Unset):
             chapters=self.chapters.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if chapters is not UNSET:
@@ -46,11 +46,11 @@ class VideoChapters:
 
         from peertube.models.video_chapters_chapters import VideoChaptersChapters
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         _chapters=d.pop("chapters", UNSET)
         chapters: Unset | VideoChaptersChapters
         if isinstance(_chapters, Unset):
-            chapters=UNSET
+            chapters = UNSET
         else:
             chapters=VideoChaptersChapters.from_dict(_chapters)
 
@@ -70,10 +70,11 @@ class VideoChapters:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

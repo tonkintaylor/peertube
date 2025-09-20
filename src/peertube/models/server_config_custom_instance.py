@@ -46,7 +46,7 @@ class ServerConfigCustomInstance:
     """
 
 
-    name: Unset | str=UNSET
+    name: Unset | str = UNSET
     short_description: Unset | str=UNSET
     description: Unset | str=UNSET
     terms: Unset | str=UNSET
@@ -63,10 +63,10 @@ class ServerConfigCustomInstance:
     default_nsfw_policy: Unset | str=UNSET
     server_country: Unset | str=UNSET
     support: Union[Unset, "ServerConfigCustomInstanceSupport"]=UNSET
-    social: Union[Unset, "ServerConfigCustomInstanceSocial"]=UNSET
+    social: Union[Unset, "ServerConfigCustomInstanceSocial"] = UNSET
     default_client_route: Unset | str=UNSET
     customizations: Union[Unset, "ServerConfigCustomInstanceCustomizations"]=UNSET
-    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
@@ -93,11 +93,11 @@ class ServerConfigCustomInstance:
 
         hardware_information=self.hardware_information
 
-        languages: Unset | list[str]=UNSET
+        languages: Unset | list[str] = UNSET
         if not isinstance(self.languages, Unset):
             languages=self.languages
 
-        categories: Unset | list[float]=UNSET
+        categories: Unset | list[float] = UNSET
         if not isinstance(self.categories, Unset):
             categories=self.categories
 
@@ -107,21 +107,21 @@ class ServerConfigCustomInstance:
 
         server_country=self.server_country
 
-        support: Unset | dict[str, Any]=UNSET
+        support: Unset | dict[str, Any] = UNSET
         if not isinstance(self.support, Unset):
             support=self.support.to_dict()
 
-        social: Unset | dict[str, Any]=UNSET
+        social: Unset | dict[str, Any] = UNSET
         if not isinstance(self.social, Unset):
             social=self.social.to_dict()
 
         default_client_route=self.default_client_route
 
-        customizations: Unset | dict[str, Any]=UNSET
+        customizations: Unset | dict[str, Any] = UNSET
         if not isinstance(self.customizations, Unset):
             customizations=self.customizations.to_dict()
 
-        field_dict: dict[str, Any]={}
+        field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if name is not UNSET:
@@ -178,7 +178,7 @@ class ServerConfigCustomInstance:
         from peertube.models.server_config_custom_instance_support import (
             ServerConfigCustomInstanceSupport)
 
-        d=dict(src_dict)
+        d = dict(src_dict)
         name=d.pop("name", UNSET)
 
         short_description=d.pop("shortDescription", UNSET)
@@ -214,14 +214,14 @@ class ServerConfigCustomInstance:
         _support=d.pop("support", UNSET)
         support: Unset | ServerConfigCustomInstanceSupport
         if isinstance(_support, Unset):
-            support=UNSET
+            support = UNSET
         else:
             support=ServerConfigCustomInstanceSupport.from_dict(_support)
 
         _social=d.pop("social", UNSET)
         social: Unset | ServerConfigCustomInstanceSocial
         if isinstance(_social, Unset):
-            social=UNSET
+            social = UNSET
         else:
             social=ServerConfigCustomInstanceSocial.from_dict(_social)
 
@@ -230,7 +230,7 @@ class ServerConfigCustomInstance:
         _customizations=d.pop("customizations", UNSET)
         customizations: Unset | ServerConfigCustomInstanceCustomizations
         if isinstance(_customizations, Unset):
-            customizations=UNSET
+            customizations = UNSET
         else:
             customizations=ServerConfigCustomInstanceCustomizations.from_dict(
                 _customizations
@@ -252,7 +252,7 @@ class ServerConfigCustomInstance:
         return self.additional_properties[key]
 
     def __setitem__(self, key: str, value: Any) -> None:
-        self.additional_properties[key]=value
+        self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:
         del self.additional_properties[key]
