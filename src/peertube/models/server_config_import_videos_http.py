@@ -1,8 +1,6 @@
 from collections.abc import Mapping
 from typing import (
-    Any,
-    TypeVar,
-)
+    Any, TypeVar)
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -10,7 +8,7 @@ from typing_extensions import Self
 
 from peertube.types import UNSET, Unset
 
-T = TypeVar("T", bound="ServerConfigImportVideosHttp")
+T=TypeVar("T", bound="ServerConfigImportVideosHttp")
 
 
 @_attrs_define
@@ -19,37 +17,40 @@ class ServerConfigImportVideosHttp:
     enabled (Union[Unset, bool]):
     """
 
+
     enabled: Unset | bool = UNSET
-    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+    additional_properties: dict[str, Any]=_attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
-        enabled = self.enabled
+
+        enabled=self.enabled
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if enabled is not UNSET:
-            field_dict["enabled"] = enabled
+            field_dict["enabled"]=enabled
 
         return field_dict
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
-        enabled = d.pop("enabled", UNSET)
+        enabled=d.pop("enabled", UNSET)
 
-        server_config_import_videos_http = cls(
-            enabled=enabled,
-        )
+        server_config_import_videos_http=cls(
+            enabled=enabled)
 
-        server_config_import_videos_http.additional_properties = d
+        server_config_import_videos_http.additional_properties=d
         return server_config_import_videos_http
 
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:
@@ -63,3 +64,4 @@ class ServerConfigImportVideosHttp:
 
     def __contains__(self, key: str) -> bool:
         return key in self.additional_properties
+

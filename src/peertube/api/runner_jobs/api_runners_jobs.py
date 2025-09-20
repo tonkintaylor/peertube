@@ -6,90 +6,64 @@ import httpx
 from peertube import errors
 from peertube.client import AuthenticatedClient, Client
 from peertube.models.get_api_v1_runners_jobs_response_200 import (
-    GetApiV1RunnersJobsResponse200,
-)
+    GetApiV1RunnersJobsResponse200)
 from peertube.models.get_api_v1_runners_jobs_sort import GetApiV1RunnersJobsSort
 from peertube.models.runner_job_state import RunnerJobState
 from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | GetApiV1RunnersJobsSort = UNSET,
-    search: Unset | str = UNSET,
-    state_one_of: Unset | list[RunnerJobState] = UNSET,
-) -> dict[str, Any]:
+    *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersJobsSort = UNSET, search: Unset | str = UNSET, state_one_of: Unset | list[RunnerJobState] = UNSET) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
-    params["start"] = start
+    params["start"]=start
 
-    params["count"] = count
-
+    params["count"]=count
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
-    params["sort"] = json_sort
+    params["sort"]=json_sort
 
-    params["search"] = search
-
+    params["search"]=search
     json_state_one_of: Unset | list[int] = UNSET
     if not isinstance(state_one_of, Unset):
-        json_state_one_of = []
+        json_state_one_of=[]
         for state_one_of_item_data in state_one_of:
             state_one_of_item = state_one_of_item_data.value
             json_state_one_of.append(state_one_of_item)
 
-    params["stateOneOf"] = json_state_one_of
-
-    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+    params["stateOneOf"]=json_state_one_of
+    params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": "/api/v1/runners/jobs",
-        "params": params,
-    }
+        "method": "get", "url": "/api/v1/runners/jobs", "params": params, }
 
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> GetApiV1RunnersJobsResponse200 | None:
-    if response.status_code == 200:
+    if response.status_code = = 200:
         response_200 = GetApiV1RunnersJobsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
 
-
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[GetApiV1RunnersJobsResponse200]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | GetApiV1RunnersJobsSort = UNSET,
-    search: Unset | str = UNSET,
-    state_one_of: Unset | list[RunnerJobState] = UNSET,
-) -> Response[GetApiV1RunnersJobsResponse200]:
+    *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersJobsSort = UNSET, search: Unset | str = UNSET, state_one_of: Unset | list[RunnerJobState] = UNSET) -> Response[GetApiV1RunnersJobsResponse200]:
     """List jobs
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -106,31 +80,19 @@ def sync_detailed(
         Response[GetApiV1RunnersJobsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        start=start,
-        count=count,
-        sort=sort,
-        search=search,
-        state_one_of=state_one_of,
-    )
+    kwargs  =  _get_kwargs(
+        start=start, count=count, sort=sort, search=search, state_one_of=state_one_of)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *,
-    client: AuthenticatedClient,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | GetApiV1RunnersJobsSort = UNSET,
-    search: Unset | str = UNSET,
-    state_one_of: Unset | list[RunnerJobState] = UNSET,
-) -> GetApiV1RunnersJobsResponse200 | None:
+    *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersJobsSort = UNSET, search: Unset | str = UNSET, state_one_of: Unset | list[RunnerJobState] = UNSET) -> GetApiV1RunnersJobsResponse200 | None:
     """List jobs
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -148,25 +110,18 @@ def sync(
     """
 
     return sync_detailed(
-        client=client,
+        client = client,
         start=start,
         count=count,
         sort=sort,
         search=search,
-        state_one_of=state_one_of,
-    ).parsed
+        state_one_of=state_one_of).parsed
 
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | GetApiV1RunnersJobsSort = UNSET,
-    search: Unset | str = UNSET,
-    state_one_of: Unset | list[RunnerJobState] = UNSET,
-) -> Response[GetApiV1RunnersJobsResponse200]:
+    *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersJobsSort = UNSET, search: Unset | str = UNSET, state_one_of: Unset | list[RunnerJobState] = UNSET) -> Response[GetApiV1RunnersJobsResponse200]:
     """List jobs
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -183,13 +138,8 @@ async def asyncio_detailed(
         Response[GetApiV1RunnersJobsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        start=start,
-        count=count,
-        sort=sort,
-        search=search,
-        state_one_of=state_one_of,
-    )
+    kwargs  =  _get_kwargs(
+        start=start, count=count, sort=sort, search=search, state_one_of=state_one_of)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -197,15 +147,9 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *,
-    client: AuthenticatedClient,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    sort: Unset | GetApiV1RunnersJobsSort = UNSET,
-    search: Unset | str = UNSET,
-    state_one_of: Unset | list[RunnerJobState] = UNSET,
-) -> GetApiV1RunnersJobsResponse200 | None:
+    *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetApiV1RunnersJobsSort = UNSET, search: Unset | str = UNSET, state_one_of: Unset | list[RunnerJobState] = UNSET) -> GetApiV1RunnersJobsResponse200 | None:
     """List jobs
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -224,11 +168,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client=client,
-            start=start,
-            count=count,
-            sort=sort,
-            search=search,
-            state_one_of=state_one_of,
-        )
+            client = client, start=start, count=count, sort=sort, search=search, state_one_of=state_one_of)
     ).parsed
+
+

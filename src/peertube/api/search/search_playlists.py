@@ -11,87 +11,58 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *,
-    search: str,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    search_target: Unset | SearchPlaylistsSearchTarget = UNSET,
-    sort: Unset | str = UNSET,
-    host: Unset | str = UNSET,
-    uuids: Unset | Any = UNSET,
-) -> dict[str, Any]:
+    *, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
-    params["search"] = search
+    params["search"]=search
 
-    params["start"] = start
+    params["start"]=start
 
-    params["count"] = count
-
+    params["count"]=count
     json_search_target: Unset | str = UNSET
     if not isinstance(search_target, Unset):
         json_search_target = search_target.value
 
-    params["searchTarget"] = json_search_target
+    params["searchTarget"]=json_search_target
 
-    params["sort"] = sort
+    params["sort"]=sort
 
-    params["host"] = host
+    params["host"]=host
 
-    params["uuids"] = uuids
-
-    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+    params["uuids"]=uuids
+    params={k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
-        "method": "get",
-        "url": "/api/v1/search/video-playlists",
-        "params": params,
-    }
+        "method": "get", "url": "/api/v1/search/video-playlists", "params": params, }
 
     return _kwargs
-
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | SearchPlaylistsResponse200 | None:
-    if response.status_code == 200:
+    if response.status_code = = 200:
         response_200 = SearchPlaylistsResponse200.from_dict(response.json())
 
         return response_200
-
-    if response.status_code == 500:
+    if response.status_code== 500:
         response_500 = cast("Any", None)
         return response_500
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
 
-
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | SearchPlaylistsResponse200]:
     return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+        status_code  =  HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient | Client,
-    search: str,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    search_target: Unset | SearchPlaylistsSearchTarget = UNSET,
-    sort: Unset | str = UNSET,
-    host: Unset | str = UNSET,
-    uuids: Unset | Any = UNSET,
-) -> Response[Any | SearchPlaylistsResponse200]:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Response[Any | SearchPlaylistsResponse200]:
     """Search playlists
+
 
     Args:
         search (str): Search query filter.
@@ -105,40 +76,23 @@ def sync_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, SearchPlaylistsResponse200]]
     """
 
-    kwargs = _get_kwargs(
-        search=search,
-        start=start,
-        count=count,
-        search_target=search_target,
-        sort=sort,
-        host=host,
-        uuids=uuids,
-    )
+    kwargs  =  _get_kwargs(
+        search=search, start=start, count=count, search_target=search_target, sort=sort, host=host, uuids=uuids)
 
     response = client.get_httpx_client().request(
-        **kwargs,
-    )
+        **kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *,
-    client: AuthenticatedClient | Client,
-    search: str,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    search_target: Unset | SearchPlaylistsSearchTarget = UNSET,
-    sort: Unset | str = UNSET,
-    host: Unset | str = UNSET,
-    uuids: Unset | Any = UNSET,
-) -> Any | SearchPlaylistsResponse200 | None:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Any | SearchPlaylistsResponse200 | None:
     """Search playlists
+
 
     Args:
         search (str): Search query filter.
@@ -152,35 +106,25 @@ def sync(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, SearchPlaylistsResponse200]
     """
 
     return sync_detailed(
-        client=client,
+        client = client,
         search=search,
         start=start,
         count=count,
         search_target=search_target,
         sort=sort,
         host=host,
-        uuids=uuids,
-    ).parsed
+        uuids=uuids).parsed
 
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient | Client,
-    search: str,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    search_target: Unset | SearchPlaylistsSearchTarget = UNSET,
-    sort: Unset | str = UNSET,
-    host: Unset | str = UNSET,
-    uuids: Unset | Any = UNSET,
-) -> Response[Any | SearchPlaylistsResponse200]:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Response[Any | SearchPlaylistsResponse200]:
     """Search playlists
+
 
     Args:
         search (str): Search query filter.
@@ -194,20 +138,12 @@ async def asyncio_detailed(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Response[Union[Any, SearchPlaylistsResponse200]]
     """
 
-    kwargs = _get_kwargs(
-        search=search,
-        start=start,
-        count=count,
-        search_target=search_target,
-        sort=sort,
-        host=host,
-        uuids=uuids,
-    )
+    kwargs  =  _get_kwargs(
+        search=search, start=start, count=count, search_target=search_target, sort=sort, host=host, uuids=uuids)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -215,17 +151,9 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *,
-    client: AuthenticatedClient | Client,
-    search: str,
-    start: Unset | int = UNSET,
-    count: Unset | int = 15,
-    search_target: Unset | SearchPlaylistsSearchTarget = UNSET,
-    sort: Unset | str = UNSET,
-    host: Unset | str = UNSET,
-    uuids: Unset | Any = UNSET,
-) -> Any | SearchPlaylistsResponse200 | None:
+    *, client: AuthenticatedClient | Client, search: str, start: Unset | int = UNSET, count: Unset | int = 15, search_target: Unset | SearchPlaylistsSearchTarget = UNSET, sort: Unset | str = UNSET, host: Unset | str = UNSET, uuids: Unset | Any = UNSET) -> Any | SearchPlaylistsResponse200 | None:
     """Search playlists
+
 
     Args:
         search (str): Search query filter.
@@ -239,20 +167,13 @@ async def asyncio(
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
-
     Returns:
         Union[Any, SearchPlaylistsResponse200]
     """
 
     return (
         await asyncio_detailed(
-            client=client,
-            search=search,
-            start=start,
-            count=count,
-            search_target=search_target,
-            sort=sort,
-            host=host,
-            uuids=uuids,
-        )
+            client = client, search=search, start=start, count=count, search_target=search_target, sort=sort, host=host, uuids=uuids)
     ).parsed
+
+
