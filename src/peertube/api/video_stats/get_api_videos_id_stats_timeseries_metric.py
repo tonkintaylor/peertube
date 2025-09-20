@@ -14,7 +14,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> dict[str, Any]:
+    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     json_start_date: Unset | str = UNSET
@@ -48,11 +48,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[VideoStatsTimeserie]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> Response[VideoStatsTimeserie]:
+    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> Response[VideoStatsTimeserie]:
     """Get timeserie stats of a video
 
 
@@ -71,16 +71,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, metric = metric, start_date = start_date, end_date = end_date)
+        id=id, metric=metric, start_date=start_date, end_date=end_date)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> VideoStatsTimeserie | None:
+    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> VideoStatsTimeserie | None:
     """Get timeserie stats of a video
 
 
@@ -99,12 +99,16 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, metric = metric, client = client, start_date = start_date, end_date = end_date,
+        id=id,
+        metric=metric,
+        client=client,
+        start_date=start_date,
+        end_date=end_date,
     ).parsed
 
 
 async def asyncio_detailed(
-    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> Response[VideoStatsTimeserie]:
+    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> Response[VideoStatsTimeserie]:
     """Get timeserie stats of a video
 
 
@@ -123,15 +127,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, metric = metric, start_date = start_date, end_date = end_date)
+        id=id, metric=metric, start_date=start_date, end_date=end_date)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime = UNSET, end_date: Unset | datetime.datetime = UNSET) -> VideoStatsTimeserie | None:
+    id: UUID | int | str, metric: GetApiV1VideosIdStatsTimeseriesMetricMetric, *, client: AuthenticatedClient, start_date: Unset | datetime.datetime=UNSET, end_date: Unset | datetime.datetime=UNSET) -> VideoStatsTimeserie | None:
     """Get timeserie stats of a video
 
 
@@ -151,5 +155,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id = id, metric = metric, client = client, start_date = start_date, end_date = end_date)
+            id=id, metric=metric, client=client, start_date=start_date, end_date=end_date)
     ).parsed
+

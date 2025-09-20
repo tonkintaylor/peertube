@@ -11,7 +11,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: UUID | int | str, *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> dict[str, Any]:
+    id: UUID | int | str, *, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["start"]=start
@@ -45,11 +45,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | VideoPasswordList]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any | VideoPasswordList]:
+    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[Any | VideoPasswordList]:
     """List video passwords
 
      **PeerTube >=6.0**
@@ -67,16 +67,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, start = start, count = count, sort = sort)
+        id=id, start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Any | VideoPasswordList | None:
+    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Any | VideoPasswordList | None:
     """List video passwords
 
      **PeerTube >=6.0**
@@ -94,11 +94,16 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, client = client, start = start, count = count, sort = sort).parsed
+        id=id,
+        client=client,
+        start=start,
+        count=count,
+        sort=sort,
+    ).parsed
 
 
 async def asyncio_detailed(
-    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any | VideoPasswordList]:
+    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[Any | VideoPasswordList]:
     """List video passwords
 
      **PeerTube >=6.0**
@@ -116,15 +121,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, start = start, count = count, sort = sort)
+        id=id, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Any | VideoPasswordList | None:
+    id: UUID | int | str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Any | VideoPasswordList | None:
     """List video passwords
 
      **PeerTube >=6.0**
@@ -143,5 +148,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id = id, client = client, start = start, count = count, sort = sort)
+            id=id, client=client, start=start, count=count, sort=sort)
     ).parsed
+

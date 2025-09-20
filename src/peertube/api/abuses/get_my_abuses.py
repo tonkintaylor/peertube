@@ -11,7 +11,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, id: Unset | int = UNSET, state: Unset | AbuseStateSet = UNSET, sort: Unset | GetMyAbusesSort = UNSET, start: Unset | int = UNSET, count: Unset | int = 15) -> dict[str, Any]:
+    *, id: Unset | int=UNSET, state: Unset | AbuseStateSet=UNSET, sort: Unset | GetMyAbusesSort=UNSET, start: Unset | int=UNSET, count: Unset | int=15) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["id"]=id
@@ -48,11 +48,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, id: Unset | int = UNSET, state: Unset | AbuseStateSet = UNSET, sort: Unset | GetMyAbusesSort = UNSET, start: Unset | int = UNSET, count: Unset | int = 15) -> Response[Any]:
+    *, client: AuthenticatedClient, id: Unset | int=UNSET, state: Unset | AbuseStateSet=UNSET, sort: Unset | GetMyAbusesSort=UNSET, start: Unset | int=UNSET, count: Unset | int=15) -> Response[Any]:
     """List my abuses
 
 
@@ -73,16 +73,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, state = state, sort = sort, start = start, count = count)
+        id=id, state=state, sort=sort, start=start, count=count)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, id: Unset | int = UNSET, state: Unset | AbuseStateSet = UNSET, sort: Unset | GetMyAbusesSort = UNSET, start: Unset | int = UNSET, count: Unset | int = 15) -> Any | None:
+    *, client: AuthenticatedClient, id: Unset | int=UNSET, state: Unset | AbuseStateSet=UNSET, sort: Unset | GetMyAbusesSort=UNSET, start: Unset | int=UNSET, count: Unset | int=15) -> Any | None:
     """List my abuses
 
 
@@ -95,12 +95,17 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, id = id, state = state, sort = sort, start = start, count = count,
+        client=client,
+        id=id,
+        state=state,
+        sort=sort,
+        start=start,
+        count=count,
     ).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, id: Unset | int = UNSET, state: Unset | AbuseStateSet = UNSET, sort: Unset | GetMyAbusesSort = UNSET, start: Unset | int = UNSET, count: Unset | int = 15) -> Response[Any]:
+    *, client: AuthenticatedClient, id: Unset | int=UNSET, state: Unset | AbuseStateSet=UNSET, sort: Unset | GetMyAbusesSort=UNSET, start: Unset | int=UNSET, count: Unset | int=15) -> Response[Any]:
     """List my abuses
 
 
@@ -121,8 +126,9 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, state = state, sort = sort, start = start, count = count)
+        id=id, state=state, sort=sort, start=start, count=count)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
+

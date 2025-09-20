@@ -11,7 +11,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> dict[str, Any]:
+    *, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["start"]=start
@@ -47,11 +47,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[GetPlaylistsResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> Response[GetPlaylistsResponse200]:
+    *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> Response[GetPlaylistsResponse200]:
     """List video playlists
 
 
@@ -70,16 +70,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        start = start, count = count, sort = sort, playlist_type = playlist_type)
+        start=start, count=count, sort=sort, playlist_type=playlist_type)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> GetPlaylistsResponse200 | None:
+    *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> GetPlaylistsResponse200 | None:
     """List video playlists
 
 
@@ -98,12 +98,16 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, start = start, count = count, sort = sort, playlist_type = playlist_type,
+        client=client,
+        start=start,
+        count=count,
+        sort=sort,
+        playlist_type=playlist_type,
     ).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> Response[GetPlaylistsResponse200]:
+    *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> Response[GetPlaylistsResponse200]:
     """List video playlists
 
 
@@ -122,15 +126,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        start = start, count = count, sort = sort, playlist_type = playlist_type)
+        start=start, count=count, sort=sort, playlist_type=playlist_type)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> GetPlaylistsResponse200 | None:
+    *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> GetPlaylistsResponse200 | None:
     """List video playlists
 
 
@@ -150,5 +154,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client = client, start = start, count = count, sort = sort, playlist_type = playlist_type)
+            client=client, start=start, count=count, sort=sort, playlist_type=playlist_type)
     ).parsed
+

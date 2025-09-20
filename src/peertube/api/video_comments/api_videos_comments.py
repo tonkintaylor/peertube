@@ -9,7 +9,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, search: Unset | str = UNSET, search_account: Unset | str = UNSET, search_video: Unset | str = UNSET, video_id: Unset | int = UNSET, video_channel_id: Unset | int = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, on_local_video: Unset | bool = UNSET) -> dict[str, Any]:
+    *, search: Unset | str=UNSET, search_account: Unset | str=UNSET, search_video: Unset | str=UNSET, video_id: Unset | int=UNSET, video_channel_id: Unset | int=UNSET, auto_tag_one_of: Unset | list[str] | str=UNSET, is_local: Unset | bool=UNSET, on_local_video: Unset | bool=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["search"]=search
@@ -53,11 +53,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, search: Unset | str = UNSET, search_account: Unset | str = UNSET, search_video: Unset | str = UNSET, video_id: Unset | int = UNSET, video_channel_id: Unset | int = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, on_local_video: Unset | bool = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, search: Unset | str=UNSET, search_account: Unset | str=UNSET, search_video: Unset | str=UNSET, video_id: Unset | int=UNSET, video_channel_id: Unset | int=UNSET, auto_tag_one_of: Unset | list[str] | str=UNSET, is_local: Unset | bool=UNSET, on_local_video: Unset | bool=UNSET) -> Response[Any]:
     """List instance comments
 
 
@@ -80,16 +80,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        search = search, search_account = search_account, search_video = search_video, video_id = video_id, video_channel_id = video_channel_id, auto_tag_one_of = auto_tag_one_of, is_local = is_local, on_local_video = on_local_video)
+        search=search, search_account=search_account, search_video=search_video, video_id=video_id, video_channel_id=video_channel_id, auto_tag_one_of=auto_tag_one_of, is_local=is_local, on_local_video=on_local_video)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, search: Unset | str = UNSET, search_account: Unset | str = UNSET, search_video: Unset | str = UNSET, video_id: Unset | int = UNSET, video_channel_id: Unset | int = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, on_local_video: Unset | bool = UNSET) -> Any | None:
+    *, client: AuthenticatedClient, search: Unset | str=UNSET, search_account: Unset | str=UNSET, search_video: Unset | str=UNSET, video_id: Unset | int=UNSET, video_channel_id: Unset | int=UNSET, auto_tag_one_of: Unset | list[str] | str=UNSET, is_local: Unset | bool=UNSET, on_local_video: Unset | bool=UNSET) -> Any | None:
     """List instance comments
 
 
@@ -102,12 +102,20 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, search = search, search_account = search_account, search_video = search_video, video_id = video_id, video_channel_id = video_channel_id, auto_tag_one_of = auto_tag_one_of, is_local = is_local, on_local_video = on_local_video,
+        client=client,
+        search=search,
+        search_account=search_account,
+        search_video=search_video,
+        video_id=video_id,
+        video_channel_id=video_channel_id,
+        auto_tag_one_of=auto_tag_one_of,
+        is_local=is_local,
+        on_local_video=on_local_video,
     ).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, search: Unset | str = UNSET, search_account: Unset | str = UNSET, search_video: Unset | str = UNSET, video_id: Unset | int = UNSET, video_channel_id: Unset | int = UNSET, auto_tag_one_of: Unset | list[str] | str = UNSET, is_local: Unset | bool = UNSET, on_local_video: Unset | bool = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, search: Unset | str=UNSET, search_account: Unset | str=UNSET, search_video: Unset | str=UNSET, video_id: Unset | int=UNSET, video_channel_id: Unset | int=UNSET, auto_tag_one_of: Unset | list[str] | str=UNSET, is_local: Unset | bool=UNSET, on_local_video: Unset | bool=UNSET) -> Response[Any]:
     """List instance comments
 
 
@@ -130,8 +138,9 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        search = search, search_account = search_account, search_video = search_video, video_id = video_id, video_channel_id = video_channel_id, auto_tag_one_of = auto_tag_one_of, is_local = is_local, on_local_video = on_local_video)
+        search=search, search_account=search_account, search_video=search_video, video_id=video_id, video_channel_id=video_channel_id, auto_tag_one_of=auto_tag_one_of, is_local=is_local, on_local_video=on_local_video)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
+

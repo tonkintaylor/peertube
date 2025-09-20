@@ -43,7 +43,7 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[PostApiV1WatchedWordsServerListsResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
@@ -63,12 +63,12 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        body = body)
+        body=body)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
@@ -88,7 +88,7 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, body = body).parsed
+        client=client, body=body).parsed
 
 
 async def asyncio_detailed(
@@ -108,11 +108,11 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        body = body)
+        body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
@@ -133,5 +133,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client = client, body = body)
+            client=client, body=body)
     ).parsed
+

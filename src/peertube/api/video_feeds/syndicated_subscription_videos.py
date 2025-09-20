@@ -18,7 +18,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    format_: GetSyndicatedSubscriptionVideosFormat, *, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> dict[str, Any]:
+    format_: GetSyndicatedSubscriptionVideosFormat, *, account_id: str, token: str, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["accountId"]=account_id
@@ -80,11 +80,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | list["VideosForXMLItem"]]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Response[Any | list["VideosForXMLItem"]]:
+    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Response[Any | list["VideosForXMLItem"]]:
     """Videos of subscriptions feeds
 
 
@@ -109,16 +109,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        format_ = format_, account_id = account_id, token = token, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files)
+        format_=format_, account_id=account_id, token=token, sort=sort, nsfw=nsfw, is_local=is_local, include=include, privacy_one_of=privacy_one_of, has_hls_files=has_hls_files, has_web_video_files=has_web_video_files)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Any | list["VideosForXMLItem"] | None:
+    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Any | list["VideosForXMLItem"] | None:
     """Videos of subscriptions feeds
 
 
@@ -143,12 +143,22 @@ def sync(
     """
 
     return sync_detailed(
-        format_ = format_, client = client, account_id = account_id, token = token, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files,
+        format_=format_,
+        client=client,
+        account_id=account_id,
+        token=token,
+        sort=sort,
+        nsfw=nsfw,
+        is_local=is_local,
+        include=include,
+        privacy_one_of=privacy_one_of,
+        has_hls_files=has_hls_files,
+        has_web_video_files=has_web_video_files,
     ).parsed
 
 
 async def asyncio_detailed(
-    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Response[Any | list["VideosForXMLItem"]]:
+    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Response[Any | list["VideosForXMLItem"]]:
     """Videos of subscriptions feeds
 
 
@@ -173,15 +183,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        format_ = format_, account_id = account_id, token = token, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files)
+        format_=format_, account_id=account_id, token=token, sort=sort, nsfw=nsfw, is_local=is_local, include=include, privacy_one_of=privacy_one_of, has_hls_files=has_hls_files, has_web_video_files=has_web_video_files)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Any | list["VideosForXMLItem"] | None:
+    format_: GetSyndicatedSubscriptionVideosFormat, *, client: AuthenticatedClient | Client, account_id: str, token: str, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedSubscriptionVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedSubscriptionVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Any | list["VideosForXMLItem"] | None:
     """Videos of subscriptions feeds
 
 
@@ -207,5 +217,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            format_ = format_, client = client, account_id = account_id, token = token, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files)
+            format_=format_, client=client, account_id=account_id, token=token, sort=sort, nsfw=nsfw, is_local=is_local, include=include, privacy_one_of=privacy_one_of, has_hls_files=has_hls_files, has_web_video_files=has_web_video_files)
     ).parsed
+

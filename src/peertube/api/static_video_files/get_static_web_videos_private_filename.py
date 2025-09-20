@@ -9,7 +9,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    filename: str, *, video_file_token: Unset | str = UNSET) -> dict[str, Any]:
+    filename: str, *, video_file_token: Unset | str=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["videoFileToken"]=video_file_token
@@ -40,11 +40,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str = UNSET) -> Response[Any]:
+    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str=UNSET) -> Response[Any]:
     """Get private Web Video file
 
      **PeerTube >=6.0**
@@ -61,16 +61,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        filename = filename, video_file_token = video_file_token)
+        filename=filename, video_file_token=video_file_token)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str = UNSET) -> Any | None:
+    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str=UNSET) -> Any | None:
     """Get private Web Video file
 
 
@@ -83,12 +83,12 @@ def sync(
     """
 
     return sync_detailed(
-        filename = filename, client = client, video_file_token = video_file_token,
+        filename=filename, client=client, video_file_token=video_file_token,
     ).parsed
 
 
 async def asyncio_detailed(
-    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str = UNSET) -> Response[Any]:
+    filename: str, *, client: AuthenticatedClient, video_file_token: Unset | str=UNSET) -> Response[Any]:
     """Get private Web Video file
 
      **PeerTube >=6.0**
@@ -105,8 +105,9 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        filename = filename, video_file_token = video_file_token)
+        filename=filename, video_file_token=video_file_token)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
+

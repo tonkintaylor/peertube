@@ -15,7 +15,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    format_: GetSyndicatedVideosFormat, *, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> dict[str, Any]:
+    format_: GetSyndicatedVideosFormat, *, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["accountId"]=account_id
@@ -84,11 +84,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | list["VideosForXMLItem"]]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Response[Any | list["VideosForXMLItem"]]:
+    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Response[Any | list["VideosForXMLItem"]]:
     """Common videos feeds
 
 
@@ -115,16 +115,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        format_ = format_, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files)
+        format_=format_, account_id=account_id, account_name=account_name, video_channel_id=video_channel_id, video_channel_name=video_channel_name, sort=sort, nsfw=nsfw, is_local=is_local, include=include, privacy_one_of=privacy_one_of, has_hls_files=has_hls_files, has_web_video_files=has_web_video_files)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Any | list["VideosForXMLItem"] | None:
+    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Any | list["VideosForXMLItem"] | None:
     """Common videos feeds
 
 
@@ -151,12 +151,24 @@ def sync(
     """
 
     return sync_detailed(
-        format_ = format_, client = client, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files,
+        format_=format_,
+        client=client,
+        account_id=account_id,
+        account_name=account_name,
+        video_channel_id=video_channel_id,
+        video_channel_name=video_channel_name,
+        sort=sort,
+        nsfw=nsfw,
+        is_local=is_local,
+        include=include,
+        privacy_one_of=privacy_one_of,
+        has_hls_files=has_hls_files,
+        has_web_video_files=has_web_video_files,
     ).parsed
 
 
 async def asyncio_detailed(
-    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Response[Any | list["VideosForXMLItem"]]:
+    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Response[Any | list["VideosForXMLItem"]]:
     """Common videos feeds
 
 
@@ -183,15 +195,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        format_ = format_, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files)
+        format_=format_, account_id=account_id, account_name=account_name, video_channel_id=video_channel_id, video_channel_name=video_channel_name, sort=sort, nsfw=nsfw, is_local=is_local, include=include, privacy_one_of=privacy_one_of, has_hls_files=has_hls_files, has_web_video_files=has_web_video_files)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET, sort: Unset | str = UNSET, nsfw: Unset | GetSyndicatedVideosNsfw = UNSET, is_local: Unset | bool = UNSET, include: Unset | GetSyndicatedVideosInclude = UNSET, privacy_one_of: Unset | VideoPrivacySet = UNSET, has_hls_files: Unset | bool = UNSET, has_web_video_files: Unset | bool = UNSET) -> Any | list["VideosForXMLItem"] | None:
+    format_: GetSyndicatedVideosFormat, *, client: AuthenticatedClient | Client, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET, sort: Unset | str=UNSET, nsfw: Unset | GetSyndicatedVideosNsfw=UNSET, is_local: Unset | bool=UNSET, include: Unset | GetSyndicatedVideosInclude=UNSET, privacy_one_of: Unset | VideoPrivacySet=UNSET, has_hls_files: Unset | bool=UNSET, has_web_video_files: Unset | bool=UNSET) -> Any | list["VideosForXMLItem"] | None:
     """Common videos feeds
 
 
@@ -219,5 +231,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            format_ = format_, client = client, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name, sort = sort, nsfw = nsfw, is_local = is_local, include = include, privacy_one_of = privacy_one_of, has_hls_files = has_hls_files, has_web_video_files = has_web_video_files)
+            format_=format_, client=client, account_id=account_id, account_name=account_name, video_channel_id=video_channel_id, video_channel_name=video_channel_name, sort=sort, nsfw=nsfw, is_local=is_local, include=include, privacy_one_of=privacy_one_of, has_hls_files=has_hls_files, has_web_video_files=has_web_video_files)
     ).parsed
+

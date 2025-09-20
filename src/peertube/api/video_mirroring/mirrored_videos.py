@@ -12,7 +12,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> dict[str, Any]:
+    *, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     json_target = target.value
@@ -54,11 +54,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[list["VideoRedundancy"]]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> Response[list["VideoRedundancy"]]:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
 
 
@@ -77,16 +77,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        target = target, start = start, count = count, sort = sort)
+        target=target, start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> list["VideoRedundancy"] | None:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
 
 
@@ -105,12 +105,16 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, target = target, start = start, count = count, sort = sort,
+        client=client,
+        target=target,
+        start=start,
+        count=count,
+        sort=sort,
     ).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> Response[list["VideoRedundancy"]]:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
 
 
@@ -129,15 +133,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        target = target, start = start, count = count, sort = sort)
+        target=target, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetMirroredVideosSort = UNSET) -> list["VideoRedundancy"] | None:
+    *, client: AuthenticatedClient, target: GetMirroredVideosTarget, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetMirroredVideosSort=UNSET) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
 
 
@@ -157,5 +161,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client = client, target = target, start = start, count = count, sort = sort)
+            client=client, target=target, start=start, count=count, sort=sort)
     ).parsed
+

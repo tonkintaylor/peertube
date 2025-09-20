@@ -12,7 +12,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    name: str, *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, search: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> dict[str, Any]:
+    name: str, *, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, search: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["start"]=start
@@ -52,11 +52,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[GetApiV1AccountsNameVideoPlaylistsResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, search: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> Response[GetApiV1AccountsNameVideoPlaylistsResponse200]:
+    name: str, *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, search: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> Response[GetApiV1AccountsNameVideoPlaylistsResponse200]:
     """List playlists of an account
 
 
@@ -77,16 +77,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        name = name, start = start, count = count, sort = sort, search = search, playlist_type = playlist_type)
+        name=name, start=start, count=count, sort=sort, search=search, playlist_type=playlist_type)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, search: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> GetApiV1AccountsNameVideoPlaylistsResponse200 | None:
+    name: str, *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, search: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> GetApiV1AccountsNameVideoPlaylistsResponse200 | None:
     """List playlists of an account
 
 
@@ -107,12 +107,18 @@ def sync(
     """
 
     return sync_detailed(
-        name = name, client = client, start = start, count = count, sort = sort, search = search, playlist_type = playlist_type,
+        name=name,
+        client=client,
+        start=start,
+        count=count,
+        sort=sort,
+        search=search,
+        playlist_type=playlist_type,
     ).parsed
 
 
 async def asyncio_detailed(
-    name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, search: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> Response[GetApiV1AccountsNameVideoPlaylistsResponse200]:
+    name: str, *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, search: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> Response[GetApiV1AccountsNameVideoPlaylistsResponse200]:
     """List playlists of an account
 
 
@@ -133,15 +139,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        name = name, start = start, count = count, sort = sort, search = search, playlist_type = playlist_type)
+        name=name, start=start, count=count, sort=sort, search=search, playlist_type=playlist_type)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    name: str, *, client: AuthenticatedClient | Client, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, search: Unset | str = UNSET, playlist_type: Unset | VideoPlaylistTypeSet = UNSET) -> GetApiV1AccountsNameVideoPlaylistsResponse200 | None:
+    name: str, *, client: AuthenticatedClient | Client, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, search: Unset | str=UNSET, playlist_type: Unset | VideoPlaylistTypeSet=UNSET) -> GetApiV1AccountsNameVideoPlaylistsResponse200 | None:
     """List playlists of an account
 
 
@@ -163,5 +169,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            name = name, client = client, start = start, count = count, sort = sort, search = search, playlist_type = playlist_type)
+            name=name, client=client, start=start, count=count, sort=sort, search=search, playlist_type=playlist_type)
     ).parsed
+

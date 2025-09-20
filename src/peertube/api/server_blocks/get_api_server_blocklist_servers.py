@@ -9,7 +9,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> dict[str, Any]:
+    *, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["start"]=start
@@ -38,11 +38,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[Any]:
     """List server blocks
 
 
@@ -60,16 +60,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        start = start, count = count, sort = sort)
+        start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Any | None:
+    *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Any | None:
     """List server blocks
 
 
@@ -82,11 +82,11 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, start = start, count = count, sort = sort).parsed
+        client=client, start=start, count=count, sort=sort).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET) -> Response[Any]:
     """List server blocks
 
 
@@ -104,8 +104,9 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        start = start, count = count, sort = sort)
+        start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
+

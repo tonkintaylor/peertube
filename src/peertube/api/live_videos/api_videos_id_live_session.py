@@ -11,7 +11,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: UUID | int | str, *, x_peertube_video_password: Unset | str = UNSET) -> dict[str, Any]:
+    id: UUID | int | str, *, x_peertube_video_password: Unset | str=UNSET) -> dict[str, Any]:
     headers: dict[str, Any]={}
     if not isinstance(x_peertube_video_password, Unset):
         headers["x-peertube-video-password"]=x_peertube_video_password
@@ -37,11 +37,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[LiveVideoSessionResponse]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str = UNSET) -> Response[LiveVideoSessionResponse]:
+    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str=UNSET) -> Response[LiveVideoSessionResponse]:
     """Get live session of a replay
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
@@ -58,16 +58,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, x_peertube_video_password = x_peertube_video_password)
+        id=id, x_peertube_video_password=x_peertube_video_password)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str = UNSET) -> LiveVideoSessionResponse | None:
+    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str=UNSET) -> LiveVideoSessionResponse | None:
     """Get live session of a replay
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
@@ -84,12 +84,12 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, client = client, x_peertube_video_password = x_peertube_video_password,
+        id=id, client=client, x_peertube_video_password=x_peertube_video_password,
     ).parsed
 
 
 async def asyncio_detailed(
-    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str = UNSET) -> Response[LiveVideoSessionResponse]:
+    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str=UNSET) -> Response[LiveVideoSessionResponse]:
     """Get live session of a replay
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
@@ -106,15 +106,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id, x_peertube_video_password = x_peertube_video_password)
+        id=id, x_peertube_video_password=x_peertube_video_password)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str = UNSET) -> LiveVideoSessionResponse | None:
+    id: UUID | int | str, *, client: AuthenticatedClient, x_peertube_video_password: Unset | str=UNSET) -> LiveVideoSessionResponse | None:
     """Get live session of a replay
      If the video is a replay of a live, you can find the associated live session using this endpoint
 
@@ -132,5 +132,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id = id, client = client, x_peertube_video_password = x_peertube_video_password)
+            id=id, client=client, x_peertube_video_password=x_peertube_video_password)
     ).parsed
+

@@ -10,7 +10,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, search: Unset | str = UNSET, blocked: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetUsersSort = UNSET) -> dict[str, Any]:
+    *, search: Unset | str=UNSET, blocked: Unset | bool=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetUsersSort=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["search"]=search
@@ -44,11 +44,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, search: Unset | str = UNSET, blocked: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetUsersSort = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, search: Unset | str=UNSET, blocked: Unset | bool=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetUsersSort=UNSET) -> Response[Any]:
     """List users
 
 
@@ -68,16 +68,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        search = search, blocked = blocked, start = start, count = count, sort = sort)
+        search=search, blocked=blocked, start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, search: Unset | str = UNSET, blocked: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetUsersSort = UNSET) -> Any | None:
+    *, client: AuthenticatedClient, search: Unset | str=UNSET, blocked: Unset | bool=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetUsersSort=UNSET) -> Any | None:
     """List users
 
 
@@ -90,12 +90,17 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, search = search, blocked = blocked, start = start, count = count, sort = sort,
+        client=client,
+        search=search,
+        blocked=blocked,
+        start=start,
+        count=count,
+        sort=sort,
     ).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, search: Unset | str = UNSET, blocked: Unset | bool = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetUsersSort = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, search: Unset | str=UNSET, blocked: Unset | bool=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetUsersSort=UNSET) -> Response[Any]:
     """List users
 
 
@@ -115,8 +120,9 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        search = search, blocked = blocked, start = start, count = count, sort = sort)
+        search=search, blocked=blocked, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
+

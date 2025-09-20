@@ -34,7 +34,7 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[ListVideoStoryboardsResponse200]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
@@ -54,12 +54,12 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id)
+        id=id)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
@@ -79,7 +79,7 @@ def sync(
     """
 
     return sync_detailed(
-        id = id, client = client).parsed
+        id=id, client=client).parsed
 
 
 async def asyncio_detailed(
@@ -99,11 +99,11 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        id = id)
+        id=id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
@@ -124,5 +124,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id = id, client = client)
+            id=id, client=client)
     ).parsed
+

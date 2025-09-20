@@ -12,7 +12,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    format_: GetSyndicatedCommentsFormat, *, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> dict[str, Any]:
+    format_: GetSyndicatedCommentsFormat, *, video_id: Unset | str=UNSET, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["videoId"]=video_id
@@ -65,11 +65,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Response[Any | list["VideoCommentsForXMLItem"]]:
+    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str=UNSET, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
 
 
@@ -89,16 +89,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        format_ = format_, video_id = video_id, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name)
+        format_=format_, video_id=video_id, account_id=account_id, account_name=account_name, video_channel_id=video_channel_id, video_channel_name=video_channel_name)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Any | list["VideoCommentsForXMLItem"] | None:
+    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str=UNSET, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
 
 
@@ -118,12 +118,18 @@ def sync(
     """
 
     return sync_detailed(
-        format_ = format_, client = client, video_id = video_id, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name,
+        format_=format_,
+        client=client,
+        video_id=video_id,
+        account_id=account_id,
+        account_name=account_name,
+        video_channel_id=video_channel_id,
+        video_channel_name=video_channel_name,
     ).parsed
 
 
 async def asyncio_detailed(
-    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Response[Any | list["VideoCommentsForXMLItem"]]:
+    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str=UNSET, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
 
 
@@ -143,15 +149,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        format_ = format_, video_id = video_id, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name)
+        format_=format_, video_id=video_id, account_id=account_id, account_name=account_name, video_channel_id=video_channel_id, video_channel_name=video_channel_name)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str = UNSET, account_id: Unset | str = UNSET, account_name: Unset | str = UNSET, video_channel_id: Unset | str = UNSET, video_channel_name: Unset | str = UNSET) -> Any | list["VideoCommentsForXMLItem"] | None:
+    format_: GetSyndicatedCommentsFormat, *, client: AuthenticatedClient | Client, video_id: Unset | str=UNSET, account_id: Unset | str=UNSET, account_name: Unset | str=UNSET, video_channel_id: Unset | str=UNSET, video_channel_name: Unset | str=UNSET) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
 
 
@@ -172,5 +178,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            format_ = format_, client = client, video_id = video_id, account_id = account_id, account_name = account_name, video_channel_id = video_channel_id, video_channel_name = video_channel_name)
+            format_=format_, client=client, video_id=video_id, account_id=account_id, account_name=account_name, video_channel_id=video_channel_id, video_channel_name=video_channel_name)
     ).parsed
+

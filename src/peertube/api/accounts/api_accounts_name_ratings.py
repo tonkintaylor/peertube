@@ -12,7 +12,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    name: str, *, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET) -> dict[str, Any]:
+    name: str, *, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     params["start"]=start
@@ -53,11 +53,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[list["VideoRating"]]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET) -> Response[list["VideoRating"]]:
+    name: str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating=UNSET) -> Response[list["VideoRating"]]:
     """List ratings of an account
 
 
@@ -77,16 +77,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        name = name, start = start, count = count, sort = sort, rating = rating)
+        name=name, start=start, count=count, sort=sort, rating=rating)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET) -> list["VideoRating"] | None:
+    name: str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating=UNSET) -> list["VideoRating"] | None:
     """List ratings of an account
 
 
@@ -106,12 +106,17 @@ def sync(
     """
 
     return sync_detailed(
-        name = name, client = client, start = start, count = count, sort = sort, rating = rating,
+        name=name,
+        client=client,
+        start=start,
+        count=count,
+        sort=sort,
+        rating=rating,
     ).parsed
 
 
 async def asyncio_detailed(
-    name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET) -> Response[list["VideoRating"]]:
+    name: str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating=UNSET) -> Response[list["VideoRating"]]:
     """List ratings of an account
 
 
@@ -131,15 +136,15 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        name = name, start = start, count = count, sort = sort, rating = rating)
+        name=name, start=start, count=count, sort=sort, rating=rating)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 async def asyncio(
-    name: str, *, client: AuthenticatedClient, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | str = UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET) -> list["VideoRating"] | None:
+    name: str, *, client: AuthenticatedClient, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | str=UNSET, rating: Unset | GetApiV1AccountsNameRatingsRating=UNSET) -> list["VideoRating"] | None:
     """List ratings of an account
 
 
@@ -160,5 +165,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            name = name, client = client, start = start, count = count, sort = sort, rating = rating)
+            name=name, client=client, start=start, count=count, sort=sort, rating=rating)
     ).parsed
+

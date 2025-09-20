@@ -11,7 +11,7 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    *, type_: Unset | GetVideoBlocksType = UNSET, search: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoBlocksSort = UNSET) -> dict[str, Any]:
+    *, type_: Unset | GetVideoBlocksType=UNSET, search: Unset | str=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetVideoBlocksSort=UNSET) -> dict[str, Any]:
     params: dict[str, Any]={}
 
     json_type_: Unset | int = UNSET
@@ -49,11 +49,11 @@ def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
     return Response(
-        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client = client, response = response))
+        status_code = HTTPStatus(response.status_code), content = response.content, headers = response.headers, parsed = _parse_response(client=client, response=response))
 
 
 def sync_detailed(
-    *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType = UNSET, search: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoBlocksSort = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType=UNSET, search: Unset | str=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetVideoBlocksSort=UNSET) -> Response[Any]:
     """List video blocks
 
 
@@ -73,16 +73,16 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        type_ = type_, search = search, start = start, count = count, sort = sort)
+        type_=type_, search=search, start=start, count=count, sort=sort)
 
     response = client.get_httpx_client().request(
         **kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
 
 
 def sync(
-    *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType = UNSET, search: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoBlocksSort = UNSET) -> Any | None:
+    *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType=UNSET, search: Unset | str=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetVideoBlocksSort=UNSET) -> Any | None:
     """List video blocks
 
 
@@ -95,12 +95,17 @@ def sync(
     """
 
     return sync_detailed(
-        client = client, type_ = type_, search = search, start = start, count = count, sort = sort,
+        client=client,
+        type_=type_,
+        search=search,
+        start=start,
+        count=count,
+        sort=sort,
     ).parsed
 
 
 async def asyncio_detailed(
-    *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType = UNSET, search: Unset | str = UNSET, start: Unset | int = UNSET, count: Unset | int = 15, sort: Unset | GetVideoBlocksSort = UNSET) -> Response[Any]:
+    *, client: AuthenticatedClient, type_: Unset | GetVideoBlocksType=UNSET, search: Unset | str=UNSET, start: Unset | int=UNSET, count: Unset | int=15, sort: Unset | GetVideoBlocksSort=UNSET) -> Response[Any]:
     """List video blocks
 
 
@@ -120,8 +125,9 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        type_ = type_, search = search, start = start, count = count, sort = sort)
+        type_=type_, search=search, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
-    return _build_response(client = client, response = response)
+    return _build_response(client=client, response=response)
+
