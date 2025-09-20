@@ -17,7 +17,7 @@ def _get_kwargs() -> dict[str, Any]:
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> list[str] | None:
-    if response.status_code = = 200:
+    if response.status_code == 200:
         response_200 = cast("list[str]", response.json())
 
         return response_200
