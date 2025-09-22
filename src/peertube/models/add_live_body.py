@@ -1,13 +1,7 @@
 import json
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-    cast,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -36,8 +30,7 @@ class AddLiveBody:
     save_replay (Union[Unset, bool]):
     replay_settings (Union[Unset, LiveVideoReplaySettings]):
     permanent_live (Union[Unset, bool]): User can stream multiple times in a permanent live
-    latency_mode (Union[Unset, LiveVideoLatencyMode]): The live latency mode (Default = `1`, High latency = `2`,
-        Small Latency = `3`)
+    latency_mode (Union[Unset, LiveVideoLatencyMode]): The live latency mode (Default=`1`, High latency=`2`, Small Latency=`3`)
     thumbnailfile (Union[Unset, File]): Live video/replay thumbnail file
     previewfile (Union[Unset, File]): Live video/replay preview file
     privacy (Union[Unset, VideoPrivacySet]): privacy id of the video (see
@@ -60,8 +53,7 @@ class AddLiveBody:
         - `2` EXPLICIT_SEX
     tags (Union[Unset, list[str]]): Live video/replay tags (maximum 5 tags each between 2 and 30 characters)
     comments_enabled (Union[Unset, bool]): Deprecated in 6.2, use commentsPolicy instead
-    comments_policy (Union[Unset, VideoCommentsPolicySet]): Comments policy of the video (Enabled = `1`, Disabled =
-        `2`, Requires Approval = `3`)
+    comments_policy (Union[Unset, VideoCommentsPolicySet]): Comments policy of the video (Enabled = `1`, Disabled=`2`, Requires Approval=`3`)
     download_enabled (Union[Unset, bool]): Enable or disable downloading for the replay of this live video
     schedules (Union[Unset, list['LiveSchedule']]):
     """
@@ -112,6 +104,7 @@ class AddLiveBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
+
         channel_id = self.channel_id
 
         name = self.name
@@ -230,6 +223,7 @@ class AddLiveBody:
 
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
+
         files: types.RequestFiles = []
 
         files.append(("channelId", (None, str(self.channel_id).encode(), "text/plain")))
@@ -385,6 +379,7 @@ class AddLiveBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
         """Create instance from dictionary."""
+
         from peertube.models.live_schedule import LiveSchedule
         from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
@@ -524,6 +519,7 @@ class AddLiveBody:
         """Get additional property keys."""
         """Get additional property keys."""
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

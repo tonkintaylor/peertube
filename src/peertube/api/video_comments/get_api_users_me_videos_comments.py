@@ -1,9 +1,8 @@
-from http import HTTPStatus
 from typing import Any
 
 import httpx
 
-from peertube import errors
+from peertube.api.shared_utils import build_response, parse_response
 from peertube.client import AuthenticatedClient, Client
 from peertube.types import UNSET, Response, Unset
 
@@ -29,7 +28,6 @@ def _get_kwargs(
     params["videoId"] = video_id
 
     params["videoChannelId"] = video_channel_id
-
     json_auto_tag_one_of: Unset | list[str] | str
     if isinstance(auto_tag_one_of, Unset):
         json_auto_tag_one_of = UNSET
@@ -41,7 +39,6 @@ def _get_kwargs(
     params["autoTagOneOf"] = json_auto_tag_one_of
 
     params["isHeldForReview"] = is_held_for_review
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -56,21 +53,13 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
-    if client.raise_on_unexpected_status:
-        raise errors.UnexpectedStatus(response.status_code, response.content)
-    else:
-        return None
+    return parse_response(client=client, response=response)
 
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
-    return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+    return build_response(client=client, response=response)
 
 
 def sync_detailed(
@@ -86,8 +75,7 @@ def sync_detailed(
 ) -> Response[Any]:
     """List comments on user's videos
 
-     **PeerTube >= 6.2**
-
+     **PeerTube >=6.2**
     Args:
         search (Union[Unset, str]): Search query filter.
         search_account (Union[Unset, str]): Search filter for account.
@@ -115,11 +103,43 @@ def sync_detailed(
         is_held_for_review=is_held_for_review,
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
+
+def sync(
+    *,
+    client: AuthenticatedClient,
+    search: Unset | str = UNSET,
+    search_account: Unset | str = UNSET,
+    search_video: Unset | str = UNSET,
+    video_id: Unset | int = UNSET,
+    video_channel_id: Unset | int = UNSET,
+    auto_tag_one_of: Unset | list[str] | str = UNSET,
+    is_held_for_review: Unset | bool = UNSET,
+) -> Any | None:
+    """List comments on user's videos
+
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(
+        client=client,
+        search=search,
+        search_account=search_account,
+        search_video=search_video,
+        video_id=video_id,
+        video_channel_id=video_channel_id,
+        auto_tag_one_of=auto_tag_one_of,
+        is_held_for_review=is_held_for_review,
+    ).parsed
 
 
 async def asyncio_detailed(
@@ -135,8 +155,7 @@ async def asyncio_detailed(
 ) -> Response[Any]:
     """List comments on user's videos
 
-     **PeerTube >= 6.2**
-
+     **PeerTube >=6.2**
     Args:
         search (Union[Unset, str]): Search query filter.
         search_account (Union[Unset, str]): Search filter for account.

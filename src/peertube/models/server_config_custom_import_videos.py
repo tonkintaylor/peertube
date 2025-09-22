@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -37,6 +32,7 @@ class ServerConfigCustomImportVideos:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         http: Unset | dict[str, Any] = UNSET
         if not isinstance(self.http, Unset):
             http = self.http.to_dict()
@@ -58,6 +54,7 @@ class ServerConfigCustomImportVideos:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_custom_import_videos_http import (
             ServerConfigCustomImportVideosHttp,
         )
@@ -80,10 +77,7 @@ class ServerConfigCustomImportVideos:
         else:
             torrent = ServerConfigCustomImportVideosTorrent.from_dict(_torrent)
 
-        server_config_custom_import_videos = cls(
-            http=http,
-            torrent=torrent,
-        )
+        server_config_custom_import_videos = cls(http=http, torrent=torrent)
 
         server_config_custom_import_videos.additional_properties = d
         return server_config_custom_import_videos
@@ -91,6 +85,7 @@ class ServerConfigCustomImportVideos:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

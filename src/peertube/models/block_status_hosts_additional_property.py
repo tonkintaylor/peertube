@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,6 +23,7 @@ class BlockStatusHostsAdditionalProperty:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         blocked_by_server = self.blocked_by_server
 
         blocked_by_user = self.blocked_by_user
@@ -43,14 +41,14 @@ class BlockStatusHostsAdditionalProperty:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         blocked_by_server = d.pop("blockedByServer", UNSET)
 
         blocked_by_user = d.pop("blockedByUser", UNSET)
 
         block_status_hosts_additional_property = cls(
-            blocked_by_server=blocked_by_server,
-            blocked_by_user=blocked_by_user,
+            blocked_by_server=blocked_by_server, blocked_by_user=blocked_by_user
         )
 
         block_status_hosts_additional_property.additional_properties = d
@@ -59,6 +57,7 @@ class BlockStatusHostsAdditionalProperty:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

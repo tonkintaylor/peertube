@@ -11,9 +11,7 @@ from peertube.models.get_api_v1_users_id_token_sessions_response_200 import (
 from peertube.types import Response
 
 
-def _get_kwargs(
-    id: int,
-) -> dict[str, Any]:
+def _get_kwargs(id: int) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/users/{id}/token-sessions",
@@ -31,7 +29,6 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -50,11 +47,10 @@ def _build_response(
 
 
 def sync_detailed(
-    id: int,
-    *,
-    client: AuthenticatedClient,
+    id: int, *, client: AuthenticatedClient
 ) -> Response[GetApiV1UsersIdTokenSessionsResponse200]:
     """List token sessions
+
 
     Args:
         id (int):  Example: 42.
@@ -67,23 +63,18 @@ def sync_detailed(
         Response[GetApiV1UsersIdTokenSessionsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-    )
+    kwargs = _get_kwargs(id=id)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    id: int,
-    *,
-    client: AuthenticatedClient,
+    id: int, *, client: AuthenticatedClient
 ) -> GetApiV1UsersIdTokenSessionsResponse200 | None:
     """List token sessions
+
 
     Args:
         id (int):  Example: 42.
@@ -96,18 +87,14 @@ def sync(
         GetApiV1UsersIdTokenSessionsResponse200
     """
 
-    return sync_detailed(
-        id=id,
-        client=client,
-    ).parsed
+    return sync_detailed(id=id, client=client).parsed
 
 
 async def asyncio_detailed(
-    id: int,
-    *,
-    client: AuthenticatedClient,
+    id: int, *, client: AuthenticatedClient
 ) -> Response[GetApiV1UsersIdTokenSessionsResponse200]:
     """List token sessions
+
 
     Args:
         id (int):  Example: 42.
@@ -120,9 +107,7 @@ async def asyncio_detailed(
         Response[GetApiV1UsersIdTokenSessionsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-    )
+    kwargs = _get_kwargs(id=id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -130,11 +115,10 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    id: int,
-    *,
-    client: AuthenticatedClient,
+    id: int, *, client: AuthenticatedClient
 ) -> GetApiV1UsersIdTokenSessionsResponse200 | None:
     """List token sessions
+
 
     Args:
         id (int):  Example: 42.
@@ -147,9 +131,4 @@ async def asyncio(
         GetApiV1UsersIdTokenSessionsResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            id=id,
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(id=id, client=client)).parsed

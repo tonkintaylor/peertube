@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class GenerateVideoCaptionBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         force_transcription = self.force_transcription
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class GenerateVideoCaptionBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         force_transcription = d.pop("forceTranscription", UNSET)
 
-        generate_video_caption_body = cls(
-            force_transcription=force_transcription,
-        )
+        generate_video_caption_body = cls(force_transcription=force_transcription)
 
         generate_video_caption_body.additional_properties = d
         return generate_video_caption_body
@@ -50,6 +47,7 @@ class GenerateVideoCaptionBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

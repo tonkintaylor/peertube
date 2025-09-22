@@ -1,12 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-    cast,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 from uuid import UUID
 
 from attrs import define as _attrs_define
@@ -52,8 +46,7 @@ class Video:
         restrictions depending on `privacy`). Usually set after a `state` evolution. Example: 2018-10-01T10:52:46.396Z.
     updated_at (Union[Unset, datetime.datetime]): last time the video's metadata was modified Example:
         2021-05-04T08:01:01.502Z.
-    originally_published_at (Union[None, Unset, datetime.datetime]): used to represent a date of first publication,
-        prior to the practical publication date of `publishedAt` Example: 2010-10-01T10:52:46.396Z.
+    originally_published_at (Union[None, Unset, datetime.datetime]): used to represent a date of first publication, prior to the practical publication date of `publishedAt` Example: 2010-10-01T10:52:46.396Z.
     category (Union[Unset, VideoConstantNumberCategory]):
     licence (Union[Unset, VideoConstantNumberLicence]):
     language (Union[Unset, VideoConstantStringLanguage]):
@@ -65,7 +58,7 @@ class Video:
         hosting network, based on fr...
         .
     duration (Union[Unset, int]): duration of the video in seconds Example: 1419.
-    aspect_ratio (Union[None, Unset, float]): **PeerTube >= 6.1** Aspect ratio of the video stream Example: 1.778.
+    aspect_ratio (Union[None, Unset, float]): **PeerTube > = 6.1** Aspect ratio of the video stream Example: 1.778.
     is_local (Union[Unset, bool]):
     name (Union[Unset, str]): title of the video Example: What is PeerTube?.
     thumbnail_path (Union[Unset, str]):  Example: /lazy-static/thumbnails/a65bc12f-9383-462e-81ae-8207e8b434ee.jpg.
@@ -74,14 +67,14 @@ class Video:
     views (Union[Unset, int]):  Example: 1337.
     likes (Union[Unset, int]):  Example: 42.
     dislikes (Union[Unset, int]):  Example: 7.
-    comments (Union[Unset, int]): **PeerTube >= 7.2** Number of comments on the video
+    comments (Union[Unset, int]): **PeerTube > = 7.2** Number of comments on the video
     nsfw (Union[Unset, bool]):
     nsfw_flags (Union[Unset, NSFWFlag]):
         NSFW flags (can be combined using bitwise or operator)
         - `0` NONE
         - `1` VIOLENT
         - `2` EXPLICIT_SEX
-    nsfw_summary (Union[Unset, str]): **PeerTube >= 7.2** More information about the sensitive content of the video
+    nsfw_summary (Union[Unset, str]): **PeerTube >=7.2** More information about the sensitive content of the video
     wait_transcoding (Union[None, Unset, bool]):
     state (Union[Unset, VideoStateConstant]):
     scheduled_update (Union['VideoScheduledUpdate', None, Unset]):
@@ -132,6 +125,7 @@ class Video:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         from peertube.models.video_scheduled_update import VideoScheduledUpdate
         from peertube.models.video_user_history_type_0 import VideoUserHistoryType0
 
@@ -355,6 +349,7 @@ class Video:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.account_summary import AccountSummary
         from peertube.models.live_schedule import LiveSchedule
         from peertube.models.video_channel_summary import VideoChannelSummary
@@ -647,6 +642,7 @@ class Video:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

@@ -11,14 +11,11 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: UUID | int | str,
-    *,
-    x_peertube_video_password: Unset | str = UNSET,
+    id: UUID | int | str, *, x_peertube_video_password: Unset | str = UNSET
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
     if not isinstance(x_peertube_video_password, Unset):
         headers["x-peertube-video-password"] = x_peertube_video_password
-
     _kwargs: dict[str, Any] = {
         "method": "post",
         "url": f"/api/v1/videos/{id}/token",
@@ -35,15 +32,12 @@ def _parse_response(
         response_200 = VideoTokenResponse.from_dict(response.json())
 
         return response_200
-
     if response.status_code == 400:
         response_400 = cast("Any", None)
         return response_400
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -68,7 +62,6 @@ def sync_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any | VideoTokenResponse]:
     """Request video token
-
      Request special tokens that expire quickly to use them in some context (like accessing private
     static files)
 
@@ -84,14 +77,9 @@ def sync_detailed(
         Response[Union[Any, VideoTokenResponse]]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        x_peertube_video_password=x_peertube_video_password,
-    )
+    kwargs = _get_kwargs(id=id, x_peertube_video_password=x_peertube_video_password)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -103,7 +91,6 @@ def sync(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Any | VideoTokenResponse | None:
     """Request video token
-
      Request special tokens that expire quickly to use them in some context (like accessing private
     static files)
 
@@ -120,9 +107,7 @@ def sync(
     """
 
     return sync_detailed(
-        id=id,
-        client=client,
-        x_peertube_video_password=x_peertube_video_password,
+        id=id, client=client, x_peertube_video_password=x_peertube_video_password
     ).parsed
 
 
@@ -133,7 +118,6 @@ async def asyncio_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[Any | VideoTokenResponse]:
     """Request video token
-
      Request special tokens that expire quickly to use them in some context (like accessing private
     static files)
 
@@ -149,10 +133,7 @@ async def asyncio_detailed(
         Response[Union[Any, VideoTokenResponse]]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        x_peertube_video_password=x_peertube_video_password,
-    )
+    kwargs = _get_kwargs(id=id, x_peertube_video_password=x_peertube_video_password)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -166,7 +147,6 @@ async def asyncio(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Any | VideoTokenResponse | None:
     """Request video token
-
      Request special tokens that expire quickly to use them in some context (like accessing private
     static files)
 
@@ -184,8 +164,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id=id,
-            client=client,
-            x_peertube_video_password=x_peertube_video_password,
+            id=id, client=client, x_peertube_video_password=x_peertube_video_password
         )
     ).parsed

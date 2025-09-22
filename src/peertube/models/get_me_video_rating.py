@@ -23,6 +23,7 @@ class GetMeVideoRating:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         id = self.id
 
         rating = self.rating.value
@@ -41,15 +42,13 @@ class GetMeVideoRating:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         id = d.pop("id")
 
         rating = GetMeVideoRatingRating(d.pop("rating"))
 
-        get_me_video_rating = cls(
-            id=id,
-            rating=rating,
-        )
+        get_me_video_rating = cls(id=id, rating=rating)
 
         get_me_video_rating.additional_properties = d
         return get_me_video_rating
@@ -57,6 +56,7 @@ class GetMeVideoRating:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

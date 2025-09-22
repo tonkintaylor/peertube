@@ -1,9 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,9 +23,9 @@ class ServerStats:
     total_daily_active_users (Union[Unset, float]):
     total_weekly_active_users (Union[Unset, float]):
     total_monthly_active_users (Union[Unset, float]):
-    total_moderators (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the admin disabled total moderators
+    total_moderators (Union[Unset, float]): **PeerTube >=6.1** Value is null if the admin disabled total moderators
         stats
-    total_admins (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the admin disabled total admins stats
+    total_admins (Union[Unset, float]): **PeerTube >=6.1** Value is null if the admin disabled total admins stats
     total_local_videos (Union[Unset, float]):
     total_local_video_views (Union[Unset, float]): Total video views made on the instance
     total_local_video_comments (Union[Unset, float]): Total comments made by local users
@@ -49,17 +45,17 @@ class ServerStats:
     total_activity_pub_messages_errors (Union[Unset, float]):
     activity_pub_messages_processed_per_second (Union[Unset, float]):
     total_activity_pub_messages_waiting (Union[Unset, float]):
-    average_registration_request_response_time_ms (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the
+    average_registration_request_response_time_ms (Union[Unset, float]): **PeerTube >=6.1** Value is null if the
         admin disabled registration requests stats
-    total_registration_requests_processed (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the admin
+    total_registration_requests_processed (Union[Unset, float]): **PeerTube >=6.1** Value is null if the admin
         disabled registration requests stats
-    total_registration_requests (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the admin disabled
+    total_registration_requests (Union[Unset, float]): **PeerTube >=6.1** Value is null if the admin disabled
         registration requests stats
-    average_abuse_response_time_ms (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the admin disabled
+    average_abuse_response_time_ms (Union[Unset, float]): **PeerTube >=6.1** Value is null if the admin disabled
         abuses stats
-    total_abuses_processed (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the admin disabled abuses
+    total_abuses_processed (Union[Unset, float]): **PeerTube >=6.1** Value is null if the admin disabled abuses
         stats
-    total_abuses (Union[Unset, float]): **PeerTube >= 6.1** Value is null if the admin disabled abuses stats
+    total_abuses (Union[Unset, float]): **PeerTube >=6.1** Value is null if the admin disabled abuses stats
     """
 
     total_users: Unset | float = UNSET
@@ -97,6 +93,7 @@ class ServerStats:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         total_users = self.total_users
 
         total_daily_active_users = self.total_daily_active_users
@@ -271,6 +268,7 @@ class ServerStats:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_stats_videos_redundancy_item import (
             ServerStatsVideosRedundancyItem,
         )
@@ -405,6 +403,7 @@ class ServerStats:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

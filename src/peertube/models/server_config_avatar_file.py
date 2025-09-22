@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -32,6 +27,7 @@ class ServerConfigAvatarFile:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         size: Unset | dict[str, Any] = UNSET
         if not isinstance(self.size, Unset):
             size = self.size.to_dict()
@@ -47,6 +43,7 @@ class ServerConfigAvatarFile:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_avatar_file_size import (
             ServerConfigAvatarFileSize,
         )
@@ -59,9 +56,7 @@ class ServerConfigAvatarFile:
         else:
             size = ServerConfigAvatarFileSize.from_dict(_size)
 
-        server_config_avatar_file = cls(
-            size=size,
-        )
+        server_config_avatar_file = cls(size=size)
 
         server_config_avatar_file.additional_properties = d
         return server_config_avatar_file
@@ -69,6 +64,7 @@ class ServerConfigAvatarFile:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

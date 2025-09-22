@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,8 +24,7 @@ class UserViewingVideo:
     client (Union[Unset, str]): Client software used to watch the video. For example "Firefox", "PeerTube Approval
         Android", etc.
     device (Union[Unset, VideoStatsUserAgentDevice]):
-    operating_system (Union[Unset, str]): Operating system used to watch the video. For example "Windows", "Ubuntu",
-        etc.
+    operating_system (Union[Unset, str]): Operating system used to watch the video. For example "Windows", "Ubuntu", etc.
     """
 
     current_time: int
@@ -41,6 +37,7 @@ class UserViewingVideo:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         current_time = self.current_time
 
         view_event: Unset | str = UNSET
@@ -80,6 +77,7 @@ class UserViewingVideo:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         current_time = d.pop("currentTime")
 
@@ -118,6 +116,7 @@ class UserViewingVideo:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

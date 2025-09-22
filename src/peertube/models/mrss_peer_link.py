@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,6 +24,7 @@ class MRSSPeerLink:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         href = self.href
 
         type_: Unset | str = UNSET
@@ -46,6 +44,7 @@ class MRSSPeerLink:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
         href = d.pop("href", UNSET)
 
@@ -56,10 +55,7 @@ class MRSSPeerLink:
         else:
             type_ = MRSSPeerLinkType(_type_)
 
-        mrss_peer_link = cls(
-            href=href,
-            type_=type_,
-        )
+        mrss_peer_link = cls(href=href, type_=type_)
 
         mrss_peer_link.additional_properties = d
         return mrss_peer_link
@@ -67,6 +63,7 @@ class MRSSPeerLink:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

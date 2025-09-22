@@ -21,6 +21,7 @@ class ConfirmTwoFactorRequestBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         request_token = self.request_token
 
         otp_token = self.otp_token
@@ -39,14 +40,14 @@ class ConfirmTwoFactorRequestBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         request_token = d.pop("requestToken")
 
         otp_token = d.pop("otpToken")
 
         confirm_two_factor_request_body = cls(
-            request_token=request_token,
-            otp_token=otp_token,
+            request_token=request_token, otp_token=otp_token
         )
 
         confirm_two_factor_request_body.additional_properties = d
@@ -55,6 +56,7 @@ class ConfirmTwoFactorRequestBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

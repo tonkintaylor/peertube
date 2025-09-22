@@ -23,6 +23,7 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         runner_token = self.runner_token
 
         job_token = self.job_token
@@ -44,6 +45,7 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         runner_token = d.pop("runnerToken")
 
@@ -52,9 +54,7 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
         reason = d.pop("reason")
 
         post_api_v1_runners_jobs_job_uuid_abort_body = cls(
-            runner_token=runner_token,
-            job_token=job_token,
-            reason=reason,
+            runner_token=runner_token, job_token=job_token, reason=reason
         )
 
         post_api_v1_runners_jobs_job_uuid_abort_body.additional_properties = d
@@ -63,6 +63,7 @@ class PostApiV1RunnersJobsJobUUIDAbortBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

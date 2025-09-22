@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,6 +23,7 @@ class VODAudioMergeTranscodingInput:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         audio_file_url = self.audio_file_url
 
         preview_file_url = self.preview_file_url
@@ -43,14 +41,14 @@ class VODAudioMergeTranscodingInput:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         audio_file_url = d.pop("audioFileUrl", UNSET)
 
         preview_file_url = d.pop("previewFileUrl", UNSET)
 
         vod_audio_merge_transcoding_input = cls(
-            audio_file_url=audio_file_url,
-            preview_file_url=preview_file_url,
+            audio_file_url=audio_file_url, preview_file_url=preview_file_url
         )
 
         vod_audio_merge_transcoding_input.additional_properties = d
@@ -59,6 +57,7 @@ class VODAudioMergeTranscodingInput:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

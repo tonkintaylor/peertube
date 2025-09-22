@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -35,11 +30,11 @@ class VideoFile:
     file_download_url (Union[Unset, str]): URL endpoint that transfers the video file as an attachment (so that the
         browser opens a download dialog)
     fps (Union[Unset, float]): Frames per second of the video file
-    width (Union[Unset, float]): **PeerTube >= 6.1** Video stream width
-    height (Union[Unset, float]): **PeerTube >= 6.1** Video stream height
+    width (Union[Unset, float]): **PeerTube > = 6.1** Video stream width
+    height (Union[Unset, float]): **PeerTube >=6.1** Video stream height
     metadata_url (Union[Unset, str]): URL dereferencing the output of ffprobe on the file
-    has_audio (Union[Unset, bool]): **PeerTube >= 6.2** The file container has an audio stream
-    has_video (Union[Unset, bool]): **PeerTube >= 6.2** The file container has a video stream
+    has_audio (Union[Unset, bool]): **PeerTube >=6.2** The file container has an audio stream
+    has_video (Union[Unset, bool]): **PeerTube >=6.2** The file container has a video stream
     storage (Union[Unset, FileStorage]): The file storage type:
           - `0` File system
           - `1` Object storage
@@ -65,6 +60,7 @@ class VideoFile:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         id = self.id
 
         magnet_uri = self.magnet_uri
@@ -142,6 +138,7 @@ class VideoFile:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.video_resolution_constant import VideoResolutionConstant
 
         d = dict(src_dict)
@@ -212,6 +209,7 @@ class VideoFile:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

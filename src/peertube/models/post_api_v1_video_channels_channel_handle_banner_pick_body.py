@@ -1,9 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -48,6 +45,7 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
         """Convert to dictionary."""
+
         bannerfile: Unset | FileTypes = UNSET
         if not isinstance(self.bannerfile, Unset):
             bannerfile = self.bannerfile.to_tuple()
@@ -62,6 +60,7 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
 
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
+
         files: types.RequestFiles = []
 
         if not isinstance(self.bannerfile, Unset):
@@ -97,6 +96,7 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
         """Create from dictionary."""
+
         d = dict(src_dict)
         _bannerfile = d.pop("bannerfile", UNSET)
         bannerfile: Unset | File
@@ -106,7 +106,7 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
             bannerfile = File(payload=BytesIO(_bannerfile))
 
         post_api_v1_video_channels_channel_handle_banner_pick_body = cls(
-            bannerfile=bannerfile,
+            bannerfile=bannerfile
         )
 
         post_api_v1_video_channels_channel_handle_banner_pick_body.additional_properties = d
@@ -137,6 +137,7 @@ class PostApiV1VideoChannelsChannelHandleBannerPickBody:
         """Get additional property keys."""
         """Get additional property keys."""
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

@@ -1,9 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-    cast,
-)
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -23,6 +19,7 @@ class PostApiV1UsersMeNotificationsReadBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         ids = self.ids
 
         field_dict: dict[str, Any] = {}
@@ -38,12 +35,11 @@ class PostApiV1UsersMeNotificationsReadBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         ids = cast("list[int]", d.pop("ids"))
 
-        post_api_v1_users_me_notifications_read_body = cls(
-            ids=ids,
-        )
+        post_api_v1_users_me_notifications_read_body = cls(ids=ids)
 
         post_api_v1_users_me_notifications_read_body.additional_properties = d
         return post_api_v1_users_me_notifications_read_body
@@ -51,6 +47,7 @@ class PostApiV1UsersMeNotificationsReadBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

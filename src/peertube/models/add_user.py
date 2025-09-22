@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -21,12 +18,12 @@ class AddUser:
     username (str): immutable name of the user, used to find or mention its actor Example: chocobozzz.
     password (str):
     email (str): The user email
-    role (UserRole): The user role (Admin = `0`, Moderator = `1`, User = `2`) Example: 2.
+    role (UserRole): The user role (Admin = `0`, Moderator=`1`, User=`2`) Example: 2.
     video_quota (Union[Unset, int]): The user video quota in bytes Example: -1.
     video_quota_daily (Union[Unset, int]): The user daily video quota in bytes Example: -1.
     channel_name (Union[Unset, str]): immutable name of the channel, used to interact with its actor Example:
         framasoft_videos.
-    admin_flags (Union[Unset, UserAdminFlags]): Admin flags for the user (None = `0`, Bypass video blocklist = `1`)
+    admin_flags (Union[Unset, UserAdminFlags]): Admin flags for the user (None = `0`, Bypass video blocklist=`1`)
         Example: 1.
     """
 
@@ -42,6 +39,7 @@ class AddUser:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         username = self.username
 
         password = self.password
@@ -84,6 +82,7 @@ class AddUser:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         username = d.pop("username")
 
@@ -123,6 +122,7 @@ class AddUser:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

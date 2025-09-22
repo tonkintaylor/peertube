@@ -1,25 +1,21 @@
-from http import HTTPStatus
 from typing import Any
 
 import httpx
 
 from peertube import errors
+from peertube.api.shared_utils import build_response
 from peertube.client import AuthenticatedClient, Client
 from peertube.models.playback_metric_create import PlaybackMetricCreate
 from peertube.types import Response
 
 
-def _get_kwargs(
-    *,
-    body: PlaybackMetricCreate,
-) -> dict[str, Any]:
+def _get_kwargs(*, body: PlaybackMetricCreate) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any] = {
         "method": "post",
         "url": "/api/v1/metrics/playback",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -33,7 +29,6 @@ def _parse_response(
 ) -> Any | None:
     if response.status_code == 204:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -43,18 +38,11 @@ def _parse_response(
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
-    return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+    return build_response(client=client, response=response)
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient | Client,
-    body: PlaybackMetricCreate,
+    *, client: AuthenticatedClient | Client, body: PlaybackMetricCreate
 ) -> Response[Any]:
     """Create playback metrics
 
@@ -71,21 +59,32 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
-        body=body,
-    )
+    kwargs = _get_kwargs(body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
+def sync(
+    *, client: AuthenticatedClient | Client, body: PlaybackMetricCreate
+) -> Any | None:
+    """Create playback metrics
+
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(client=client, body=body).parsed
+
+
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient | Client,
-    body: PlaybackMetricCreate,
+    *, client: AuthenticatedClient | Client, body: PlaybackMetricCreate
 ) -> Response[Any]:
     """Create playback metrics
 
@@ -102,9 +101,7 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
-        body=body,
-    )
+    kwargs = _get_kwargs(body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 

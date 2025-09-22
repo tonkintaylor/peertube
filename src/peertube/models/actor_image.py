@@ -1,9 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -20,7 +17,7 @@ class ActorImage:
     """Attributes:
     path (Union[Unset, str]):
     width (Union[Unset, int]):
-    height (Union[Unset, int]): **PeerTube >= 7.3** ImportVideosInChannelCreate:mage height
+    height (Union[Unset, int]): **PeerTube >=7.3** ImportVideosInChannelCreate:mage height
     created_at (Union[Unset, datetime.datetime]):
     updated_at (Union[Unset, datetime.datetime]):
     """
@@ -34,6 +31,7 @@ class ActorImage:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         path = self.path
 
         width = self.width
@@ -67,6 +65,7 @@ class ActorImage:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         path = d.pop("path", UNSET)
 
@@ -102,6 +101,7 @@ class ActorImage:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

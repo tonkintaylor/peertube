@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,8 +22,7 @@ class LiveVideoUpdate:
     save_replay (Union[Unset, bool]):
     replay_settings (Union[Unset, LiveVideoReplaySettings]):
     permanent_live (Union[Unset, bool]): User can stream multiple times in a permanent live
-    latency_mode (Union[Unset, LiveVideoLatencyMode]): The live latency mode (Default = `1`, High latency = `2`,
-        Small Latency = `3`)
+    latency_mode (Union[Unset, LiveVideoLatencyMode]): The live latency mode (Default=`1`, High latency=`2`, Small Latency=`3`)
     schedules (Union[Unset, list['LiveSchedule']]):
     """
 
@@ -41,6 +35,7 @@ class LiveVideoUpdate:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         save_replay = self.save_replay
 
         replay_settings: Unset | dict[str, Any] = UNSET
@@ -79,6 +74,7 @@ class LiveVideoUpdate:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.live_schedule import LiveSchedule
         from peertube.models.live_video_replay_settings import LiveVideoReplaySettings
 
@@ -122,6 +118,7 @@ class LiveVideoUpdate:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

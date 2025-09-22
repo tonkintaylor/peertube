@@ -11,14 +11,11 @@ from peertube.types import UNSET, Response, Unset
 
 
 def _get_kwargs(
-    id: UUID | int | str,
-    *,
-    x_peertube_video_password: Unset | str = UNSET,
+    id: UUID | int | str, *, x_peertube_video_password: Unset | str = UNSET
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
     if not isinstance(x_peertube_video_password, Unset):
         headers["x-peertube-video-password"] = x_peertube_video_password
-
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/videos/{id}/captions",
@@ -35,7 +32,6 @@ def _parse_response(
         response_200 = GetVideoCaptionsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -61,6 +57,7 @@ def sync_detailed(
 ) -> Response[GetVideoCaptionsResponse200]:
     """List captions of a video
 
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         x_peertube_video_password (Union[Unset, str]): Video-related parameter.
@@ -73,14 +70,9 @@ def sync_detailed(
         Response[GetVideoCaptionsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        x_peertube_video_password=x_peertube_video_password,
-    )
+    kwargs = _get_kwargs(id=id, x_peertube_video_password=x_peertube_video_password)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -92,6 +84,7 @@ def sync(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> GetVideoCaptionsResponse200 | None:
     """List captions of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -106,9 +99,7 @@ def sync(
     """
 
     return sync_detailed(
-        id=id,
-        client=client,
-        x_peertube_video_password=x_peertube_video_password,
+        id=id, client=client, x_peertube_video_password=x_peertube_video_password
     ).parsed
 
 
@@ -119,6 +110,7 @@ async def asyncio_detailed(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> Response[GetVideoCaptionsResponse200]:
     """List captions of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -132,10 +124,7 @@ async def asyncio_detailed(
         Response[GetVideoCaptionsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        x_peertube_video_password=x_peertube_video_password,
-    )
+    kwargs = _get_kwargs(id=id, x_peertube_video_password=x_peertube_video_password)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -149,6 +138,7 @@ async def asyncio(
     x_peertube_video_password: Unset | str = UNSET,
 ) -> GetVideoCaptionsResponse200 | None:
     """List captions of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -164,8 +154,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id=id,
-            client=client,
-            x_peertube_video_password=x_peertube_video_password,
+            id=id, client=client, x_peertube_video_password=x_peertube_video_password
         )
     ).parsed

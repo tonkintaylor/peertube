@@ -19,6 +19,7 @@ class PutApiV1ServerRedundancyHostBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         redundancy_allowed = self.redundancy_allowed
 
         field_dict: dict[str, Any] = {}
@@ -34,11 +35,12 @@ class PutApiV1ServerRedundancyHostBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         redundancy_allowed = d.pop("redundancyAllowed")
 
         put_api_v1_server_redundancy_host_body = cls(
-            redundancy_allowed=redundancy_allowed,
+            redundancy_allowed=redundancy_allowed
         )
 
         put_api_v1_server_redundancy_host_body.additional_properties = d
@@ -47,6 +49,7 @@ class PutApiV1ServerRedundancyHostBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

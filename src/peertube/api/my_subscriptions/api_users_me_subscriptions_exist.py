@@ -11,16 +11,12 @@ from peertube.models.get_api_v1_users_me_subscriptions_exist_response_200 import
 from peertube.types import UNSET, Response
 
 
-def _get_kwargs(
-    *,
-    uris: list[str],
-) -> dict[str, Any]:
+def _get_kwargs(*, uris: list[str]) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
     json_uris = uris
 
     params["uris"] = json_uris
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -41,7 +37,6 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -60,11 +55,10 @@ def _build_response(
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient,
-    uris: list[str],
+    *, client: AuthenticatedClient, uris: list[str]
 ) -> Response[GetApiV1UsersMeSubscriptionsExistResponse200]:
     """Get if subscriptions exist for my user
+
 
     Args:
         uris (list[str]): Parameter for uris.
@@ -77,23 +71,18 @@ def sync_detailed(
         Response[GetApiV1UsersMeSubscriptionsExistResponse200]
     """
 
-    kwargs = _get_kwargs(
-        uris=uris,
-    )
+    kwargs = _get_kwargs(uris=uris)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *,
-    client: AuthenticatedClient,
-    uris: list[str],
+    *, client: AuthenticatedClient, uris: list[str]
 ) -> GetApiV1UsersMeSubscriptionsExistResponse200 | None:
     """Get if subscriptions exist for my user
+
 
     Args:
         uris (list[str]): Parameter for uris.
@@ -106,18 +95,14 @@ def sync(
         GetApiV1UsersMeSubscriptionsExistResponse200
     """
 
-    return sync_detailed(
-        client=client,
-        uris=uris,
-    ).parsed
+    return sync_detailed(client=client, uris=uris).parsed
 
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient,
-    uris: list[str],
+    *, client: AuthenticatedClient, uris: list[str]
 ) -> Response[GetApiV1UsersMeSubscriptionsExistResponse200]:
     """Get if subscriptions exist for my user
+
 
     Args:
         uris (list[str]): Parameter for uris.
@@ -130,9 +115,7 @@ async def asyncio_detailed(
         Response[GetApiV1UsersMeSubscriptionsExistResponse200]
     """
 
-    kwargs = _get_kwargs(
-        uris=uris,
-    )
+    kwargs = _get_kwargs(uris=uris)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -140,11 +123,10 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *,
-    client: AuthenticatedClient,
-    uris: list[str],
+    *, client: AuthenticatedClient, uris: list[str]
 ) -> GetApiV1UsersMeSubscriptionsExistResponse200 | None:
     """Get if subscriptions exist for my user
+
 
     Args:
         uris (list[str]): Parameter for uris.
@@ -157,9 +139,4 @@ async def asyncio(
         GetApiV1UsersMeSubscriptionsExistResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            client=client,
-            uris=uris,
-        )
-    ).parsed
+    return (await asyncio_detailed(client=client, uris=uris)).parsed

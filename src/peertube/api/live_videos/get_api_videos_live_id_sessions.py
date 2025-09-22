@@ -12,9 +12,7 @@ from peertube.models.get_api_v1_videos_live_id_sessions_response_200 import (
 from peertube.types import Response
 
 
-def _get_kwargs(
-    id: UUID | int | str,
-) -> dict[str, Any]:
+def _get_kwargs(id: UUID | int | str) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/videos/live/{id}/sessions",
@@ -32,7 +30,6 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -51,14 +48,11 @@ def _build_response(
 
 
 def sync_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
+    id: UUID | int | str, *, client: AuthenticatedClient
 ) -> Response[GetApiV1VideosLiveIdSessionsResponse200]:
     """List live sessions
 
      List all sessions created in a particular live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -70,26 +64,19 @@ def sync_detailed(
         Response[GetApiV1VideosLiveIdSessionsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-    )
+    kwargs = _get_kwargs(id=id)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
+    id: UUID | int | str, *, client: AuthenticatedClient
 ) -> GetApiV1VideosLiveIdSessionsResponse200 | None:
     """List live sessions
 
      List all sessions created in a particular live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -101,21 +88,15 @@ def sync(
         GetApiV1VideosLiveIdSessionsResponse200
     """
 
-    return sync_detailed(
-        id=id,
-        client=client,
-    ).parsed
+    return sync_detailed(id=id, client=client).parsed
 
 
 async def asyncio_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
+    id: UUID | int | str, *, client: AuthenticatedClient
 ) -> Response[GetApiV1VideosLiveIdSessionsResponse200]:
     """List live sessions
 
      List all sessions created in a particular live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -127,9 +108,7 @@ async def asyncio_detailed(
         Response[GetApiV1VideosLiveIdSessionsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-    )
+    kwargs = _get_kwargs(id=id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -137,14 +116,11 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient,
+    id: UUID | int | str, *, client: AuthenticatedClient
 ) -> GetApiV1VideosLiveIdSessionsResponse200 | None:
     """List live sessions
 
      List all sessions created in a particular live
-
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -156,9 +132,4 @@ async def asyncio(
         GetApiV1VideosLiveIdSessionsResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            id=id,
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(id=id, client=client)).parsed

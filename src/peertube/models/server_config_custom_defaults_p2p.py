@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -37,6 +32,7 @@ class ServerConfigCustomDefaultsP2P:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         webapp: Unset | dict[str, Any] = UNSET
         if not isinstance(self.webapp, Unset):
             webapp = self.webapp.to_dict()
@@ -58,6 +54,7 @@ class ServerConfigCustomDefaultsP2P:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_custom_defaults_p2p_embed import (
             ServerConfigCustomDefaultsP2PEmbed,
         )
@@ -80,10 +77,7 @@ class ServerConfigCustomDefaultsP2P:
         else:
             embed = ServerConfigCustomDefaultsP2PEmbed.from_dict(_embed)
 
-        server_config_custom_defaults_p2p = cls(
-            webapp=webapp,
-            embed=embed,
-        )
+        server_config_custom_defaults_p2p = cls(webapp=webapp, embed=embed)
 
         server_config_custom_defaults_p2p.additional_properties = d
         return server_config_custom_defaults_p2p
@@ -91,6 +85,7 @@ class ServerConfigCustomDefaultsP2P:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

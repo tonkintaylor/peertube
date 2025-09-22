@@ -25,7 +25,6 @@ def _parse_response(
         response_200 = ServerStats.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -43,10 +42,7 @@ def _build_response(
     )
 
 
-def sync_detailed(
-    *,
-    client: AuthenticatedClient | Client,
-) -> Response[ServerStats]:
+def sync_detailed(*, client: AuthenticatedClient | Client) -> Response[ServerStats]:
     """Get instance stats
 
      Get instance public statistics. This endpoint is cached.
@@ -61,17 +57,12 @@ def sync_detailed(
 
     kwargs = _get_kwargs()
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
-def sync(
-    *,
-    client: AuthenticatedClient | Client,
-) -> ServerStats | None:
+def sync(*, client: AuthenticatedClient | Client) -> ServerStats | None:
     """Get instance stats
 
      Get instance public statistics. This endpoint is cached.
@@ -84,14 +75,11 @@ def sync(
         ServerStats
     """
 
-    return sync_detailed(
-        client=client,
-    ).parsed
+    return sync_detailed(client=client).parsed
 
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient | Client,
+    *, client: AuthenticatedClient | Client
 ) -> Response[ServerStats]:
     """Get instance stats
 
@@ -112,10 +100,7 @@ async def asyncio_detailed(
     return _build_response(client=client, response=response)
 
 
-async def asyncio(
-    *,
-    client: AuthenticatedClient | Client,
-) -> ServerStats | None:
+async def asyncio(*, client: AuthenticatedClient | Client) -> ServerStats | None:
     """Get instance stats
 
      Get instance public statistics. This endpoint is cached.
@@ -128,8 +113,4 @@ async def asyncio(
         ServerStats
     """
 
-    return (
-        await asyncio_detailed(
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(client=client)).parsed

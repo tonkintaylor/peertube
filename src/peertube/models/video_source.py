@@ -1,11 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,13 +21,13 @@ class VideoSource:
     """Attributes:
     filename (Union[Unset, str]): Deprecated in 6.1, use inputFilename instead
     input_filename (Union[Unset, str]): Uploaded/imported filename
-    file_download_url (Union[Unset, str]): **PeerTube >= 6.1** If enabled by the admin, the video source file is
+    file_download_url (Union[Unset, str]): **PeerTube >=6.1** If enabled by the admin, the video source file is
         kept on the server and can be downloaded by the owner
     resolution (Union[Unset, VideoResolutionConstant]): resolutions and their labels for the video
-    size (Union[Unset, int]): **PeerTube >= 6.1** Video file size in bytes
-    fps (Union[Unset, float]): **PeerTube >= 6.1** Frames per second of the video file
-    width (Union[Unset, int]): **PeerTube >= 6.1** Video stream width
-    height (Union[Unset, int]): **PeerTube >= 6.1** Video stream height
+    size (Union[Unset, int]): **PeerTube >=6.1** Video file size in bytes
+    fps (Union[Unset, float]): **PeerTube >=6.1** Frames per second of the video file
+    width (Union[Unset, int]): **PeerTube >=6.1** Video stream width
+    height (Union[Unset, int]): **PeerTube >=6.1** Video stream height
     created_at (Union[Unset, datetime.datetime]):
     """
 
@@ -49,6 +44,7 @@ class VideoSource:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         filename = self.filename
 
         input_filename = self.input_filename
@@ -98,6 +94,7 @@ class VideoSource:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.video_resolution_constant import VideoResolutionConstant
 
         d = dict(src_dict)
@@ -147,6 +144,7 @@ class VideoSource:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

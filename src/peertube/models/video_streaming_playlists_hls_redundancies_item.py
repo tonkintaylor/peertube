@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class VideoStreamingPlaylistsHLSRedundanciesItem:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         base_url = self.base_url
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class VideoStreamingPlaylistsHLSRedundanciesItem:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         base_url = d.pop("baseUrl", UNSET)
 
-        video_streaming_playlists_hls_redundancies_item = cls(
-            base_url=base_url,
-        )
+        video_streaming_playlists_hls_redundancies_item = cls(base_url=base_url)
 
         video_streaming_playlists_hls_redundancies_item.additional_properties = d
         return video_streaming_playlists_hls_redundancies_item
@@ -50,6 +47,7 @@ class VideoStreamingPlaylistsHLSRedundanciesItem:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

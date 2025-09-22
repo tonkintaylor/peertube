@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -23,7 +18,7 @@ T = TypeVar("T", bound="ServerConfigOpenTelemetry")
 
 @_attrs_define
 class ServerConfigOpenTelemetry:
-    """PeerTube >= 6.1
+    """PeerTube >=6.1
 
     Attributes:
         metrics (Union[Unset, ServerConfigOpenTelemetryMetrics]):
@@ -34,6 +29,7 @@ class ServerConfigOpenTelemetry:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         metrics: Unset | dict[str, Any] = UNSET
         if not isinstance(self.metrics, Unset):
             metrics = self.metrics.to_dict()
@@ -49,6 +45,7 @@ class ServerConfigOpenTelemetry:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_open_telemetry_metrics import (
             ServerConfigOpenTelemetryMetrics,
         )
@@ -61,9 +58,7 @@ class ServerConfigOpenTelemetry:
         else:
             metrics = ServerConfigOpenTelemetryMetrics.from_dict(_metrics)
 
-        server_config_open_telemetry = cls(
-            metrics=metrics,
-        )
+        server_config_open_telemetry = cls(metrics=metrics)
 
         server_config_open_telemetry.additional_properties = d
         return server_config_open_telemetry
@@ -71,6 +66,7 @@ class ServerConfigOpenTelemetry:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

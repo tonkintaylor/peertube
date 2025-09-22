@@ -10,17 +10,13 @@ from peertube.models.video_channel_create import VideoChannelCreate
 from peertube.types import Response
 
 
-def _get_kwargs(
-    *,
-    body: VideoChannelCreate,
-) -> dict[str, Any]:
+def _get_kwargs(*, body: VideoChannelCreate) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any] = {
         "method": "post",
         "url": "/api/v1/video-channels",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -36,7 +32,6 @@ def _parse_response(
         response_200 = AddVideoChannelResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -55,11 +50,10 @@ def _build_response(
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient,
-    body: VideoChannelCreate,
+    *, client: AuthenticatedClient, body: VideoChannelCreate
 ) -> Response[AddVideoChannelResponse200]:
     """Create a video channel
+
 
     Args:
         body (VideoChannelCreate): Request body data.
@@ -72,23 +66,18 @@ def sync_detailed(
         Response[AddVideoChannelResponse200]
     """
 
-    kwargs = _get_kwargs(
-        body=body,
-    )
+    kwargs = _get_kwargs(body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *,
-    client: AuthenticatedClient,
-    body: VideoChannelCreate,
+    *, client: AuthenticatedClient, body: VideoChannelCreate
 ) -> AddVideoChannelResponse200 | None:
     """Create a video channel
+
 
     Args:
         body (VideoChannelCreate): Request body data.
@@ -101,18 +90,14 @@ def sync(
         AddVideoChannelResponse200
     """
 
-    return sync_detailed(
-        client=client,
-        body=body,
-    ).parsed
+    return sync_detailed(client=client, body=body).parsed
 
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient,
-    body: VideoChannelCreate,
+    *, client: AuthenticatedClient, body: VideoChannelCreate
 ) -> Response[AddVideoChannelResponse200]:
     """Create a video channel
+
 
     Args:
         body (VideoChannelCreate): Request body data.
@@ -125,9 +110,7 @@ async def asyncio_detailed(
         Response[AddVideoChannelResponse200]
     """
 
-    kwargs = _get_kwargs(
-        body=body,
-    )
+    kwargs = _get_kwargs(body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -135,11 +118,10 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *,
-    client: AuthenticatedClient,
-    body: VideoChannelCreate,
+    *, client: AuthenticatedClient, body: VideoChannelCreate
 ) -> AddVideoChannelResponse200 | None:
     """Create a video channel
+
 
     Args:
         body (VideoChannelCreate): Request body data.
@@ -152,9 +134,4 @@ async def asyncio(
         AddVideoChannelResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            client=client,
-            body=body,
-        )
-    ).parsed
+    return (await asyncio_detailed(client=client, body=body)).parsed

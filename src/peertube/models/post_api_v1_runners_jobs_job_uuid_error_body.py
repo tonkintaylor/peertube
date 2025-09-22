@@ -23,6 +23,7 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         runner_token = self.runner_token
 
         job_token = self.job_token
@@ -44,6 +45,7 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
         runner_token = d.pop("runnerToken")
 
@@ -52,9 +54,7 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
         message = d.pop("message")
 
         post_api_v1_runners_jobs_job_uuid_error_body = cls(
-            runner_token=runner_token,
-            job_token=job_token,
-            message=message,
+            runner_token=runner_token, job_token=job_token, message=message
         )
 
         post_api_v1_runners_jobs_job_uuid_error_body.additional_properties = d
@@ -63,6 +63,7 @@ class PostApiV1RunnersJobsJobUUIDErrorBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

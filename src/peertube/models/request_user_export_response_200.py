@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -32,6 +27,7 @@ class RequestUserExportResponse200:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         export: Unset | dict[str, Any] = UNSET
         if not isinstance(self.export, Unset):
             export = self.export.to_dict()
@@ -47,6 +43,7 @@ class RequestUserExportResponse200:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.request_user_export_response_200_export import (
             RequestUserExportResponse200Export,
         )
@@ -59,9 +56,7 @@ class RequestUserExportResponse200:
         else:
             export = RequestUserExportResponse200Export.from_dict(_export)
 
-        request_user_export_response_200 = cls(
-            export=export,
-        )
+        request_user_export_response_200 = cls(export=export)
 
         request_user_export_response_200.additional_properties = d
         return request_user_export_response_200
@@ -69,6 +64,7 @@ class RequestUserExportResponse200:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

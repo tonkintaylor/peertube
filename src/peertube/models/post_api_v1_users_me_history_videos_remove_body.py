@@ -1,9 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -51,6 +48,7 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
+
         before_date: Unset | str = UNSET
         if not isinstance(self.before_date, Unset):
             before_date = self.before_date.isoformat()
@@ -65,6 +63,7 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
 
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
+
         files: types.RequestFiles = []
 
         if not isinstance(self.before_date, Unset):
@@ -107,6 +106,7 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         _before_date = d.pop("beforeDate", UNSET)
         before_date: Unset | datetime.datetime
@@ -115,9 +115,7 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
         else:
             before_date = isoparse(_before_date)
 
-        post_api_v1_users_me_history_videos_remove_body = cls(
-            before_date=before_date,
-        )
+        post_api_v1_users_me_history_videos_remove_body = cls(before_date=before_date)
 
         post_api_v1_users_me_history_videos_remove_body.additional_properties = d
         return post_api_v1_users_me_history_videos_remove_body
@@ -149,6 +147,7 @@ class PostApiV1UsersMeHistoryVideosRemoveBody:
         """Get additional property keys."""
         """Get additional property keys."""
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

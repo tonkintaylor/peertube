@@ -14,17 +14,13 @@ from peertube.models.post_api_v1_watched_words_server_lists_response_200 import 
 from peertube.types import Response
 
 
-def _get_kwargs(
-    *,
-    body: PostApiV1WatchedWordsServerListsBody,
-) -> dict[str, Any]:
+def _get_kwargs(*, body: PostApiV1WatchedWordsServerListsBody) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any] = {
         "method": "post",
         "url": "/api/v1/watched-words/server/lists",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -42,7 +38,6 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -61,14 +56,11 @@ def _build_response(
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient,
-    body: PostApiV1WatchedWordsServerListsBody,
+    *, client: AuthenticatedClient, body: PostApiV1WatchedWordsServerListsBody
 ) -> Response[PostApiV1WatchedWordsServerListsResponse200]:
     """Add server watched words
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
@@ -80,26 +72,19 @@ def sync_detailed(
         Response[PostApiV1WatchedWordsServerListsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        body=body,
-    )
+    kwargs = _get_kwargs(body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *,
-    client: AuthenticatedClient,
-    body: PostApiV1WatchedWordsServerListsBody,
+    *, client: AuthenticatedClient, body: PostApiV1WatchedWordsServerListsBody
 ) -> PostApiV1WatchedWordsServerListsResponse200 | None:
     """Add server watched words
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
@@ -111,21 +96,15 @@ def sync(
         PostApiV1WatchedWordsServerListsResponse200
     """
 
-    return sync_detailed(
-        client=client,
-        body=body,
-    ).parsed
+    return sync_detailed(client=client, body=body).parsed
 
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient,
-    body: PostApiV1WatchedWordsServerListsBody,
+    *, client: AuthenticatedClient, body: PostApiV1WatchedWordsServerListsBody
 ) -> Response[PostApiV1WatchedWordsServerListsResponse200]:
     """Add server watched words
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
@@ -137,9 +116,7 @@ async def asyncio_detailed(
         Response[PostApiV1WatchedWordsServerListsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        body=body,
-    )
+    kwargs = _get_kwargs(body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -147,14 +124,11 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *,
-    client: AuthenticatedClient,
-    body: PostApiV1WatchedWordsServerListsBody,
+    *, client: AuthenticatedClient, body: PostApiV1WatchedWordsServerListsBody
 ) -> PostApiV1WatchedWordsServerListsResponse200 | None:
     """Add server watched words
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         body (PostApiV1WatchedWordsServerListsBody): Request body data.
 
@@ -166,9 +140,4 @@ async def asyncio(
         PostApiV1WatchedWordsServerListsResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            client=client,
-            body=body,
-        )
-    ).parsed
+    return (await asyncio_detailed(client=client, body=body)).parsed

@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -28,6 +25,7 @@ class ServerConfigCustomUser:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         video_quota = self.video_quota
 
         video_quota_daily = self.video_quota_daily
@@ -45,14 +43,14 @@ class ServerConfigCustomUser:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         video_quota = d.pop("videoQuota", UNSET)
 
         video_quota_daily = d.pop("videoQuotaDaily", UNSET)
 
         server_config_custom_user = cls(
-            video_quota=video_quota,
-            video_quota_daily=video_quota_daily,
+            video_quota=video_quota, video_quota_daily=video_quota_daily
         )
 
         server_config_custom_user.additional_properties = d
@@ -61,6 +59,7 @@ class ServerConfigCustomUser:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

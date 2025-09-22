@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -65,8 +60,8 @@ class ServerConfig:
     followings (Union[Unset, ServerConfigFollowings]):
     federation (Union[Unset, ServerConfigFederation]):
     homepage (Union[Unset, ServerConfigHomepage]):
-    open_telemetry (Union[Unset, ServerConfigOpenTelemetry]): PeerTube >= 6.1
-    views (Union[Unset, ServerConfigViews]): PeerTube >= 6.1
+    open_telemetry (Union[Unset, ServerConfigOpenTelemetry]): PeerTube >=6.1
+    views (Union[Unset, ServerConfigViews]): PeerTube >=6.1
     """
 
     instance: Union[Unset, "ServerConfigInstance"] = UNSET
@@ -97,6 +92,7 @@ class ServerConfig:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         instance: Unset | dict[str, Any] = UNSET
         if not isinstance(self.instance, Unset):
             instance = self.instance.to_dict()
@@ -246,6 +242,7 @@ class ServerConfig:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_auto_blacklist import (
             ServerConfigAutoBlacklist,
         )
@@ -465,6 +462,7 @@ class ServerConfig:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

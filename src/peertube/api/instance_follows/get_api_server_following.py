@@ -32,7 +32,6 @@ def _get_kwargs(
         json_state = state.value
 
     params["state"] = json_state
-
     json_actor_type: Unset | str = UNSET
     if not isinstance(actor_type, Unset):
         json_actor_type = actor_type.value
@@ -44,7 +43,6 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -63,7 +61,6 @@ def _parse_response(
         response_200 = GetApiV1ServerFollowingResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -92,6 +89,7 @@ def sync_detailed(
 ) -> Response[GetApiV1ServerFollowingResponse200]:
     """List instances followed by the server
 
+
     Args:
         state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.
         actor_type (Union[Unset, GetApiV1ServerFollowingActorType]): Parameter for actor type.
@@ -108,16 +106,10 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        state=state,
-        actor_type=actor_type,
-        start=start,
-        count=count,
-        sort=sort,
+        state=state, actor_type=actor_type, start=start, count=count, sort=sort
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -132,6 +124,7 @@ def sync(
     sort: Unset | str = UNSET,
 ) -> GetApiV1ServerFollowingResponse200 | None:
     """List instances followed by the server
+
 
     Args:
         state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.
@@ -169,6 +162,7 @@ async def asyncio_detailed(
 ) -> Response[GetApiV1ServerFollowingResponse200]:
     """List instances followed by the server
 
+
     Args:
         state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.
         actor_type (Union[Unset, GetApiV1ServerFollowingActorType]): Parameter for actor type.
@@ -185,11 +179,7 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        state=state,
-        actor_type=actor_type,
-        start=start,
-        count=count,
-        sort=sort,
+        state=state, actor_type=actor_type, start=start, count=count, sort=sort
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -207,6 +197,7 @@ async def asyncio(
     sort: Unset | str = UNSET,
 ) -> GetApiV1ServerFollowingResponse200 | None:
     """List instances followed by the server
+
 
     Args:
         state (Union[Unset, GetApiV1ServerFollowingState]): Current state or status filter.

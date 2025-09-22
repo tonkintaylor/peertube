@@ -9,9 +9,7 @@ from peertube.models.automatic_tag_available import AutomaticTagAvailable
 from peertube.types import Response
 
 
-def _get_kwargs(
-    account_name: str,
-) -> dict[str, Any]:
+def _get_kwargs(account_name: str) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/automatic-tags/accounts/{account_name}/available",
@@ -27,7 +25,6 @@ def _parse_response(
         response_200 = AutomaticTagAvailable.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -46,14 +43,11 @@ def _build_response(
 
 
 def sync_detailed(
-    account_name: str,
-    *,
-    client: AuthenticatedClient,
+    account_name: str, *, client: AuthenticatedClient
 ) -> Response[AutomaticTagAvailable]:
     """Get account available auto tags
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -65,26 +59,19 @@ def sync_detailed(
         Response[AutomaticTagAvailable]
     """
 
-    kwargs = _get_kwargs(
-        account_name=account_name,
-    )
+    kwargs = _get_kwargs(account_name=account_name)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    account_name: str,
-    *,
-    client: AuthenticatedClient,
+    account_name: str, *, client: AuthenticatedClient
 ) -> AutomaticTagAvailable | None:
     """Get account available auto tags
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -96,21 +83,15 @@ def sync(
         AutomaticTagAvailable
     """
 
-    return sync_detailed(
-        account_name=account_name,
-        client=client,
-    ).parsed
+    return sync_detailed(account_name=account_name, client=client).parsed
 
 
 async def asyncio_detailed(
-    account_name: str,
-    *,
-    client: AuthenticatedClient,
+    account_name: str, *, client: AuthenticatedClient
 ) -> Response[AutomaticTagAvailable]:
     """Get account available auto tags
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -122,9 +103,7 @@ async def asyncio_detailed(
         Response[AutomaticTagAvailable]
     """
 
-    kwargs = _get_kwargs(
-        account_name=account_name,
-    )
+    kwargs = _get_kwargs(account_name=account_name)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -132,14 +111,11 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    account_name: str,
-    *,
-    client: AuthenticatedClient,
+    account_name: str, *, client: AuthenticatedClient
 ) -> AutomaticTagAvailable | None:
     """Get account available auto tags
 
-     **PeerTube >= 6.2**
-
+     **PeerTube > = 6.2**
     Args:
         account_name (str): Parameter for account name.
 
@@ -151,9 +127,4 @@ async def asyncio(
         AutomaticTagAvailable
     """
 
-    return (
-        await asyncio_detailed(
-            account_name=account_name,
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(account_name=account_name, client=client)).parsed

@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -32,6 +27,7 @@ class ServerConfigSearch:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         remote_uri: Unset | dict[str, Any] = UNSET
         if not isinstance(self.remote_uri, Unset):
             remote_uri = self.remote_uri.to_dict()
@@ -47,6 +43,7 @@ class ServerConfigSearch:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_search_remote_uri import (
             ServerConfigSearchRemoteUri,
         )
@@ -59,9 +56,7 @@ class ServerConfigSearch:
         else:
             remote_uri = ServerConfigSearchRemoteUri.from_dict(_remote_uri)
 
-        server_config_search = cls(
-            remote_uri=remote_uri,
-        )
+        server_config_search = cls(remote_uri=remote_uri)
 
         server_config_search.additional_properties = d
         return server_config_search
@@ -69,6 +64,7 @@ class ServerConfigSearch:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

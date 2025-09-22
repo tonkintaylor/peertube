@@ -1,9 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -46,6 +43,7 @@ class PostApiV1ConfigInstanceLogoLogoTypePickBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
+
         logofile: Unset | FileTypes = UNSET
         if not isinstance(self.logofile, Unset):
             logofile = self.logofile.to_tuple()
@@ -60,6 +58,7 @@ class PostApiV1ConfigInstanceLogoLogoTypePickBody:
 
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
+
         files: types.RequestFiles = []
 
         if not isinstance(self.logofile, Unset):
@@ -93,6 +92,7 @@ class PostApiV1ConfigInstanceLogoLogoTypePickBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         _logofile = d.pop("logofile", UNSET)
         logofile: Unset | File
@@ -101,9 +101,7 @@ class PostApiV1ConfigInstanceLogoLogoTypePickBody:
         else:
             logofile = File(payload=BytesIO(_logofile))
 
-        post_api_v1_config_instance_logo_logo_type_pick_body = cls(
-            logofile=logofile,
-        )
+        post_api_v1_config_instance_logo_logo_type_pick_body = cls(logofile=logofile)
 
         post_api_v1_config_instance_logo_logo_type_pick_body.additional_properties = d
         return post_api_v1_config_instance_logo_logo_type_pick_body
@@ -131,6 +129,7 @@ class PostApiV1ConfigInstanceLogoLogoTypePickBody:
         """Get additional property keys."""
         """Get additional property keys."""
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

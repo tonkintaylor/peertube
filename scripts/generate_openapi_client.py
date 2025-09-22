@@ -12,6 +12,7 @@ from pathlib import Path
 
 def generate_client() -> bool:
     """Generate the OpenAPI client from the specification."""
+
     repo_root = Path(__file__).parent.parent
     openapi_file = repo_root / "assets" / "openapi.json"
     output_dir = repo_root / "src" / "peertube" / "generated_client"

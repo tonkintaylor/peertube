@@ -27,13 +27,11 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     json_rating: Unset | str = UNSET
     if not isinstance(rating, Unset):
         json_rating = rating.value
 
     params["rating"] = json_rating
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -57,7 +55,6 @@ def _parse_response(
             response_200.append(response_200_item)
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -86,6 +83,7 @@ def sync_detailed(
 ) -> Response[list["VideoRating"]]:
     """List ratings of an account
 
+
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
         start (Union[Unset, int]): Starting index for pagination.
@@ -101,17 +99,9 @@ def sync_detailed(
         Response[list['VideoRating']]
     """
 
-    kwargs = _get_kwargs(
-        name=name,
-        start=start,
-        count=count,
-        sort=sort,
-        rating=rating,
-    )
+    kwargs = _get_kwargs(name=name, start=start, count=count, sort=sort, rating=rating)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -126,6 +116,7 @@ def sync(
     rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET,
 ) -> list["VideoRating"] | None:
     """List ratings of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -143,12 +134,7 @@ def sync(
     """
 
     return sync_detailed(
-        name=name,
-        client=client,
-        start=start,
-        count=count,
-        sort=sort,
-        rating=rating,
+        name=name, client=client, start=start, count=count, sort=sort, rating=rating
     ).parsed
 
 
@@ -162,6 +148,7 @@ async def asyncio_detailed(
     rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET,
 ) -> Response[list["VideoRating"]]:
     """List ratings of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -178,13 +165,7 @@ async def asyncio_detailed(
         Response[list['VideoRating']]
     """
 
-    kwargs = _get_kwargs(
-        name=name,
-        start=start,
-        count=count,
-        sort=sort,
-        rating=rating,
-    )
+    kwargs = _get_kwargs(name=name, start=start, count=count, sort=sort, rating=rating)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -201,6 +182,7 @@ async def asyncio(
     rating: Unset | GetApiV1AccountsNameRatingsRating = UNSET,
 ) -> list["VideoRating"] | None:
     """List ratings of an account
+
 
     Args:
         name (str):  Example: chocobozzz | chocobozzz@example.org.
@@ -219,11 +201,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            name=name,
-            client=client,
-            start=start,
-            count=count,
-            sort=sort,
-            rating=rating,
+            name=name, client=client, start=start, count=count, sort=sort, rating=rating
         )
     ).parsed

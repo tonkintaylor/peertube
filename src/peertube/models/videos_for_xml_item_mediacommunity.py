@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -36,6 +31,7 @@ class VideosForXMLItemMediacommunity:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         mediastatistics: Unset | dict[str, Any] = UNSET
         if not isinstance(self.mediastatistics, Unset):
             mediastatistics = self.mediastatistics.to_dict()
@@ -51,6 +47,7 @@ class VideosForXMLItemMediacommunity:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.videos_for_xml_item_mediacommunity_mediastatistics import (
             VideosForXMLItemMediacommunityMediastatistics,
         )
@@ -65,9 +62,7 @@ class VideosForXMLItemMediacommunity:
                 _mediastatistics
             )
 
-        videos_for_xml_item_mediacommunity = cls(
-            mediastatistics=mediastatistics,
-        )
+        videos_for_xml_item_mediacommunity = cls(mediastatistics=mediastatistics)
 
         videos_for_xml_item_mediacommunity.additional_properties = d
         return videos_for_xml_item_mediacommunity
@@ -75,6 +70,7 @@ class VideosForXMLItemMediacommunity:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

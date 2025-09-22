@@ -1,10 +1,10 @@
-from http import HTTPStatus
 from typing import Any, Union
 from uuid import UUID
 
 import httpx
 
 from peertube import errors
+from peertube.api.shared_utils import build_response
 from peertube.client import AuthenticatedClient, Client
 from peertube.models.add_intro import AddIntro
 from peertube.models.add_outro import AddOutro
@@ -40,7 +40,6 @@ def _parse_response(
 
     if response.status_code == 404:
         return None
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -50,12 +49,7 @@ def _parse_response(
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Response[Any]:
-    return Response(
-        status_code=HTTPStatus(response.status_code),
-        content=response.content,
-        headers=response.headers,
-        parsed=_parse_response(client=client, response=response),
-    )
+    return build_response(client=client, response=response)
 
 
 def sync_detailed(
@@ -65,7 +59,6 @@ def sync_detailed(
     body: list[Union["AddIntro", "AddOutro", "AddWatermark", "Cut"]],
 ) -> Response[Any]:
     """Create a studio task
-
      Create a task to edit a video  (cut, add intro/outro etc)
 
     Args:
@@ -80,16 +73,31 @@ def sync_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        body=body,
-    )
+    kwargs = _get_kwargs(id=id, body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
+
+
+def sync(
+    id: UUID | int | str,
+    *,
+    client: AuthenticatedClient,
+    body: list[Union["AddIntro", "AddOutro", "AddWatermark", "Cut"]],
+) -> Any | None:
+    """Create a studio task
+
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Any
+    """
+
+    return sync_detailed(id=id, client=client, body=body).parsed
 
 
 async def asyncio_detailed(
@@ -99,7 +107,6 @@ async def asyncio_detailed(
     body: list[Union["AddIntro", "AddOutro", "AddWatermark", "Cut"]],
 ) -> Response[Any]:
     """Create a studio task
-
      Create a task to edit a video  (cut, add intro/outro etc)
 
     Args:
@@ -114,10 +121,7 @@ async def asyncio_detailed(
         Response[Any]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        body=body,
-    )
+    kwargs = _get_kwargs(id=id, body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 

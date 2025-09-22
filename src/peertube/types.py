@@ -20,8 +20,9 @@ UNSET: Unset = Unset()
 FileContent = Union[IO[bytes], bytes, str]
 FileTypes = Union[
     # (filename, file (or bytes), content_type)
-    tuple[str | None, FileContent, str | None],
-    # (filename, file (or bytes), content_type, headers)
+    tuple[
+        str | None, FileContent, str | None
+    ],  # (filename, file (or bytes), content_type, headers)
     tuple[str | None, FileContent, str | None, Mapping[str, str]],
 ]
 RequestFiles = list[tuple[str, FileTypes]]
@@ -37,6 +38,7 @@ class File:
 
     def to_tuple(self) -> FileTypes:
         """Return a tuple representation that httpx will accept for multipart/form-data"""
+
         return self.file_name, self.payload, self.mime_type
 
 

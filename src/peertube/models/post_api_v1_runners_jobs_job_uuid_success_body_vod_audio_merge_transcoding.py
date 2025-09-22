@@ -1,9 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -25,6 +22,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         video_file: Unset | FileTypes = UNSET
         if not isinstance(self.video_file, Unset):
             video_file = self.video_file.to_tuple()
@@ -40,6 +38,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
         _video_file = d.pop("videoFile", UNSET)
         video_file: Unset | File
@@ -49,9 +48,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding:
             video_file = File(payload=BytesIO(_video_file))
 
         post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding = (
-            cls(
-                video_file=video_file,
-            )
+            cls(video_file=video_file)
         )
 
         post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding.additional_properties = d
@@ -62,6 +59,7 @@ class PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

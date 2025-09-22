@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -40,8 +35,7 @@ class ServerConfigCustomTranscoding:
     Attributes:
         enabled (Union[Unset, bool]):
         original_file (Union[Unset, ServerConfigCustomTranscodingOriginalFile]):
-        allow_additional_extensions (Union[Unset, bool]): Allow your users to upload .mkv, .mov, .avi, .wmv, .flv, .f4v,
-            .3g2, .3gp, .mts, m2ts, .mxf, .nut videos
+        allow_additional_extensions (Union[Unset, bool]): Allow your users to upload .mkv, .mov, .avi, .wmv, .flv, .f4v, .3g2, .3gp, .mts, m2ts, .mxf, .nut videos
         allow_audio_files (Union[Unset, bool]): If a user uploads an audio file, PeerTube will create a video by merging
             the preview file and the audio file
         threads (Union[Unset, int]): Amount of threads used by ffmpeg for 1 transcoding job
@@ -67,6 +61,7 @@ class ServerConfigCustomTranscoding:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         enabled = self.enabled
 
         original_file: Unset | dict[str, Any] = UNSET
@@ -126,6 +121,7 @@ class ServerConfigCustomTranscoding:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_custom_transcoding_hls import (
             ServerConfigCustomTranscodingHls,
         )
@@ -208,6 +204,7 @@ class ServerConfigCustomTranscoding:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

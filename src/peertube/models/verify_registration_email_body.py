@@ -19,6 +19,7 @@ class VerifyRegistrationEmailBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         verification_string = self.verification_string
 
         field_dict: dict[str, Any] = {}
@@ -34,12 +35,11 @@ class VerifyRegistrationEmailBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         verification_string = d.pop("verificationString")
 
-        verify_registration_email_body = cls(
-            verification_string=verification_string,
-        )
+        verify_registration_email_body = cls(verification_string=verification_string)
 
         verify_registration_email_body.additional_properties = d
         return verify_registration_email_body
@@ -47,6 +47,7 @@ class VerifyRegistrationEmailBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

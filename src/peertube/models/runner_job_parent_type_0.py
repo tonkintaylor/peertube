@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 from uuid import UUID
 
 from attrs import define as _attrs_define
@@ -38,6 +33,7 @@ class RunnerJobParentType0:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         type_: Unset | str = UNSET
         if not isinstance(self.type_, Unset):
             type_ = self.type_.value
@@ -65,6 +61,7 @@ class RunnerJobParentType0:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.runner_job_state_constant import RunnerJobStateConstant
 
         d = dict(src_dict)
@@ -89,11 +86,7 @@ class RunnerJobParentType0:
         else:
             uuid = UUID(_uuid)
 
-        runner_job_parent_type_0 = cls(
-            type_=type_,
-            state=state,
-            uuid=uuid,
-        )
+        runner_job_parent_type_0 = cls(type_=type_, state=state, uuid=uuid)
 
         runner_job_parent_type_0.additional_properties = d
         return runner_job_parent_type_0
@@ -101,6 +94,7 @@ class RunnerJobParentType0:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

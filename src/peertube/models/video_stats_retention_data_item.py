@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,6 +23,7 @@ class VideoStatsRetentionDataItem:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         second = self.second
 
         retention_percent = self.retention_percent
@@ -43,14 +41,14 @@ class VideoStatsRetentionDataItem:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         second = d.pop("second", UNSET)
 
         retention_percent = d.pop("retentionPercent", UNSET)
 
         video_stats_retention_data_item = cls(
-            second=second,
-            retention_percent=retention_percent,
+            second=second, retention_percent=retention_percent
         )
 
         video_stats_retention_data_item.additional_properties = d
@@ -59,6 +57,7 @@ class VideoStatsRetentionDataItem:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

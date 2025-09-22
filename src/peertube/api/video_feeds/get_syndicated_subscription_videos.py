@@ -40,7 +40,6 @@ def _get_kwargs(
     params["token"] = token
 
     params["sort"] = sort
-
     json_nsfw: Unset | str = UNSET
     if not isinstance(nsfw, Unset):
         json_nsfw = nsfw.value
@@ -48,13 +47,11 @@ def _get_kwargs(
     params["nsfw"] = json_nsfw
 
     params["isLocal"] = is_local
-
     json_include: Unset | int = UNSET
     if not isinstance(include, Unset):
         json_include = include.value
 
     params["include"] = json_include
-
     json_privacy_one_of: Unset | int = UNSET
     if not isinstance(privacy_one_of, Unset):
         json_privacy_one_of = privacy_one_of.value
@@ -64,7 +61,6 @@ def _get_kwargs(
     params["hasHLSFiles"] = has_hls_files
 
     params["hasWebVideoFiles"] = has_web_video_files
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -90,11 +86,9 @@ def _parse_response(
             response_200.append(componentsschemas_videos_for_xml_item)
 
         return response_200
-
     if response.status_code == 406:
         response_406 = cast("Any", None)
         return response_406
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -127,6 +121,7 @@ def sync_detailed(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Response[Any | list["VideosForXMLItem"]]:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
@@ -162,9 +157,7 @@ def sync_detailed(
         has_web_video_files=has_web_video_files,
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -184,6 +177,7 @@ def sync(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Any | list["VideosForXMLItem"] | None:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
@@ -236,6 +230,7 @@ async def asyncio_detailed(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Response[Any | list["VideosForXMLItem"]]:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).
@@ -291,6 +286,7 @@ async def asyncio(
     has_web_video_files: Unset | bool = UNSET,
 ) -> Any | list["VideosForXMLItem"] | None:
     """Videos of subscriptions feeds
+
 
     Args:
         format_ (GetSyndicatedSubscriptionVideosFormat): Parameter for format (underscore avoids keyword conflict).

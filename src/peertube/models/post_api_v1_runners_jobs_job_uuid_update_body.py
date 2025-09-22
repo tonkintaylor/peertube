@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -38,6 +33,7 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         runner_token = self.runner_token
 
         job_token = self.job_token
@@ -68,6 +64,7 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.post_api_v1_runners_jobs_job_uuid_update_body_payload_type_0 import (
             PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0,
         )
@@ -107,6 +104,7 @@ class PostApiV1RunnersJobsJobUUIDUpdateBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

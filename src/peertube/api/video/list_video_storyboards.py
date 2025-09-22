@@ -12,9 +12,7 @@ from peertube.models.list_video_storyboards_response_200 import (
 from peertube.types import Response
 
 
-def _get_kwargs(
-    id: UUID | int | str,
-) -> dict[str, Any]:
+def _get_kwargs(id: UUID | int | str) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/videos/{id}/storyboards",
@@ -30,7 +28,6 @@ def _parse_response(
         response_200 = ListVideoStoryboardsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -49,14 +46,11 @@ def _build_response(
 
 
 def sync_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
+    id: UUID | int | str, *, client: AuthenticatedClient | Client
 ) -> Response[ListVideoStoryboardsResponse200]:
     """List storyboards of a video
 
-     **PeerTube >= 6.0**
-
+     **PeerTube > = 6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -68,26 +62,19 @@ def sync_detailed(
         Response[ListVideoStoryboardsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-    )
+    kwargs = _get_kwargs(id=id)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
+    id: UUID | int | str, *, client: AuthenticatedClient | Client
 ) -> ListVideoStoryboardsResponse200 | None:
     """List storyboards of a video
 
-     **PeerTube >= 6.0**
-
+     **PeerTube > = 6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -99,21 +86,15 @@ def sync(
         ListVideoStoryboardsResponse200
     """
 
-    return sync_detailed(
-        id=id,
-        client=client,
-    ).parsed
+    return sync_detailed(id=id, client=client).parsed
 
 
 async def asyncio_detailed(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
+    id: UUID | int | str, *, client: AuthenticatedClient | Client
 ) -> Response[ListVideoStoryboardsResponse200]:
     """List storyboards of a video
 
-     **PeerTube >= 6.0**
-
+     **PeerTube > = 6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -125,9 +106,7 @@ async def asyncio_detailed(
         Response[ListVideoStoryboardsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-    )
+    kwargs = _get_kwargs(id=id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -135,14 +114,11 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    id: UUID | int | str,
-    *,
-    client: AuthenticatedClient | Client,
+    id: UUID | int | str, *, client: AuthenticatedClient | Client
 ) -> ListVideoStoryboardsResponse200 | None:
     """List storyboards of a video
 
-     **PeerTube >= 6.0**
-
+     **PeerTube > = 6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
 
@@ -154,9 +130,4 @@ async def asyncio(
         ListVideoStoryboardsResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            id=id,
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(id=id, client=client)).parsed

@@ -11,9 +11,7 @@ from peertube.models.get_latest_user_import_response_200 import (
 from peertube.types import Response
 
 
-def _get_kwargs(
-    user_id: int,
-) -> dict[str, Any]:
+def _get_kwargs(user_id: int) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/users/{user_id}/imports/latest",
@@ -29,7 +27,6 @@ def _parse_response(
         response_200 = GetLatestUserImportResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -48,14 +45,11 @@ def _build_response(
 
 
 def sync_detailed(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
+    user_id: int, *, client: AuthenticatedClient
 ) -> Response[GetLatestUserImportResponse200]:
     """Get latest user import
 
-     **PeerTube >= 6.1**
-
+     **PeerTube > = 6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -67,26 +61,19 @@ def sync_detailed(
         Response[GetLatestUserImportResponse200]
     """
 
-    kwargs = _get_kwargs(
-        user_id=user_id,
-    )
+    kwargs = _get_kwargs(user_id=user_id)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
+    user_id: int, *, client: AuthenticatedClient
 ) -> GetLatestUserImportResponse200 | None:
     """Get latest user import
 
-     **PeerTube >= 6.1**
-
+     **PeerTube > = 6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -98,21 +85,15 @@ def sync(
         GetLatestUserImportResponse200
     """
 
-    return sync_detailed(
-        user_id=user_id,
-        client=client,
-    ).parsed
+    return sync_detailed(user_id=user_id, client=client).parsed
 
 
 async def asyncio_detailed(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
+    user_id: int, *, client: AuthenticatedClient
 ) -> Response[GetLatestUserImportResponse200]:
     """Get latest user import
 
-     **PeerTube >= 6.1**
-
+     **PeerTube > = 6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -124,9 +105,7 @@ async def asyncio_detailed(
         Response[GetLatestUserImportResponse200]
     """
 
-    kwargs = _get_kwargs(
-        user_id=user_id,
-    )
+    kwargs = _get_kwargs(user_id=user_id)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -134,14 +113,11 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    user_id: int,
-    *,
-    client: AuthenticatedClient,
+    user_id: int, *, client: AuthenticatedClient
 ) -> GetLatestUserImportResponse200 | None:
     """Get latest user import
 
-     **PeerTube >= 6.1**
-
+     **PeerTube > = 6.1**
     Args:
         user_id (int):  Example: 42.
 
@@ -153,9 +129,4 @@ async def asyncio(
         GetLatestUserImportResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            user_id=user_id,
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(user_id=user_id, client=client)).parsed

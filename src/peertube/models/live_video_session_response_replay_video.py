@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 from uuid import UUID
 
 from attrs import define as _attrs_define
@@ -32,6 +29,7 @@ class LiveVideoSessionResponseReplayVideo:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         id = self.id
 
         uuid: Unset | str = UNSET
@@ -55,6 +53,7 @@ class LiveVideoSessionResponseReplayVideo:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         id = d.pop("id", UNSET)
 
@@ -68,9 +67,7 @@ class LiveVideoSessionResponseReplayVideo:
         short_uuid = d.pop("shortUUID", UNSET)
 
         live_video_session_response_replay_video = cls(
-            id=id,
-            uuid=uuid,
-            short_uuid=short_uuid,
+            id=id, uuid=uuid, short_uuid=short_uuid
         )
 
         live_video_session_response_replay_video.additional_properties = d
@@ -79,6 +76,7 @@ class LiveVideoSessionResponseReplayVideo:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

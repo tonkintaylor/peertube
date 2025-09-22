@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class VODWebVideoTranscodingInput:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         video_file_url = self.video_file_url
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class VODWebVideoTranscodingInput:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         video_file_url = d.pop("videoFileUrl", UNSET)
 
-        vod_web_video_transcoding_input = cls(
-            video_file_url=video_file_url,
-        )
+        vod_web_video_transcoding_input = cls(video_file_url=video_file_url)
 
         vod_web_video_transcoding_input.additional_properties = d
         return vod_web_video_transcoding_input
@@ -50,6 +47,7 @@ class VODWebVideoTranscodingInput:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

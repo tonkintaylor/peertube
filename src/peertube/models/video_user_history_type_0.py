@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class VideoUserHistoryType0:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         current_time = self.current_time
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class VideoUserHistoryType0:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         current_time = d.pop("currentTime", UNSET)
 
-        video_user_history_type_0 = cls(
-            current_time=current_time,
-        )
+        video_user_history_type_0 = cls(current_time=current_time)
 
         video_user_history_type_0.additional_properties = d
         return video_user_history_type_0
@@ -50,6 +47,7 @@ class VideoUserHistoryType0:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

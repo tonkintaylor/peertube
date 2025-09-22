@@ -26,13 +26,11 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -56,7 +54,6 @@ def _parse_response(
             response_200.append(response_200_item)
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -84,6 +81,7 @@ def sync_detailed(
 ) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
 
+
     Args:
         target (GetMirroredVideosTarget): Parameter for target.
         start (Union[Unset, int]): Starting index for pagination.
@@ -98,16 +96,9 @@ def sync_detailed(
         Response[list['VideoRedundancy']]
     """
 
-    kwargs = _get_kwargs(
-        target=target,
-        start=start,
-        count=count,
-        sort=sort,
-    )
+    kwargs = _get_kwargs(target=target, start=start, count=count, sort=sort)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -121,6 +112,7 @@ def sync(
     sort: Unset | GetMirroredVideosSort = UNSET,
 ) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
+
 
     Args:
         target (GetMirroredVideosTarget): Parameter for target.
@@ -137,11 +129,7 @@ def sync(
     """
 
     return sync_detailed(
-        client=client,
-        target=target,
-        start=start,
-        count=count,
-        sort=sort,
+        client=client, target=target, start=start, count=count, sort=sort
     ).parsed
 
 
@@ -154,6 +142,7 @@ async def asyncio_detailed(
     sort: Unset | GetMirroredVideosSort = UNSET,
 ) -> Response[list["VideoRedundancy"]]:
     """List videos being mirrored
+
 
     Args:
         target (GetMirroredVideosTarget): Parameter for target.
@@ -169,12 +158,7 @@ async def asyncio_detailed(
         Response[list['VideoRedundancy']]
     """
 
-    kwargs = _get_kwargs(
-        target=target,
-        start=start,
-        count=count,
-        sort=sort,
-    )
+    kwargs = _get_kwargs(target=target, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -190,6 +174,7 @@ async def asyncio(
     sort: Unset | GetMirroredVideosSort = UNSET,
 ) -> list["VideoRedundancy"] | None:
     """List videos being mirrored
+
 
     Args:
         target (GetMirroredVideosTarget): Parameter for target.
@@ -207,10 +192,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client=client,
-            target=target,
-            start=start,
-            count=count,
-            sort=sort,
+            client=client, target=target, start=start, count=count, sort=sort
         )
     ).parsed

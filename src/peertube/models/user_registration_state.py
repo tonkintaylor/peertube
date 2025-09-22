@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -17,8 +14,7 @@ T = TypeVar("T", bound="UserRegistrationState")
 @_attrs_define
 class UserRegistrationState:
     """Attributes:
-    id (Union[Unset, UserRegistrationStateId]): The registration state (Pending = `1`, Rejected = `2`, Accepted =
-        `3`)
+    id (Union[Unset, UserRegistrationStateId]): The registration state (Pending=`1`, Rejected=`2`, Accepted=`3`)
     label (Union[Unset, str]):
     """
 
@@ -28,6 +24,7 @@ class UserRegistrationState:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         id: Unset | int = UNSET
         if not isinstance(self.id, Unset):
             id = self.id.value
@@ -47,6 +44,7 @@ class UserRegistrationState:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         _id = d.pop("id", UNSET)
         id: Unset | UserRegistrationStateId
@@ -57,10 +55,7 @@ class UserRegistrationState:
 
         label = d.pop("label", UNSET)
 
-        user_registration_state = cls(
-            id=id,
-            label=label,
-        )
+        user_registration_state = cls(id=id, label=label)
 
         user_registration_state.additional_properties = d
         return user_registration_state
@@ -68,6 +63,7 @@ class UserRegistrationState:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

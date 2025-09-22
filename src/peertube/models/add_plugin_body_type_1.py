@@ -17,6 +17,7 @@ class AddPluginBodyType1:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         path = self.path
 
         field_dict: dict[str, Any] = {}
@@ -32,11 +33,10 @@ class AddPluginBodyType1:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         path = d.pop("path")
 
-        add_plugin_body_type_1 = cls(
-            path=path,
-        )
+        add_plugin_body_type_1 = cls(path=path)
 
         return add_plugin_body_type_1

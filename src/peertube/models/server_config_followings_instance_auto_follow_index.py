@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class ServerConfigFollowingsInstanceAutoFollowIndex:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         index_url = self.index_url
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class ServerConfigFollowingsInstanceAutoFollowIndex:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         index_url = d.pop("indexUrl", UNSET)
 
-        server_config_followings_instance_auto_follow_index = cls(
-            index_url=index_url,
-        )
+        server_config_followings_instance_auto_follow_index = cls(index_url=index_url)
 
         server_config_followings_instance_auto_follow_index.additional_properties = d
         return server_config_followings_instance_auto_follow_index
@@ -50,6 +47,7 @@ class ServerConfigFollowingsInstanceAutoFollowIndex:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,6 +23,7 @@ class ServerConfigViewsViewsWatchingInterval:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         anonymous = self.anonymous
 
         users = self.users
@@ -43,14 +41,14 @@ class ServerConfigViewsViewsWatchingInterval:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         anonymous = d.pop("anonymous", UNSET)
 
         users = d.pop("users", UNSET)
 
         server_config_views_views_watching_interval = cls(
-            anonymous=anonymous,
-            users=users,
+            anonymous=anonymous, users=users
         )
 
         server_config_views_views_watching_interval.additional_properties = d
@@ -59,6 +57,7 @@ class ServerConfigViewsViewsWatchingInterval:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

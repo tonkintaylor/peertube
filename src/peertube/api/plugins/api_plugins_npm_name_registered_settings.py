@@ -11,9 +11,7 @@ from peertube.models.get_api_v1_plugins_npm_name_registered_settings_response_20
 from peertube.types import Response
 
 
-def _get_kwargs(
-    npm_name: str,
-) -> dict[str, Any]:
+def _get_kwargs(npm_name: str) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "get",
         "url": f"/api/v1/plugins/{npm_name}/registered-settings",
@@ -31,11 +29,9 @@ def _parse_response(
         )
 
         return response_200
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -54,11 +50,10 @@ def _build_response(
 
 
 def sync_detailed(
-    npm_name: str,
-    *,
-    client: AuthenticatedClient,
+    npm_name: str, *, client: AuthenticatedClient
 ) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
     """Get a plugin's registered settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
@@ -71,23 +66,18 @@ def sync_detailed(
         Response[Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]]
     """
 
-    kwargs = _get_kwargs(
-        npm_name=npm_name,
-    )
+    kwargs = _get_kwargs(npm_name=npm_name)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    npm_name: str,
-    *,
-    client: AuthenticatedClient,
+    npm_name: str, *, client: AuthenticatedClient
 ) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
     """Get a plugin's registered settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
@@ -100,18 +90,14 @@ def sync(
         Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]
     """
 
-    return sync_detailed(
-        npm_name=npm_name,
-        client=client,
-    ).parsed
+    return sync_detailed(npm_name=npm_name, client=client).parsed
 
 
 async def asyncio_detailed(
-    npm_name: str,
-    *,
-    client: AuthenticatedClient,
+    npm_name: str, *, client: AuthenticatedClient
 ) -> Response[Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200]:
     """Get a plugin's registered settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
@@ -124,9 +110,7 @@ async def asyncio_detailed(
         Response[Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]]
     """
 
-    kwargs = _get_kwargs(
-        npm_name=npm_name,
-    )
+    kwargs = _get_kwargs(npm_name=npm_name)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -134,11 +118,10 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    npm_name: str,
-    *,
-    client: AuthenticatedClient,
+    npm_name: str, *, client: AuthenticatedClient
 ) -> Any | GetApiV1PluginsNpmNameRegisteredSettingsResponse200 | None:
     """Get a plugin's registered settings
+
 
     Args:
         npm_name (str):  Example: peertube-plugin-auth-ldap.
@@ -151,9 +134,4 @@ async def asyncio(
         Union[Any, GetApiV1PluginsNpmNameRegisteredSettingsResponse200]
     """
 
-    return (
-        await asyncio_detailed(
-            npm_name=npm_name,
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(npm_name=npm_name, client=client)).parsed

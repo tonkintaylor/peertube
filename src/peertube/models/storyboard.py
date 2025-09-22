@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -34,6 +31,7 @@ class Storyboard:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         storyboard_path = self.storyboard_path
 
         total_height = self.total_height
@@ -67,6 +65,7 @@ class Storyboard:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         storyboard_path = d.pop("storyboardPath", UNSET)
 
@@ -95,6 +94,7 @@ class Storyboard:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

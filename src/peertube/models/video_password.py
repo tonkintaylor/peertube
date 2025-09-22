@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -28,6 +25,7 @@ class VideoPassword:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         id = self.id
 
         password = self.password
@@ -49,6 +47,7 @@ class VideoPassword:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
         id = d.pop("id", UNSET)
 
@@ -56,11 +55,7 @@ class VideoPassword:
 
         video_id = d.pop("videoId", UNSET)
 
-        video_password = cls(
-            id=id,
-            password=password,
-            video_id=video_id,
-        )
+        video_password = cls(id=id, password=password, video_id=video_id)
 
         video_password.additional_properties = d
         return video_password
@@ -68,6 +63,7 @@ class VideoPassword:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

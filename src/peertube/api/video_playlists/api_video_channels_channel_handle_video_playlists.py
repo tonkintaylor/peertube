@@ -27,13 +27,11 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     json_playlist_type: Unset | int = UNSET
     if not isinstance(playlist_type, Unset):
         json_playlist_type = playlist_type.value
 
     params["playlistType"] = json_playlist_type
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -56,7 +54,6 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -85,13 +82,13 @@ def sync_detailed(
 ) -> Response[GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200]:
     """List playlists of a channel
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
-            `1`, Watch Later = `2`)
+        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular = `1`, Watch Later=`2`)
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -109,9 +106,7 @@ def sync_detailed(
         playlist_type=playlist_type,
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -127,13 +122,13 @@ def sync(
 ) -> GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200 | None:
     """List playlists of a channel
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
-            `1`, Watch Later = `2`)
+        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular = `1`, Watch Later=`2`)
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -164,13 +159,13 @@ async def asyncio_detailed(
 ) -> Response[GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200]:
     """List playlists of a channel
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
-            `1`, Watch Later = `2`)
+        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular = `1`, Watch Later=`2`)
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -204,13 +199,13 @@ async def asyncio(
 ) -> GetApiV1VideoChannelsChannelHandleVideoPlaylistsResponse200 | None:
     """List playlists of a channel
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
         sort (Union[Unset, str]):  Example: -createdAt.
-        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular =
-            `1`, Watch Later = `2`)
+        playlist_type (Union[Unset, VideoPlaylistTypeSet]): The video playlist type (Regular = `1`, Watch Later=`2`)
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

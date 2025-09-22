@@ -19,6 +19,7 @@ class UninstallPluginBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         npm_name = self.npm_name
 
         field_dict: dict[str, Any] = {}
@@ -34,12 +35,11 @@ class UninstallPluginBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         npm_name = d.pop("npmName")
 
-        uninstall_plugin_body = cls(
-            npm_name=npm_name,
-        )
+        uninstall_plugin_body = cls(npm_name=npm_name)
 
         uninstall_plugin_body.additional_properties = d
         return uninstall_plugin_body
@@ -47,6 +47,7 @@ class UninstallPluginBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

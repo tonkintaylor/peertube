@@ -24,7 +24,6 @@ def _get_kwargs(
     params["count"] = count
 
     params["sort"] = sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -43,11 +42,9 @@ def _parse_response(
         response_204 = VideoPasswordList.from_dict(response.json())
 
         return response_204
-
     if response.status_code == 400:
         response_400 = cast("Any", None)
         return response_400
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -75,8 +72,7 @@ def sync_detailed(
 ) -> Response[Any | VideoPasswordList]:
     """List video passwords
 
-     **PeerTube >= 6.0**
-
+     **PeerTube >=6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -91,16 +87,9 @@ def sync_detailed(
         Response[Union[Any, VideoPasswordList]]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        start=start,
-        count=count,
-        sort=sort,
-    )
+    kwargs = _get_kwargs(id=id, start=start, count=count, sort=sort)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -115,8 +104,7 @@ def sync(
 ) -> Any | VideoPasswordList | None:
     """List video passwords
 
-     **PeerTube >= 6.0**
-
+     **PeerTube >=6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -132,11 +120,7 @@ def sync(
     """
 
     return sync_detailed(
-        id=id,
-        client=client,
-        start=start,
-        count=count,
-        sort=sort,
+        id=id, client=client, start=start, count=count, sort=sort
     ).parsed
 
 
@@ -150,8 +134,7 @@ async def asyncio_detailed(
 ) -> Response[Any | VideoPasswordList]:
     """List video passwords
 
-     **PeerTube >= 6.0**
-
+     **PeerTube >=6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -166,12 +149,7 @@ async def asyncio_detailed(
         Response[Union[Any, VideoPasswordList]]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        start=start,
-        count=count,
-        sort=sort,
-    )
+    kwargs = _get_kwargs(id=id, start=start, count=count, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -188,8 +166,7 @@ async def asyncio(
 ) -> Any | VideoPasswordList | None:
     """List video passwords
 
-     **PeerTube >= 6.0**
-
+     **PeerTube >=6.0**
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start (Union[Unset, int]): Starting index for pagination.
@@ -206,10 +183,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id=id,
-            client=client,
-            start=start,
-            count=count,
-            sort=sort,
+            id=id, client=client, start=start, count=count, sort=sort
         )
     ).parsed

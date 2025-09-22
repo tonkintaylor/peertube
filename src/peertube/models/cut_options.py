@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,6 +23,7 @@ class CutOptions:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         start = self.start
 
         end = self.end
@@ -43,15 +41,13 @@ class CutOptions:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         start = d.pop("start", UNSET)
 
         end = d.pop("end", UNSET)
 
-        cut_options = cls(
-            start=start,
-            end=end,
-        )
+        cut_options = cls(start=start, end=end)
 
         cut_options.additional_properties = d
         return cut_options
@@ -59,6 +55,7 @@ class CutOptions:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

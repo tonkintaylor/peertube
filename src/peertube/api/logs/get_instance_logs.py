@@ -24,7 +24,6 @@ def _parse_response(
         response_200 = cast("list[str]", response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -42,11 +41,9 @@ def _build_response(
     )
 
 
-def sync_detailed(
-    *,
-    client: AuthenticatedClient,
-) -> Response[list[str]]:
+def sync_detailed(*, client: AuthenticatedClient) -> Response[list[str]]:
     """Get instance logs
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -58,18 +55,14 @@ def sync_detailed(
 
     kwargs = _get_kwargs()
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
-def sync(
-    *,
-    client: AuthenticatedClient,
-) -> list[str] | None:
+def sync(*, client: AuthenticatedClient) -> list[str] | None:
     """Get instance logs
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -79,16 +72,12 @@ def sync(
         list[str]
     """
 
-    return sync_detailed(
-        client=client,
-    ).parsed
+    return sync_detailed(client=client).parsed
 
 
-async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient,
-) -> Response[list[str]]:
+async def asyncio_detailed(*, client: AuthenticatedClient) -> Response[list[str]]:
     """Get instance logs
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -105,11 +94,9 @@ async def asyncio_detailed(
     return _build_response(client=client, response=response)
 
 
-async def asyncio(
-    *,
-    client: AuthenticatedClient,
-) -> list[str] | None:
+async def asyncio(*, client: AuthenticatedClient) -> list[str] | None:
     """Get instance logs
+
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -119,8 +106,4 @@ async def asyncio(
         list[str]
     """
 
-    return (
-        await asyncio_detailed(
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(client=client)).parsed

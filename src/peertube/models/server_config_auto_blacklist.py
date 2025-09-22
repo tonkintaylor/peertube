@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -32,6 +27,7 @@ class ServerConfigAutoBlacklist:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         videos: Unset | dict[str, Any] = UNSET
         if not isinstance(self.videos, Unset):
             videos = self.videos.to_dict()
@@ -47,6 +43,7 @@ class ServerConfigAutoBlacklist:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_auto_blacklist_videos import (
             ServerConfigAutoBlacklistVideos,
         )
@@ -59,9 +56,7 @@ class ServerConfigAutoBlacklist:
         else:
             videos = ServerConfigAutoBlacklistVideos.from_dict(_videos)
 
-        server_config_auto_blacklist = cls(
-            videos=videos,
-        )
+        server_config_auto_blacklist = cls(videos=videos)
 
         server_config_auto_blacklist.additional_properties = d
         return server_config_auto_blacklist
@@ -69,6 +64,7 @@ class ServerConfigAutoBlacklist:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

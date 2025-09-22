@@ -1,9 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -45,6 +42,7 @@ class AddVideoCaptionBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
         """Convert to dictionary."""
+
         captionfile: Unset | FileTypes = UNSET
         if not isinstance(self.captionfile, Unset):
             captionfile = self.captionfile.to_tuple()
@@ -59,6 +57,7 @@ class AddVideoCaptionBody:
 
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
+
         files: types.RequestFiles = []
 
         if not isinstance(self.captionfile, Unset):
@@ -91,6 +90,7 @@ class AddVideoCaptionBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
         """Create from dictionary."""
+
         d = dict(src_dict)
         _captionfile = d.pop("captionfile", UNSET)
         captionfile: Unset | File
@@ -99,9 +99,7 @@ class AddVideoCaptionBody:
         else:
             captionfile = File(payload=BytesIO(_captionfile))
 
-        add_video_caption_body = cls(
-            captionfile=captionfile,
-        )
+        add_video_caption_body = cls(captionfile=captionfile)
 
         add_video_caption_body.additional_properties = d
         return add_video_caption_body
@@ -128,6 +126,7 @@ class AddVideoCaptionBody:
         """Get additional property keys."""
         """Get additional property keys."""
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

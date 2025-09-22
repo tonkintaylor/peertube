@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,6 +23,7 @@ class ServerConfigInstanceCustomizations:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         javascript = self.javascript
 
         css = self.css
@@ -43,15 +41,13 @@ class ServerConfigInstanceCustomizations:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         javascript = d.pop("javascript", UNSET)
 
         css = d.pop("css", UNSET)
 
-        server_config_instance_customizations = cls(
-            javascript=javascript,
-            css=css,
-        )
+        server_config_instance_customizations = cls(javascript=javascript, css=css)
 
         server_config_instance_customizations.additional_properties = d
         return server_config_instance_customizations
@@ -59,6 +55,7 @@ class ServerConfigInstanceCustomizations:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

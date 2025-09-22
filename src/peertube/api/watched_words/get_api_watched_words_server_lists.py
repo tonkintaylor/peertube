@@ -29,7 +29,6 @@ def _parse_response(
         )
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -48,12 +47,11 @@ def _build_response(
 
 
 def sync_detailed(
-    *,
-    client: AuthenticatedClient,
+    *, client: AuthenticatedClient
 ) -> Response[GetApiV1WatchedWordsServerListsResponse200]:
     """List server watched words
 
-     **PeerTube >= 6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -65,20 +63,17 @@ def sync_detailed(
 
     kwargs = _get_kwargs()
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    *,
-    client: AuthenticatedClient,
+    *, client: AuthenticatedClient
 ) -> GetApiV1WatchedWordsServerListsResponse200 | None:
     """List server watched words
 
-     **PeerTube >= 6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -88,18 +83,15 @@ def sync(
         GetApiV1WatchedWordsServerListsResponse200
     """
 
-    return sync_detailed(
-        client=client,
-    ).parsed
+    return sync_detailed(client=client).parsed
 
 
 async def asyncio_detailed(
-    *,
-    client: AuthenticatedClient,
+    *, client: AuthenticatedClient
 ) -> Response[GetApiV1WatchedWordsServerListsResponse200]:
     """List server watched words
 
-     **PeerTube >= 6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,12 +109,11 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    *,
-    client: AuthenticatedClient,
+    *, client: AuthenticatedClient
 ) -> GetApiV1WatchedWordsServerListsResponse200 | None:
     """List server watched words
 
-     **PeerTube >= 6.2**
+     **PeerTube > = 6.2**
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -132,8 +123,4 @@ async def asyncio(
         GetApiV1WatchedWordsServerListsResponse200
     """
 
-    return (
-        await asyncio_detailed(
-            client=client,
-        )
-    ).parsed
+    return (await asyncio_detailed(client=client)).parsed

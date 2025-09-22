@@ -9,4 +9,5 @@ pytest_plugins = []
 @pytest.fixture(scope="session")
 def assets_dir() -> Path:
     """Return a path to the test assets directory."""
+
     return Path(__file__).parent / "assets"

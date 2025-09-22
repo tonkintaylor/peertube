@@ -10,18 +10,13 @@ from peertube.models.request_two_factor_response import RequestTwoFactorResponse
 from peertube.types import Response
 
 
-def _get_kwargs(
-    id: int,
-    *,
-    body: RequestTwoFactorBody,
-) -> dict[str, Any]:
+def _get_kwargs(id: int, *, body: RequestTwoFactorBody) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any] = {
         "method": "post",
         "url": f"/api/v1/users/{id}/two-factor/request",
     }
-
     _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
@@ -44,15 +39,12 @@ def _parse_response(
             response_200.append(response_200_item)
 
         return response_200
-
     if response.status_code == 403:
         response_403 = cast("Any", None)
         return response_403
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -71,15 +63,11 @@ def _build_response(
 
 
 def sync_detailed(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody
 ) -> Response[Any | list["RequestTwoFactorResponse"]]:
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -92,28 +80,19 @@ def sync_detailed(
         Response[Union[Any, list['RequestTwoFactorResponse']]]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        body=body,
-    )
+    kwargs = _get_kwargs(id=id, body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 def sync(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody
 ) -> Any | list["RequestTwoFactorResponse"] | None:
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -126,23 +105,15 @@ def sync(
         Union[Any, list['RequestTwoFactorResponse']]
     """
 
-    return sync_detailed(
-        id=id,
-        client=client,
-        body=body,
-    ).parsed
+    return sync_detailed(id=id, client=client, body=body).parsed
 
 
 async def asyncio_detailed(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody
 ) -> Response[Any | list["RequestTwoFactorResponse"]]:
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -155,10 +126,7 @@ async def asyncio_detailed(
         Response[Union[Any, list['RequestTwoFactorResponse']]]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        body=body,
-    )
+    kwargs = _get_kwargs(id=id, body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -166,15 +134,11 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    id: int,
-    *,
-    client: AuthenticatedClient,
-    body: RequestTwoFactorBody,
+    id: int, *, client: AuthenticatedClient, body: RequestTwoFactorBody
 ) -> Any | list["RequestTwoFactorResponse"] | None:
     """Request two factor auth
 
      Request two factor authentication for a user
-
     Args:
         id (int):  Example: 42.
         body (RequestTwoFactorBody): Request body data.
@@ -187,10 +151,4 @@ async def asyncio(
         Union[Any, list['RequestTwoFactorResponse']]
     """
 
-    return (
-        await asyncio_detailed(
-            id=id,
-            client=client,
-            body=body,
-        )
-    ).parsed
+    return (await asyncio_detailed(id=id, client=client, body=body)).parsed

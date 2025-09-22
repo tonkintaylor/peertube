@@ -15,9 +15,7 @@ from peertube.types import Response
 
 
 def _get_kwargs(
-    channel_handle: str,
-    *,
-    body: PostApiV1VideoChannelsChannelHandleAvatarPickBody,
+    channel_handle: str, *, body: PostApiV1VideoChannelsChannelHandleAvatarPickBody
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -25,7 +23,6 @@ def _get_kwargs(
         "method": "post",
         "url": f"/api/v1/video-channels/{channel_handle}/avatar/pick",
     }
-
     _kwargs["files"] = body.to_multipart()
 
     _kwargs["headers"] = headers
@@ -43,11 +40,9 @@ def _parse_response(
         )
 
         return response_200
-
     if response.status_code == 413:
         response_413 = cast("Any", None)
         return response_413
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -73,6 +68,7 @@ def sync_detailed(
 ) -> Response[Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200]:
     """Update channel avatar
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         body (PostApiV1VideoChannelsChannelHandleAvatarPickBody): Request body data.
@@ -85,14 +81,9 @@ def sync_detailed(
         Response[Union[Any, PostApiV1VideoChannelsChannelHandleAvatarPickResponse200]]
     """
 
-    kwargs = _get_kwargs(
-        channel_handle=channel_handle,
-        body=body,
-    )
+    kwargs = _get_kwargs(channel_handle=channel_handle, body=body)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -104,6 +95,7 @@ def sync(
     body: PostApiV1VideoChannelsChannelHandleAvatarPickBody,
 ) -> Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200 | None:
     """Update channel avatar
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -117,11 +109,7 @@ def sync(
         Union[Any, PostApiV1VideoChannelsChannelHandleAvatarPickResponse200]
     """
 
-    return sync_detailed(
-        channel_handle=channel_handle,
-        client=client,
-        body=body,
-    ).parsed
+    return sync_detailed(channel_handle=channel_handle, client=client, body=body).parsed
 
 
 async def asyncio_detailed(
@@ -131,6 +119,7 @@ async def asyncio_detailed(
     body: PostApiV1VideoChannelsChannelHandleAvatarPickBody,
 ) -> Response[Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200]:
     """Update channel avatar
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -144,10 +133,7 @@ async def asyncio_detailed(
         Response[Union[Any, PostApiV1VideoChannelsChannelHandleAvatarPickResponse200]]
     """
 
-    kwargs = _get_kwargs(
-        channel_handle=channel_handle,
-        body=body,
-    )
+    kwargs = _get_kwargs(channel_handle=channel_handle, body=body)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -162,6 +148,7 @@ async def asyncio(
 ) -> Any | PostApiV1VideoChannelsChannelHandleAvatarPickResponse200 | None:
     """Update channel avatar
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         body (PostApiV1VideoChannelsChannelHandleAvatarPickBody): Request body data.
@@ -175,9 +162,5 @@ async def asyncio(
     """
 
     return (
-        await asyncio_detailed(
-            channel_handle=channel_handle,
-            client=client,
-            body=body,
-        )
+        await asyncio_detailed(channel_handle=channel_handle, client=client, body=body)
     ).parsed

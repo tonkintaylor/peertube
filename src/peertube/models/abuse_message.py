@@ -1,11 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -40,6 +35,7 @@ class AbuseMessage:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         id = self.id
 
         message = self.message
@@ -73,6 +69,7 @@ class AbuseMessage:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.account_summary import AccountSummary
 
         d = dict(src_dict)
@@ -110,6 +107,7 @@ class AbuseMessage:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

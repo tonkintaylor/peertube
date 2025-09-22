@@ -27,7 +27,6 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_search_target: Unset | str = UNSET
     if not isinstance(search_target, Unset):
         json_search_target = search_target.value
@@ -39,7 +38,6 @@ def _get_kwargs(
     params["host"] = host
 
     params["uuids"] = uuids
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -58,11 +56,9 @@ def _parse_response(
         response_200 = SearchPlaylistsResponse200.from_dict(response.json())
 
         return response_200
-
     if response.status_code == 500:
         response_500 = cast("Any", None)
         return response_500
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -93,6 +89,7 @@ def sync_detailed(
 ) -> Response[Any | SearchPlaylistsResponse200]:
     """Search playlists
 
+
     Args:
         search (str): Search query filter.
         start (Union[Unset, int]): Starting index for pagination.
@@ -120,9 +117,7 @@ def sync_detailed(
         uuids=uuids,
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -139,6 +134,7 @@ def sync(
     uuids: Unset | Any = UNSET,
 ) -> Any | SearchPlaylistsResponse200 | None:
     """Search playlists
+
 
     Args:
         search (str): Search query filter.
@@ -181,6 +177,7 @@ async def asyncio_detailed(
     uuids: Unset | Any = UNSET,
 ) -> Response[Any | SearchPlaylistsResponse200]:
     """Search playlists
+
 
     Args:
         search (str): Search query filter.
@@ -226,6 +223,7 @@ async def asyncio(
     uuids: Unset | Any = UNSET,
 ) -> Any | SearchPlaylistsResponse200 | None:
     """Search playlists
+
 
     Args:
         search (str): Search query filter.

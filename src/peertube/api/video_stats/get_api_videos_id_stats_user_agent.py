@@ -23,12 +23,10 @@ def _get_kwargs(
     if not isinstance(start_date, Unset):
         json_start_date = start_date.isoformat()
     params["startDate"] = json_start_date
-
     json_end_date: Unset | str = UNSET
     if not isinstance(end_date, Unset):
         json_end_date = end_date.isoformat()
     params["endDate"] = json_end_date
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -47,7 +45,6 @@ def _parse_response(
         response_200 = VideoStatsUserAgent.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -74,6 +71,7 @@ def sync_detailed(
 ) -> Response[VideoStatsUserAgent]:
     """Get user agent stats of a video
 
+
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
         start_date (Union[Unset, datetime.datetime]): Parameter for start date.
@@ -87,15 +85,9 @@ def sync_detailed(
         Response[VideoStatsUserAgent]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        start_date=start_date,
-        end_date=end_date,
-    )
+    kwargs = _get_kwargs(id=id, start_date=start_date, end_date=end_date)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -108,6 +100,7 @@ def sync(
     end_date: Unset | datetime.datetime = UNSET,
 ) -> VideoStatsUserAgent | None:
     """Get user agent stats of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -123,10 +116,7 @@ def sync(
     """
 
     return sync_detailed(
-        id=id,
-        client=client,
-        start_date=start_date,
-        end_date=end_date,
+        id=id, client=client, start_date=start_date, end_date=end_date
     ).parsed
 
 
@@ -138,6 +128,7 @@ async def asyncio_detailed(
     end_date: Unset | datetime.datetime = UNSET,
 ) -> Response[VideoStatsUserAgent]:
     """Get user agent stats of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -152,11 +143,7 @@ async def asyncio_detailed(
         Response[VideoStatsUserAgent]
     """
 
-    kwargs = _get_kwargs(
-        id=id,
-        start_date=start_date,
-        end_date=end_date,
-    )
+    kwargs = _get_kwargs(id=id, start_date=start_date, end_date=end_date)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -171,6 +158,7 @@ async def asyncio(
     end_date: Unset | datetime.datetime = UNSET,
 ) -> VideoStatsUserAgent | None:
     """Get user agent stats of a video
+
 
     Args:
         id (Union[UUID, int, str]): Unique identifier for the entity.
@@ -187,9 +175,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id=id,
-            client=client,
-            start_date=start_date,
-            end_date=end_date,
+            id=id, client=client, start_date=start_date, end_date=end_date
         )
     ).parsed

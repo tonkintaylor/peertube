@@ -1,9 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,6 +23,7 @@ class LiveSchedule:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         start_at: Unset | str = UNSET
         if not isinstance(self.start_at, Unset):
             start_at = self.start_at.isoformat()
@@ -41,6 +39,7 @@ class LiveSchedule:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         _start_at = d.pop("startAt", UNSET)
         start_at: Unset | datetime.datetime
@@ -49,9 +48,7 @@ class LiveSchedule:
         else:
             start_at = isoparse(_start_at)
 
-        live_schedule = cls(
-            start_at=start_at,
-        )
+        live_schedule = cls(start_at=start_at)
 
         live_schedule.additional_properties = d
         return live_schedule
@@ -59,6 +56,7 @@ class LiveSchedule:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

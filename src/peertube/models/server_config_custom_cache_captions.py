@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class ServerConfigCustomCacheCaptions:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         size = self.size
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class ServerConfigCustomCacheCaptions:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         size = d.pop("size", UNSET)
 
-        server_config_custom_cache_captions = cls(
-            size=size,
-        )
+        server_config_custom_cache_captions = cls(size=size)
 
         server_config_custom_cache_captions.additional_properties = d
         return server_config_custom_cache_captions
@@ -50,6 +47,7 @@ class ServerConfigCustomCacheCaptions:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

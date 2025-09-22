@@ -1,11 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-    cast,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -35,6 +29,7 @@ class ServerConfigVideoImage:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         extensions: Unset | list[str] = UNSET
         if not isinstance(self.extensions, Unset):
             extensions = self.extensions
@@ -56,6 +51,7 @@ class ServerConfigVideoImage:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_video_image_size import (
             ServerConfigVideoImageSize,
         )
@@ -70,10 +66,7 @@ class ServerConfigVideoImage:
         else:
             size = ServerConfigVideoImageSize.from_dict(_size)
 
-        server_config_video_image = cls(
-            extensions=extensions,
-            size=size,
-        )
+        server_config_video_image = cls(extensions=extensions, size=size)
 
         server_config_video_image.additional_properties = d
         return server_config_video_image
@@ -81,6 +74,7 @@ class ServerConfigVideoImage:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

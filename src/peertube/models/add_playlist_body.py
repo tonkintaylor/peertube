@@ -1,9 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -54,6 +51,7 @@ class AddPlaylistBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
         """Convert to dictionary."""
+
         display_name = self.display_name
 
         thumbnailfile: Unset | FileTypes = UNSET
@@ -88,6 +86,7 @@ class AddPlaylistBody:
 
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
+
         files: types.RequestFiles = []
 
         files.append(
@@ -141,6 +140,7 @@ class AddPlaylistBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
         """Create from dictionary."""
+
         d = dict(src_dict)
         display_name = d.pop("displayName")
 
@@ -194,6 +194,7 @@ class AddPlaylistBody:
         """Get additional property keys."""
         """Get additional property keys."""
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

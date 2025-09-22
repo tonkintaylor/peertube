@@ -1,9 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-    cast,
-)
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,6 +23,7 @@ class PostApiV1ServerFollowingBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         hosts: Unset | list[str] = UNSET
         if not isinstance(self.hosts, Unset):
             hosts = self.hosts
@@ -48,15 +45,13 @@ class PostApiV1ServerFollowingBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
         hosts = cast("list[str]", d.pop("hosts", UNSET))
 
         handles = cast("list[str]", d.pop("handles", UNSET))
 
-        post_api_v1_server_following_body = cls(
-            hosts=hosts,
-            handles=handles,
-        )
+        post_api_v1_server_following_body = cls(hosts=hosts, handles=handles)
 
         post_api_v1_server_following_body.additional_properties = d
         return post_api_v1_server_following_body
@@ -64,6 +59,7 @@ class PostApiV1ServerFollowingBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

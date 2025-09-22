@@ -1,9 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -32,6 +28,7 @@ class AutomaticTagAvailable:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         available: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.available, Unset):
             available = []
@@ -50,6 +47,7 @@ class AutomaticTagAvailable:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         from peertube.models.automatic_tag_available_available_item import (
             AutomaticTagAvailableAvailableItem,
         )
@@ -64,9 +62,7 @@ class AutomaticTagAvailable:
 
             available.append(available_item)
 
-        automatic_tag_available = cls(
-            available=available,
-        )
+        automatic_tag_available = cls(available=available)
 
         automatic_tag_available.additional_properties = d
         return automatic_tag_available
@@ -74,6 +70,7 @@ class AutomaticTagAvailable:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

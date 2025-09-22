@@ -56,7 +56,6 @@ def _get_kwargs(
     params["search"] = search
 
     params["uuids"] = uuids
-
     json_search_target: Unset | str = UNSET
     if not isinstance(search_target, Unset):
         json_search_target = search_target.value
@@ -66,31 +65,26 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_skip_count: Unset | str = UNSET
     if not isinstance(skip_count, Unset):
         json_skip_count = skip_count.value
 
     params["skipCount"] = json_skip_count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     json_nsfw: Unset | str = UNSET
     if not isinstance(nsfw, Unset):
         json_nsfw = nsfw.value
 
     params["nsfw"] = json_nsfw
-
     json_nsfw_flags_included: Unset | int = UNSET
     if not isinstance(nsfw_flags_included, Unset):
         json_nsfw_flags_included = nsfw_flags_included.value
 
     params["nsfwFlagsIncluded"] = json_nsfw_flags_included
-
     json_nsfw_flags_excluded: Unset | int = UNSET
     if not isinstance(nsfw_flags_excluded, Unset):
         json_nsfw_flags_excluded = nsfw_flags_excluded.value
@@ -100,7 +94,6 @@ def _get_kwargs(
     params["isLive"] = is_live
 
     params["includeScheduledLive"] = include_scheduled_live
-
     json_category_one_of: Unset | int | list[int]
     if isinstance(category_one_of, Unset):
         json_category_one_of = UNSET
@@ -110,7 +103,6 @@ def _get_kwargs(
     else:
         json_category_one_of = category_one_of
     params["categoryOneOf"] = json_category_one_of
-
     json_licence_one_of: Unset | int | list[int]
     if isinstance(licence_one_of, Unset):
         json_licence_one_of = UNSET
@@ -120,7 +112,6 @@ def _get_kwargs(
     else:
         json_licence_one_of = licence_one_of
     params["licenceOneOf"] = json_licence_one_of
-
     json_language_one_of: Unset | list[str] | str
     if isinstance(language_one_of, Unset):
         json_language_one_of = UNSET
@@ -130,7 +121,6 @@ def _get_kwargs(
     else:
         json_language_one_of = language_one_of
     params["languageOneOf"] = json_language_one_of
-
     json_tags_one_of: Unset | list[str] | str
     if isinstance(tags_one_of, Unset):
         json_tags_one_of = UNSET
@@ -140,7 +130,6 @@ def _get_kwargs(
     else:
         json_tags_one_of = tags_one_of
     params["tagsOneOf"] = json_tags_one_of
-
     json_tags_all_of: Unset | list[str] | str
     if isinstance(tags_all_of, Unset):
         json_tags_all_of = UNSET
@@ -152,7 +141,6 @@ def _get_kwargs(
     params["tagsAllOf"] = json_tags_all_of
 
     params["isLocal"] = is_local
-
     json_include: Unset | int = UNSET
     if not isinstance(include, Unset):
         json_include = include.value
@@ -164,7 +152,6 @@ def _get_kwargs(
     params["hasWebVideoFiles"] = has_web_video_files
 
     params["host"] = host
-
     json_auto_tag_one_of: Unset | list[str] | str
     if isinstance(auto_tag_one_of, Unset):
         json_auto_tag_one_of = UNSET
@@ -174,7 +161,6 @@ def _get_kwargs(
     else:
         json_auto_tag_one_of = auto_tag_one_of
     params["autoTagOneOf"] = json_auto_tag_one_of
-
     json_privacy_one_of: Unset | int = UNSET
     if not isinstance(privacy_one_of, Unset):
         json_privacy_one_of = privacy_one_of.value
@@ -182,24 +168,20 @@ def _get_kwargs(
     params["privacyOneOf"] = json_privacy_one_of
 
     params["excludeAlreadyWatched"] = exclude_already_watched
-
     json_start_date: Unset | str = UNSET
     if not isinstance(start_date, Unset):
         json_start_date = start_date.isoformat()
     params["startDate"] = json_start_date
-
     json_end_date: Unset | str = UNSET
     if not isinstance(end_date, Unset):
         json_end_date = end_date.isoformat()
     params["endDate"] = json_end_date
-
     json_originally_published_start_date: Unset | str = UNSET
     if not isinstance(originally_published_start_date, Unset):
         json_originally_published_start_date = (
             originally_published_start_date.isoformat()
         )
     params["originallyPublishedStartDate"] = json_originally_published_start_date
-
     json_originally_published_end_date: Unset | str = UNSET
     if not isinstance(originally_published_end_date, Unset):
         json_originally_published_end_date = originally_published_end_date.isoformat()
@@ -208,7 +190,6 @@ def _get_kwargs(
     params["durationMin"] = duration_min
 
     params["durationMax"] = duration_max
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -227,11 +208,9 @@ def _parse_response(
         response_200 = VideoListResponse.from_dict(response.json())
 
         return response_200
-
     if response.status_code == 500:
         response_500 = cast("Any", None)
         return response_500
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -285,7 +264,6 @@ def sync_detailed(
     duration_max: Unset | int = UNSET,
 ) -> Response[Any | VideoListResponse]:
     """Search for videos on the PeerTube instance with detailed response information.
-
     Performs a video search on the PeerTube instance using various filtering criteria. If the user
     can make a remote URI search and the search string is a URI, the PeerTube instance will fetch
     the remote object and add it to its database for interaction via the REST API.
@@ -300,14 +278,12 @@ def sync_detailed(
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
         sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
-            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
-            `best` (like hot but includes user history), `trending` (recent views),
-            `views` (total view count), `publishedAt` (publication date).
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date), `best` (like hot but includes user history), `trending` (recent views), `views` (total view count), `publishedAt` (publication date).
         nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
         nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         is_live: Filter for live videos only.
         include_scheduled_live: Include scheduled live videos in results.
         category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
@@ -317,8 +293,7 @@ def sync_detailed(
         tags_all_of: Filter videos that have all of the specified tags.
         is_local: Filter for local videos only (hosted on this instance).
         include: Include additional video information in results. Administrators and moderators
-            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
-            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+            only. Can be combined with bitwise OR: 0 = NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED, 4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32 = VIDEO_SOURCE.
         has_hls_files: Filter for videos that have HLS streaming files.
         has_web_video_files: Filter for videos that have web-compatible video files.
         host: Filter by the hostname where videos are hosted.
@@ -374,9 +349,7 @@ def sync_detailed(
         duration_max=duration_max,
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -417,7 +390,6 @@ def sync(
     duration_max: Unset | int = UNSET,
 ) -> Any | VideoListResponse | None:
     """Search for videos on the PeerTube instance.
-
     Performs a video search on the PeerTube instance using various filtering criteria. If the user
     can make a remote URI search and the search string is a URI, the PeerTube instance will fetch
     the remote object and add it to its database for interaction via the REST API.
@@ -432,14 +404,12 @@ def sync(
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
         sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
-            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
-            `best` (like hot but includes user history), `trending` (recent views),
-            `views` (total view count), `publishedAt` (publication date).
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date), `best` (like hot but includes user history), `trending` (recent views), `views` (total view count), `publishedAt` (publication date).
         nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
         nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         is_live: Filter for live videos only.
         include_scheduled_live: Include scheduled live videos in results.
         category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
@@ -449,8 +419,7 @@ def sync(
         tags_all_of: Filter videos that have all of the specified tags.
         is_local: Filter for local videos only (hosted on this instance).
         include: Include additional video information in results. Administrators and moderators
-            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
-            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+            only. Can be combined with bitwise OR: 0 = NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED, 4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32 = VIDEO_SOURCE.
         has_hls_files: Filter for videos that have HLS streaming files.
         has_web_video_files: Filter for videos that have web-compatible video files.
         host: Filter by the hostname where videos are hosted.
@@ -544,7 +513,6 @@ async def asyncio_detailed(
     duration_max: Unset | int = UNSET,
 ) -> Response[Any | VideoListResponse]:
     """Search for videos on the PeerTube instance asynchronously with detailed response information.
-
     Performs an asynchronous video search on the PeerTube instance using various filtering criteria.
     If the user can make a remote URI search and the search string is a URI, the PeerTube instance
     will fetch the remote object and add it to its database for interaction via the REST API.
@@ -559,14 +527,12 @@ async def asyncio_detailed(
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
         sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
-            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
-            `best` (like hot but includes user history), `trending` (recent views),
-            `views` (total view count), `publishedAt` (publication date).
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date), `best` (like hot but includes user history), `trending` (recent views), `views` (total view count), `publishedAt` (publication date).
         nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
         nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         is_live: Filter for live videos only.
         include_scheduled_live: Include scheduled live videos in results.
         category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
@@ -576,8 +542,7 @@ async def asyncio_detailed(
         tags_all_of: Filter videos that have all of the specified tags.
         is_local: Filter for local videos only (hosted on this instance).
         include: Include additional video information in results. Administrators and moderators
-            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
-            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+            only. Can be combined with bitwise OR: 0 = NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED, 4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32 = VIDEO_SOURCE.
         has_hls_files: Filter for videos that have HLS streaming files.
         has_web_video_files: Filter for videos that have web-compatible video files.
         host: Filter by the hostname where videos are hosted.
@@ -674,7 +639,6 @@ async def asyncio(
     duration_max: Unset | int = UNSET,
 ) -> Any | VideoListResponse | None:
     """Search for videos on the PeerTube instance asynchronously.
-
     Performs an asynchronous video search on the PeerTube instance using various filtering criteria.
     If the user can make a remote URI search and the search string is a URI, the PeerTube instance
     will fetch the remote object and add it to its database for interaction via the REST API.
@@ -689,14 +653,12 @@ async def asyncio(
         count: Maximum number of videos to return per page. Default: 15.
         skip_count: Whether to skip the total count calculation for performance.
         sort: Sort videos by criteria. Prefix with `-` for descending order. Options include:
-            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date),
-            `best` (like hot but includes user history), `trending` (recent views),
-            `views` (total view count), `publishedAt` (publication date).
+            `hot` (Reddit-like algorithm considering views, likes, dislikes, comments, and date), `best` (like hot but includes user history), `trending` (recent views), `views` (total view count), `publishedAt` (publication date).
         nsfw: Filter for NSFW content (show all, only NSFW, or only safe content).
         nsfw_flags_included: Include videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         nsfw_flags_excluded: Exclude videos with specific NSFW flags. Can be combined with
-            bitwise OR: 0=NONE, 1=VIOLENT, 2=EXPLICIT_SEX.
+            bitwise OR: 0 = NONE, 1=VIOLENT, 2 = EXPLICIT_SEX.
         is_live: Filter for live videos only.
         include_scheduled_live: Include scheduled live videos in results.
         category_one_of: Filter by video category IDs. Can be a single ID or list of IDs.
@@ -706,8 +668,7 @@ async def asyncio(
         tags_all_of: Filter videos that have all of the specified tags.
         is_local: Filter for local videos only (hosted on this instance).
         include: Include additional video information in results. Administrators and moderators
-            only. Can be combined with bitwise OR: 0=NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED,
-            4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32=VIDEO_SOURCE.
+            only. Can be combined with bitwise OR: 0 = NONE, 1=NOT_PUBLISHED_STATE, 2=BLACKLISTED, 4=BLOCKED_OWNER, 8=FILES, 16=CAPTIONS, 32 = VIDEO_SOURCE.
         has_hls_files: Filter for videos that have HLS streaming files.
         has_web_video_files: Filter for videos that have web-compatible video files.
         host: Filter by the hostname where videos are hosted.

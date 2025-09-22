@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class PostApiV1WatchedWordsServerListsResponse200WatchedWordsList:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         id = self.id
 
         field_dict: dict[str, Any] = {}
@@ -37,11 +35,12 @@ class PostApiV1WatchedWordsServerListsResponse200WatchedWordsList:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
         id = d.pop("id", UNSET)
 
         post_api_v1_watched_words_server_lists_response_200_watched_words_list = cls(
-            id=id,
+            id=id
         )
 
         post_api_v1_watched_words_server_lists_response_200_watched_words_list.additional_properties = d
@@ -50,6 +49,7 @@ class PostApiV1WatchedWordsServerListsResponse200WatchedWordsList:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

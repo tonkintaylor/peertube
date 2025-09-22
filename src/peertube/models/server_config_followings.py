@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -32,6 +27,7 @@ class ServerConfigFollowings:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         instance: Unset | dict[str, Any] = UNSET
         if not isinstance(self.instance, Unset):
             instance = self.instance.to_dict()
@@ -47,6 +43,7 @@ class ServerConfigFollowings:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.server_config_followings_instance import (
             ServerConfigFollowingsInstance,
         )
@@ -59,9 +56,7 @@ class ServerConfigFollowings:
         else:
             instance = ServerConfigFollowingsInstance.from_dict(_instance)
 
-        server_config_followings = cls(
-            instance=instance,
-        )
+        server_config_followings = cls(instance=instance)
 
         server_config_followings.additional_properties = d
         return server_config_followings
@@ -69,6 +64,7 @@ class ServerConfigFollowings:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

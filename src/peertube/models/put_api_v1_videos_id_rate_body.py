@@ -23,6 +23,7 @@ class PutApiV1VideosIdRateBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         rating = self.rating.value
 
         field_dict: dict[str, Any] = {}
@@ -38,12 +39,11 @@ class PutApiV1VideosIdRateBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         rating = PutApiV1VideosIdRateBodyRating(d.pop("rating"))
 
-        put_api_v1_videos_id_rate_body = cls(
-            rating=rating,
-        )
+        put_api_v1_videos_id_rate_body = cls(rating=rating)
 
         put_api_v1_videos_id_rate_body.additional_properties = d
         return put_api_v1_videos_id_rate_body
@@ -51,6 +51,7 @@ class PutApiV1VideosIdRateBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

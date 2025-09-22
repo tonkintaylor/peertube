@@ -64,7 +64,9 @@ test = [
   "pytest>=8.4.1",
   "pytest-cov>=6.2.1",
   "pytest-emoji>=0.2.0",
+  "pytest-httpx>=0.30.0",
   "pytest-md>=0.2.0",
+  "pytest-mock>=3.14.0",
 ]
 doc = [
   "mkdocs>=1.6.1",

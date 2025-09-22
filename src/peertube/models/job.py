@@ -1,11 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -49,6 +44,7 @@ class Job:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         id = self.id
 
         state: Unset | str = UNSET
@@ -104,6 +100,7 @@ class Job:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.job_data import JobData
         from peertube.models.job_error import JobError
 
@@ -176,6 +173,7 @@ class Job:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

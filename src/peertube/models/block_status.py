@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -33,6 +28,7 @@ class BlockStatus:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         accounts: Unset | dict[str, Any] = UNSET
         if not isinstance(self.accounts, Unset):
             accounts = self.accounts.to_dict()
@@ -54,6 +50,7 @@ class BlockStatus:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.block_status_accounts import BlockStatusAccounts
         from peertube.models.block_status_hosts import BlockStatusHosts
 
@@ -72,10 +69,7 @@ class BlockStatus:
         else:
             hosts = BlockStatusHosts.from_dict(_hosts)
 
-        block_status = cls(
-            accounts=accounts,
-            hosts=hosts,
-        )
+        block_status = cls(accounts=accounts, hosts=hosts)
 
         block_status.additional_properties = d
         return block_status
@@ -83,6 +77,7 @@ class BlockStatus:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

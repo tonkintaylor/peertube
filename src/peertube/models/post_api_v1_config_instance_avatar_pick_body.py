@@ -1,9 +1,6 @@
 from collections.abc import Mapping
 from io import BytesIO
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -44,6 +41,7 @@ class PostApiV1ConfigInstanceAvatarPickBody:
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
         """Convert instance to dictionary."""
+
         avatarfile: Unset | FileTypes = UNSET
         if not isinstance(self.avatarfile, Unset):
             avatarfile = self.avatarfile.to_tuple()
@@ -58,6 +56,7 @@ class PostApiV1ConfigInstanceAvatarPickBody:
 
     def to_multipart(self) -> types.RequestFiles:
         """Convert to multipart form data."""
+
         files: types.RequestFiles = []
 
         if not isinstance(self.avatarfile, Unset):
@@ -89,6 +88,7 @@ class PostApiV1ConfigInstanceAvatarPickBody:
         """Create instance from dictionary."""
         """Create instance from dictionary."""
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         _avatarfile = d.pop("avatarfile", UNSET)
         avatarfile: Unset | File
@@ -97,9 +97,7 @@ class PostApiV1ConfigInstanceAvatarPickBody:
         else:
             avatarfile = File(payload=BytesIO(_avatarfile))
 
-        post_api_v1_config_instance_avatar_pick_body = cls(
-            avatarfile=avatarfile,
-        )
+        post_api_v1_config_instance_avatar_pick_body = cls(avatarfile=avatarfile)
 
         post_api_v1_config_instance_avatar_pick_body.additional_properties = d
         return post_api_v1_config_instance_avatar_pick_body
@@ -125,6 +123,7 @@ class PostApiV1ConfigInstanceAvatarPickBody:
         """Get additional property keys."""
         """Get additional property keys."""
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

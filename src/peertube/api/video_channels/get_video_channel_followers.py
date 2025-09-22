@@ -27,7 +27,6 @@ def _get_kwargs(
     params["start"] = start
 
     params["count"] = count
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
@@ -35,7 +34,6 @@ def _get_kwargs(
     params["sort"] = json_sort
 
     params["search"] = search
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -54,7 +52,6 @@ def _parse_response(
         response_200 = GetVideoChannelFollowersResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -83,6 +80,7 @@ def sync_detailed(
 ) -> Response[GetVideoChannelFollowersResponse200]:
     """List followers of a video channel
 
+
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
         start (Union[Unset, int]): Starting index for pagination.
@@ -106,9 +104,7 @@ def sync_detailed(
         search=search,
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -123,6 +119,7 @@ def sync(
     search: Unset | str = UNSET,
 ) -> GetVideoChannelFollowersResponse200 | None:
     """List followers of a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -159,6 +156,7 @@ async def asyncio_detailed(
     search: Unset | str = UNSET,
 ) -> Response[GetVideoChannelFollowersResponse200]:
     """List followers of a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.
@@ -198,6 +196,7 @@ async def asyncio(
     search: Unset | str = UNSET,
 ) -> GetVideoChannelFollowersResponse200 | None:
     """List followers of a video channel
+
 
     Args:
         channel_handle (str):  Example: my_username | my_username@example.com.

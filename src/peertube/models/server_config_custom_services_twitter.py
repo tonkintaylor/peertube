@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class ServerConfigCustomServicesTwitter:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
+
         username = self.username
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class ServerConfigCustomServicesTwitter:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create from dictionary."""
+
         d = dict(src_dict)
         username = d.pop("username", UNSET)
 
-        server_config_custom_services_twitter = cls(
-            username=username,
-        )
+        server_config_custom_services_twitter = cls(username=username)
 
         server_config_custom_services_twitter.additional_properties = d
         return server_config_custom_services_twitter
@@ -50,6 +47,7 @@ class ServerConfigCustomServicesTwitter:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

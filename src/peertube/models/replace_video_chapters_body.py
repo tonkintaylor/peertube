@@ -1,9 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -31,6 +27,7 @@ class ReplaceVideoChaptersBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         chapters: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.chapters, Unset):
             chapters = []
@@ -49,6 +46,7 @@ class ReplaceVideoChaptersBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.replace_video_chapters_body_chapters_item import (
             ReplaceVideoChaptersBodyChaptersItem,
         )
@@ -63,9 +61,7 @@ class ReplaceVideoChaptersBody:
 
             chapters.append(chapters_item)
 
-        replace_video_chapters_body = cls(
-            chapters=chapters,
-        )
+        replace_video_chapters_body = cls(chapters=chapters)
 
         replace_video_chapters_body.additional_properties = d
         return replace_video_chapters_body
@@ -73,6 +69,7 @@ class ReplaceVideoChaptersBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

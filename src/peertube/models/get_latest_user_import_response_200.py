@@ -1,11 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -38,6 +33,7 @@ class GetLatestUserImportResponse200:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         id = self.id
 
         state: Unset | dict[str, Any] = UNSET
@@ -63,6 +59,7 @@ class GetLatestUserImportResponse200:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.get_latest_user_import_response_200_state import (
             GetLatestUserImportResponse200State,
         )
@@ -85,9 +82,7 @@ class GetLatestUserImportResponse200:
             created_at = isoparse(_created_at)
 
         get_latest_user_import_response_200 = cls(
-            id=id,
-            state=state,
-            created_at=created_at,
+            id=id, state=state, created_at=created_at
         )
 
         get_latest_user_import_response_200.additional_properties = d
@@ -96,6 +91,7 @@ class GetLatestUserImportResponse200:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

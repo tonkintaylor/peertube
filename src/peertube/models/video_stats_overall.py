@@ -1,10 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -48,6 +44,7 @@ class VideoStatsOverall:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         average_watch_time = self.average_watch_time
 
         total_watch_time = self.total_watch_time
@@ -97,6 +94,7 @@ class VideoStatsOverall:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.video_stats_overall_countries_item import (
             VideoStatsOverallCountriesItem,
         )
@@ -154,6 +152,7 @@ class VideoStatsOverall:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

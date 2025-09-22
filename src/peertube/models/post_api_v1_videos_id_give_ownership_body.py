@@ -19,6 +19,7 @@ class PostApiV1VideosIdGiveOwnershipBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         username = self.username
 
         field_dict: dict[str, Any] = {}
@@ -34,12 +35,11 @@ class PostApiV1VideosIdGiveOwnershipBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         username = d.pop("username")
 
-        post_api_v1_videos_id_give_ownership_body = cls(
-            username=username,
-        )
+        post_api_v1_videos_id_give_ownership_body = cls(username=username)
 
         post_api_v1_videos_id_give_ownership_body.additional_properties = d
         return post_api_v1_videos_id_give_ownership_body
@@ -47,6 +47,7 @@ class PostApiV1VideosIdGiveOwnershipBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

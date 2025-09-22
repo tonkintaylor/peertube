@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -19,8 +16,7 @@ T = TypeVar("T", bound="ServerConfigCustomDefaultsPublish")
 class ServerConfigCustomDefaultsPublish:
     """Attributes:
     download_enabled (Union[Unset, bool]):
-    comments_policy (Union[Unset, VideoCommentsPolicySet]): Comments policy of the video (Enabled = `1`, Disabled =
-        `2`, Requires Approval = `3`)
+    comments_policy (Union[Unset, VideoCommentsPolicySet]): Comments policy of the video (Enabled=`1`, Disabled=`2`, Requires Approval=`3`)
     privacy (Union[Unset, VideoPrivacySet]): privacy id of the video (see
         [/videos/privacies](#operation/getVideoPrivacyPolicies))
     licence (Union[Unset, int]): licence id of the video (see [/videos/licences](#operation/getLicences)) Example:
@@ -35,6 +31,7 @@ class ServerConfigCustomDefaultsPublish:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         download_enabled = self.download_enabled
 
         comments_policy: Unset | int = UNSET
@@ -64,6 +61,7 @@ class ServerConfigCustomDefaultsPublish:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         download_enabled = d.pop("downloadEnabled", UNSET)
 
@@ -96,6 +94,7 @@ class ServerConfigCustomDefaultsPublish:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

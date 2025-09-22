@@ -1,9 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-)
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -33,6 +29,7 @@ class PostApiV1RunnersJobsRequestResponse200:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         available_jobs: Unset | list[dict[str, Any]] = UNSET
         if not isinstance(self.available_jobs, Unset):
             available_jobs = []
@@ -51,6 +48,7 @@ class PostApiV1RunnersJobsRequestResponse200:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.post_api_v1_runners_jobs_request_response_200_available_jobs_item import (
             PostApiV1RunnersJobsRequestResponse200AvailableJobsItem,
         )
@@ -68,7 +66,7 @@ class PostApiV1RunnersJobsRequestResponse200:
             available_jobs.append(available_jobs_item)
 
         post_api_v1_runners_jobs_request_response_200 = cls(
-            available_jobs=available_jobs,
+            available_jobs=available_jobs
         )
 
         post_api_v1_runners_jobs_request_response_200.additional_properties = d
@@ -77,6 +75,7 @@ class PostApiV1RunnersJobsRequestResponse200:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

@@ -9,4 +9,5 @@ class PostApiV1RunnersJobsJobUUIDUpdateBodyPayloadType0Type(str, Enum):
 
     def __str__(self) -> str:
         """Return string representation."""
+
         return str(self.value)

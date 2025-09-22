@@ -24,13 +24,11 @@ def _get_kwargs(
     params["count"] = count
 
     params["search"] = search
-
     json_sort: Unset | str = UNSET
     if not isinstance(sort, Unset):
         json_sort = sort.value
 
     params["sort"] = json_sort
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -49,7 +47,6 @@ def _parse_response(
         response_200 = ListRegistrationsResponse200.from_dict(response.json())
 
         return response_200
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -77,6 +74,7 @@ def sync_detailed(
 ) -> Response[ListRegistrationsResponse200]:
     """List registrations
 
+
     Args:
         start (Union[Unset, int]): Starting index for pagination.
         count (Union[Unset, int]):  Default: 15.
@@ -92,16 +90,9 @@ def sync_detailed(
         Response[ListRegistrationsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        start=start,
-        count=count,
-        search=search,
-        sort=sort,
-    )
+    kwargs = _get_kwargs(start=start, count=count, search=search, sort=sort)
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -115,6 +106,7 @@ def sync(
     sort: Unset | ListRegistrationsSort = UNSET,
 ) -> ListRegistrationsResponse200 | None:
     """List registrations
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -132,11 +124,7 @@ def sync(
     """
 
     return sync_detailed(
-        client=client,
-        start=start,
-        count=count,
-        search=search,
-        sort=sort,
+        client=client, start=start, count=count, search=search, sort=sort
     ).parsed
 
 
@@ -149,6 +137,7 @@ async def asyncio_detailed(
     sort: Unset | ListRegistrationsSort = UNSET,
 ) -> Response[ListRegistrationsResponse200]:
     """List registrations
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -165,12 +154,7 @@ async def asyncio_detailed(
         Response[ListRegistrationsResponse200]
     """
 
-    kwargs = _get_kwargs(
-        start=start,
-        count=count,
-        search=search,
-        sort=sort,
-    )
+    kwargs = _get_kwargs(start=start, count=count, search=search, sort=sort)
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -186,6 +170,7 @@ async def asyncio(
     sort: Unset | ListRegistrationsSort = UNSET,
 ) -> ListRegistrationsResponse200 | None:
     """List registrations
+
 
     Args:
         start (Union[Unset, int]): Starting index for pagination.
@@ -204,10 +189,6 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            client=client,
-            start=start,
-            count=count,
-            search=search,
-            sort=sort,
+            client=client, start=start, count=count, search=search, sort=sort
         )
     ).parsed

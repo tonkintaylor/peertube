@@ -1,10 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    TypeVar,
-    Union,
-)
+from typing import TYPE_CHECKING, Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -30,6 +25,7 @@ class VideoTokenResponse:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         files: Unset | dict[str, Any] = UNSET
         if not isinstance(self.files, Unset):
             files = self.files.to_dict()
@@ -45,6 +41,7 @@ class VideoTokenResponse:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         from peertube.models.video_token_response_files import VideoTokenResponseFiles
 
         d = dict(src_dict)
@@ -55,9 +52,7 @@ class VideoTokenResponse:
         else:
             files = VideoTokenResponseFiles.from_dict(_files)
 
-        video_token_response = cls(
-            files=files,
-        )
+        video_token_response = cls(files=files)
 
         video_token_response.additional_properties = d
         return video_token_response
@@ -65,6 +60,7 @@ class VideoTokenResponse:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

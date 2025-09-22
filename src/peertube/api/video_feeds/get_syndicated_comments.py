@@ -31,7 +31,6 @@ def _get_kwargs(
     params["videoChannelId"] = video_channel_id
 
     params["videoChannelName"] = video_channel_name
-
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
@@ -59,19 +58,15 @@ def _parse_response(
             response_200.append(componentsschemas_video_comments_for_xml_item)
 
         return response_200
-
     if response.status_code == 400:
         response_400 = cast("Any", None)
         return response_400
-
     if response.status_code == 404:
         response_404 = cast("Any", None)
         return response_404
-
     if response.status_code == 406:
         response_406 = cast("Any", None)
         return response_406
-
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
@@ -101,6 +96,7 @@ def sync_detailed(
 ) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
 
+
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
         video_id (Union[Unset, str]): Unique identifier for the video.
@@ -126,9 +122,7 @@ def sync_detailed(
         video_channel_name=video_channel_name,
     )
 
-    response = client.get_httpx_client().request(
-        **kwargs,
-    )
+    response = client.get_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -144,6 +138,7 @@ def sync(
     video_channel_name: Unset | str = UNSET,
 ) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
+
 
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
@@ -183,6 +178,7 @@ async def asyncio_detailed(
     video_channel_name: Unset | str = UNSET,
 ) -> Response[Any | list["VideoCommentsForXMLItem"]]:
     """Comments on videos feeds
+
 
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).
@@ -225,6 +221,7 @@ async def asyncio(
     video_channel_name: Unset | str = UNSET,
 ) -> Any | list["VideoCommentsForXMLItem"] | None:
     """Comments on videos feeds
+
 
     Args:
         format_ (GetSyndicatedCommentsFormat): Parameter for format (underscore avoids keyword conflict).

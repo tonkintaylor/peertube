@@ -21,6 +21,7 @@ class PostApiV1UsersIdResetPasswordBody:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         verification_string = self.verification_string
 
         password = self.password
@@ -39,14 +40,14 @@ class PostApiV1UsersIdResetPasswordBody:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         verification_string = d.pop("verificationString")
 
         password = d.pop("password")
 
         post_api_v1_users_id_reset_password_body = cls(
-            verification_string=verification_string,
-            password=password,
+            verification_string=verification_string, password=password
         )
 
         post_api_v1_users_id_reset_password_body.additional_properties = d
@@ -55,6 +56,7 @@ class PostApiV1UsersIdResetPasswordBody:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

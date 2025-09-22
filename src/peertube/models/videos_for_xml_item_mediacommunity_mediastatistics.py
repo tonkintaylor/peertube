@@ -1,8 +1,5 @@
 from collections.abc import Mapping
-from typing import (
-    Any,
-    TypeVar,
-)
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -24,6 +21,7 @@ class VideosForXMLItemMediacommunityMediastatistics:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
+
         views = self.views
 
         field_dict: dict[str, Any] = {}
@@ -37,12 +35,11 @@ class VideosForXMLItemMediacommunityMediastatistics:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         """Create instance from dictionary."""
+
         d = dict(src_dict)
         views = d.pop("views", UNSET)
 
-        videos_for_xml_item_mediacommunity_mediastatistics = cls(
-            views=views,
-        )
+        videos_for_xml_item_mediacommunity_mediastatistics = cls(views=views)
 
         videos_for_xml_item_mediacommunity_mediastatistics.additional_properties = d
         return videos_for_xml_item_mediacommunity_mediastatistics
@@ -50,6 +47,7 @@ class VideosForXMLItemMediacommunityMediastatistics:
     @property
     def additional_keys(self) -> list[str]:
         """Get additional property keys."""
+
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:
