@@ -3,6 +3,7 @@ from http import HTTPStatus
 from typing import Any, cast
 
 import httpx
+from pydantic import ConfigDict, validate_call
 
 from peertube import errors
 from peertube.client import AuthenticatedClient, Client
@@ -106,6 +107,7 @@ def _build_response(
     )
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync_detailed(
     format_: GetSyndicatedSubscriptionVideosFormat,
     *,
@@ -162,6 +164,7 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync(
     format_: GetSyndicatedSubscriptionVideosFormat,
     *,
@@ -215,6 +218,7 @@ def sync(
     ).parsed
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio_detailed(
     format_: GetSyndicatedSubscriptionVideosFormat,
     *,
@@ -271,6 +275,7 @@ async def asyncio_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio(
     format_: GetSyndicatedSubscriptionVideosFormat,
     *,

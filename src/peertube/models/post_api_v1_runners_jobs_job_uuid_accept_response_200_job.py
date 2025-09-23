@@ -67,8 +67,6 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
         """Convert instance to dictionary."""
 
         from peertube.models.runner_job_parent_type_0 import RunnerJobParentType0
-        from peertube.models.vod_web_video_transcoding import VODWebVideoTranscoding
-        from peertube.models.vodhls_transcoding import VODHLSTranscoding
 
         uuid: Unset | str = UNSET
         if not isinstance(self.uuid, Unset):
@@ -85,8 +83,6 @@ class PostApiV1RunnersJobsJobUUIDAcceptResponse200Job:
         payload: Unset | dict[str, Any]
         if isinstance(self.payload, Unset):
             payload = UNSET
-        elif isinstance(self.payload, (VODWebVideoTranscoding, VODHLSTranscoding)):
-            payload = self.payload.to_dict()
         else:
             payload = self.payload.to_dict()
 

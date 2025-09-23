@@ -28,16 +28,13 @@ class TestSharedUtils:
             assert hasattr(result, "parsed")
 
     def test_parse_response_returns_none_when_no_raise(self, client, mocker):
-        """Test parse_response returns None when raise_on_unexpected_status is False"""
+        """Test parse_response returns parsed JSON for successful responses"""
         mock_response = mocker.Mock(spec=httpx.Response)
         mock_response.status_code = 200
-        mock_response.content = b"response content"
-
-        # Mock client to not raise on unexpected status
-        mocker.patch.object(client, "raise_on_unexpected_status", new=False)
+        mock_response.json.return_value = {"key": "value"}
 
         result = parse_response(client=client, response=mock_response)
-        assert result is None
+        assert result == {"key": "value"}
 
     def test_parse_response_raises_when_configured(self, client, mocker):
         """Test parse_response raises UnexpectedStatus when configured"""

@@ -1,6 +1,7 @@
 from typing import Any
 
 import httpx
+from pydantic import ConfigDict, validate_call
 
 from peertube import errors
 from peertube.api.shared_utils import build_response
@@ -43,6 +44,7 @@ def _build_response(
     return build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync_detailed(
     *, client: AuthenticatedClient | Client, video_channel_id: str
 ) -> Response[Any]:
@@ -67,6 +69,7 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync(*, client: AuthenticatedClient | Client, video_channel_id: str) -> Any | None:
     """Videos podcast feed
 
@@ -82,6 +85,7 @@ def sync(*, client: AuthenticatedClient | Client, video_channel_id: str) -> Any 
     return sync_detailed(client=client, video_channel_id=video_channel_id).parsed
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio_detailed(
     *, client: AuthenticatedClient | Client, video_channel_id: str
 ) -> Response[Any]:

@@ -19,10 +19,7 @@ def _get_kwargs(
         "method": "post",
         "url": "/api/v1/plugins/update",
     }
-    if isinstance(body, UpdatePluginBodyType0):
-        _kwargs["json"] = body.to_dict()
-    else:
-        _kwargs["json"] = body.to_dict()
+    _kwargs["json"] = body.to_dict()
 
     headers["Content-Type"] = "application/json"
 

@@ -1,6 +1,7 @@
 from typing import Any
 
 import httpx
+from pydantic import ConfigDict, validate_call
 
 from peertube.api.shared_utils import build_response, parse_response
 from peertube.client import AuthenticatedClient, Client
@@ -33,6 +34,7 @@ def _build_response(
     return build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync_detailed(
     *, client: AuthenticatedClient, body: AddPlaylistBody
 ) -> Response[Any]:
@@ -57,6 +59,7 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync(*, client: AuthenticatedClient, body: AddPlaylistBody) -> Any | None:
     """Create a video playlist
 
@@ -72,6 +75,7 @@ def sync(*, client: AuthenticatedClient, body: AddPlaylistBody) -> Any | None:
     return sync_detailed(client=client, body=body).parsed
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio_detailed(
     *, client: AuthenticatedClient, body: AddPlaylistBody
 ) -> Response[Any]:

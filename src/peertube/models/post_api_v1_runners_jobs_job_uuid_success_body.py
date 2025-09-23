@@ -44,32 +44,11 @@ class PostApiV1RunnersJobsJobUUIDSuccessBody:
     def to_dict(self) -> dict[str, Any]:
         """Convert instance to dictionary."""
 
-        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_audio_merge_transcoding import (
-            PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding,
-        )
-        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vod_web_video_transcoding import (
-            PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding,
-        )
-        from peertube.models.post_api_v1_runners_jobs_job_uuid_success_body_vodhls_transcoding import (
-            PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding,
-        )
-
         runner_token = self.runner_token
 
         job_token = self.job_token
 
-        payload: dict[str, Any]
-        if isinstance(
-            self.payload,
-            (
-                PostApiV1RunnersJobsJobUUIDSuccessBodyVODWebVideoTranscoding,
-                PostApiV1RunnersJobsJobUUIDSuccessBodyVODHLSTranscoding,
-                PostApiV1RunnersJobsJobUUIDSuccessBodyVODAudioMergeTranscoding,
-            ),
-        ):
-            payload = self.payload.to_dict()
-        else:
-            payload = self.payload.to_dict()
+        payload: dict[str, Any] = self.payload.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)

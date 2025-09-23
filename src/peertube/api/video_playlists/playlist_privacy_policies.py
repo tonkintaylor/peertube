@@ -2,6 +2,7 @@ from http import HTTPStatus
 from typing import Any, cast
 
 import httpx
+from pydantic import ConfigDict, validate_call
 
 from peertube import errors
 from peertube.client import AuthenticatedClient, Client
@@ -41,6 +42,7 @@ def _build_response(
     )
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync_detailed(*, client: AuthenticatedClient | Client) -> Response[list[str]]:
     """List available playlist privacy policies
 
@@ -60,6 +62,7 @@ def sync_detailed(*, client: AuthenticatedClient | Client) -> Response[list[str]
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync(*, client: AuthenticatedClient | Client) -> list[str] | None:
     """List available playlist privacy policies
 
@@ -75,6 +78,7 @@ def sync(*, client: AuthenticatedClient | Client) -> list[str] | None:
     return sync_detailed(client=client).parsed
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio_detailed(
     *, client: AuthenticatedClient | Client
 ) -> Response[list[str]]:
@@ -96,6 +100,7 @@ async def asyncio_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio(*, client: AuthenticatedClient | Client) -> list[str] | None:
     """List available playlist privacy policies
 

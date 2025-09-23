@@ -3,6 +3,7 @@ from typing import Any, cast
 from uuid import UUID
 
 import httpx
+from pydantic import ConfigDict, validate_call
 
 from peertube import errors
 from peertube.client import AuthenticatedClient, Client
@@ -38,6 +39,9 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | VideoPasswordList | None:
+    if response.status_code == 200:
+        response_200 = VideoPasswordList.from_dict(response.json())
+        return response_200
     if response.status_code == 204:
         response_204 = VideoPasswordList.from_dict(response.json())
 
@@ -62,6 +66,7 @@ def _build_response(
     )
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync_detailed(
     id: UUID | int | str,
     *,
@@ -94,6 +99,7 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync(
     id: UUID | int | str,
     *,
@@ -124,6 +130,7 @@ def sync(
     ).parsed
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio_detailed(
     id: UUID | int | str,
     *,
@@ -156,6 +163,7 @@ async def asyncio_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio(
     id: UUID | int | str,
     *,
