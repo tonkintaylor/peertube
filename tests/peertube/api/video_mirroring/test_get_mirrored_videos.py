@@ -4,30 +4,16 @@ from peertube.api.video_mirroring.get_mirrored_videos import sync
 from peertube.models.get_mirrored_videos_target import GetMirroredVideosTarget
 
 
-def test_get_mirrored_videos_success(httpx_mock, auth_client):
+def test_get_mirrored_videos_success(
+    httpx_mock, auth_client, sample_mirrored_video_data
+):
     """Test successful retrieval of mirrored videos."""
-    # Sample response data
-    sample_data = [
-        {
-            "id": 1,
-            "name": "Test Video 1",
-            "url": "https://example.com/video1",
-            "uuid": "9c9de5e8-0a1e-484a-b099-e80766180a6d",
-        },
-        {
-            "id": 2,
-            "name": "Test Video 2",
-            "url": "https://example.com/video2",
-            "uuid": "8b8ce5e7-0a1e-484a-b099-e80766180a6c",
-        },
-    ]
-
     # Mock HTTP response
     httpx_mock.add_response(
         method="GET",
         url="https://test.peertube.example/api/v1/server/redundancy/videos?target=my-videos&count=15",
         status_code=200,
-        json=sample_data,
+        json=sample_mirrored_video_data,
     )
 
     # Test the function
