@@ -26,7 +26,14 @@ def parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | None:
     """Parse response, raising error if configured."""
-    if client.raise_on_unexpected_status:
-        raise errors.UnexpectedStatus(response.status_code, response.content)
+    if response.status_code >= 400:
+        if client.raise_on_unexpected_status:
+            raise errors.UnexpectedStatus(response.status_code, response.content)
+        else:
+            return None
     else:
-        return None
+        # For successful responses, try to parse JSON
+        try:
+            return response.json()
+        except ValueError:
+            return None

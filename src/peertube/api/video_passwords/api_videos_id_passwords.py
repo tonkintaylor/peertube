@@ -39,6 +39,9 @@ def _get_kwargs(
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | VideoPasswordList | None:
+    if response.status_code == 200:
+        response_200 = VideoPasswordList.from_dict(response.json())
+        return response_200
     if response.status_code == 204:
         response_204 = VideoPasswordList.from_dict(response.json())
 
