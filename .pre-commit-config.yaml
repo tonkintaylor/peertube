@@ -131,10 +131,8 @@ repos:
     hooks:
       - id: pyright
         name: pyright
-        entry: uv run --frozen --offline pyright
-        additional_dependencies:
-          - uv==0.8.3
-        language: python
+        entry: .venv/Scripts/python -m pyright
+        language: system
         types_or: [python, pyi]
         always_run: true
         require_serial: true

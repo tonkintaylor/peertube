@@ -72,7 +72,9 @@ def get_video_captions_content(
     captions_response = get_video_captions_sync(
         client=client,
         id=id,
-        x_peertube_video_password=UNSET if x_peertube_video_password is None else x_peertube_video_password,
+        x_peertube_video_password=UNSET
+        if x_peertube_video_password is None
+        else x_peertube_video_password,
     )
 
     data = getattr(captions_response, "data", None) or []
@@ -98,6 +100,9 @@ def get_video_captions_content(
         return r.content.decode("utf-8")
     except UnicodeDecodeError as exc:
         raise UnicodeDecodeError(
-            exc.encoding, exc.object, exc.start, exc.end,
-            "Failed to decode caption content as UTF-8"
+            exc.encoding,
+            exc.object,
+            exc.start,
+            exc.end,
+            "Failed to decode caption content as UTF-8",
         ) from exc
