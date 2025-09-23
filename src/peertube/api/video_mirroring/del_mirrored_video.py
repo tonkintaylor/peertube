@@ -1,6 +1,7 @@
 from typing import Any
 
 import httpx
+from pydantic import ConfigDict, validate_call
 
 from peertube import errors
 from peertube.api.shared_utils import build_response
@@ -37,6 +38,7 @@ def _build_response(
     return build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync_detailed(redundancy_id: str, *, client: AuthenticatedClient) -> Response[Any]:
     """Delete a mirror done on a video
 
@@ -59,6 +61,7 @@ def sync_detailed(redundancy_id: str, *, client: AuthenticatedClient) -> Respons
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync(redundancy_id: str, *, client: AuthenticatedClient) -> Any | None:
     """Delete a mirror done on a video
 
@@ -74,6 +77,7 @@ def sync(redundancy_id: str, *, client: AuthenticatedClient) -> Any | None:
     return sync_detailed(redundancy_id=redundancy_id, client=client).parsed
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio_detailed(
     redundancy_id: str, *, client: AuthenticatedClient
 ) -> Response[Any]:

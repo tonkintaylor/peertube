@@ -2,6 +2,7 @@ from typing import Any
 from uuid import UUID
 
 import httpx
+from pydantic import ConfigDict, validate_call
 
 from peertube import errors
 from peertube.api.shared_utils import build_response
@@ -41,6 +42,7 @@ def _build_response(
     return build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync_detailed(
     id: UUID | int | str, video_password_id: int, *, client: AuthenticatedClient
 ) -> Response[Any]:
@@ -66,6 +68,7 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def sync(
     id: UUID | int | str, video_password_id: int, *, client: AuthenticatedClient
 ) -> Any | None:
@@ -85,6 +88,7 @@ def sync(
     ).parsed
 
 
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 async def asyncio_detailed(
     id: UUID | int | str, video_password_id: int, *, client: AuthenticatedClient
 ) -> Response[Any]:
