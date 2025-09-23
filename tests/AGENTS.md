@@ -2,7 +2,7 @@
 
 ## Overview
 
-- Use `pytest` for all unit tests.
+- Only use pytest-mock, pytest-httpx, and pytest for writing tests. Never use unittest and unittest.mock in this project.
 - Structure tests to mirror the `src/` directory: `src/x/y/z.py` → `tests/x/y/test_z.py`.
 - Do not add `__init__.py` files in the `tests/` folder.
 
