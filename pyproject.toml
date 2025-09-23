@@ -36,6 +36,7 @@ dynamic = [ "urls", "version" ]
 dependencies = [
   "attrs>=22.2.0",
   "httpx>=0.23.0",
+  "pydantic>=2.11.7",
   "python-dateutil>=2.8.0",
   "typing-extensions>=4.0.0",
 ]
@@ -242,7 +243,7 @@ lint.flake8-tidy-imports.banned-api."pytz".msg = "'zoneinfo' should be preferred
 lint.pydocstyle.convention = "google"
 
 [tool.codespell]
-skip = "assets"
+skip = "assets/**"
 ignore-regex = [ "[A-Za-z0-9+/]{100,}" ]
 ignore-words-list = [ "...", "followings" ]
 
@@ -294,6 +295,13 @@ exclude_lines = [
 
 [tool.coverage.xml]
 output = "test-reports/coverage.xml"
+
+[tool.pyright]
+reportAttributeAccessIssue = false
+reportMissingModuleSource = false
+reportInvalidTypeVarUse = false
+reportGeneralTypeIssues = false
+reportCallIssue = false
 
 [tool.uv]
 default-groups = [ "dev", "test", "doc" ]

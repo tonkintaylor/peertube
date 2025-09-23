@@ -54,6 +54,11 @@ class Client:
     _client: httpx.Client | None = field(default=None, init=False)
     _async_client: httpx.AsyncClient | None = field(default=None, init=False)
 
+    @property
+    def base_url(self) -> str:
+        """Get the base URL."""
+        return self._base_url
+
     def with_headers(self, headers: dict[str, str]) -> "Client":
         """Get a new client matching this one with additional headers"""
 
