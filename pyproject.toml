@@ -296,6 +296,13 @@ exclude_lines = [
 [tool.coverage.xml]
 output = "test-reports/coverage.xml"
 
+[tool.pyright]
+reportAttributeAccessIssue = false
+reportMissingModuleSource = false
+reportInvalidTypeVarUse = false
+reportGeneralTypeIssues = false
+reportCallIssue = false
+
 [tool.uv]
 default-groups = [ "dev", "test", "doc" ]
 required-version = "==0.8.3"              # sync with .pre-commit-config.yaml and release.yml
