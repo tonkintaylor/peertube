@@ -1,22 +1,54 @@
 """Get video captions content as text."""
 
+from __future__ import annotations
+
+from typing import Any
+from urllib.parse import urljoin
 from uuid import UUID
 
-import httpx
+from pydantic import BaseModel, ConfigDict, validate_call
 
 from peertube.api.video_captions.get_video_captions import (
     sync as get_video_captions_sync,
 )
 from peertube.client import AuthenticatedClient, Client
-from peertube.types import UNSET, Unset
+from peertube.types import UNSET
 
 
+class CaptionNormalized(BaseModel):
+    """Normalized caption data."""
+
+    lang: str | None = None
+    url: str
+
+    @classmethod
+    def from_raw(cls, cap: Any, base_url: str) -> CaptionNormalized | None:
+        """Convert raw caption to normalized form."""
+        # Extract language safely, coalescing UNSET to None
+        lang_obj = getattr(cap, "language", UNSET)
+        lang = None if lang_obj is UNSET else getattr(lang_obj, "id", None)
+        if lang is UNSET:
+            lang = None
+
+        # Prefer explicit fileUrl, fallback to caption_path
+        file_url = getattr(cap, "additional_properties", {}).get("fileUrl")
+        if not file_url:
+            caption_path = getattr(cap, "caption_path", UNSET)
+            if caption_path is UNSET or caption_path is None:
+                return None
+            # Robustly join base URL and possibly-relative path
+            file_url = urljoin(str(base_url).rstrip("/") + "/", str(caption_path))
+
+        return cls(lang=lang, url=file_url)
+
+
+@validate_call(config=ConfigDict(arbitrary_types_allowed=True))
 def get_video_captions_content(
     client: AuthenticatedClient | Client,
     id: UUID | int | str,
     language_filter: str | None = "en",
     *,
-    x_peertube_video_password: Unset | str = UNSET,
+    x_peertube_video_password: str | None = None,
 ) -> str:
     """Get the content of video captions as a string.
 
@@ -37,73 +69,35 @@ def get_video_captions_content(
         httpx.HTTPError: For network-related issues when downloading captions
         UnicodeDecodeError: If VTT content cannot be decoded as UTF-8
     """
-    # Get caption metadata
     captions_response = get_video_captions_sync(
-        client=client, id=id, x_peertube_video_password=x_peertube_video_password
+        client=client,
+        id=id,
+        x_peertube_video_password=UNSET if x_peertube_video_password is None else x_peertube_video_password,
     )
 
-    if captions_response is None or not captions_response.data:
-        msg = "No captions available for this video"
+    data = getattr(captions_response, "data", None) or []
+    normalized = [
+        c for c in (CaptionNormalized.from_raw(c, client.base_url) for c in data) if c
+    ]
+    if not normalized:
+        msg = "No captions available for this video."
         raise ValueError(msg)
 
-    # Find caption matching the language filter
-    selected_caption = None
-
-    if language_filter is not None:
-        # Filter by specific language
-        for caption in captions_response.data:
-            if (
-                caption.language is not UNSET
-                and caption.language.id is not UNSET
-                and caption.language.id == language_filter
-            ):
-                selected_caption = caption
-                break
-
-    # Fallback to first available caption if no language match or no filter
-    if selected_caption is None:
-        if language_filter is not None:
-            # Specific language requested but not found
-            available_langs = []
-            for caption in captions_response.data:
-                if caption.language is not UNSET and caption.language.id is not UNSET:
-                    available_langs.append(caption.language.id)
-
-            msg = f"Caption language '{language_filter}' not found. Available languages: {available_langs}"
+    if language_filter:
+        selected = next((c for c in normalized if c.lang == language_filter), None)
+        if not selected:
+            available = sorted({c.lang for c in normalized if c.lang})
+            msg = f"Caption language '{language_filter}' not found. Available: {available}"
             raise ValueError(msg)
-        else:
-            # No language filter, use first available
-            selected_caption = captions_response.data[0]
+    else:
+        selected = normalized[0]
 
-    # Extract URL - try additional_properties first, then caption_path
-    caption_url = None
-
-    if "fileUrl" in selected_caption.additional_properties:
-        caption_url = selected_caption.additional_properties["fileUrl"]
-    elif selected_caption.caption_path is not UNSET:
-        # If caption_path is relative, construct full URL
-        if selected_caption.caption_path.startswith("/"):
-            caption_url = str(client.base_url).rstrip("/") + selected_caption.caption_path
-        else:
-            caption_url = selected_caption.caption_path
-
-    if caption_url is None:
-        msg = "Caption URL not found in response"
-        raise ValueError(msg)
-
-    # Download the VTT content
-    httpx_client = client.get_httpx_client()
-
+    r = client.get_httpx_client().get(selected.url)
+    r.raise_for_status()
     try:
-        response = httpx_client.get(caption_url)
-        response.raise_for_status()
-
-        # Decode as UTF-8 text
-        return response.content.decode("utf-8")
-
-    except httpx.HTTPError as exc:
-        msg = f"Failed to download caption content from {caption_url}"
-        raise httpx.HTTPError(msg) from exc
+        return r.content.decode("utf-8")
     except UnicodeDecodeError as exc:
-        msg = "Failed to decode caption content as UTF-8"
-        raise UnicodeDecodeError(exc.encoding, exc.object, exc.start, exc.end, msg) from exc
+        raise UnicodeDecodeError(
+            exc.encoding, exc.object, exc.start, exc.end,
+            "Failed to decode caption content as UTF-8"
+        ) from exc
